@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>925905531249-ms0j48q22ghluuo4mnbuen2qr9uqrt0c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.925905531249-ms0j48q22ghluuo4mnbuen2qr9uqrt0c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC2ZIRWvDo8ju0_e318EWunMMOiJV4ymtM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>925905531249</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.angkordc.ios</string>
+	<key>PROJECT_ID</key>
+	<string>angkor-dc-cb829</string>
+	<key>STORAGE_BUCKET</key>
+	<string>angkor-dc-cb829.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:925905531249:ios:c01aae9b7c46984bcc46d0</string>
+	<key>DATABASE_URL</key>
+	<string>https://angkor-dc-cb829-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>
