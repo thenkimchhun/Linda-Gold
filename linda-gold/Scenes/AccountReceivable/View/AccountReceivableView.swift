@@ -68,6 +68,9 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+    
+    
 }
 
 
