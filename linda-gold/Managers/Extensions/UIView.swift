@@ -15,3 +15,13 @@ extension UIView {
         return ViewHelper.scale(value: value)
     }
 }
+
+extension UIView {
+    public func addViewBorder(borderColor:CGColor,borderWith:CGFloat,borderCornerRadius:CGFloat){
+        self.layer.borderWidth = borderWith
+        self.layer.borderColor = borderColor
+        self.layer.cornerRadius = borderCornerRadius
+        
+        
+    }
+}

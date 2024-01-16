@@ -55,7 +55,7 @@ extension AppDelegate{
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: AccountReceivableVC())
+        window?.rootViewController = TabBarViewController()
     }
 }
 

@@ -11,34 +11,66 @@ import UIKit
 class AccountReceivableViewCell: BaseTableViewCell {
     let containerView = UIView()
     let headerProfileView = HeaderProfileView()
+    let stackView = UIStackView()
+    let paymentView = CPNHoriziontalTextView()
+    let invoiceNoView = CPNHoriziontalTextView()
+    let paymentDateView = CPNHoriziontalTextView()
+    let totalPurchaseView = CPNHoriziontalTextView()
     override func setupComponent() {
+        selectionStyle = .none
         addSubview(containerView)
-        containerView.backgroundColor = BaseColor.primaryColor
+        containerView.layer.cornerRadius = 10
+        containerView.backgroundColor = BaseColor.white
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.2
+        containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        containerView.layer.shadowRadius = 6.0
         
         containerView.addSubview(headerProfileView)
+        containerView.addSubview(stackView)
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.distribution = .fillProportionally
+        stackView.addArrangedSubview(paymentView)
+        paymentView.rightView.font = .systemFont(ofSize: 16, weight: .bold)
+        stackView.addArrangedSubview(invoiceNoView)
+        invoiceNoView.leftView.text = "Invoice No"
+        invoiceNoView.rightView.text = ": #47843"
+        stackView.addArrangedSubview(paymentDateView)
+        paymentDateView.leftView.text = "Payment Date"
+        paymentDateView.rightView.text = ": 14 May 2022"
+        stackView.addArrangedSubview(totalPurchaseView)
+        totalPurchaseView.leftView.text = "Total Purchase"
+        totalPurchaseView.rightView.text = ": $2700"
+        
     }
     override func setupConstraint() {
         containerView.snp.makeConstraints { make in
-            make.height.equalTo(150)
             make.top.bottom.equalToSuperview().inset(scale(16/2))
             make.left.right.equalToSuperview().inset(scale(16))
         }  
         headerProfileView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview().inset(scale(16))
-        } 
+        }
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(headerProfileView.snp.bottom).offset(scale(16))
+            make.left.right.bottom.equalToSuperview().inset(scale(16))
+        }
+    
     }
 }
+
+
 
 // ProfileView
 class HeaderProfileView: BaseView{
     
     override func setupComponent() {
+        backgroundColor = .clear
         addSubview(profileView)
         addSubview(desLabel)
         addSubview(titleLabel)
-        addSubview(rightStackView)
-        rightStackView.addArrangedSubview(iconView)
-        rightStackView.addArrangedSubview(rithStatus)
+        addSubview(rithStatus)
         
     }
     override func setupConstraint() {
@@ -55,14 +87,10 @@ class HeaderProfileView: BaseView{
             make.centerY.equalTo(profileView.snp.bottom).offset(-scale(8))
             make.left.equalTo(profileView.snp.right).offset(scale(16))
         }
-        rightStackView.snp.makeConstraints { make in
+        rithStatus.snp.makeConstraints { make in
             make.right.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.centerY.equalTo(titleLabel).offset(scale(5))
         }
-        iconView.snp.makeConstraints { make in
-            make.width.height.equalTo(scale(24)).priority(750)
-        }
-        
     }
     var profileView: UIImageView = {
         let profile = UIImageView()
@@ -85,26 +113,17 @@ class HeaderProfileView: BaseView{
         lb.textColor = BaseColor.gray
         return lb
     }()
-    var rightStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.backgroundColor = .red
-        stack.distribution = .fill
-        stack.axis = .vertical
-        return stack
-    }()
-    var iconView: UIImageView = {
-        let icon = UIImageView()
-        icon.image = UIImage(named: "ic_recieve")
-        icon.contentMode = .scaleAspectFit
-        icon.isHidden = true
-        return icon
-    }()
     var rithStatus: PaddingLabel = {
         let lb = PaddingLabel()
+        lb.layer.cornerRadius = 5
+        lb.clipsToBounds = true
         lb.font = .systemFont(ofSize: 12)
         lb.layer.cornerRadius = 5
+        lb.textAlignment = .center
         lb.text = "Clear AR"
-//        lb.textInsets = UIEdgeInsets(top: 4, left: 6, bottom: 4, right: 6)
+        lb.textColor = BaseColor.success
+        lb.backgroundColor = BaseColor.successPrimary
+        lb.textInsets = UIEdgeInsets(top: 4, left: 9, bottom: 4, right: 9)
         return lb
     }()
     

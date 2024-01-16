@@ -36,6 +36,14 @@
 		2405C6892B553ADA00EEBD0A /* HeaderTotalARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6882B553ADA00EEBD0A /* HeaderTotalARView.swift */; };
 		2405C68B2B55771400EEBD0A /* AccountReceivableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C68A2B55771400EEBD0A /* AccountReceivableViewCell.swift */; };
 		2405C68F2B56102900EEBD0A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C68E2B56102900EEBD0A /* PaddingLabel.swift */; };
+		2405C6912B56197300EEBD0A /* CPNHoriziontalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6902B56197300EEBD0A /* CPNHoriziontalTextView.swift */; };
+		2405C6972B562AC400EEBD0A /* SaleOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6962B562AC400EEBD0A /* SaleOrderVC.swift */; };
+		2405C6992B562B8700EEBD0A /* SaleOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6982B562B8700EEBD0A /* SaleOrderView.swift */; };
+		2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */; };
+		2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */; };
+		2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */; };
+		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
+		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
 		794DF7762B352C7700334D11 /* AlertDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DF7752B352C7700334D11 /* AlertDefault.swift */; };
 		794F23742B31912000082ECA /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F23732B31912000082ECA /* AuthHelper.swift */; };
 		79B28D1B2B33CFFE00AA48DE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B28D1A2B33CFFE00AA48DE /* CustomButton.swift */; };
@@ -149,6 +157,14 @@
 		2405C6882B553ADA00EEBD0A /* HeaderTotalARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTotalARView.swift; sourceTree = "<group>"; };
 		2405C68A2B55771400EEBD0A /* AccountReceivableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableViewCell.swift; sourceTree = "<group>"; };
 		2405C68E2B56102900EEBD0A /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		2405C6902B56197300EEBD0A /* CPNHoriziontalTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNHoriziontalTextView.swift; sourceTree = "<group>"; };
+		2405C6962B562AC400EEBD0A /* SaleOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderVC.swift; sourceTree = "<group>"; };
+		2405C6982B562B8700EEBD0A /* SaleOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderView.swift; sourceTree = "<group>"; };
+		2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderViewCell.swift; sourceTree = "<group>"; };
+		2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailVC.swift; sourceTree = "<group>"; };
+		2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailView.swift; sourceTree = "<group>"; };
+		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		2EA60AF28B7A4A152640001C /* Pods-linda-gold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-linda-gold.release.xcconfig"; path = "Target Support Files/Pods-linda-gold/Pods-linda-gold.release.xcconfig"; sourceTree = "<group>"; };
 		594744F13F06C4FBC8775F56 /* Pods_linda_gold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_linda_gold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6865366B5245AA964328D4BB /* Pods-linda-gold.uat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-linda-gold.uat.xcconfig"; path = "Target Support Files/Pods-linda-gold/Pods-linda-gold.uat.xcconfig"; sourceTree = "<group>"; };
@@ -440,6 +456,74 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		2405C6922B562A6500EEBD0A /* SaleOrder */ = {
+			isa = PBXGroup;
+			children = (
+				2405C6952B562A8100EEBD0A /* Model */,
+				2405C6942B562A7A00EEBD0A /* View */,
+				2405C6932B562A7300EEBD0A /* Controller */,
+			);
+			path = SaleOrder;
+			sourceTree = "<group>";
+		};
+		2405C6932B562A7300EEBD0A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2405C6962B562AC400EEBD0A /* SaleOrderVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2405C6942B562A7A00EEBD0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2405C6982B562B8700EEBD0A /* SaleOrderView.swift */,
+				2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2405C6952B562A8100EEBD0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2405C69C2B5634A000EEBD0A /* SaleORderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2405C69E2B5634C800EEBD0A /* View */,
+				2405C69D2B5634B700EEBD0A /* Controller */,
+			);
+			path = SaleORderDetail;
+			sourceTree = "<group>";
+		};
+		2405C69D2B5634B700EEBD0A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2405C69E2B5634C800EEBD0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24BD4FEC2B56C88400CD9CE0 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */,
+				24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		48A24EDFFA121959EAF9237A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +758,7 @@
 			children = (
 				79B28D1A2B33CFFE00AA48DE /* CustomButton.swift */,
 				2405C6712B55138100EEBD0A /* CPNTextField.swift */,
+				2405C6902B56197300EEBD0A /* CPNHoriziontalTextView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -681,6 +766,7 @@
 		D907823624AD7C0300AC95C4 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				24BD4FEC2B56C88400CD9CE0 /* TabBar */,
 				D9A8CBA824AD7AE1007B0CC8 /* Info.plist */,
 				D9A8CB9C24AD7ADF007B0CC8 /* AppDelegate.swift */,
 				049CDA1C27A12CEA000DCC0E /* Firebase */,
@@ -700,6 +786,8 @@
 		D907823B24AD7D9300AC95C4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2405C69C2B5634A000EEBD0A /* SaleORderDetail */,
+				2405C6922B562A6500EEBD0A /* SaleOrder */,
 				2405C67F2B552FEB00EEBD0A /* AccountReceivable */,
 				2405C6732B55239900EEBD0A /* Notification */,
 				79BCB00B2B32E7CD00FD223F /* Login */,
@@ -952,6 +1040,7 @@
 				2405C68F2B56102900EEBD0A /* PaddingLabel.swift in Sources */,
 				794F23742B31912000082ECA /* AuthHelper.swift in Sources */,
 				79BCAFE12B32C5E000FD223F /* ConstraintMaker.swift in Sources */,
+				2405C6992B562B8700EEBD0A /* SaleOrderView.swift in Sources */,
 				79BCAFD22B32C5E000FD223F /* ConstraintDSL.swift in Sources */,
 				79BCAFDF2B32C5E000FD223F /* ConstraintOffsetTarget.swift in Sources */,
 				79BCAFE42B32C5E000FD223F /* ConstraintView+Extensions.swift in Sources */,
@@ -967,6 +1056,7 @@
 				79BCAFED2B32C5E000FD223F /* ConstraintMakerRelatable.swift in Sources */,
 				049CDA0A27A0E75C000DCC0E /* Reachability.swift in Sources */,
 				79BCAFE92B32C5E000FD223F /* LayoutConstraint.swift in Sources */,
+				2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */,
 				79BCB0112B32EF8600FD223F /* LoginVC.swift in Sources */,
 				D9E4991828C6FCA600E7AD6D /* BaseColor.swift in Sources */,
 				79BCAFEB2B32C5E000FD223F /* ConstraintDirectionalInsets.swift in Sources */,
@@ -989,6 +1079,7 @@
 				79BCAFCD2B32C5E000FD223F /* ConstraintAttributes.swift in Sources */,
 				2405C6892B553ADA00EEBD0A /* HeaderTotalARView.swift in Sources */,
 				2405C67E2B55258600EEBD0A /* NotificationViewCell.swift in Sources */,
+				24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */,
 				049CD9F927A0DFDA000DCC0E /* BaseAPIService.swift in Sources */,
 				D9E4992028C6FCC800E7AD6D /* BaseCollectionViewCell.swift in Sources */,
 				D9A8CB9D24AD7AE0007B0CC8 /* AppDelegate.swift in Sources */,
@@ -997,12 +1088,14 @@
 				79BCB0072B32E73E00FD223F /* AuthenticationService.swift in Sources */,
 				79BCAFD02B32C5E000FD223F /* ConstraintInsets.swift in Sources */,
 				79BCAFDC2B32C5E000FD223F /* ConstraintLayoutSupport.swift in Sources */,
+				24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */,
 				79BCAFFD2B32D20A00FD223F /* SessionManager.swift in Sources */,
 				049CD9E627A0DFDA000DCC0E /* HTTPHeader.swift in Sources */,
 				79BCAFDA2B32C5E000FD223F /* ConstraintView.swift in Sources */,
 				79BCAFCE2B32C5E000FD223F /* ConstraintViewDSL.swift in Sources */,
 				79BCAFDB2B32C5E000FD223F /* ConstraintLayoutGuide.swift in Sources */,
 				79BCAFE32B32C5E000FD223F /* ConstraintLayoutGuideDSL.swift in Sources */,
+				2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */,
 				049CDA0427A0E61E000DCC0E /* Environment.swift in Sources */,
 				049CD9E927A0DFDA000DCC0E /* URLSessionProtocol.swift in Sources */,
 				D907829A24AF2C6200AC95C4 /* HomeViewModel.swift in Sources */,
@@ -1014,6 +1107,7 @@
 				79BCAFEC2B32C5E000FD223F /* ConstraintLayoutSupportDSL.swift in Sources */,
 				2405C67C2B55243100EEBD0A /* NotificationView.swift in Sources */,
 				79BCAFC92B32C5E000FD223F /* ConstraintMultiplierTarget.swift in Sources */,
+				2405C6972B562AC400EEBD0A /* SaleOrderVC.swift in Sources */,
 				79B28D1E2B33E21700AA48DE /* APIResponseError.swift in Sources */,
 				049CDA1927A104DA000DCC0E /* ViewHelper.swift in Sources */,
 				79BCAFD32B32C5E000FD223F /* ConstraintMakerExtendable.swift in Sources */,
@@ -1031,6 +1125,7 @@
 				79BCAFDD2B32C5E000FD223F /* Typealiases.swift in Sources */,
 				A255B838290155EA00DCEE28 /* UICollectionView.swift in Sources */,
 				049CD9E827A0DFDA000DCC0E /* TargetType.swift in Sources */,
+				2405C6912B56197300EEBD0A /* CPNHoriziontalTextView.swift in Sources */,
 				79B28D202B33E4F300AA48DE /* NetworkResponseState.swift in Sources */,
 				2405C6852B55302200EEBD0A /* AccountReceivableVC.swift in Sources */,
 				79BCAFD52B32C5E000FD223F /* ConstraintInsetTarget.swift in Sources */,
@@ -1042,6 +1137,7 @@
 				A255B83A2901560A00DCEE28 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				79BCAFDE2B32C5E000FD223F /* ConstraintConstantTarget.swift in Sources */,
 				D907829824AF28F600AC95C4 /* HomeDelegate.swift in Sources */,
+				2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */,
 				049CD9E327A0DFDA000DCC0E /* JSONParameterEncoder.swift in Sources */,
 				79BCAFEA2B32C5E000FD223F /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				79BCAFD42B32C5E000FD223F /* ConstraintPriority.swift in Sources */,

@@ -4,9 +4,12 @@ import UIKit
 struct BaseColor {
     static let white  = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     static let black  = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    static let primaryColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
     static let gray   = #colorLiteral(red: 0.5019607843, green: 0.5019607843, blue: 0.5176470588, alpha: 1)
     static let gold   = #colorLiteral(red: 0.9544394612, green: 0.7149527669, blue: 0, alpha: 1)
     static let error   = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+    static let success   = #colorLiteral(red: 0.2666666667, green: 0.662745098, blue: 0.3647058824, alpha: 1)
+    static let successPrimary   = #colorLiteral(red: 0.8235294118, green: 0.9176470588, blue: 0.8470588235, alpha: 1)
+    static let warning   = #colorLiteral(red: 0.9921568627, green: 0.9294117647, blue: 0.7607843137, alpha: 1)
+    static let primaryColor = #colorLiteral(red: 0.9803921569, green: 0.8235294118, blue: 0.4, alpha: 1)
 
 }
