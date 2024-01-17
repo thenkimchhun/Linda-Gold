@@ -13,7 +13,7 @@ class HeaderTotalARView: BaseView {
     override func setupComponent() {
         addSubview(containerView)
         containerView.layer.cornerRadius = 15
-        containerView.backgroundColor = BaseColor.primaryColor
+        containerView.backgroundColor = BaseColor.gold
         
         containerView.addSubview(totalARLabel)
         containerView.addSubview(coinImageView)
@@ -74,6 +74,9 @@ class HeaderTotalARView: BaseView {
         let btn = UIButton()
         btn.setTitle("Today", for: .normal)
         btn.setImage(UIImage(named: "ic_down"), for: .normal)
+        btn.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        btn.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        btn.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         btn.titleLabel?.textColor = BaseColor.white
         btn.titleLabel?.font = .systemFont(ofSize: 14)
         return btn

@@ -9,13 +9,16 @@
 import UIKit
 class AccountReceivableView: BaseView{
     let headerTotalARView = HeaderTotalARView()
+    var bottomNSLayout: NSLayoutConstraint!
     let tableView = UITableView()
+    let containerDayView = UIView()
+    let dayListView = DaysListView()
+    var selectedDay: Bool = false
     override func setupComponent() {
         backgroundColor = .clear
         addSubview(headerTotalARView)
         addSubview(totalLabel)
         addSubview(filterButton)
-        
         addSubview(tableView)
         tableView.backgroundColor  = .clear
         tableView.separatorColor = .none
@@ -24,8 +27,32 @@ class AccountReceivableView: BaseView{
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableView.register(AccountReceivableViewCell.self, forCellReuseIdentifier: "AccountReceivableViewCell")
+        
+        addSubview(containerDayView)
+        containerDayView.isHidden = true
+        containerDayView.backgroundColor = BaseColor.white
+        containerDayView.layer.shadowColor = UIColor.black.cgColor
+        containerDayView.layer.shadowOpacity = 0.2
+        containerDayView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        containerDayView.layer.shadowRadius = 6.0
+        containerDayView.addSubview(dayListView)
+    }
+    override func setupEvent() {
+        headerTotalARView.dayButton.addTarget(self, action: #selector(onHandleDay), for: .touchUpInside)
+        dayListView.ondidSelectRowAt = {[self] data in
+            headerTotalARView.dayButton.setTitle(data, for: .normal)
+        }
+    }
+    @objc private func onHandleDay(){
+        if selectedDay == true{
+            containerDayView.isHidden = true
+        }else{
+            containerDayView.isHidden = false
+        }
+        selectedDay = !selectedDay
     }
     override func setupConstraint() {
+
         headerTotalARView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview().inset(scale(16))
         } 
@@ -40,6 +67,17 @@ class AccountReceivableView: BaseView{
         tableView.snp.makeConstraints { make in
             make.top.equalTo(totalLabel.snp.bottom).offset(scale(16))
             make.left.right.bottom.equalToSuperview()
+        }
+        containerDayView.snp.makeConstraints { make in
+            make.top.equalTo(headerTotalARView.snp.centerY).offset(-scale(15))
+            make.width.equalTo(scale(100))
+            make.height.equalTo(scale(150))
+            make.right.equalToSuperview().offset(-scale(16))
+//            bottomNSLayout = containerDayView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -scale(16))
+//            bottomNSLayout.isActive = true
+        }
+        dayListView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
     var totalLabel: UILabel = {

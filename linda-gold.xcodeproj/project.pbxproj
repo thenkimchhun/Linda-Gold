@@ -49,6 +49,8 @@
 		24AFC2B72B57C71300E5D157 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2B62B57C71300E5D157 /* HistoryView.swift */; };
 		24AFC2B92B57C7A200E5D157 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2B82B57C7A200E5D157 /* RequestView.swift */; };
 		24AFC2BB2B57D58100E5D157 /* CPNButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */; };
+		24AFC2BE2B58145800E5D157 /* DaysListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2BD2B58145800E5D157 /* DaysListView.swift */; };
+		24AFC2C02B58318F00E5D157 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2BF2B58318F00E5D157 /* HomeHeaderView.swift */; };
 		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
 		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
 		24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */; };
@@ -182,6 +184,8 @@
 		24AFC2B62B57C71300E5D157 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		24AFC2B82B57C7A200E5D157 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNButtonView.swift; sourceTree = "<group>"; };
+		24AFC2BD2B58145800E5D157 /* DaysListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysListView.swift; sourceTree = "<group>"; };
+		24AFC2BF2B58318F00E5D157 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
@@ -462,6 +466,7 @@
 				2405C6862B55303A00EEBD0A /* AccountReceivableView.swift */,
 				2405C6882B553ADA00EEBD0A /* HeaderTotalARView.swift */,
 				2405C68A2B55771400EEBD0A /* AccountReceivableViewCell.swift */,
+				24AFC2BD2B58145800E5D157 /* DaysListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -823,6 +828,7 @@
 			isa = PBXGroup;
 			children = (
 				A255B83C2901563C00DCEE28 /* HomeView.swift */,
+				24AFC2BF2B58318F00E5D157 /* HomeHeaderView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -1214,6 +1220,7 @@
 				2405C6972B562AC400EEBD0A /* SaleOrderVC.swift in Sources */,
 				79B28D1E2B33E21700AA48DE /* APIResponseError.swift in Sources */,
 				049CDA1927A104DA000DCC0E /* ViewHelper.swift in Sources */,
+				24AFC2BE2B58145800E5D157 /* DaysListView.swift in Sources */,
 				79BCAFD32B32C5E000FD223F /* ConstraintMakerExtendable.swift in Sources */,
 				049CDA2D27A13DA1000DCC0E /* String.swift in Sources */,
 				D9E4991E28C6FCC800E7AD6D /* BaseTableViewCell.swift in Sources */,
@@ -1227,6 +1234,7 @@
 				049CD9E127A0DFDA000DCC0E /* ParameterEncoding.swift in Sources */,
 				79BCB0002B32D23B00FD223F /* LanguageTranslationModel.swift in Sources */,
 				049CD9FA27A0DFDA000DCC0E /* NetworkLogger.swift in Sources */,
+				24AFC2C02B58318F00E5D157 /* HomeHeaderView.swift in Sources */,
 				79BCAFDD2B32C5E000FD223F /* Typealiases.swift in Sources */,
 				A255B838290155EA00DCEE28 /* UICollectionView.swift in Sources */,
 				049CD9E827A0DFDA000DCC0E /* TargetType.swift in Sources */,
