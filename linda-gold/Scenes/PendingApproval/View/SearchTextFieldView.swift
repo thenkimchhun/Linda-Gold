@@ -12,22 +12,19 @@ class SearchTextFieldView: BaseView{
     let iconImage = UIImageView()
     let textField = UITextField()
     override func setupComponent() {
+        backgroundColor = .clear
         addSubview(boxView)
         boxView.layer.cornerRadius = 10
-//        boxView.layer.shadowColor = UIColor.gray.cgColor
-//        boxView.layer.shadowOffset = CGSize(width: 1, height: 1)
-//        boxView.layer.shadowOpacity = 0.4
-//        boxView.layer.shadowRadius = 3
-//
+        boxView.backgroundColor = .clear
         
         boxView.addSubview(iconImage)
-        iconImage.image = UIImage(named: "icon_search")
+        iconImage.image = UIImage(named: "ic_search")
         boxView.addSubview(textField)
         let padding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 1))
         textField.leftView = padding
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 10
-        textField.font = .systemFont(ofSize: 16)
+        textField.font = .systemFont(ofSize: 12)
         textField.placeholder = "Search"
         
         

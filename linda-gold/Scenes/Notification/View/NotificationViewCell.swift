@@ -20,7 +20,7 @@ class NotificationViewCell: BaseTableViewCell{
     }
     override func setupConstraint() {
         iconsImageView.snp.makeConstraints { make in
-            make.height.width.equalTo(scale(56))
+            make.height.width.equalTo(scale(56)).priority(750)
             make.left.top.equalToSuperview().inset(scale(16))
             make.bottom.equalTo(lineView.snp.top).offset(-scale(16))
         } 
