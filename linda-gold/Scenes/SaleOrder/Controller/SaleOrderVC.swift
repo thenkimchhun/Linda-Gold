@@ -17,7 +17,9 @@ class SaleOrderVC: BaseVC{
     }
     override func setupEvent() {
         saleOrderView.onDidSelectRowAt = {
-            print("click")
+            let vc = SaleOrderDetailVC()
+            vc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     override func setupConstraint() {

@@ -49,7 +49,7 @@ extension SaleOrderDetailView: UITableViewDelegate, UITableViewDataSource{
                 return cell
             case .saleOrder:
                 let cell: SaleOrderDetailCustomerInfoViewCell = tableView.dequeueReusableCell(withIdentifier: "SaleOrderDetailCustomerInfoViewCell", for: indexPath) as! SaleOrderDetailCustomerInfoViewCell
-                cell.containerView.backgroundColor = .green
+                cell.titleLabel.text = "Sale Order"
                 return cell
             case .items:
                 let cell: SaleOrderDetailItemsViewCell = tableView.dequeueReusableCell(withIdentifier: "SaleOrderDetailItemsViewCell", for: indexPath) as! SaleOrderDetailItemsViewCell
@@ -58,58 +58,10 @@ extension SaleOrderDetailView: UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 0
-//    }
+    
     enum SectionType: Int{
         case info = 0
         case saleOrder = 1
         case items = 2
-    }
-}
-
-class SaleOrderDetailCustomerInfoViewCell: BaseTableViewCell{
-    let containerView = UIView()
-    let topView = UIView()
-    override func setupComponent() {
-        addSubview(containerView)
-        containerView.backgroundColor = .red
-        containerView.layer.cornerRadius = 10
-        containerView.addSubview(topView)
-        topView.backgroundColor = BaseColor.primaryColor
-        topView.layer.cornerRadius = 10
-        topView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-    
-    }
-    override func setupConstraint() {
-        containerView.snp.makeConstraints { make in
-            make.height.equalTo(100).priority(750)
-            make.top.bottom.equalToSuperview().inset(scale(16/2))
-            make.left.right.equalToSuperview().inset(scale(16))
-        } 
-        topView.snp.makeConstraints { make in
-            make.height.equalTo(20)
-            make.top.left.right.equalToSuperview()
-        }
-        
-    }
-}
-
-class SaleOrderDetailItemsViewCell: BaseTableViewCell{
-    let containerView = UIView()
-    let topView = UIView()
-    override func setupComponent() {
-        addSubview(containerView)
-        containerView.backgroundColor = .blue
-        containerView.layer.cornerRadius = 10
-        
-        
-    }
-    override func setupConstraint() {
-        containerView.snp.makeConstraints { make in
-            make.height.equalTo(50).priority(750)
-            make.top.bottom.equalToSuperview().inset(scale(16/2))
-            make.left.right.equalToSuperview().inset(scale(16))
-        }
     }
 }

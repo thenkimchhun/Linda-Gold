@@ -67,6 +67,9 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
         let cell: AccountReceivableViewCell = tableView.dequeueReusableCell(withIdentifier: "AccountReceivableViewCell", for: indexPath) as! AccountReceivableViewCell
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("clicked")
+    }
     
     
     

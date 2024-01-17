@@ -9,7 +9,7 @@
 import UIKit
 class SaleOrderDetailVC: BaseVC{
     override func setupNavigation() {
-        setupNavBarLargeTitle(barTitle: "Sale Order Details")
+        setupNavBarNormal(barTitle: "Sale Order Details")
     }
     let saleOrderDetailView = SaleOrderDetailView()
     override func setupComponent() {

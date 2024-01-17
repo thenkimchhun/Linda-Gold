@@ -22,7 +22,7 @@ struct AppConstants {
             static let imageDisabled = "home"
         }
         struct Pending {
-            static let name =  "Pedding"
+            static let name =  "Peding"
             static let imageEnbled = "pending"
             static let imageDisabled = "pending"
         }
@@ -32,7 +32,7 @@ struct AppConstants {
             static let imageDisabled = "notification"
         }
         struct Receivable {
-            static let name =  "Receivable"
+            static let name =  "AR"
             static let imageEnbled = "receive"
             static let imageDisabled = "receive"
         }

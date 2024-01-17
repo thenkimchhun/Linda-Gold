@@ -42,8 +42,17 @@
 		2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */; };
 		2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */; };
 		2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */; };
+		24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */; };
+		24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */; };
+		24AFC2AC2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AB2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift */; };
+		24AFC2AE2B57B40B00E5D157 /* PresentAccountReceivableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AD2B57B40B00E5D157 /* PresentAccountReceivableView.swift */; };
 		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
 		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
+		24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */; };
+		24BD4FF72B57675C00CD9CE0 /* PendingApprovalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF62B57675C00CD9CE0 /* PendingApprovalView.swift */; };
+		24BD4FF92B5768F700CD9CE0 /* CustomSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF82B5768F700CD9CE0 /* CustomSegmentView.swift */; };
+		24BD4FFD2B5769C700CD9CE0 /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FFC2B5769C600CD9CE0 /* Vibration.swift */; };
+		24BD4FFF2B5770F600CD9CE0 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FFE2B5770F600CD9CE0 /* SearchTextFieldView.swift */; };
 		794DF7762B352C7700334D11 /* AlertDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DF7752B352C7700334D11 /* AlertDefault.swift */; };
 		794F23742B31912000082ECA /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794F23732B31912000082ECA /* AuthHelper.swift */; };
 		79B28D1B2B33CFFE00AA48DE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B28D1A2B33CFFE00AA48DE /* CustomButton.swift */; };
@@ -163,8 +172,17 @@
 		2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderViewCell.swift; sourceTree = "<group>"; };
 		2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailVC.swift; sourceTree = "<group>"; };
 		2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailView.swift; sourceTree = "<group>"; };
+		24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailCustomerInfoViewCell.swift; sourceTree = "<group>"; };
+		24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailItemsViewCell.swift; sourceTree = "<group>"; };
+		24AFC2AB2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAccountReceivableVC.swift; sourceTree = "<group>"; };
+		24AFC2AD2B57B40B00E5D157 /* PresentAccountReceivableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAccountReceivableView.swift; sourceTree = "<group>"; };
 		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
+		24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
+		24BD4FF62B57675C00CD9CE0 /* PendingApprovalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalView.swift; sourceTree = "<group>"; };
+		24BD4FF82B5768F700CD9CE0 /* CustomSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentView.swift; sourceTree = "<group>"; };
+		24BD4FFC2B5769C600CD9CE0 /* Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
+		24BD4FFE2B5770F600CD9CE0 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
 		2EA60AF28B7A4A152640001C /* Pods-linda-gold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-linda-gold.release.xcconfig"; path = "Target Support Files/Pods-linda-gold/Pods-linda-gold.release.xcconfig"; sourceTree = "<group>"; };
 		594744F13F06C4FBC8775F56 /* Pods_linda_gold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_linda_gold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6865366B5245AA964328D4BB /* Pods-linda-gold.uat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-linda-gold.uat.xcconfig"; path = "Target Support Files/Pods-linda-gold/Pods-linda-gold.uat.xcconfig"; sourceTree = "<group>"; };
@@ -511,6 +529,33 @@
 			isa = PBXGroup;
 			children = (
 				2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */,
+				24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */,
+				24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24AFC2A82B57B3B400E5D157 /* PresentAccountReceivable */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2AA2B57B3D400E5D157 /* View */,
+				24AFC2A92B57B3CA00E5D157 /* Controller */,
+			);
+			path = PresentAccountReceivable;
+			sourceTree = "<group>";
+		};
+		24AFC2A92B57B3CA00E5D157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2AB2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24AFC2AA2B57B3D400E5D157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2AD2B57B40B00E5D157 /* PresentAccountReceivableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -522,6 +567,48 @@
 				24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		24BD4FF12B57671600CD9CE0 /* PendingApproval */ = {
+			isa = PBXGroup;
+			children = (
+				24BD4FF32B57672F00CD9CE0 /* View */,
+				24BD4FF22B57672A00CD9CE0 /* Controller */,
+			);
+			path = PendingApproval;
+			sourceTree = "<group>";
+		};
+		24BD4FF22B57672A00CD9CE0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24BD4FF32B57672F00CD9CE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24BD4FF62B57675C00CD9CE0 /* PendingApprovalView.swift */,
+				24BD4FFE2B5770F600CD9CE0 /* SearchTextFieldView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24BD4FFA2B57698D00CD9CE0 /* EasyOTPField */ = {
+			isa = PBXGroup;
+			children = (
+				24BD4FFB2B5769AC00CD9CE0 /* Components */,
+			);
+			path = EasyOTPField;
+			sourceTree = "<group>";
+		};
+		24BD4FFB2B5769AC00CD9CE0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				24BD4FFC2B5769C600CD9CE0 /* Vibration.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		48A24EDFFA121959EAF9237A /* Pods */ = {
@@ -759,6 +846,7 @@
 				79B28D1A2B33CFFE00AA48DE /* CustomButton.swift */,
 				2405C6712B55138100EEBD0A /* CPNTextField.swift */,
 				2405C6902B56197300EEBD0A /* CPNHoriziontalTextView.swift */,
+				24BD4FF82B5768F700CD9CE0 /* CustomSegmentView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -786,12 +874,14 @@
 		D907823B24AD7D9300AC95C4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2405C69C2B5634A000EEBD0A /* SaleORderDetail */,
-				2405C6922B562A6500EEBD0A /* SaleOrder */,
+				24AFC2A82B57B3B400E5D157 /* PresentAccountReceivable */,
 				2405C67F2B552FEB00EEBD0A /* AccountReceivable */,
-				2405C6732B55239900EEBD0A /* Notification */,
-				79BCB00B2B32E7CD00FD223F /* Login */,
 				D907823D24AD7DAE00AC95C4 /* Home */,
+				79BCB00B2B32E7CD00FD223F /* Login */,
+				2405C6732B55239900EEBD0A /* Notification */,
+				24BD4FF12B57671600CD9CE0 /* PendingApproval */,
+				2405C6922B562A6500EEBD0A /* SaleOrder */,
+				2405C69C2B5634A000EEBD0A /* SaleORderDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -852,6 +942,7 @@
 		D907828A24AEE98100AC95C4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				24BD4FFA2B57698D00CD9CE0 /* EasyOTPField */,
 				794DF7752B352C7700334D11 /* AlertDefault.swift */,
 				79BCB0012B32D2CA00FD223F /* CameraService.swift */,
 				79BCAFA22B32C5E000FD223F /* SnapKit */,
@@ -1049,6 +1140,7 @@
 				79BCAFCB2B32C5E000FD223F /* ConstraintMakerPrioritizable.swift in Sources */,
 				049CDA1B27A10523000DCC0E /* UIView.swift in Sources */,
 				2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */,
+				24BD4FF92B5768F700CD9CE0 /* CustomSegmentView.swift in Sources */,
 				D9E4991F28C6FCC800E7AD6D /* BaseVC.swift in Sources */,
 				794DF7762B352C7700334D11 /* AlertDefault.swift in Sources */,
 				049CD9E727A0DFDA000DCC0E /* Task.swift in Sources */,
@@ -1064,6 +1156,7 @@
 				2405C6872B55303A00EEBD0A /* AccountReceivableView.swift in Sources */,
 				A255B837290155EA00DCEE28 /* UITableView.swift in Sources */,
 				79BCAFD92B32C5E000FD223F /* UILayoutSupport+Extensions.swift in Sources */,
+				24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */,
 				D907825524AD804500AC95C4 /* AppConstants.swift in Sources */,
 				D907826124AD821700AC95C4 /* HomeVC.swift in Sources */,
 				79BCAFE82B32C5E000FD223F /* ConstraintRelatableTarget.swift in Sources */,
@@ -1076,6 +1169,7 @@
 				2405C68B2B55771400EEBD0A /* AccountReceivableViewCell.swift in Sources */,
 				79BCB00E2B32E7EC00FD223F /* LoginParameter.swift in Sources */,
 				79BCB0042B32D2D700FD223F /* NotificationManager.swift in Sources */,
+				24AFC2AC2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift in Sources */,
 				79BCAFCD2B32C5E000FD223F /* ConstraintAttributes.swift in Sources */,
 				2405C6892B553ADA00EEBD0A /* HeaderTotalARView.swift in Sources */,
 				2405C67E2B55258600EEBD0A /* NotificationViewCell.swift in Sources */,
@@ -1092,6 +1186,7 @@
 				79BCAFFD2B32D20A00FD223F /* SessionManager.swift in Sources */,
 				049CD9E627A0DFDA000DCC0E /* HTTPHeader.swift in Sources */,
 				79BCAFDA2B32C5E000FD223F /* ConstraintView.swift in Sources */,
+				24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */,
 				79BCAFCE2B32C5E000FD223F /* ConstraintViewDSL.swift in Sources */,
 				79BCAFDB2B32C5E000FD223F /* ConstraintLayoutGuide.swift in Sources */,
 				79BCAFE32B32C5E000FD223F /* ConstraintLayoutGuideDSL.swift in Sources */,
@@ -1119,6 +1214,7 @@
 				79BCB0022B32D2CA00FD223F /* CameraService.swift in Sources */,
 				79BCAFD62B32C5E000FD223F /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				79BCAFF12B32CF7800FD223F /* AppStatus.swift in Sources */,
+				24BD4FFD2B5769C700CD9CE0 /* Vibration.swift in Sources */,
 				049CD9E127A0DFDA000DCC0E /* ParameterEncoding.swift in Sources */,
 				79BCB0002B32D23B00FD223F /* LanguageTranslationModel.swift in Sources */,
 				049CD9FA27A0DFDA000DCC0E /* NetworkLogger.swift in Sources */,
@@ -1128,6 +1224,7 @@
 				2405C6912B56197300EEBD0A /* CPNHoriziontalTextView.swift in Sources */,
 				79B28D202B33E4F300AA48DE /* NetworkResponseState.swift in Sources */,
 				2405C6852B55302200EEBD0A /* AccountReceivableVC.swift in Sources */,
+				24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */,
 				79BCAFD52B32C5E000FD223F /* ConstraintInsetTarget.swift in Sources */,
 				049CDA0B27A0E75C000DCC0E /* Connectivity.swift in Sources */,
 				D907829524AF1E2B00AC95C4 /* UINavigationController.swift in Sources */,
@@ -1145,11 +1242,14 @@
 				79BCAFE72B32C5E000FD223F /* Debugging.swift in Sources */,
 				79BCAFE52B32C5E000FD223F /* ConstraintItem.swift in Sources */,
 				D9E4992128C6FCC800E7AD6D /* BaseView.swift in Sources */,
+				24AFC2AE2B57B40B00E5D157 /* PresentAccountReceivableView.swift in Sources */,
 				049CD9E427A0DFDA000DCC0E /* NetworkResponse.swift in Sources */,
 				79BCAFE22B32C5E000FD223F /* ConstraintRelation.swift in Sources */,
 				D907826724AD851A00AC95C4 /* UIViewController.swift in Sources */,
+				24BD4FF72B57675C00CD9CE0 /* PendingApprovalView.swift in Sources */,
 				79BCAFCC2B32C5E000FD223F /* ConstraintDescription.swift in Sources */,
 				79BCAFE02B32C5E000FD223F /* ConstraintMakerEditable.swift in Sources */,
+				24BD4FFF2B5770F600CD9CE0 /* SearchTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

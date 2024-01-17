@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         self.tabBar.unselectedItemTintColor = BaseColor.gray
-        self.tabBar.tintColor = BaseColor.primaryColor
+        self.tabBar.tintColor = BaseColor.gold
         self.tabBar.barTintColor = BaseColor.white
         self.tabBar.isTranslucent = false
         if #available(iOS 15.0, *) {

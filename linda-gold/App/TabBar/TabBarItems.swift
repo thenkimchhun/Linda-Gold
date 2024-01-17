@@ -22,7 +22,7 @@ struct TabBarItemController{
             self.imageDisabled = AppConstants.TabBarItems.Home.imageDisabled
         case .Pending:
             self.controllerName = AppConstants.TabBarItems.Pending.name
-            self.controller = HomeVC()
+            self.controller = PendingApprovalVC()
             self.imageEnbled = AppConstants.TabBarItems.Pending.imageEnbled
             self.imageDisabled = AppConstants.TabBarItems.Pending.imageDisabled
         case .SaleOrder:
