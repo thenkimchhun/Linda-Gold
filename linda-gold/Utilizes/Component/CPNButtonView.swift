@@ -13,7 +13,7 @@ class  CPNButtonView: BaseView{
         addSubview(button)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         button.setTitleColor(BaseColor.white, for: .normal)
-        button.backgroundColor = BaseColor.gold
+        button.backgroundColor = BaseColor.primarysColor
         button.layer.cornerRadius = 10
     }
     override func setupConstraint() {

@@ -145,11 +145,11 @@ class RequestViewCell: BaseTableViewCell {
     }()
     var declineButton: CPNButtonView = {
         let btn = CPNButtonView()
-        btn.button.setTitleColor(BaseColor.gold, for: .normal)
+        btn.button.setTitleColor(BaseColor.primarysColor, for: .normal)
         btn.button.backgroundColor = BaseColor.white
         btn.button.setTitle("Decline", for: .normal)
         btn.button.layer.borderWidth = 1
-        btn.button.layer.borderColor = BaseColor.gold.cgColor
+        btn.button.layer.borderColor = BaseColor.primarysColor.cgColor
         return btn
     }()
     var approveButton: CPNButtonView = {

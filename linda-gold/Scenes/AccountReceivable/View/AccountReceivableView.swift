@@ -11,10 +11,14 @@ class AccountReceivableView: BaseView{
     let headerTotalARView = HeaderTotalARView()
     var bottomNSLayout: NSLayoutConstraint!
     let tableView = UITableView()
-    let containerDayView = UIView()
     let dayListView = DaysListView()
-    var selectedDay: Bool = false
+    var selectedDay: Bool = true
     override func setupComponent() {
+        let addGuesture = UITapGestureRecognizer(target: self, action: #selector(dissmiss))
+        addGuesture.cancelsTouchesInView = false
+        addGestureRecognizer(addGuesture)
+        
+                                                
         backgroundColor = .clear
         addSubview(headerTotalARView)
         addSubview(totalLabel)
@@ -27,15 +31,13 @@ class AccountReceivableView: BaseView{
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableView.register(AccountReceivableViewCell.self, forCellReuseIdentifier: "AccountReceivableViewCell")
-        
-        addSubview(containerDayView)
-        containerDayView.isHidden = true
-        containerDayView.backgroundColor = BaseColor.white
-        containerDayView.layer.shadowColor = UIColor.black.cgColor
-        containerDayView.layer.shadowOpacity = 0.2
-        containerDayView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        containerDayView.layer.shadowRadius = 6.0
-        containerDayView.addSubview(dayListView)
+        addSubview(dayListView)
+        dayListView.backgroundColor = BaseColor.white
+        dayListView.layer.shadowColor = UIColor.black.cgColor
+        dayListView.layer.shadowOpacity = 0.2
+        dayListView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        dayListView.layer.shadowRadius = 6.0
+        dayListView.isHidden = true
     }
     override func setupEvent() {
         headerTotalARView.dayButton.addTarget(self, action: #selector(onHandleDay), for: .touchUpInside)
@@ -45,11 +47,12 @@ class AccountReceivableView: BaseView{
     }
     @objc private func onHandleDay(){
         if selectedDay == true{
-            containerDayView.isHidden = true
-        }else{
-            containerDayView.isHidden = false
+            dayListView.isHidden = false
         }
-        selectedDay = !selectedDay
+    }
+    
+    @objc func dissmiss(){
+        dayListView.isHidden = true
     }
     override func setupConstraint() {
 
@@ -68,17 +71,13 @@ class AccountReceivableView: BaseView{
             make.top.equalTo(totalLabel.snp.bottom).offset(scale(16))
             make.left.right.bottom.equalToSuperview()
         }
-        containerDayView.snp.makeConstraints { make in
-            make.top.equalTo(headerTotalARView.snp.centerY).offset(-scale(15))
-            make.width.equalTo(scale(100))
-            make.height.equalTo(scale(150))
-            make.right.equalToSuperview().offset(-scale(16))
-//            bottomNSLayout = containerDayView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -scale(16))
-//            bottomNSLayout.isActive = true
-        }
         dayListView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(headerTotalARView.snp.top)
+            make.width.equalTo(scale(100))
+            make.height.equalTo(scale(170))
+            make.right.equalToSuperview()
         }
+
     }
     var totalLabel: UILabel = {
         let lb = UILabel()

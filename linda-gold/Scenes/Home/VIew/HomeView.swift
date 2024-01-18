@@ -10,8 +10,10 @@ import UIKit
 
 class HomeView: BaseView {
     let tableView = UITableView(frame: .zero, style: .grouped)
+    var onDidSelecteNotification: (()->Void)?
     override func setupComponent() {
         addSubview(tableView)
+        tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .clear
         tableView.separatorColor = .none
         tableView.separatorStyle = .none
@@ -25,6 +27,10 @@ class HomeView: BaseView {
         tableView.sectionFooterHeight = 0
         tableView.register(HomeTotalSaleViewCell.self, forCellReuseIdentifier: "HomeTotalSaleViewCell")
         tableView.register(HomeBuyBackViewCell.self, forCellReuseIdentifier: "HomeBuyBackViewCell")
+    }
+    
+    @objc private func onHandleNotification(){
+        onDidSelecteNotification?()
     }
     override func setupConstraint() {
         tableView.snp.makeConstraints { make in
@@ -58,6 +64,8 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0{
             let view = HomeHeaderView()
+            view.notificaionImg.isUserInteractionEnabled = true
+            view.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
             return view
         }
         else{
@@ -70,40 +78,5 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
     enum SectionTypes: Int {
         case totalSale = 0
         case buyBack = 1
-    }
-}
-
-
-
-// CLASS
-class HomeTotalSaleViewCell: BaseTableViewCell{
-    let containerView = UIView()
-    override func setupComponent() {
-        selectionStyle = .none
-        addSubview(containerView)
-        containerView.backgroundColor = .red
-    }
-    override func setupConstraint() {
-        containerView.snp.makeConstraints { make in
-            make.height.equalTo(scale(50)).priority(750)
-            make.top.bottom.equalToSuperview()
-            make.left.right.equalToSuperview().inset(scale(16))
-        }
-    }
-}
-// Buy Back
-class HomeBuyBackViewCell: BaseTableViewCell{
-    let containerView = UIView()
-    override func setupComponent() {
-        selectionStyle = .none
-        addSubview(containerView)
-        containerView.backgroundColor = .blue
-    }
-    override func setupConstraint() {
-        containerView.snp.makeConstraints { make in
-            make.height.equalTo(scale(50)).priority(750)
-            make.top.bottom.equalToSuperview().inset(scale(16/2))
-            make.left.right.equalToSuperview().inset(scale(16))
-        }
     }
 }

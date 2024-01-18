@@ -27,7 +27,7 @@ class SaleOrderDetailCustomerInfoViewCell: BaseTableViewCell{
         containerView.layer.borderColor = UIColor.gray.cgColor
         
         containerView.addSubview(topView)
-        topView.backgroundColor = BaseColor.primaryColor
+        topView.backgroundColor = BaseColor.primaryColor2
         topView.layer.cornerRadius = 10
         topView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         topView.addSubview(titleLabel)

@@ -8,7 +8,7 @@
 
 import UIKit
 class DaysListView: BaseView {
-    var dataList: [String] = ["All", "Today", "Week", "Month","Year"]
+    var dataList: [String] = ["Today", "Week", "Month","Year"]
     let tableView = UITableView()
     var ondidSelectRowAt: ((String)->Void)?
     override func setupComponent() {
@@ -52,11 +52,12 @@ class DayListViewCell: BaseTableViewCell{
     let dayLabel = UILabel()
     override var isSelected: Bool{
         didSet{
-            backgroundColor = isSelected ? BaseColor.gold : BaseColor.white
+            backgroundColor = isSelected ? BaseColor.primarysColor : BaseColor.white
             dayLabel.textColor = isSelected ? BaseColor.white : BaseColor.black
         }
     }
     override func setupComponent() {
+        contentView.isUserInteractionEnabled = true
         backgroundColor = BaseColor.white
         selectionStyle = .none
         addSubview(dayLabel)
@@ -66,8 +67,8 @@ class DayListViewCell: BaseTableViewCell{
     }
     override func setupConstraint() {
         dayLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(scale(6))
-            make.centerX.equalToSuperview()
+            make.top.bottom.equalToSuperview().inset(scale(12))
+            make.left.right.equalToSuperview().inset(scale(16))
         }
     }
     

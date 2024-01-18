@@ -70,7 +70,7 @@ class LoginView: BaseView{
         let btn = UIButton()
         btn.setTitle("LOG IN", for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
-        btn.backgroundColor = BaseColor.primaryColor
+        btn.backgroundColor = BaseColor.primaryColor2
         btn.layer.cornerRadius = 10
         return btn
     }()

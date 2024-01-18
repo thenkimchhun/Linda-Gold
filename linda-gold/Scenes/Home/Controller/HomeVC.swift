@@ -12,8 +12,12 @@ class HomeVC: BaseVC {
         super.viewDidAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -21,6 +25,13 @@ class HomeVC: BaseVC {
     override func setupComponent() {
         view.addSubview(homeView)
         view.backgroundColor = .clear
+    }
+    override func setupEvent() {
+        homeView.onDidSelecteNotification = {[self] in
+            let vc = NotificationVC()
+            vc.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     override func setupConstraint() {
         homeView.snp.makeConstraints { (make) in

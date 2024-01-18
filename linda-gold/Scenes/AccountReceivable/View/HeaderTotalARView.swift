@@ -13,7 +13,7 @@ class HeaderTotalARView: BaseView {
     override func setupComponent() {
         addSubview(containerView)
         containerView.layer.cornerRadius = 15
-        containerView.backgroundColor = BaseColor.gold
+        containerView.backgroundColor = BaseColor.primarysColor
         
         containerView.addSubview(totalARLabel)
         containerView.addSubview(coinImageView)

@@ -8,9 +8,12 @@
 
 import UIKit
 class NotificationVC: BaseVC {
-    override func setupNavigation() {
-        setupNavBarLargeTitle(barTitle: "Notification")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavBarNormal(barTitle: "Notification")
     }
+   
+    
     let notificationView = NotificationView()
     override func setupComponent() {
         view.addSubview(notificationView)

@@ -51,6 +51,11 @@
 		24AFC2BB2B57D58100E5D157 /* CPNButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */; };
 		24AFC2BE2B58145800E5D157 /* DaysListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2BD2B58145800E5D157 /* DaysListView.swift */; };
 		24AFC2C02B58318F00E5D157 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2BF2B58318F00E5D157 /* HomeHeaderView.swift */; };
+		24AFC2C22B58BAE300E5D157 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C12B58BAE300E5D157 /* UIButton.swift */; };
+		24AFC2C42B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C32B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift */; };
+		24AFC2C62B58CCB000E5D157 /* ProgressItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C52B58CCB000E5D157 /* ProgressItemsView.swift */; };
+		24AFC2C82B58D59400E5D157 /* ItemsBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C72B58D59400E5D157 /* ItemsBoxView.swift */; };
+		24AFC2CA2B58E45200E5D157 /* HomeBuyBackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */; };
 		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
 		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
 		24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */; };
@@ -186,6 +191,11 @@
 		24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNButtonView.swift; sourceTree = "<group>"; };
 		24AFC2BD2B58145800E5D157 /* DaysListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysListView.swift; sourceTree = "<group>"; };
 		24AFC2BF2B58318F00E5D157 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		24AFC2C12B58BAE300E5D157 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		24AFC2C32B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTotalSaleViewCell.swift; sourceTree = "<group>"; };
+		24AFC2C52B58CCB000E5D157 /* ProgressItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressItemsView.swift; sourceTree = "<group>"; };
+		24AFC2C72B58D59400E5D157 /* ItemsBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsBoxView.swift; sourceTree = "<group>"; };
+		24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuyBackViewCell.swift; sourceTree = "<group>"; };
 		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
@@ -829,6 +839,10 @@
 			children = (
 				A255B83C2901563C00DCEE28 /* HomeView.swift */,
 				24AFC2BF2B58318F00E5D157 /* HomeHeaderView.swift */,
+				24AFC2C32B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift */,
+				24AFC2C52B58CCB000E5D157 /* ProgressItemsView.swift */,
+				24AFC2C72B58D59400E5D157 /* ItemsBoxView.swift */,
+				24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -950,6 +964,7 @@
 				049CDA1A27A10523000DCC0E /* UIView.swift */,
 				D907826624AD851A00AC95C4 /* UIViewController.swift */,
 				D907826324AD844200AC95C4 /* UIWindow.swift */,
+				24AFC2C12B58BAE300E5D157 /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1177,6 +1192,8 @@
 				79BCAFE82B32C5E000FD223F /* ConstraintRelatableTarget.swift in Sources */,
 				D907826B24AD8D1900AC95C4 /* UIColor.swift in Sources */,
 				79BCAFCA2B32C5E000FD223F /* LayoutConstraintItem.swift in Sources */,
+				24AFC2C22B58BAE300E5D157 /* UIButton.swift in Sources */,
+				24AFC2C62B58CCB000E5D157 /* ProgressItemsView.swift in Sources */,
 				79BCAFD82B32C5E000FD223F /* ConstraintConfig.swift in Sources */,
 				D907826424AD844200AC95C4 /* UIWindow.swift in Sources */,
 				79BCB0172B32F03600FD223F /* LoginDelegate.swift in Sources */,
@@ -1200,8 +1217,10 @@
 				24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */,
 				79BCAFFD2B32D20A00FD223F /* SessionManager.swift in Sources */,
 				049CD9E627A0DFDA000DCC0E /* HTTPHeader.swift in Sources */,
+				24AFC2CA2B58E45200E5D157 /* HomeBuyBackViewCell.swift in Sources */,
 				79BCAFDA2B32C5E000FD223F /* ConstraintView.swift in Sources */,
 				24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */,
+				24AFC2C42B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift in Sources */,
 				79BCAFCE2B32C5E000FD223F /* ConstraintViewDSL.swift in Sources */,
 				79BCAFDB2B32C5E000FD223F /* ConstraintLayoutGuide.swift in Sources */,
 				79BCAFE32B32C5E000FD223F /* ConstraintLayoutGuideDSL.swift in Sources */,
@@ -1262,6 +1281,7 @@
 				79BCAFE72B32C5E000FD223F /* Debugging.swift in Sources */,
 				79BCAFE52B32C5E000FD223F /* ConstraintItem.swift in Sources */,
 				D9E4992128C6FCC800E7AD6D /* BaseView.swift in Sources */,
+				24AFC2C82B58D59400E5D157 /* ItemsBoxView.swift in Sources */,
 				24AFC2AE2B57B40B00E5D157 /* PresentAccountReceivableView.swift in Sources */,
 				049CD9E427A0DFDA000DCC0E /* NetworkResponse.swift in Sources */,
 				79BCAFE22B32C5E000FD223F /* ConstraintRelation.swift in Sources */,
