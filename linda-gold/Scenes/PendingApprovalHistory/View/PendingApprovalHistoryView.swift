@@ -1,15 +1,13 @@
 //
-//  PresentAccountReceivableView.swift
+//  PendingApprovalHistoryView.swift
 //  linda-gold
 //
-//  Created by Chhun on 1/17/24.
+//  Created by Chhun on 1/18/24.
 //  Copyright © 2024 Core-MVVM. All rights reserved.
 //
 
 import UIKit
-
-
-class PresentAccountReceivableView: BaseView{
+class PendingApprovalHistoryView: BaseView{
     let tableView  = UITableView()
     var actionCloseBtn: (()->Void)?
     override func setupComponent() {
@@ -19,7 +17,7 @@ class PresentAccountReceivableView: BaseView{
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(PresentAccountReceivableViewCell.self, forCellReuseIdentifier: "PresentAccountReceivableViewCell")
+        tableView.register(PendingApprovalHistoryViewCell.self, forCellReuseIdentifier: "PendingApprovalHistoryViewCell")
     }
     override func setupConstraint() {
         tableView.snp.makeConstraints { make in
@@ -32,13 +30,13 @@ class PresentAccountReceivableView: BaseView{
     }
 }
 
-extension PresentAccountReceivableView: UITableViewDelegate, UITableViewDataSource {
+extension PendingApprovalHistoryView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PresentAccountReceivableViewCell = tableView.dequeueReusableCell(withIdentifier: "PresentAccountReceivableViewCell", for: indexPath) as! PresentAccountReceivableViewCell
+        let cell: PendingApprovalHistoryViewCell = tableView.dequeueReusableCell(withIdentifier: "PendingApprovalHistoryViewCell", for: indexPath) as! PendingApprovalHistoryViewCell
         cell.profileHeader.closeView.addTarget(self, action: #selector(clostButton), for: .touchUpInside)
         return cell
     }
@@ -47,31 +45,33 @@ extension PresentAccountReceivableView: UITableViewDelegate, UITableViewDataSour
 
 
 // PresentAccountReceivableViewCell
-class PresentAccountReceivableViewCell: BaseTableViewCell {
-    let profileHeader = PresentHeaderView()
+class PendingApprovalHistoryViewCell: BaseTableViewCell {
+    let profileHeader = PresentHeaderHistoryView()
     let stackView = UIStackView()
-    let invoiceNoView = CPNHoriziontalTextView()
-    let invoicelistView = CPNHoriziontalTextView()
-    let totalPurchaseView = CPNHoriziontalTextView()
+    let statusView = CPNHoriziontalTextView()
+    let lastPurchaseView = CPNHoriziontalTextView()
+    let dateRequestView = CPNHoriziontalTextView()
+    let dateDeclinedView = CPNHoriziontalTextView()
     override func setupComponent() {
         contentView.isUserInteractionEnabled = true
         selectionStyle = .none
         addSubview(profileHeader)
-        profileHeader.StatuLabel.isHidden = true
         addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.distribution = .fillProportionally
-        stackView.addArrangedSubview(invoiceNoView)
-        invoiceNoView.leftView.text = "Invoice No"
-        invoiceNoView.rightView.text = ": #47843"
-        invoiceNoView.rightView.font = .systemFont(ofSize: 16, weight: .bold)
-        stackView.addArrangedSubview(invoicelistView)
-        invoicelistView.leftView.text = "#1"
-        invoicelistView.rightView.text = ": $500 - 14 May 2022"
-        stackView.addArrangedSubview(totalPurchaseView)
-        totalPurchaseView.leftView.text = "Total Purchase"
-        totalPurchaseView.rightView.text = ": $2700"
+        stackView.addArrangedSubview(statusView)
+        statusView.leftView.text = "Approval"
+        statusView.rightView.text = "VIP To General"
+        stackView.addArrangedSubview(lastPurchaseView)
+        lastPurchaseView.leftView.text = "Last Purchase"
+        lastPurchaseView.rightView.text = ": $ 5000.00"
+        stackView.addArrangedSubview(dateRequestView)
+        dateRequestView.leftView.text = "Date Request"
+        dateRequestView.rightView.text = ": 14 May 2022"
+        stackView.addArrangedSubview(dateDeclinedView)
+        dateDeclinedView.leftView.text = "Date Declined"
+        dateDeclinedView.rightView.text = ": 15 May 2022"
         
     }
     override func setupConstraint() {
@@ -87,7 +87,7 @@ class PresentAccountReceivableViewCell: BaseTableViewCell {
 }
 
 //MARK: - PresentHeaderView
-class PresentHeaderView: BaseView{
+class PresentHeaderHistoryView: BaseView{
     override func setupComponent() {
         backgroundColor = .clear
         addSubview(profileView)
@@ -162,3 +162,4 @@ class PresentHeaderView: BaseView{
     }()
     
 }
+

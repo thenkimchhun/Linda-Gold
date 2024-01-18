@@ -56,6 +56,8 @@
 		24AFC2C62B58CCB000E5D157 /* ProgressItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C52B58CCB000E5D157 /* ProgressItemsView.swift */; };
 		24AFC2C82B58D59400E5D157 /* ItemsBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C72B58D59400E5D157 /* ItemsBoxView.swift */; };
 		24AFC2CA2B58E45200E5D157 /* HomeBuyBackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */; };
+		24AFC2D52B5982EA00E5D157 /* PendingApprovalHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2D42B5982EA00E5D157 /* PendingApprovalHistoryVC.swift */; };
+		24AFC2D72B5982F900E5D157 /* PendingApprovalHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2D62B5982F900E5D157 /* PendingApprovalHistoryView.swift */; };
 		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
 		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
 		24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */; };
@@ -196,6 +198,8 @@
 		24AFC2C52B58CCB000E5D157 /* ProgressItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressItemsView.swift; sourceTree = "<group>"; };
 		24AFC2C72B58D59400E5D157 /* ItemsBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsBoxView.swift; sourceTree = "<group>"; };
 		24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuyBackViewCell.swift; sourceTree = "<group>"; };
+		24AFC2D42B5982EA00E5D157 /* PendingApprovalHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalHistoryVC.swift; sourceTree = "<group>"; };
+		24AFC2D62B5982F900E5D157 /* PendingApprovalHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalHistoryView.swift; sourceTree = "<group>"; };
 		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
@@ -581,6 +585,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		24AFC2D12B5982A700E5D157 /* PendingApprovalHistory */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2D32B5982CF00E5D157 /* View */,
+				24AFC2D22B5982C800E5D157 /* Controller */,
+			);
+			path = PendingApprovalHistory;
+			sourceTree = "<group>";
+		};
+		24AFC2D22B5982C800E5D157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2D42B5982EA00E5D157 /* PendingApprovalHistoryVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24AFC2D32B5982CF00E5D157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2D62B5982F900E5D157 /* PendingApprovalHistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		24BD4FEC2B56C88400CD9CE0 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,12 +932,13 @@
 		D907823B24AD7D9300AC95C4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				24AFC2A82B57B3B400E5D157 /* PresentAccountReceivable */,
 				2405C67F2B552FEB00EEBD0A /* AccountReceivable */,
 				D907823D24AD7DAE00AC95C4 /* Home */,
 				79BCB00B2B32E7CD00FD223F /* Login */,
 				2405C6732B55239900EEBD0A /* Notification */,
 				24BD4FF12B57671600CD9CE0 /* PendingApproval */,
+				24AFC2D12B5982A700E5D157 /* PendingApprovalHistory */,
+				24AFC2A82B57B3B400E5D157 /* PresentAccountReceivable */,
 				2405C6922B562A6500EEBD0A /* SaleOrder */,
 				2405C69C2B5634A000EEBD0A /* SaleORderDetail */,
 			);
@@ -1052,6 +1082,7 @@
 				D9A8CB9624AD7ADF007B0CC8 /* Frameworks */,
 				049CDA2127A12D2D000DCC0E /* Setup Firebase Environment GoogleService-Info.plist */,
 				D9A8CB9724AD7ADF007B0CC8 /* Resources */,
+				0D9E0D769E3CB3BB97219D08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1127,6 +1158,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Name of the resource we're selectively copying\nGOOGLESERVICE_INFO_PLIST=GoogleService-Info.plist\n\n# Get references to dev and prod versions of the GoogleService-Info.plist\n# NOTE: These should only live on the file system and should NOT be part of the target (since we'll be adding them to the target manually)\nGOOGLESERVICE_INFO_DEV=${PROJECT_DIR}/${TARGET_NAME}/App/Firebase/Dev/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_UAT=${PROJECT_DIR}/${TARGET_NAME}/App/Firebase/UAT/${GOOGLESERVICE_INFO_PLIST}\nGOOGLESERVICE_INFO_PROD=${PROJECT_DIR}/${TARGET_NAME}/App/Firebase/Prod/${GOOGLESERVICE_INFO_PLIST}\n\n# Make sure the dev version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_DEV}\"\nif [ ! -f $GOOGLESERVICE_INFO_DEV ]\nthen\n    echo \"No Development GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n# Make sure the UAT version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_UAT}\"\nif [ ! -f $GOOGLESERVICE_INFO_UAT ]\nthen\n    echo \"No UAT GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n# Make sure the prod version of GoogleService-Info.plist exists\necho \"Looking for ${GOOGLESERVICE_INFO_PLIST} in ${GOOGLESERVICE_INFO_PROD}\"\nif [ ! -f $GOOGLESERVICE_INFO_PROD ]\nthen\n    echo \"No Production GoogleService-Info.plist found. Please ensure it's in the proper directory.\"\n    exit 1\nfi\n# Get a reference to the destination location for the GoogleService-Info.plist\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\necho \"Will copy ${GOOGLESERVICE_INFO_PLIST} to final destination: ${PLIST_DESTINATION}\"\n\n# Copy over the prod GoogleService-Info.plist for Release builds\necho \"Config Run ${CONFIGURATION}\"\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n    echo \"Using Release ${GOOGLESERVICE_INFO_PROD}\"\n    cp \"${GOOGLESERVICE_INFO_PROD}\" \"${PLIST_DESTINATION}\"\n    \n# Copy over the UAT GoogleService-Info.plist for UAT builds\nelif [ \"${CONFIGURATION}\" == \"UAT\" ]\nthen\n    echo \"Using UAT ${GOOGLESERVICE_INFO_UAT}\"\n    cp \"${GOOGLESERVICE_INFO_UAT}\" \"${PLIST_DESTINATION}\"\n    \n# Copy over the Dev GoogleService-Info.plist for Development builds\nelse\n    echo \"Using Development ${GOOGLESERVICE_INFO_DEV}\"\n    cp \"${GOOGLESERVICE_INFO_DEV}\" \"${PLIST_DESTINATION}\"\nfi\n\n";
+		};
+		0D9E0D769E3CB3BB97219D08 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-linda-gold/Pods-linda-gold-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-linda-gold/Pods-linda-gold-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-linda-gold/Pods-linda-gold-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		56C0AE08F257AB21680A0191 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1237,6 +1285,7 @@
 				2405C67C2B55243100EEBD0A /* NotificationView.swift in Sources */,
 				79BCAFC92B32C5E000FD223F /* ConstraintMultiplierTarget.swift in Sources */,
 				2405C6972B562AC400EEBD0A /* SaleOrderVC.swift in Sources */,
+				24AFC2D52B5982EA00E5D157 /* PendingApprovalHistoryVC.swift in Sources */,
 				79B28D1E2B33E21700AA48DE /* APIResponseError.swift in Sources */,
 				049CDA1927A104DA000DCC0E /* ViewHelper.swift in Sources */,
 				24AFC2BE2B58145800E5D157 /* DaysListView.swift in Sources */,
@@ -1265,6 +1314,7 @@
 				79BCAFD52B32C5E000FD223F /* ConstraintInsetTarget.swift in Sources */,
 				049CDA0B27A0E75C000DCC0E /* Connectivity.swift in Sources */,
 				D907829524AF1E2B00AC95C4 /* UINavigationController.swift in Sources */,
+				24AFC2D72B5982F900E5D157 /* PendingApprovalHistoryView.swift in Sources */,
 				049CD9E227A0DFDA000DCC0E /* URLParameterEncoder.swift in Sources */,
 				D95CAA1428D06AAA00E59CF6 /* LocationManager.swift in Sources */,
 				79BCAFFC2B32D20A00FD223F /* SessionKey.swift in Sources */,

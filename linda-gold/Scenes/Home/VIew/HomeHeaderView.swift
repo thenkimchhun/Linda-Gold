@@ -27,7 +27,7 @@ class HomeHeaderView: BaseView{
         nameLabel.font = .systemFont(ofSize: 29, weight: .semibold)
         
         addSubview(profileImg)
-        profileImg.image = UIImage(named: "ic_profile")
+        profileImg.image = UIImage(named: "ic_admin")
         profileImg.clipsToBounds = true
         profileImg.layer.cornerRadius = 32 / 2
         

@@ -11,6 +11,7 @@ import UIKit
 
 class HistoryView: BaseView{
     let tableView = UITableView()
+    var onDidSelectHistory: (()->Void)?
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -34,6 +35,9 @@ extension HistoryView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HistoryViewCell = tableView.dequeueReusableCell(withIdentifier: "HistoryViewCell", for: indexPath) as! HistoryViewCell
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onDidSelectHistory?()
     }
 }
 

@@ -15,6 +15,15 @@ class AccountReceivableVC: BaseVC{
     override func setupComponent() {
         view.addSubview(accountReceivableView)
     }
+    override func setupEvent() {
+        accountReceivableView.ondidSelectRowAt = {
+           let vc = PresentAccountReceivableVC()
+                self.presentPanModal(vc)
+//            vc.hidesBottomBarWhenPushed = true
+//            vc.modalPresentationStyle = .overCurrentContext
+//            present(vc, animated: true)
+        }
+    }
     override func setupConstraint() {
         accountReceivableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)

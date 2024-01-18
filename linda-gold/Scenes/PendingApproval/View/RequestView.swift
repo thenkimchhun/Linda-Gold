@@ -10,6 +10,7 @@ import UIKit
 
 class RequestView: BaseView {
     let tableView = UITableView()
+    var onSelectedActionButton: ((RequestViewCell.TypeButton)->Void)?
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -32,6 +33,14 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RequestViewCell = tableView.dequeueReusableCell(withIdentifier: "RequestViewCell", for: indexPath) as! RequestViewCell
+        cell.onActionSelectedButton = {[self] action in
+            switch action{
+            case .decline:
+                onSelectedActionButton?(.decline)
+            case .approvale:
+                onSelectedActionButton?(.approvale)
+            }
+        }
          return cell
     }
 }
@@ -41,7 +50,9 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
 //MARK: RequestViewCell
 class RequestViewCell: BaseTableViewCell {
     let containerView = UIView()
+    var onActionSelectedButton:((TypeButton)->Void)?
     override func setupComponent() {
+        contentView.isUserInteractionEnabled = true
         selectionStyle = .none
         backgroundColor = .clear
         addSubview(containerView)
@@ -61,6 +72,25 @@ class RequestViewCell: BaseTableViewCell {
         stackView.addArrangedSubview(updateView)
         stackView.addArrangedSubview(dateRequestView)
         stackView.addArrangedSubview(buttomStackView)
+    }
+    override func setupEvent() {
+        declineButton.button.addTarget(self, action: #selector(actionButton(_:)), for: .touchUpInside)
+        declineButton.button.tag = TypeButton.decline.rawValue
+        
+        approveButton.button.addTarget(self, action: #selector(actionButton(_:)), for: .touchUpInside)
+        approveButton.button.tag = TypeButton.approvale.rawValue
+    }
+    
+    @objc func actionButton(_ sender: UIButton){
+        if let type = TypeButton(rawValue: sender.tag){
+            switch type {
+            case .decline:
+                onActionSelectedButton?(.decline)
+            case .approvale:
+                onActionSelectedButton?(.approvale)
+            }
+        }
+        
     }
     override func setupConstraint() {
         containerView.snp.makeConstraints { make in
@@ -89,6 +119,12 @@ class RequestViewCell: BaseTableViewCell {
             make.left.right.bottom.equalToSuperview().inset(scale(16))
         }
     }
+    enum TypeButton: Int{
+        case decline = 1
+        case approvale = 2
+    }
+    
+    
     var profileView: UIImageView = {
         let profile = UIImageView()
         profile.image = UIImage(named: "ic_profile")

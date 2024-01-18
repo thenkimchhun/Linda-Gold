@@ -6,6 +6,7 @@ target 'linda-gold' do
   use_frameworks!
 
   # Pods for linda-gold
+    pod 'PanModal'
 
 
 end

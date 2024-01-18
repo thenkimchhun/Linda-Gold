@@ -13,6 +13,7 @@ class AccountReceivableView: BaseView{
     let tableView = UITableView()
     let dayListView = DaysListView()
     var selectedDay: Bool = true
+    var ondidSelectRowAt: (()->Void)?
     override func setupComponent() {
         let addGuesture = UITapGestureRecognizer(target: self, action: #selector(dissmiss))
         addGuesture.cancelsTouchesInView = false
@@ -105,7 +106,7 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("clicked")
+        ondidSelectRowAt?()
     }
     
     

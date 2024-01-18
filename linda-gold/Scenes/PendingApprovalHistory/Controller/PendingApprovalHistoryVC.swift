@@ -1,36 +1,36 @@
 //
-//  PresentAccountReceivableVC.swift
+//  PendingApprovalHistoryVC.swift
 //  linda-gold
 //
-//  Created by Chhun on 1/17/24.
+//  Created by Chhun on 1/18/24.
 //  Copyright © 2024 Core-MVVM. All rights reserved.
 //
 
 import UIKit
 import PanModal
-class PresentAccountReceivableVC: BaseVC{
-    let presentAccountReceivableView = PresentAccountReceivableView()
+class PendingApprovalHistoryVC: BaseVC{
+    let pendingApprovalHistoryView = PendingApprovalHistoryView()
     override func setupComponent() {
-        view.addSubview(presentAccountReceivableView)
+        view.addSubview(pendingApprovalHistoryView)
     }
     override func setupEvent() {
-        presentAccountReceivableView.actionCloseBtn = {
+        pendingApprovalHistoryView.actionCloseBtn = {
             self.dismiss(animated: true)
         }
     }
     override func setupConstraint() {
-        presentAccountReceivableView.snp.makeConstraints { make in
+        pendingApprovalHistoryView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
 }
 
-extension PresentAccountReceivableVC: PanModalPresentable {
+extension PendingApprovalHistoryVC: PanModalPresentable {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
     var panScrollable: UIScrollView? {
-        return presentAccountReceivableView.tableView
+        return pendingApprovalHistoryView.tableView
     }
     
     var anchorModalToLongForm: Bool {
