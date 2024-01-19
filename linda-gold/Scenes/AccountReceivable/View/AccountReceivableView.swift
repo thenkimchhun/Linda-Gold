@@ -9,17 +9,12 @@
 import UIKit
 class AccountReceivableView: BaseView{
     let headerTotalARView = HeaderTotalARView()
-    var bottomNSLayout: NSLayoutConstraint!
     let tableView = UITableView()
     let dayListView = DaysListView()
     var selectedDay: Bool = true
     var ondidSelectRowAt: (()->Void)?
+    var onActionFilterButton: (()->Void)?
     override func setupComponent() {
-        let addGuesture = UITapGestureRecognizer(target: self, action: #selector(dissmiss))
-        addGuesture.cancelsTouchesInView = false
-        addGestureRecognizer(addGuesture)
-        
-                                                
         backgroundColor = .clear
         addSubview(headerTotalARView)
         addSubview(totalLabel)
@@ -41,20 +36,38 @@ class AccountReceivableView: BaseView{
         dayListView.isHidden = true
     }
     override func setupEvent() {
+        let addGuesture = UITapGestureRecognizer(target: self, action: #selector(dissmiss))
+        addGuesture.cancelsTouchesInView = false
+        addGestureRecognizer(addGuesture)
+        
+        // Action Day Button
         headerTotalARView.dayButton.addTarget(self, action: #selector(onHandleDay), for: .touchUpInside)
         dayListView.ondidSelectRowAt = {[self] data in
             headerTotalARView.dayButton.setTitle(data, for: .normal)
         }
+        
+        // action Filter
+        filterButton.addTarget(self, action: #selector(actionFilter), for: .touchUpInside)
     }
+    @objc func dissmiss(){
+        dayListView.isHidden = true
+    }
+    
+    
+    // selectedday
     @objc private func onHandleDay(){
         if selectedDay == true{
             dayListView.isHidden = false
         }
     }
     
-    @objc func dissmiss(){
-        dayListView.isHidden = true
+    // selectedFilter
+    @objc func actionFilter(){
+        print("filter")
+        onActionFilterButton?()
     }
+    
+    
     override func setupConstraint() {
 
         headerTotalARView.snp.makeConstraints { make in
@@ -87,10 +100,12 @@ class AccountReceivableView: BaseView{
         lb.textColor = BaseColor.black
         return lb
     }()
+    
     var filterButton: UIButton = {
         let filter = UIButton()
         filter.setTitle("Filter", for: .normal)
         filter.setImage(UIImage(named: "ic_filter"), for: .normal)
+        filter.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
         filter.setTitleColor(BaseColor.black, for: .normal)
         return filter
     }()
@@ -108,10 +123,7 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ondidSelectRowAt?()
     }
-    
-    
-    
-    
+
 }
 
 

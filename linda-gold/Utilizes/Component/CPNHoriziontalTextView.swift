@@ -20,7 +20,7 @@ class CPNHoriziontalTextView: BaseView {
         stackView.addArrangedSubview(leftView)
         leftView.text = "Payment"
         leftView.font = .systemFont(ofSize: 14)
-        leftView.textColor = BaseColor.gray
+        leftView.textColor = BaseColor.black
         stackView.addArrangedSubview(rightView)
         rightView.text = ":$1100"
         rightView.font = .systemFont(ofSize: 14)

@@ -9,6 +9,10 @@
 import UIKit
 class CPNTextField: BaseView {
     let containerView = UIView()
+    var getText: String {
+        return textField.text ?? ""
+    }
+    
     override func setupComponent() {
         backgroundColor = .clear
         addSubview(containerView)
@@ -18,11 +22,13 @@ class CPNTextField: BaseView {
         containerView.layer.borderColor = UIColor.gray.cgColor
         
         containerView.addSubview(textField)
+        textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         containerView.addSubview(rightButton)
         
         addSubview(errorLabel)
         
     }
+    
     override func setupConstraint() {
         containerView.snp.makeConstraints { make in
             make.height.equalTo(scale(50)).priority(750)
@@ -66,5 +72,15 @@ class CPNTextField: BaseView {
         lb.isHidden = true
         return lb
     }()
-  
+    
+    @objc private func tapDone() {
+        if let datePicker = textField.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
+            dateformatter.dateStyle = .medium
+            textField.text = dateformatter.string(from: datePicker.date)
+            print("textField: ==>",textField.text ?? "")
+        }
+        textField.resignFirstResponder()
+    }
+    
 }

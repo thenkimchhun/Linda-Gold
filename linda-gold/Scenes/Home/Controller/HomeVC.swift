@@ -27,10 +27,16 @@ class HomeVC: BaseVC {
         view.backgroundColor = .clear
     }
     override func setupEvent() {
+        // notification
         homeView.onDidSelecteNotification = {[self] in
             let vc = NotificationVC()
             vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
+        }
+        // profile
+        homeView.onDidSelecteProfile = {[self] in
+            let vc = ProfileAdminVC()
+            presentPanModal(vc)
         }
     }
     override func setupConstraint() {

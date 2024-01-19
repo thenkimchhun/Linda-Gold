@@ -15,6 +15,7 @@ class  CPNButtonView: BaseView{
         button.setTitleColor(BaseColor.white, for: .normal)
         button.backgroundColor = BaseColor.primarysColor
         button.layer.cornerRadius = 10
+        button.contentEdgeInsets = UIEdgeInsets(top: 9, left: 8, bottom: 9, right: 8)
     }
     override func setupConstraint() {
         button.snp.makeConstraints { make in

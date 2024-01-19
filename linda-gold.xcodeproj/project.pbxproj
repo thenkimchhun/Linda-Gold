@@ -58,6 +58,17 @@
 		24AFC2CA2B58E45200E5D157 /* HomeBuyBackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */; };
 		24AFC2D52B5982EA00E5D157 /* PendingApprovalHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2D42B5982EA00E5D157 /* PendingApprovalHistoryVC.swift */; };
 		24AFC2D72B5982F900E5D157 /* PendingApprovalHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2D62B5982F900E5D157 /* PendingApprovalHistoryView.swift */; };
+		24AFC2DC2B5A07C000E5D157 /* AccountReceivableFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2DB2B5A07C000E5D157 /* AccountReceivableFilterVC.swift */; };
+		24AFC2DE2B5A07E000E5D157 /* AccountReceivableFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2DD2B5A07E000E5D157 /* AccountReceivableFilterView.swift */; };
+		24AFC2E02B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2DF2B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift */; };
+		24AFC2E32B5A185200E5D157 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2E22B5A185200E5D157 /* FilterModel.swift */; };
+		24AFC2E52B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2E42B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift */; };
+		24AFC2E72B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2E62B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift */; };
+		24AFC2EC2B5A5EB600E5D157 /* ProfileAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2EB2B5A5EB600E5D157 /* ProfileAdminVC.swift */; };
+		24AFC2EE2B5A5ED300E5D157 /* ProfileAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2ED2B5A5ED300E5D157 /* ProfileAdminView.swift */; };
+		24AFC2F02B5A633C00E5D157 /* ScrolllabelStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2EF2B5A633C00E5D157 /* ScrolllabelStackView.swift */; };
+		24AFC2F52B5A720900E5D157 /* NotificationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2F42B5A720900E5D157 /* NotificationDetailVC.swift */; };
+		24AFC2F72B5A722600E5D157 /* NotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */; };
 		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
 		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
 		24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */; };
@@ -200,6 +211,17 @@
 		24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuyBackViewCell.swift; sourceTree = "<group>"; };
 		24AFC2D42B5982EA00E5D157 /* PendingApprovalHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalHistoryVC.swift; sourceTree = "<group>"; };
 		24AFC2D62B5982F900E5D157 /* PendingApprovalHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalHistoryView.swift; sourceTree = "<group>"; };
+		24AFC2DB2B5A07C000E5D157 /* AccountReceivableFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterVC.swift; sourceTree = "<group>"; };
+		24AFC2DD2B5A07E000E5D157 /* AccountReceivableFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterView.swift; sourceTree = "<group>"; };
+		24AFC2DF2B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcctionReceivableFilterHeaderView.swift; sourceTree = "<group>"; };
+		24AFC2E22B5A185200E5D157 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		24AFC2E42B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterTypeViewCell.swift; sourceTree = "<group>"; };
+		24AFC2E62B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterRangeDateViewCell.swift; sourceTree = "<group>"; };
+		24AFC2EB2B5A5EB600E5D157 /* ProfileAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdminVC.swift; sourceTree = "<group>"; };
+		24AFC2ED2B5A5ED300E5D157 /* ProfileAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdminView.swift; sourceTree = "<group>"; };
+		24AFC2EF2B5A633C00E5D157 /* ScrolllabelStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrolllabelStackView.swift; sourceTree = "<group>"; };
+		24AFC2F42B5A720900E5D157 /* NotificationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailVC.swift; sourceTree = "<group>"; };
+		24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailView.swift; sourceTree = "<group>"; };
 		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
@@ -610,6 +632,93 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		24AFC2D82B5A079200E5D157 /* AccountReceivableFilter */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2E12B5A184000E5D157 /* Model */,
+				24AFC2DA2B5A07B100E5D157 /* View */,
+				24AFC2D92B5A07A900E5D157 /* Controller */,
+			);
+			path = AccountReceivableFilter;
+			sourceTree = "<group>";
+		};
+		24AFC2D92B5A07A900E5D157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2DB2B5A07C000E5D157 /* AccountReceivableFilterVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24AFC2DA2B5A07B100E5D157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2DD2B5A07E000E5D157 /* AccountReceivableFilterView.swift */,
+				24AFC2DF2B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift */,
+				24AFC2E42B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift */,
+				24AFC2E62B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24AFC2E12B5A184000E5D157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2E22B5A185200E5D157 /* FilterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24AFC2E82B5A5E7200E5D157 /* ProfileAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2EA2B5A5EA600E5D157 /* View */,
+				24AFC2E92B5A5EA100E5D157 /* Controller */,
+			);
+			path = ProfileAdmin;
+			sourceTree = "<group>";
+		};
+		24AFC2E92B5A5EA100E5D157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2EB2B5A5EB600E5D157 /* ProfileAdminVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24AFC2EA2B5A5EA600E5D157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2ED2B5A5ED300E5D157 /* ProfileAdminView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24AFC2F12B5A71DA00E5D157 /* NotificationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2F32B5A71F700E5D157 /* View */,
+				24AFC2F22B5A71F100E5D157 /* Controller */,
+			);
+			path = NotificationDetails;
+			sourceTree = "<group>";
+		};
+		24AFC2F22B5A71F100E5D157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2F42B5A720900E5D157 /* NotificationDetailVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24AFC2F32B5A71F700E5D157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		24BD4FEC2B56C88400CD9CE0 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,6 +1041,9 @@
 		D907823B24AD7D9300AC95C4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				24AFC2F12B5A71DA00E5D157 /* NotificationDetails */,
+				24AFC2E82B5A5E7200E5D157 /* ProfileAdmin */,
+				24AFC2D82B5A079200E5D157 /* AccountReceivableFilter */,
 				2405C67F2B552FEB00EEBD0A /* AccountReceivable */,
 				D907823D24AD7DAE00AC95C4 /* Home */,
 				79BCB00B2B32E7CD00FD223F /* Login */,
@@ -1007,6 +1119,7 @@
 				79BCB0012B32D2CA00FD223F /* CameraService.swift */,
 				79BCAFA22B32C5E000FD223F /* SnapKit */,
 				2405C68E2B56102900EEBD0A /* PaddingLabel.swift */,
+				24AFC2EF2B5A633C00E5D157 /* ScrolllabelStackView.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1217,6 +1330,7 @@
 				2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */,
 				79BCAFCB2B32C5E000FD223F /* ConstraintMakerPrioritizable.swift in Sources */,
 				049CDA1B27A10523000DCC0E /* UIView.swift in Sources */,
+				24AFC2EC2B5A5EB600E5D157 /* ProfileAdminVC.swift in Sources */,
 				2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */,
 				24BD4FF92B5768F700CD9CE0 /* CustomSegmentView.swift in Sources */,
 				D9E4991F28C6FCC800E7AD6D /* BaseVC.swift in Sources */,
@@ -1230,10 +1344,12 @@
 				79BCB0112B32EF8600FD223F /* LoginVC.swift in Sources */,
 				D9E4991828C6FCA600E7AD6D /* BaseColor.swift in Sources */,
 				79BCAFEB2B32C5E000FD223F /* ConstraintDirectionalInsets.swift in Sources */,
+				24AFC2F72B5A722600E5D157 /* NotificationDetailView.swift in Sources */,
 				79B28D1B2B33CFFE00AA48DE /* CustomButton.swift in Sources */,
 				2405C6872B55303A00EEBD0A /* AccountReceivableView.swift in Sources */,
 				A255B837290155EA00DCEE28 /* UITableView.swift in Sources */,
 				79BCAFD92B32C5E000FD223F /* UILayoutSupport+Extensions.swift in Sources */,
+				24AFC2E72B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift in Sources */,
 				24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */,
 				D907825524AD804500AC95C4 /* AppConstants.swift in Sources */,
 				D907826124AD821700AC95C4 /* HomeVC.swift in Sources */,
@@ -1277,6 +1393,7 @@
 				049CD9E927A0DFDA000DCC0E /* URLSessionProtocol.swift in Sources */,
 				D907829A24AF2C6200AC95C4 /* HomeViewModel.swift in Sources */,
 				D907828724AEE26100AC95C4 /* Encodable.swift in Sources */,
+				24AFC2DC2B5A07C000E5D157 /* AccountReceivableFilterVC.swift in Sources */,
 				79BCAFD12B32C5E000FD223F /* ConstraintMakerFinalizable.swift in Sources */,
 				79BCAFF62B32D11200FD223F /* LocalizeHelper.swift in Sources */,
 				A255B83D2901563C00DCEE28 /* HomeView.swift in Sources */,
@@ -1301,7 +1418,10 @@
 				24BD4FFD2B5769C700CD9CE0 /* Vibration.swift in Sources */,
 				049CD9E127A0DFDA000DCC0E /* ParameterEncoding.swift in Sources */,
 				79BCB0002B32D23B00FD223F /* LanguageTranslationModel.swift in Sources */,
+				24AFC2E02B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift in Sources */,
+				24AFC2F52B5A720900E5D157 /* NotificationDetailVC.swift in Sources */,
 				049CD9FA27A0DFDA000DCC0E /* NetworkLogger.swift in Sources */,
+				24AFC2F02B5A633C00E5D157 /* ScrolllabelStackView.swift in Sources */,
 				24AFC2C02B58318F00E5D157 /* HomeHeaderView.swift in Sources */,
 				79BCAFDD2B32C5E000FD223F /* Typealiases.swift in Sources */,
 				A255B838290155EA00DCEE28 /* UICollectionView.swift in Sources */,
@@ -1329,6 +1449,7 @@
 				79BCAFD42B32C5E000FD223F /* ConstraintPriority.swift in Sources */,
 				79BCAFCF2B32C5E000FD223F /* ConstraintPriorityTarget.swift in Sources */,
 				79BCAFE72B32C5E000FD223F /* Debugging.swift in Sources */,
+				24AFC2EE2B5A5ED300E5D157 /* ProfileAdminView.swift in Sources */,
 				79BCAFE52B32C5E000FD223F /* ConstraintItem.swift in Sources */,
 				D9E4992128C6FCC800E7AD6D /* BaseView.swift in Sources */,
 				24AFC2C82B58D59400E5D157 /* ItemsBoxView.swift in Sources */,
@@ -1336,9 +1457,12 @@
 				049CD9E427A0DFDA000DCC0E /* NetworkResponse.swift in Sources */,
 				79BCAFE22B32C5E000FD223F /* ConstraintRelation.swift in Sources */,
 				D907826724AD851A00AC95C4 /* UIViewController.swift in Sources */,
+				24AFC2E32B5A185200E5D157 /* FilterModel.swift in Sources */,
+				24AFC2E52B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift in Sources */,
 				24BD4FF72B57675C00CD9CE0 /* PendingApprovalView.swift in Sources */,
 				79BCAFCC2B32C5E000FD223F /* ConstraintDescription.swift in Sources */,
 				79BCAFE02B32C5E000FD223F /* ConstraintMakerEditable.swift in Sources */,
+				24AFC2DE2B5A07E000E5D157 /* AccountReceivableFilterView.swift in Sources */,
 				24BD4FFF2B5770F600CD9CE0 /* SearchTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1428,9 +1552,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconUAT;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KB6G3N8RNZ;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8ZM7BJP6C;
 				INFOPLIST_FILE = "$(SRCROOT)/linda-gold/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1440,6 +1564,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.project.MVVM-UAT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1519,9 +1644,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconLocal;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KB6G3N8RNZ;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8ZM7BJP6C;
 				INFOPLIST_FILE = "$(SRCROOT)/linda-gold/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1531,6 +1656,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.project.MVVM-LOCAL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1674,9 +1800,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KB6G3N8RNZ;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8ZM7BJP6C;
 				INFOPLIST_FILE = "$(SRCROOT)/linda-gold/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1686,6 +1812,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.project.MVVM-DEV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1700,9 +1827,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KB6G3N8RNZ;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8ZM7BJP6C;
 				INFOPLIST_FILE = "$(SRCROOT)/linda-gold/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1712,6 +1839,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.project.MVVM-RELEASE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

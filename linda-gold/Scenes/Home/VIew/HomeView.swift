@@ -11,6 +11,7 @@ import UIKit
 class HomeView: BaseView {
     let tableView = UITableView(frame: .zero, style: .grouped)
     var onDidSelecteNotification: (()->Void)?
+    var onDidSelecteProfile: (()->Void)?
     override func setupComponent() {
         addSubview(tableView)
         tableView.showsVerticalScrollIndicator = false
@@ -31,6 +32,10 @@ class HomeView: BaseView {
     
     @objc private func onHandleNotification(){
         onDidSelecteNotification?()
+    } 
+    
+    @objc private func onHandleProfileImage(){
+        onDidSelecteProfile?()
     }
     override func setupConstraint() {
         tableView.snp.makeConstraints { make in
@@ -66,6 +71,8 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
             let view = HomeHeaderView()
             view.notificaionImg.isUserInteractionEnabled = true
             view.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
+            view.profileImg.isUserInteractionEnabled = true
+            view.profileImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleProfileImage)))
             return view
         }
         else{

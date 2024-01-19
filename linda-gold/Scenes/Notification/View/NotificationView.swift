@@ -9,6 +9,7 @@
 import UIKit
 class NotificationView: BaseView{
     let tableView = UITableView()
+    var onDidselectForRowAt: (()->Void)?
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -33,6 +34,9 @@ extension NotificationView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NotificationViewCell = tableView.dequeueReusableCell(withIdentifier: "NotificationViewCell", for: indexPath) as! NotificationViewCell
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onDidselectForRowAt?()
     }
     
     

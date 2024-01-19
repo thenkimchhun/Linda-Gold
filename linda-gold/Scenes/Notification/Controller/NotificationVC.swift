@@ -12,11 +12,15 @@ class NotificationVC: BaseVC {
         super.viewWillAppear(animated)
         setupNavBarNormal(barTitle: "Notification")
     }
-   
-    
     let notificationView = NotificationView()
     override func setupComponent() {
         view.addSubview(notificationView)
+    }
+    override func setupEvent() {
+        notificationView.onDidselectForRowAt = {[self] in
+            let vc = NotificationDetailVC()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     override func setupConstraint() {
         notificationView.snp.makeConstraints { make in
