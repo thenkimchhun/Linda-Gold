@@ -10,8 +10,17 @@ import Foundation
 
 class AuthHelper {
     
-    static var getUserToken: String{
-   
-        return ""
+    static var getAccessToken: String{
+        return getUserObject?.access_token ?? ""
+    }
+    static var getRefreshToken: String{
+        return getUserObject?.refresh_token ?? ""
+    }
+    static private var getUserObject: LoginResponse? {
+        var userObject: LoginResponse?
+        SessionManager.shared.getter(key: .authenticate) { (data: LoginResponse?) in
+            userObject = data
+        }
+        return userObject
     }
 }

@@ -22,7 +22,7 @@ class CPNTextField: BaseView {
         containerView.layer.borderColor = UIColor.gray.cgColor
         
         containerView.addSubview(textField)
-        textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
+//        textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         containerView.addSubview(rightButton)
         
         addSubview(errorLabel)
@@ -60,8 +60,9 @@ class CPNTextField: BaseView {
     var rightButton: UIButton = {
         let right = UIButton()
         right.isHidden = true
-        right.setImage(UIImage(named: "ic_show"), for: .normal)
-        right.setImage(UIImage(named: "ic_hide"), for: .selected)
+        right.setImage(UIImage(named: "ic_hide"), for: .normal)
+        right.setImage(UIImage(named: "ic_show"), for: .selected)
+        
         return right
     }()
     var errorLabel: UILabel = {
@@ -73,14 +74,14 @@ class CPNTextField: BaseView {
         return lb
     }()
     
-    @objc private func tapDone() {
-        if let datePicker = textField.inputView as? UIDatePicker {
-            let dateformatter = DateFormatter()
-            dateformatter.dateStyle = .medium
-            textField.text = dateformatter.string(from: datePicker.date)
-            print("textField: ==>",textField.text ?? "")
-        }
-        textField.resignFirstResponder()
-    }
+//    @objc private func tapDone() {
+//        if let datePicker = textField.inputView as? UIDatePicker {
+//            let dateformatter = DateFormatter()
+//            dateformatter.dateStyle = .medium
+//            textField.text = dateformatter.string(from: datePicker.date)
+//            print("textField: ==>",textField.text ?? "")
+//        }
+//        textField.resignFirstResponder()
+//    }
     
 }

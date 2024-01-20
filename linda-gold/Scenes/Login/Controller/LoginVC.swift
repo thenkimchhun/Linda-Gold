@@ -28,8 +28,10 @@ class LoginVC: BaseVC {
     }
     override func setupEvent() {
        
-        let parameters = LoginParameter(phoneNumber: "+85561967958")
-        viewModel.onLogin(parameters: parameters)
+        loginView.onActionLogin = {[self] parameters in
+            Spinner.start()
+            viewModel.onLogin(parameters: parameters)
+        }
     }
     lazy var viewModel: LoginViewModel = {[weak self] in
         let viewModel = LoginViewModel()
@@ -40,12 +42,14 @@ class LoginVC: BaseVC {
 
 extension LoginVC:LoginDelegate{
     func onLoginUpdateState(state: NetworkResponseState) {
+        Spinner.stop()
         switch state {
         case .success:
-            print("login success")
-            
+            print("login success",viewModel.dataReponse ?? "")
+            SessionManager.shared.setter(key: .authenticate, param: viewModel.dataReponse)
+            setToRootView(viewController: TabBarViewController())
         case .failure(let error):
-            print("login error",error?.message ?? "error")
+            print("login error",error?.message ?? "Something went wrong!")
             
         default: break
         }

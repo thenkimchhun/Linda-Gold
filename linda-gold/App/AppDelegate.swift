@@ -45,17 +45,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    
 }
 //MARK: handle func
 extension AppDelegate{
-    
     func setupToRootView() {
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = TabBarViewController()
+        if AuthHelper.getAccessToken.isEmpty{
+            window?.rootViewController = LoginVC()
+        }else{
+            window?.rootViewController = TabBarViewController()
+        }
     }
 }
 

@@ -40,12 +40,12 @@ extension TargetType {
     }
     
     private static var baseHeader: [String: String] {
-        if AuthHelper.getUserToken.isEmpty {
+        if AuthHelper.getAccessToken.isEmpty {
             return [ HTTPHeader.contentType.rawValue: "application/json"]
         }
         return [
             HTTPHeader.contentType.rawValue: "application/json",
-            HTTPHeader.authorization.rawValue: "Bearer \(AuthHelper.getUserToken)"
+            HTTPHeader.authorization.rawValue: "Bearer \(AuthHelper.getAccessToken)"
 
         ]
     }

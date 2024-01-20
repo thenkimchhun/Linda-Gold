@@ -8,7 +8,7 @@
 
 import UIKit
 class LoginView: BaseView{
-    
+    var onActionLogin: ((_ parameters: LoginParameter)->Void)? = nil
     override func setupComponent() {
         backgroundColor = BaseColor.white
         addSubview(logoImageView)
@@ -17,6 +17,21 @@ class LoginView: BaseView{
         addSubview(passwordView)
         addSubview(loginButton)
         
+    }
+    override func setupEvent() {
+        loginButton.addTarget(self, action: #selector(actionLoginButton), for: .touchUpInside)
+        passwordView.rightButton.addTarget(self, action: #selector(actionHideAndShow), for: .touchUpInside)
+    }
+    @objc private func actionLoginButton(){
+        onActionLogin?(
+            .init(username: userNameView.getText, password: passwordView.getText, deviceToken: "123",device: "ios" )
+        )
+    }
+    @objc private func actionHideAndShow(){
+        //Change Icon
+        passwordView.rightButton.isSelected = passwordView.textField.isSecureTextEntry
+        // Show Password
+        passwordView.textField.isSecureTextEntry = !passwordView.textField.isSecureTextEntry
     }
     override func setupConstraint() {
         logoImageView.snp.makeConstraints { make in
@@ -70,7 +85,7 @@ class LoginView: BaseView{
         let btn = UIButton()
         btn.setTitle("LOG IN", for: .normal)
         btn.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
-        btn.backgroundColor = BaseColor.primaryColor2
+        btn.backgroundColor = BaseColor.primarysColor
         btn.layer.cornerRadius = 10
         return btn
     }()

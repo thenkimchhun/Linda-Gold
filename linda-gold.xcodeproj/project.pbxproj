@@ -69,6 +69,8 @@
 		24AFC2F02B5A633C00E5D157 /* ScrolllabelStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2EF2B5A633C00E5D157 /* ScrolllabelStackView.swift */; };
 		24AFC2F52B5A720900E5D157 /* NotificationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2F42B5A720900E5D157 /* NotificationDetailVC.swift */; };
 		24AFC2F72B5A722600E5D157 /* NotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */; };
+		24AFC2F92B5AD1CB00E5D157 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2F82B5AD1CB00E5D157 /* Spinner.swift */; };
+		24AFC2FB2B5B552500E5D157 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2FA2B5B552500E5D157 /* LoginModel.swift */; };
 		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
 		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
 		24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */; };
@@ -222,6 +224,8 @@
 		24AFC2EF2B5A633C00E5D157 /* ScrolllabelStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrolllabelStackView.swift; sourceTree = "<group>"; };
 		24AFC2F42B5A720900E5D157 /* NotificationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailVC.swift; sourceTree = "<group>"; };
 		24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailView.swift; sourceTree = "<group>"; };
+		24AFC2F82B5AD1CB00E5D157 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		24AFC2FA2B5B552500E5D157 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
@@ -944,6 +948,7 @@
 			isa = PBXGroup;
 			children = (
 				79BCB00D2B32E7EC00FD223F /* LoginParameter.swift */,
+				24AFC2FA2B5B552500E5D157 /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1114,12 +1119,13 @@
 		D907828A24AEE98100AC95C4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				24BD4FFA2B57698D00CD9CE0 /* EasyOTPField */,
 				794DF7752B352C7700334D11 /* AlertDefault.swift */,
 				79BCB0012B32D2CA00FD223F /* CameraService.swift */,
-				79BCAFA22B32C5E000FD223F /* SnapKit */,
 				2405C68E2B56102900EEBD0A /* PaddingLabel.swift */,
 				24AFC2EF2B5A633C00E5D157 /* ScrolllabelStackView.swift */,
+				24AFC2F82B5AD1CB00E5D157 /* Spinner.swift */,
+				24BD4FFA2B57698D00CD9CE0 /* EasyOTPField */,
+				79BCAFA22B32C5E000FD223F /* SnapKit */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1349,6 +1355,7 @@
 				2405C6872B55303A00EEBD0A /* AccountReceivableView.swift in Sources */,
 				A255B837290155EA00DCEE28 /* UITableView.swift in Sources */,
 				79BCAFD92B32C5E000FD223F /* UILayoutSupport+Extensions.swift in Sources */,
+				24AFC2F92B5AD1CB00E5D157 /* Spinner.swift in Sources */,
 				24AFC2E72B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift in Sources */,
 				24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */,
 				D907825524AD804500AC95C4 /* AppConstants.swift in Sources */,
@@ -1386,6 +1393,7 @@
 				24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */,
 				24AFC2C42B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift in Sources */,
 				79BCAFCE2B32C5E000FD223F /* ConstraintViewDSL.swift in Sources */,
+				24AFC2FB2B5B552500E5D157 /* LoginModel.swift in Sources */,
 				79BCAFDB2B32C5E000FD223F /* ConstraintLayoutGuide.swift in Sources */,
 				79BCAFE32B32C5E000FD223F /* ConstraintLayoutGuideDSL.swift in Sources */,
 				2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */,

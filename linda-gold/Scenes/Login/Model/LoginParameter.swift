@@ -9,5 +9,8 @@
 import Foundation
 
 struct LoginParameter: Encodable {
-    let phoneNumber: String
+    var username: String
+    var password: String
+    var deviceToken: String
+    var device: String
 }

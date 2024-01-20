@@ -8,11 +8,6 @@
 import Foundation
 
 enum SessionKey: String {
-    case authenticate  = "userObject"
+    case authenticate  = "authenticate"
     case deviceToken  = "deviceToken"
-    case generalSetting = "GeneralSetting"
-    case language = "language"
-    case appLanguage = "AppLanguages"
-    case masterData = "masterData"
-    case biometryType = "biometryType"
 }

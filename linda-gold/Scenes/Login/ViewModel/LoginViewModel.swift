@@ -10,9 +10,11 @@ import Foundation
 
 class LoginViewModel {
     weak var delegate: LoginDelegate?
+    var dataReponse: LoginResponse?
     func onLogin(parameters: LoginParameter) {
         AuthenticationService.shared.onLogin(parameters: parameters) { response in
             DispatchQueue.main.async {
+                self.dataReponse = response.data
                 self.delegate?.onLoginUpdateState(state: .success)
             }
         } failure: { error in

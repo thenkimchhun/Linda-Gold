@@ -16,7 +16,7 @@ extension AuthenticationResource: TargetType {
     var path: String {
         switch self {
         case .login:
-            return "auth/customer/login"
+            return "auth/login"
         }
     }
     

@@ -11,4 +11,7 @@ import Foundation
 struct APIResponseError: Codable {
     var statusCode: Int
     var message: String
+    var body: Data? {
+            try? JSONEncoder().encode(self)
+        }
 }

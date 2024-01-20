@@ -11,8 +11,8 @@ import Foundation
 class AuthenticationService: BaseAPIService<AuthenticationResource> {
     static let shared = AuthenticationService()
     
-    func onLogin(parameters: LoginParameter,success: @escaping(APIResponseSuccess) -> Void, failure: @escaping(APIResponseError?) -> Void ) {
-        request(service: .login(parameters: parameters), model: APIResponseSuccess.self) { response in
+    func onLogin(parameters: LoginParameter,success: @escaping(LoginModel) -> Void, failure: @escaping(APIResponseError?) -> Void ) {
+        request(service: .login(parameters: parameters), model: LoginModel.self) { response in
             switch response {
             case .success(let res):
                 success(res)
