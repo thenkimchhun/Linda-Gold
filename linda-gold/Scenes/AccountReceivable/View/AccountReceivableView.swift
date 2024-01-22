@@ -139,9 +139,9 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
         cell.headerProfileView.rithStatus.textColor = BaseColor.primarysColor
         cell.headerProfileView.rithStatus.backgroundColor = BaseColor.primaryColor3
         
-        cell.paymentView.rightView.text = ": \(data.lastPayment?.formatCurrencyNumber)"
+        cell.paymentView.rightView.text = ": \(data.lastPayment?.formatCurrencyNumber ?? "")"
         cell.invoiceNoView.rightView.text = ": #\(data.invoiceNumber)"
-        cell.paymentDateView.rightView.text = ": \(data.lastPaymentDate?.startDateUTC ?? "")"
+        cell.paymentDateView.rightView.text = ": \(data.lastPaymentDate?.formatDate() ?? "")"
         cell.totalPurchaseView.rightView.text = ": \(data.total.formatCurrencyNumber)"
     }
 

@@ -17,14 +17,15 @@ class AccountReceivableVC: BaseVC{
         view.addSubview(accountReceivableView)
     }
     override func setupEvent() {
-        Loading.showSpinner(onView: accountReceivableView.tableView)
+        Loading.showSpinner(onView: accountReceivableView)
         viewModel.delegate = self
         viewModel.onGetAccountReceivableList(parameter: viewModel.parameter)
         // didselectForRowCell
         accountReceivableView.ondidSelectRowAt = {[self] data in
-            viewModel.onGetAccountReceivableDetail(parameter: viewModel.detailParameter)
-            let vc = AccountReceivableDetailVC(data: data)
-            presentPanModal(vc)
+            Loading.showSpinner(onView: view)
+            viewModel.onGetAccountReceivableDetail(parameter: .init(id: data.id))
+//            let vc = AccountReceivableDetailVC(data: data)
+//            presentPanModal(vc)
         }
         // selectFilter Button
         accountReceivableView.onActionFilterButton = {[self] in
@@ -66,8 +67,13 @@ extension AccountReceivableVC: AccountReceivableDelegate{
     }
     
     func onAccountReceivableDetailUpdateState() {
+        Loading.removeSpinner()
         switch viewModel.onAccountReceivableDetailUpdateState {
-        case .success: break
+        case .success:
+            let vc = AccountReceivableDetailVC()
+            vc.data = viewModel.data
+            presentPanModal(vc)
+        //print("data: ===>",viewModel.data ?? "")
         case .failure(let error):
             print("error",error.message)
         case .none: break

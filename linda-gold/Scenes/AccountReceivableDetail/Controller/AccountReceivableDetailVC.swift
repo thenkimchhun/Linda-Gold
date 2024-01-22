@@ -9,16 +9,15 @@
 import UIKit
 import PanModal
 class AccountReceivableDetailVC: BaseVC{
-    let presentAccountReceivableView = AccountReceivableDetailView()
-    private var data: AccountReceivableDataResponse?{
+    let accountReceivableDetailView = AccountReceivableDetailView()
+     var data: AccountReceivableDataResponse?{
         didSet{
-            print("data: ==>",data ?? "")
+            accountReceivableDetailView.data = data
         }
     }
     init(data: AccountReceivableDataResponse? = nil) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -26,17 +25,17 @@ class AccountReceivableDetailVC: BaseVC{
     }
     
     override func setupComponent() {
-        view.addSubview(presentAccountReceivableView)
+        view.addSubview(accountReceivableDetailView)
     }
     override func setupEvent() {
-        presentAccountReceivableView.actionCloseBtn = {
+        accountReceivableDetailView.actionCloseBtn = {
             self.dismiss(animated: true)
         }
-        presentAccountReceivableView.bindInvoiceList()
+//        accountReceivableDetailView.bindInvoiceList(paymentLists: data?.payment ?? [])
         
     }
     override func setupConstraint() {
-        presentAccountReceivableView.snp.makeConstraints { make in
+        accountReceivableDetailView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
@@ -47,7 +46,7 @@ extension AccountReceivableDetailVC: PanModalPresentable {
         return .lightContent
     }
     var panScrollable: UIScrollView? {
-        return presentAccountReceivableView.scrollView.scrollView
+        return accountReceivableDetailView.scrollView.scrollView
     }
     
     var anchorModalToLongForm: Bool {

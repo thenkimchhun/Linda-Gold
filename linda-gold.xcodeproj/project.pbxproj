@@ -42,6 +42,10 @@
 		24048C5B2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C5A2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift */; };
 		24048C662B5E2762008BC045 /* AccountReceivableDetailParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C652B5E2762008BC045 /* AccountReceivableDetailParameter.swift */; };
 		24048C682B5E2E15008BC045 /* AccountReceivableDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C672B5E2E15008BC045 /* AccountReceivableDetailModel.swift */; };
+		24048C6A2B5E7131008BC045 /* SaleOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C692B5E7130008BC045 /* SaleOrderModel.swift */; };
+		24048C6C2B5E7526008BC045 /* SaleOrderParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C6B2B5E7526008BC045 /* SaleOrderParameter.swift */; };
+		24048C6F2B5E7B22008BC045 /* SaleOrderResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C6E2B5E7B22008BC045 /* SaleOrderResource.swift */; };
+		24048C712B5E7B34008BC045 /* SaleOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C702B5E7B34008BC045 /* SaleOrderService.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
 		2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6712B55138100EEBD0A /* CPNTextField.swift */; };
 		2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6782B5523C900EEBD0A /* NotificationVC.swift */; };
@@ -216,6 +220,10 @@
 		24048C5A2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailDelegate.swift; sourceTree = "<group>"; };
 		24048C652B5E2762008BC045 /* AccountReceivableDetailParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailParameter.swift; sourceTree = "<group>"; };
 		24048C672B5E2E15008BC045 /* AccountReceivableDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailModel.swift; sourceTree = "<group>"; };
+		24048C692B5E7130008BC045 /* SaleOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderModel.swift; sourceTree = "<group>"; };
+		24048C6B2B5E7526008BC045 /* SaleOrderParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderParameter.swift; sourceTree = "<group>"; };
+		24048C6E2B5E7B22008BC045 /* SaleOrderResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderResource.swift; sourceTree = "<group>"; };
+		24048C702B5E7B34008BC045 /* SaleOrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderService.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2405C6712B55138100EEBD0A /* CPNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextField.swift; sourceTree = "<group>"; };
 		2405C6782B5523C900EEBD0A /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -518,6 +526,15 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		24048C6D2B5E7B0D008BC045 /* SaleOrder */ = {
+			isa = PBXGroup;
+			children = (
+				24048C6E2B5E7B22008BC045 /* SaleOrderResource.swift */,
+				24048C702B5E7B34008BC045 /* SaleOrderService.swift */,
+			);
+			path = SaleOrder;
+			sourceTree = "<group>";
+		};
 		2405C66E2B55129400EEBD0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +665,8 @@
 		2405C6952B562A8100EEBD0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				24048C692B5E7130008BC045 /* SaleOrderModel.swift */,
+				24048C6B2B5E7526008BC045 /* SaleOrderParameter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1032,6 +1051,7 @@
 		79BCAFF82B32D1D100FD223F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				24048C6D2B5E7B0D008BC045 /* SaleOrder */,
 				24048C392B5D5F16008BC045 /* AccountReceivable */,
 				24AFC2FF2B5B69EE00E5D157 /* Account */,
 				79BCB0082B32E74B00FD223F /* Authentication */,
@@ -1489,6 +1509,7 @@
 				D9E4991828C6FCA600E7AD6D /* BaseColor.swift in Sources */,
 				79BCAFEB2B32C5E000FD223F /* ConstraintDirectionalInsets.swift in Sources */,
 				24AFC2F72B5A722600E5D157 /* NotificationDetailView.swift in Sources */,
+				24048C6C2B5E7526008BC045 /* SaleOrderParameter.swift in Sources */,
 				79B28D1B2B33CFFE00AA48DE /* CustomButton.swift in Sources */,
 				2405C6872B55303A00EEBD0A /* AccountReceivableView.swift in Sources */,
 				A255B837290155EA00DCEE28 /* UITableView.swift in Sources */,
@@ -1542,6 +1563,7 @@
 				79BCAFDB2B32C5E000FD223F /* ConstraintLayoutGuide.swift in Sources */,
 				79BCAFE32B32C5E000FD223F /* ConstraintLayoutGuideDSL.swift in Sources */,
 				2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */,
+				24048C6A2B5E7131008BC045 /* SaleOrderModel.swift in Sources */,
 				049CDA0427A0E61E000DCC0E /* Environment.swift in Sources */,
 				049CD9E927A0DFDA000DCC0E /* URLSessionProtocol.swift in Sources */,
 				D907829A24AF2C6200AC95C4 /* HomeViewModel.swift in Sources */,
@@ -1555,6 +1577,7 @@
 				79BCAFEC2B32C5E000FD223F /* ConstraintLayoutSupportDSL.swift in Sources */,
 				2405C67C2B55243100EEBD0A /* NotificationView.swift in Sources */,
 				79BCAFC92B32C5E000FD223F /* ConstraintMultiplierTarget.swift in Sources */,
+				24048C712B5E7B34008BC045 /* SaleOrderService.swift in Sources */,
 				2405C6972B562AC400EEBD0A /* SaleOrderVC.swift in Sources */,
 				24AFC2D52B5982EA00E5D157 /* PendingApprovalHistoryVC.swift in Sources */,
 				79B28D1E2B33E21700AA48DE /* APIResponseError.swift in Sources */,
@@ -1572,6 +1595,7 @@
 				79BCAFF12B32CF7800FD223F /* AppStatus.swift in Sources */,
 				24048C462B5D679B008BC045 /* AccountReceivableViewModel.swift in Sources */,
 				24BD4FFD2B5769C700CD9CE0 /* Vibration.swift in Sources */,
+				24048C6F2B5E7B22008BC045 /* SaleOrderResource.swift in Sources */,
 				049CD9E127A0DFDA000DCC0E /* ParameterEncoding.swift in Sources */,
 				79BCB0002B32D23B00FD223F /* LanguageTranslationModel.swift in Sources */,
 				24AFC2E02B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift in Sources */,

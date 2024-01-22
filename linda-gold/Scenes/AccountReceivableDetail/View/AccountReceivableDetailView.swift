@@ -17,6 +17,7 @@ class AccountReceivableDetailView: BaseView{
     var data: AccountReceivableDataResponse?{
         didSet{
             bindPresentAccountReceivableView()
+            bindInvoiceList(paymentLists: data?.payment ?? [])
         }
     }
     var actionCloseBtn: (()->Void)?
@@ -29,6 +30,7 @@ class AccountReceivableDetailView: BaseView{
         invoiceNoView.leftView.text = "Invoice No"
         invoiceNoView.rightView.text = ": #47843"
         invoiceNoView.rightView.font = .systemFont(ofSize: 16, weight: .bold)
+
     }
     override func setupConstraint() {
         scrollView.snp.makeConstraints { make in
@@ -50,16 +52,16 @@ class AccountReceivableDetailView: BaseView{
     @objc func clostButton(){
         actionCloseBtn?()
     }
-    func bindInvoiceList(){
-        for value in 0...5 {
+    func bindInvoiceList(paymentLists: [Payment]){
+        for invoice in paymentLists {
             let invoicelistView = CPNHoriziontalTextView()
             scrollView.add(view: invoicelistView)
-            invoicelistView.leftView.text = "#\(value)"
-            invoicelistView.rightView.text = ": $500 - 14 May 2022"
+            invoicelistView.leftView.text = "# \(paymentLists.startIndex)"
+            invoicelistView.rightView.text = ": \(invoice.paidAmount.formatCurrencyNumber) - \(invoice.createdAt.formatDate() ?? "")"
         }
         scrollView.add(view: totalPurchaseView)
         totalPurchaseView.leftView.text = "Total Purchase"
-        totalPurchaseView.rightView.text = ": $2700"
+        totalPurchaseView.rightView.text = ": \(data?.total.formatCurrencyNumber ?? "")"
     }
 }
     

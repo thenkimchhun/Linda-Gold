@@ -28,13 +28,21 @@ struct AccountReceivableDataResponse: Codable{
 struct Customer: Codable{
     let id: String
     let fullName: String
+    let code: String
     let image: String?
+    let customerGroup: CustomerGroup?
 }
 struct Payment: Codable {
     let id: String
     let paidAmount: Double
     let remark: String?
     let createdAt: String
+}
+struct CustomerGroup: Codable{
+    let id: Int
+    let name: String
+    let image: String?
+    let discountPercentage: Double
 }
 
 

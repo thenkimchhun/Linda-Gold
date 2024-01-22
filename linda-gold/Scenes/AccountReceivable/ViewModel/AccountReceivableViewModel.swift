@@ -60,10 +60,10 @@ class AccountReceivableViewModel{
     var detailParameter: AccountReceivableDetailParameter = .init()
     var data: AccountReceivableDataResponse?
     func onGetAccountReceivableDetail(parameter: AccountReceivableDetailParameter){
+        self.detailParameter = parameter
         AccountReceivableService.shared.onAccountReceivableDetail(parameter: detailParameter) { reponse in
             DispatchQueue.main.async {[self] in
                 data = reponse.data
-                print("viewModel: ==>",data ?? "")
                 onAccountReceivableDetailUpdateState = .success
             }
         } failure: { error in
