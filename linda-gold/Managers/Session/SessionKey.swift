@@ -9,5 +9,6 @@ import Foundation
 
 enum SessionKey: String {
     case authenticate  = "authenticate"
-    case deviceToken  = "deviceToken"
+    case deviceToken   = "deviceToken"
+    case getProfile    = "getProfile"
 }

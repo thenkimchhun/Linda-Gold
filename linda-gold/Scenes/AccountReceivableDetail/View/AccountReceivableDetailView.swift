@@ -1,5 +1,5 @@
 //
-//  PresentAccountReceivableView.swift
+//  AccountReceivableDetailView.swift
 //  linda-gold
 //
 //  Created by Chhun on 1/17/24.
@@ -9,82 +9,60 @@
 import UIKit
 
 
-class PresentAccountReceivableView: BaseView{
-    let tableView  = UITableView()
+class AccountReceivableDetailView: BaseView{
+    let scrollView = ScrollableStackView()
+    let profileHeader = PresentHeaderView()
+    let invoiceNoView = CPNHoriziontalTextView()
+    let totalPurchaseView = CPNHoriziontalTextView()
+    var data: AccountReceivableDataResponse?{
+        didSet{
+            bindPresentAccountReceivableView()
+        }
+    }
     var actionCloseBtn: (()->Void)?
     override func setupComponent() {
-        addSubview(tableView)
-        tableView.separatorColor = .none
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(PresentAccountReceivableViewCell.self, forCellReuseIdentifier: "PresentAccountReceivableViewCell")
+        addSubview(scrollView)
+        scrollView.spacing = 16
+        scrollView.add(view: profileHeader)
+//        profileHeader.StatuLabel.
+        scrollView.add(view: invoiceNoView)
+        invoiceNoView.leftView.text = "Invoice No"
+        invoiceNoView.rightView.text = ": #47843"
+        invoiceNoView.rightView.font = .systemFont(ofSize: 16, weight: .bold)
     }
     override func setupConstraint() {
-        tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        scrollView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(scale(16))
+            make.left.right.equalToSuperview().inset(scale(24))
         }
+    }
+    private func bindPresentAccountReceivableView(){
+        profileHeader.titleLabel.text = data?.customer.fullName
+        profileHeader.desLabel.text = "No. \(data?.customer.id ?? "")"
+        profileHeader.StatuLabel.text = "Remain \(data?.arBalance.formatCurrencyNumber ?? "")"
+        profileHeader.StatuLabel.textColor = BaseColor.primarysColor
+        profileHeader.StatuLabel.backgroundColor = BaseColor.primaryColor3
+        
+        invoiceNoView.rightView.text = ": #\(data?.invoiceNumber ?? "")"
+        totalPurchaseView.rightView.text = ": \(data?.total.formatCurrencyNumber ?? "")"
     }
     
     @objc func clostButton(){
         actionCloseBtn?()
     }
-}
-
-extension PresentAccountReceivableView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PresentAccountReceivableViewCell = tableView.dequeueReusableCell(withIdentifier: "PresentAccountReceivableViewCell", for: indexPath) as! PresentAccountReceivableViewCell
-        cell.profileHeader.closeView.addTarget(self, action: #selector(clostButton), for: .touchUpInside)
-        return cell
-    }
-}
-
-
-
-// PresentAccountReceivableViewCell
-class PresentAccountReceivableViewCell: BaseTableViewCell {
-    let profileHeader = PresentHeaderView()
-    let stackView = UIStackView()
-    let invoiceNoView = CPNHoriziontalTextView()
-    let invoicelistView = CPNHoriziontalTextView()
-    let totalPurchaseView = CPNHoriziontalTextView()
-    override func setupComponent() {
-        contentView.isUserInteractionEnabled = true
-        selectionStyle = .none
-        addSubview(profileHeader)
-        profileHeader.StatuLabel.isHidden = true
-        addSubview(stackView)
-        stackView.axis = .vertical
-        stackView.spacing = 16
-        stackView.distribution = .fillProportionally
-        stackView.addArrangedSubview(invoiceNoView)
-        invoiceNoView.leftView.text = "Invoice No"
-        invoiceNoView.rightView.text = ": #47843"
-        invoiceNoView.rightView.font = .systemFont(ofSize: 16, weight: .bold)
-        stackView.addArrangedSubview(invoicelistView)
-        invoicelistView.leftView.text = "#1"
-        invoicelistView.rightView.text = ": $500 - 14 May 2022"
-        stackView.addArrangedSubview(totalPurchaseView)
+    func bindInvoiceList(){
+        for value in 0...5 {
+            let invoicelistView = CPNHoriziontalTextView()
+            scrollView.add(view: invoicelistView)
+            invoicelistView.leftView.text = "#\(value)"
+            invoicelistView.rightView.text = ": $500 - 14 May 2022"
+        }
+        scrollView.add(view: totalPurchaseView)
         totalPurchaseView.leftView.text = "Total Purchase"
         totalPurchaseView.rightView.text = ": $2700"
-        
     }
-    override func setupConstraint() {
-        profileHeader.snp.makeConstraints { make in
-            make.left.top.right.equalToSuperview().inset(scale(24))
-        }
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(profileHeader.snp.bottom).offset(scale(16))
-            make.left.right.bottom.equalToSuperview().inset(scale(24))
-        }
-    }
-    
 }
+    
 
 //MARK: - PresentHeaderView
 class PresentHeaderView: BaseView{
@@ -152,7 +130,7 @@ class PresentHeaderView: BaseView{
         lb.text = "Clear AR"
         lb.textColor = BaseColor.success
         lb.backgroundColor = BaseColor.successPrimary
-        lb.textInsets = UIEdgeInsets(top: 1, left: 9, bottom: 1, right: 9)
+        lb.textInsets = UIEdgeInsets(top: 4, left: 9, bottom: 4, right: 9)
         return lb
     }()
     var closeView: UIButton = {

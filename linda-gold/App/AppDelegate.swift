@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //MARK: handle func
 extension AppDelegate{
     func setupToRootView() {
+        print("AccessToken:",AuthHelper.getAccessToken)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         if AuthHelper.getAccessToken.isEmpty{

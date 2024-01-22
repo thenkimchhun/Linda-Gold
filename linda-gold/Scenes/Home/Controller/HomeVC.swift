@@ -22,11 +22,15 @@ class HomeVC: BaseVC {
     }
     
     fileprivate let homeView = HomeView()
+    let viewModel = HomeViewModel()
     override func setupComponent() {
         view.addSubview(homeView)
-        view.backgroundColor = .clear
+        view.backgroundColor = .white
     }
     override func setupEvent() {
+        Loading.showSpinner(onView: view)
+        viewModel.delegate = self
+        viewModel.onGetAccount()
         // notification
         homeView.onDidSelecteNotification = {[self] in
             let vc = NotificationVC()
@@ -41,7 +45,20 @@ class HomeVC: BaseVC {
     }
     override func setupConstraint() {
         homeView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+}
+
+extension HomeVC: ProfileAdminDelegate{
+    func onGetAccountUpdateState() {
+        Loading.removeSpinner()
+        switch viewModel.onGetProfileUpdatestate {
+        case .succes:
+            SessionManager.shared.setter(key: .getProfile, param: viewModel.profileData)
+        case .failure(let eror):
+            print("error",eror.message)
+        case .none: break
         }
     }
 }

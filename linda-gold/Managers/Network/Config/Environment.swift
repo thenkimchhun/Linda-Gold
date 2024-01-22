@@ -8,7 +8,14 @@
 import Foundation
 
 final class Environment {
-
+    static let BASE_KEY_URL    = infoForKey("Base key url")!
+    
+    // Filter object in info.plist
+    static func infoForKey(_ key: String) -> String? {
+        return (Bundle.main.infoDictionary?[key] as? String)?
+            .replacingOccurrences(of: "\\", with: "")
+    }
+    
 #if LOCAL
     static let gateway = "http://192.168.4.154:9090/client"
     static let getXApiAuthKey = ""

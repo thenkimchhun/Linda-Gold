@@ -26,6 +26,22 @@
 		049CDA1B27A10523000DCC0E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CDA1A27A10523000DCC0E /* UIView.swift */; };
 		049CDA2D27A13DA1000DCC0E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CDA2C27A13DA1000DCC0E /* String.swift */; };
 		05A70DD1F8C33B320F2A8980 /* Pods_linda_gold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594744F13F06C4FBC8775F56 /* Pods_linda_gold.framework */; };
+		24048C382B5D5D02008BC045 /* AccountReceivableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C372B5D5D02008BC045 /* AccountReceivableModel.swift */; };
+		24048C3C2B5D5F37008BC045 /* AccountReceivableResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C3B2B5D5F37008BC045 /* AccountReceivableResource.swift */; };
+		24048C3E2B5D5F45008BC045 /* AccountReceivableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C3D2B5D5F45008BC045 /* AccountReceivableService.swift */; };
+		24048C402B5D619D008BC045 /* FilterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C3F2B5D619D008BC045 /* FilterParameter.swift */; };
+		24048C462B5D679B008BC045 /* AccountReceivableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C452B5D679B008BC045 /* AccountReceivableViewModel.swift */; };
+		24048C482B5D67E0008BC045 /* AccountReceivableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C472B5D67E0008BC045 /* AccountReceivableDelegate.swift */; };
+		24048C4A2B5D7262008BC045 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C492B5D7262008BC045 /* Double.swift */; };
+		24048C4D2B5D7660008BC045 /* MJRefreshNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C4C2B5D7660008BC045 /* MJRefreshNormal.swift */; };
+		24048C4F2B5D76B1008BC045 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C4E2B5D76B1008BC045 /* UIImage.swift */; };
+		24048C512B5DFA3F008BC045 /* AccountReceivableFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C502B5DFA3F008BC045 /* AccountReceivableFilterModel.swift */; };
+		24048C532B5DFE9E008BC045 /* AccountReceivableFilterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C522B5DFE9E008BC045 /* AccountReceivableFilterParameter.swift */; };
+		24048C572B5E0304008BC045 /* AccountReceivableFilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C562B5E0304008BC045 /* AccountReceivableFilterDelegate.swift */; };
+		24048C592B5E037A008BC045 /* AccountReceivableFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C582B5E037A008BC045 /* AccountReceivableFilterViewModel.swift */; };
+		24048C5B2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C5A2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift */; };
+		24048C662B5E2762008BC045 /* AccountReceivableDetailParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C652B5E2762008BC045 /* AccountReceivableDetailParameter.swift */; };
+		24048C682B5E2E15008BC045 /* AccountReceivableDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C672B5E2E15008BC045 /* AccountReceivableDetailModel.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
 		2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6712B55138100EEBD0A /* CPNTextField.swift */; };
 		2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6782B5523C900EEBD0A /* NotificationVC.swift */; };
@@ -44,8 +60,8 @@
 		2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */; };
 		24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */; };
 		24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */; };
-		24AFC2AC2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AB2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift */; };
-		24AFC2AE2B57B40B00E5D157 /* PresentAccountReceivableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AD2B57B40B00E5D157 /* PresentAccountReceivableView.swift */; };
+		24AFC2AC2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AB2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift */; };
+		24AFC2AE2B57B40B00E5D157 /* AccountReceivableDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AD2B57B40B00E5D157 /* AccountReceivableDetailView.swift */; };
 		24AFC2B72B57C71300E5D157 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2B62B57C71300E5D157 /* HistoryView.swift */; };
 		24AFC2B92B57C7A200E5D157 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2B82B57C7A200E5D157 /* RequestView.swift */; };
 		24AFC2BB2B57D58100E5D157 /* CPNButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */; };
@@ -61,7 +77,6 @@
 		24AFC2DC2B5A07C000E5D157 /* AccountReceivableFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2DB2B5A07C000E5D157 /* AccountReceivableFilterVC.swift */; };
 		24AFC2DE2B5A07E000E5D157 /* AccountReceivableFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2DD2B5A07E000E5D157 /* AccountReceivableFilterView.swift */; };
 		24AFC2E02B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2DF2B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift */; };
-		24AFC2E32B5A185200E5D157 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2E22B5A185200E5D157 /* FilterModel.swift */; };
 		24AFC2E52B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2E42B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift */; };
 		24AFC2E72B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2E62B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift */; };
 		24AFC2EC2B5A5EB600E5D157 /* ProfileAdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2EB2B5A5EB600E5D157 /* ProfileAdminVC.swift */; };
@@ -71,6 +86,10 @@
 		24AFC2F72B5A722600E5D157 /* NotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */; };
 		24AFC2F92B5AD1CB00E5D157 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2F82B5AD1CB00E5D157 /* Spinner.swift */; };
 		24AFC2FB2B5B552500E5D157 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2FA2B5B552500E5D157 /* LoginModel.swift */; };
+		24AFC2FE2B5B666600E5D157 /* ProfileAdminModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2FD2B5B666500E5D157 /* ProfileAdminModel.swift */; };
+		24AFC3012B5B6A1B00E5D157 /* AccountResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC3002B5B6A1B00E5D157 /* AccountResource.swift */; };
+		24AFC3032B5B6A4800E5D157 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC3022B5B6A4800E5D157 /* AccountService.swift */; };
+		24AFC3072B5B6D2300E5D157 /* ProfileAdminDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC3062B5B6D2300E5D157 /* ProfileAdminDelegate.swift */; };
 		24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */; };
 		24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */; };
 		24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */; };
@@ -181,6 +200,22 @@
 		049CDA1E27A12CEA000DCC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		049CDA2027A12CEA000DCC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		049CDA2C27A13DA1000DCC0E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		24048C372B5D5D02008BC045 /* AccountReceivableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableModel.swift; sourceTree = "<group>"; };
+		24048C3B2B5D5F37008BC045 /* AccountReceivableResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableResource.swift; sourceTree = "<group>"; };
+		24048C3D2B5D5F45008BC045 /* AccountReceivableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableService.swift; sourceTree = "<group>"; };
+		24048C3F2B5D619D008BC045 /* FilterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParameter.swift; sourceTree = "<group>"; };
+		24048C452B5D679B008BC045 /* AccountReceivableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableViewModel.swift; sourceTree = "<group>"; };
+		24048C472B5D67E0008BC045 /* AccountReceivableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDelegate.swift; sourceTree = "<group>"; };
+		24048C492B5D7262008BC045 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		24048C4C2B5D7660008BC045 /* MJRefreshNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJRefreshNormal.swift; sourceTree = "<group>"; };
+		24048C4E2B5D76B1008BC045 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		24048C502B5DFA3F008BC045 /* AccountReceivableFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterModel.swift; sourceTree = "<group>"; };
+		24048C522B5DFE9E008BC045 /* AccountReceivableFilterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterParameter.swift; sourceTree = "<group>"; };
+		24048C562B5E0304008BC045 /* AccountReceivableFilterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterDelegate.swift; sourceTree = "<group>"; };
+		24048C582B5E037A008BC045 /* AccountReceivableFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterViewModel.swift; sourceTree = "<group>"; };
+		24048C5A2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailDelegate.swift; sourceTree = "<group>"; };
+		24048C652B5E2762008BC045 /* AccountReceivableDetailParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailParameter.swift; sourceTree = "<group>"; };
+		24048C672B5E2E15008BC045 /* AccountReceivableDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailModel.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2405C6712B55138100EEBD0A /* CPNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextField.swift; sourceTree = "<group>"; };
 		2405C6782B5523C900EEBD0A /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -199,8 +234,8 @@
 		2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailView.swift; sourceTree = "<group>"; };
 		24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailCustomerInfoViewCell.swift; sourceTree = "<group>"; };
 		24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailItemsViewCell.swift; sourceTree = "<group>"; };
-		24AFC2AB2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAccountReceivableVC.swift; sourceTree = "<group>"; };
-		24AFC2AD2B57B40B00E5D157 /* PresentAccountReceivableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAccountReceivableView.swift; sourceTree = "<group>"; };
+		24AFC2AB2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailVC.swift; sourceTree = "<group>"; };
+		24AFC2AD2B57B40B00E5D157 /* AccountReceivableDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailView.swift; sourceTree = "<group>"; };
 		24AFC2B62B57C71300E5D157 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		24AFC2B82B57C7A200E5D157 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNButtonView.swift; sourceTree = "<group>"; };
@@ -216,7 +251,6 @@
 		24AFC2DB2B5A07C000E5D157 /* AccountReceivableFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterVC.swift; sourceTree = "<group>"; };
 		24AFC2DD2B5A07E000E5D157 /* AccountReceivableFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterView.swift; sourceTree = "<group>"; };
 		24AFC2DF2B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcctionReceivableFilterHeaderView.swift; sourceTree = "<group>"; };
-		24AFC2E22B5A185200E5D157 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		24AFC2E42B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterTypeViewCell.swift; sourceTree = "<group>"; };
 		24AFC2E62B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableFilterRangeDateViewCell.swift; sourceTree = "<group>"; };
 		24AFC2EB2B5A5EB600E5D157 /* ProfileAdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdminVC.swift; sourceTree = "<group>"; };
@@ -226,6 +260,10 @@
 		24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailView.swift; sourceTree = "<group>"; };
 		24AFC2F82B5AD1CB00E5D157 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		24AFC2FA2B5B552500E5D157 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		24AFC2FD2B5B666500E5D157 /* ProfileAdminModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdminModel.swift; sourceTree = "<group>"; };
+		24AFC3002B5B6A1B00E5D157 /* AccountResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResource.swift; sourceTree = "<group>"; };
+		24AFC3022B5B6A4800E5D157 /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		24AFC3062B5B6D2300E5D157 /* ProfileAdminDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdminDelegate.swift; sourceTree = "<group>"; };
 		24BD4FED2B56C8AD00CD9CE0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		24BD4FEF2B56C8C800CD9CE0 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		24BD4FF42B57674000CD9CE0 /* PendingApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalVC.swift; sourceTree = "<group>"; };
@@ -431,6 +469,55 @@
 			path = Dev;
 			sourceTree = "<group>";
 		};
+		24048C392B5D5F16008BC045 /* AccountReceivable */ = {
+			isa = PBXGroup;
+			children = (
+				24048C3B2B5D5F37008BC045 /* AccountReceivableResource.swift */,
+				24048C3D2B5D5F45008BC045 /* AccountReceivableService.swift */,
+			);
+			path = AccountReceivable;
+			sourceTree = "<group>";
+		};
+		24048C442B5D6787008BC045 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				24048C452B5D679B008BC045 /* AccountReceivableViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		24048C4B2B5D7657008BC045 /* MJRefreshNormal */ = {
+			isa = PBXGroup;
+			children = (
+				24048C4C2B5D7660008BC045 /* MJRefreshNormal.swift */,
+			);
+			path = MJRefreshNormal;
+			sourceTree = "<group>";
+		};
+		24048C542B5E02C4008BC045 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				24048C562B5E0304008BC045 /* AccountReceivableFilterDelegate.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		24048C552B5E02E8008BC045 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				24048C582B5E037A008BC045 /* AccountReceivableFilterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		24048C5C2B5E0889008BC045 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				24048C5A2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
 		2405C66E2B55129400EEBD0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +571,7 @@
 		2405C67F2B552FEB00EEBD0A /* AccountReceivable */ = {
 			isa = PBXGroup;
 			children = (
+				24048C442B5D6787008BC045 /* ViewModel */,
 				2405C6832B55301800EEBD0A /* Interface */,
 				2405C6822B55301200EEBD0A /* Model */,
 				2405C6812B55300C00EEBD0A /* View */,
@@ -514,6 +602,10 @@
 		2405C6822B55301200EEBD0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				24048C652B5E2762008BC045 /* AccountReceivableDetailParameter.swift */,
+				24048C372B5D5D02008BC045 /* AccountReceivableModel.swift */,
+				24048C3F2B5D619D008BC045 /* FilterParameter.swift */,
+				24048C672B5E2E15008BC045 /* AccountReceivableDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -521,6 +613,7 @@
 		2405C6832B55301800EEBD0A /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				24048C472B5D67E0008BC045 /* AccountReceivableDelegate.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -586,19 +679,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		24AFC2A82B57B3B400E5D157 /* PresentAccountReceivable */ = {
+		24AFC2A82B57B3B400E5D157 /* AccountReceivableDetail */ = {
 			isa = PBXGroup;
 			children = (
+				24048C5C2B5E0889008BC045 /* Interface */,
 				24AFC2AA2B57B3D400E5D157 /* View */,
 				24AFC2A92B57B3CA00E5D157 /* Controller */,
 			);
-			path = PresentAccountReceivable;
+			path = AccountReceivableDetail;
 			sourceTree = "<group>";
 		};
 		24AFC2A92B57B3CA00E5D157 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				24AFC2AB2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift */,
+				24AFC2AB2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -606,7 +700,7 @@
 		24AFC2AA2B57B3D400E5D157 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				24AFC2AD2B57B40B00E5D157 /* PresentAccountReceivableView.swift */,
+				24AFC2AD2B57B40B00E5D157 /* AccountReceivableDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -639,6 +733,8 @@
 		24AFC2D82B5A079200E5D157 /* AccountReceivableFilter */ = {
 			isa = PBXGroup;
 			children = (
+				24048C552B5E02E8008BC045 /* ViewModel */,
+				24048C542B5E02C4008BC045 /* Interface */,
 				24AFC2E12B5A184000E5D157 /* Model */,
 				24AFC2DA2B5A07B100E5D157 /* View */,
 				24AFC2D92B5A07A900E5D157 /* Controller */,
@@ -668,7 +764,8 @@
 		24AFC2E12B5A184000E5D157 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				24AFC2E22B5A185200E5D157 /* FilterModel.swift */,
+				24048C502B5DFA3F008BC045 /* AccountReceivableFilterModel.swift */,
+				24048C522B5DFE9E008BC045 /* AccountReceivableFilterParameter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,6 +773,9 @@
 		24AFC2E82B5A5E7200E5D157 /* ProfileAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				24AFC3052B5B6D0A00E5D157 /* ViewModel */,
+				24AFC3042B5B6CFB00E5D157 /* Interface */,
+				24AFC2FC2B5B665400E5D157 /* Model */,
 				24AFC2EA2B5A5EA600E5D157 /* View */,
 				24AFC2E92B5A5EA100E5D157 /* Controller */,
 			);
@@ -721,6 +821,38 @@
 				24AFC2F62B5A722600E5D157 /* NotificationDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		24AFC2FC2B5B665400E5D157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC2FD2B5B666500E5D157 /* ProfileAdminModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24AFC2FF2B5B69EE00E5D157 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC3002B5B6A1B00E5D157 /* AccountResource.swift */,
+				24AFC3022B5B6A4800E5D157 /* AccountService.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		24AFC3042B5B6CFB00E5D157 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				24AFC3062B5B6D2300E5D157 /* ProfileAdminDelegate.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		24AFC3052B5B6D0A00E5D157 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		24BD4FEC2B56C88400CD9CE0 /* TabBar */ = {
@@ -900,6 +1032,8 @@
 		79BCAFF82B32D1D100FD223F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				24048C392B5D5F16008BC045 /* AccountReceivable */,
+				24AFC2FF2B5B69EE00E5D157 /* Account */,
 				79BCB0082B32E74B00FD223F /* Authentication */,
 			);
 			path = Services;
@@ -1046,16 +1180,16 @@
 		D907823B24AD7D9300AC95C4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				24AFC2F12B5A71DA00E5D157 /* NotificationDetails */,
-				24AFC2E82B5A5E7200E5D157 /* ProfileAdmin */,
-				24AFC2D82B5A079200E5D157 /* AccountReceivableFilter */,
 				2405C67F2B552FEB00EEBD0A /* AccountReceivable */,
+				24AFC2A82B57B3B400E5D157 /* AccountReceivableDetail */,
+				24AFC2D82B5A079200E5D157 /* AccountReceivableFilter */,
 				D907823D24AD7DAE00AC95C4 /* Home */,
 				79BCB00B2B32E7CD00FD223F /* Login */,
 				2405C6732B55239900EEBD0A /* Notification */,
+				24AFC2F12B5A71DA00E5D157 /* NotificationDetails */,
 				24BD4FF12B57671600CD9CE0 /* PendingApproval */,
 				24AFC2D12B5982A700E5D157 /* PendingApprovalHistory */,
-				24AFC2A82B57B3B400E5D157 /* PresentAccountReceivable */,
+				24AFC2E82B5A5E7200E5D157 /* ProfileAdmin */,
 				2405C6922B562A6500EEBD0A /* SaleOrder */,
 				2405C69C2B5634A000EEBD0A /* SaleORderDetail */,
 			);
@@ -1112,6 +1246,8 @@
 				D907826624AD851A00AC95C4 /* UIViewController.swift */,
 				D907826324AD844200AC95C4 /* UIWindow.swift */,
 				24AFC2C12B58BAE300E5D157 /* UIButton.swift */,
+				24048C492B5D7262008BC045 /* Double.swift */,
+				24048C4E2B5D76B1008BC045 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1119,6 +1255,7 @@
 		D907828A24AEE98100AC95C4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				24048C4B2B5D7657008BC045 /* MJRefreshNormal */,
 				794DF7752B352C7700334D11 /* AlertDefault.swift */,
 				79BCB0012B32D2CA00FD223F /* CameraService.swift */,
 				2405C68E2B56102900EEBD0A /* PaddingLabel.swift */,
@@ -1326,6 +1463,7 @@
 			files = (
 				049CD9E527A0DFDA000DCC0E /* HTTPMethod.swift in Sources */,
 				2405C68F2B56102900EEBD0A /* PaddingLabel.swift in Sources */,
+				24AFC3072B5B6D2300E5D157 /* ProfileAdminDelegate.swift in Sources */,
 				794F23742B31912000082ECA /* AuthHelper.swift in Sources */,
 				79BCAFE12B32C5E000FD223F /* ConstraintMaker.swift in Sources */,
 				2405C6992B562B8700EEBD0A /* SaleOrderView.swift in Sources */,
@@ -1361,22 +1499,29 @@
 				D907825524AD804500AC95C4 /* AppConstants.swift in Sources */,
 				D907826124AD821700AC95C4 /* HomeVC.swift in Sources */,
 				79BCAFE82B32C5E000FD223F /* ConstraintRelatableTarget.swift in Sources */,
+				24048C572B5E0304008BC045 /* AccountReceivableFilterDelegate.swift in Sources */,
 				D907826B24AD8D1900AC95C4 /* UIColor.swift in Sources */,
 				79BCAFCA2B32C5E000FD223F /* LayoutConstraintItem.swift in Sources */,
 				24AFC2C22B58BAE300E5D157 /* UIButton.swift in Sources */,
+				24048C532B5DFE9E008BC045 /* AccountReceivableFilterParameter.swift in Sources */,
 				24AFC2C62B58CCB000E5D157 /* ProgressItemsView.swift in Sources */,
 				79BCAFD82B32C5E000FD223F /* ConstraintConfig.swift in Sources */,
 				D907826424AD844200AC95C4 /* UIWindow.swift in Sources */,
 				79BCB0172B32F03600FD223F /* LoginDelegate.swift in Sources */,
 				79BCAFF32B32CFF800FD223F /* NotificationCenter.swift in Sources */,
+				24048C5B2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift in Sources */,
 				2405C68B2B55771400EEBD0A /* AccountReceivableViewCell.swift in Sources */,
+				24048C512B5DFA3F008BC045 /* AccountReceivableFilterModel.swift in Sources */,
+				24AFC3032B5B6A4800E5D157 /* AccountService.swift in Sources */,
 				79BCB00E2B32E7EC00FD223F /* LoginParameter.swift in Sources */,
 				79BCB0042B32D2D700FD223F /* NotificationManager.swift in Sources */,
-				24AFC2AC2B57B3EF00E5D157 /* PresentAccountReceivableVC.swift in Sources */,
+				24AFC2AC2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift in Sources */,
 				79BCAFCD2B32C5E000FD223F /* ConstraintAttributes.swift in Sources */,
 				2405C6892B553ADA00EEBD0A /* HeaderTotalARView.swift in Sources */,
 				2405C67E2B55258600EEBD0A /* NotificationViewCell.swift in Sources */,
 				24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */,
+				24048C3E2B5D5F45008BC045 /* AccountReceivableService.swift in Sources */,
+				24AFC2FE2B5B666600E5D157 /* ProfileAdminModel.swift in Sources */,
 				049CD9F927A0DFDA000DCC0E /* BaseAPIService.swift in Sources */,
 				D9E4992028C6FCC800E7AD6D /* BaseCollectionViewCell.swift in Sources */,
 				D9A8CB9D24AD7AE0007B0CC8 /* AppDelegate.swift in Sources */,
@@ -1402,6 +1547,7 @@
 				D907829A24AF2C6200AC95C4 /* HomeViewModel.swift in Sources */,
 				D907828724AEE26100AC95C4 /* Encodable.swift in Sources */,
 				24AFC2DC2B5A07C000E5D157 /* AccountReceivableFilterVC.swift in Sources */,
+				24048C4A2B5D7262008BC045 /* Double.swift in Sources */,
 				79BCAFD12B32C5E000FD223F /* ConstraintMakerFinalizable.swift in Sources */,
 				79BCAFF62B32D11200FD223F /* LocalizeHelper.swift in Sources */,
 				A255B83D2901563C00DCEE28 /* HomeView.swift in Sources */,
@@ -1420,31 +1566,39 @@
 				79BCB00A2B32E78500FD223F /* AuthenticationResource.swift in Sources */,
 				D907829E24B0380300AC95C4 /* HomeModel.swift in Sources */,
 				79BCAFD72B32C5E000FD223F /* ConstraintMakerRelatable+Extensions.swift in Sources */,
+				24048C3C2B5D5F37008BC045 /* AccountReceivableResource.swift in Sources */,
 				79BCB0022B32D2CA00FD223F /* CameraService.swift in Sources */,
 				79BCAFD62B32C5E000FD223F /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				79BCAFF12B32CF7800FD223F /* AppStatus.swift in Sources */,
+				24048C462B5D679B008BC045 /* AccountReceivableViewModel.swift in Sources */,
 				24BD4FFD2B5769C700CD9CE0 /* Vibration.swift in Sources */,
 				049CD9E127A0DFDA000DCC0E /* ParameterEncoding.swift in Sources */,
 				79BCB0002B32D23B00FD223F /* LanguageTranslationModel.swift in Sources */,
 				24AFC2E02B5A09BB00E5D157 /* AcctionReceivableFilterHeaderView.swift in Sources */,
 				24AFC2F52B5A720900E5D157 /* NotificationDetailVC.swift in Sources */,
+				24048C4F2B5D76B1008BC045 /* UIImage.swift in Sources */,
 				049CD9FA27A0DFDA000DCC0E /* NetworkLogger.swift in Sources */,
 				24AFC2F02B5A633C00E5D157 /* ScrolllabelStackView.swift in Sources */,
+				24048C402B5D619D008BC045 /* FilterParameter.swift in Sources */,
 				24AFC2C02B58318F00E5D157 /* HomeHeaderView.swift in Sources */,
 				79BCAFDD2B32C5E000FD223F /* Typealiases.swift in Sources */,
 				A255B838290155EA00DCEE28 /* UICollectionView.swift in Sources */,
 				049CD9E827A0DFDA000DCC0E /* TargetType.swift in Sources */,
+				24048C662B5E2762008BC045 /* AccountReceivableDetailParameter.swift in Sources */,
 				2405C6912B56197300EEBD0A /* CPNHoriziontalTextView.swift in Sources */,
 				24AFC2B92B57C7A200E5D157 /* RequestView.swift in Sources */,
 				79B28D202B33E4F300AA48DE /* NetworkResponseState.swift in Sources */,
 				2405C6852B55302200EEBD0A /* AccountReceivableVC.swift in Sources */,
 				24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */,
+				24048C682B5E2E15008BC045 /* AccountReceivableDetailModel.swift in Sources */,
 				79BCAFD52B32C5E000FD223F /* ConstraintInsetTarget.swift in Sources */,
 				049CDA0B27A0E75C000DCC0E /* Connectivity.swift in Sources */,
 				D907829524AF1E2B00AC95C4 /* UINavigationController.swift in Sources */,
 				24AFC2D72B5982F900E5D157 /* PendingApprovalHistoryView.swift in Sources */,
+				24048C4D2B5D7660008BC045 /* MJRefreshNormal.swift in Sources */,
 				049CD9E227A0DFDA000DCC0E /* URLParameterEncoder.swift in Sources */,
 				D95CAA1428D06AAA00E59CF6 /* LocationManager.swift in Sources */,
+				24048C382B5D5D02008BC045 /* AccountReceivableModel.swift in Sources */,
 				79BCAFFC2B32D20A00FD223F /* SessionKey.swift in Sources */,
 				A255B83A2901560A00DCEE28 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				79BCAFDE2B32C5E000FD223F /* ConstraintConstantTarget.swift in Sources */,
@@ -1460,17 +1614,19 @@
 				24AFC2EE2B5A5ED300E5D157 /* ProfileAdminView.swift in Sources */,
 				79BCAFE52B32C5E000FD223F /* ConstraintItem.swift in Sources */,
 				D9E4992128C6FCC800E7AD6D /* BaseView.swift in Sources */,
+				24AFC3012B5B6A1B00E5D157 /* AccountResource.swift in Sources */,
 				24AFC2C82B58D59400E5D157 /* ItemsBoxView.swift in Sources */,
-				24AFC2AE2B57B40B00E5D157 /* PresentAccountReceivableView.swift in Sources */,
+				24AFC2AE2B57B40B00E5D157 /* AccountReceivableDetailView.swift in Sources */,
 				049CD9E427A0DFDA000DCC0E /* NetworkResponse.swift in Sources */,
 				79BCAFE22B32C5E000FD223F /* ConstraintRelation.swift in Sources */,
 				D907826724AD851A00AC95C4 /* UIViewController.swift in Sources */,
-				24AFC2E32B5A185200E5D157 /* FilterModel.swift in Sources */,
+				24048C482B5D67E0008BC045 /* AccountReceivableDelegate.swift in Sources */,
 				24AFC2E52B5A1D6300E5D157 /* AccountReceivableFilterTypeViewCell.swift in Sources */,
 				24BD4FF72B57675C00CD9CE0 /* PendingApprovalView.swift in Sources */,
 				79BCAFCC2B32C5E000FD223F /* ConstraintDescription.swift in Sources */,
 				79BCAFE02B32C5E000FD223F /* ConstraintMakerEditable.swift in Sources */,
 				24AFC2DE2B5A07E000E5D157 /* AccountReceivableFilterView.swift in Sources */,
+				24048C592B5E037A008BC045 /* AccountReceivableFilterViewModel.swift in Sources */,
 				24BD4FFF2B5770F600CD9CE0 /* SearchTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

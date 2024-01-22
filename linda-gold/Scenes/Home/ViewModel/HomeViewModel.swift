@@ -10,6 +10,28 @@ import UIKit
 
 
 class HomeViewModel {
-   
+    // account
+    weak var delegate: ProfileAdminDelegate?
+    var onGetProfileUpdatestate: ProfileAdminDelegateState!{
+        didSet{
+            delegate?.onGetAccountUpdateState()
+        }
+    }
+    var profileData: ProfileAdminDataResponse?
+    func onGetAccount(){
+        AccountService.shared.onAccountProfile { response in
+            DispatchQueue.main.async {[self] in
+                profileData = response.data
+                onGetProfileUpdatestate = .succes
+            }
+        } failure: { error in
+            DispatchQueue.main.async {[self] in
+                if let error = error {
+                    onGetProfileUpdatestate = .failure(error)
+                }
+            }
+        }
+
+    }
     
 }

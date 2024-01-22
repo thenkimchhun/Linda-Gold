@@ -10,8 +10,10 @@ import UIKit
 class ProfileAdminView: BaseView{
     let scrollView = ScrollableStackView()
     let profileView = ProfileView()
+    var profileData = AuthHelper.getProfile
     var onActionLogout: (()->Void)?
     override func setupComponent() {
+        bindProfileView()
         addSubview(scrollView)
         scrollView.add(view: profileView)
         scrollView.spacing = scale(20)
@@ -38,6 +40,17 @@ class ProfileAdminView: BaseView{
         logoutButton.snp.makeConstraints { make in
             make.height.equalTo(scale(45))
         }
+    }
+    func bindProfileView(){
+        if let data = profileData{
+            profileView.profileImage.image = UIImage(named: data.image ?? "ic_admin")
+            fullNameView.rightView.text = data.fullName
+            emailView.rightView.text = data.email
+            primaryPhoneView.rightView.text = data.primaryPhone
+            secondaryPhoneView.rightView.text = data.secondaryPhone
+            roleView.rightView.text = data.role.title
+        }
+       
     }
     var fullNameView: CPNHoriziontalTextView = {
         let name = CPNHoriziontalTextView()

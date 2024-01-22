@@ -7,6 +7,8 @@ target 'linda-gold' do
 
   # Pods for linda-gold
     pod 'PanModal'
+    pod 'MJRefresh'
+    pod 'Nuke', '~> 9.0'
 
 
 end

@@ -23,4 +23,13 @@ class AuthHelper {
         }
         return userObject
     }
+    
+    static var getProfile: ProfileAdminDataResponse?{
+        var getProfile: ProfileAdminDataResponse?
+        SessionManager.shared.getter(key: .getProfile) { (data: ProfileAdminDataResponse?) in
+            getProfile = data
+        }
+       return getProfile
+    }
+   
 }

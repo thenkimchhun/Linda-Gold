@@ -1,5 +1,5 @@
 //
-//  PresentAccountReceivableVC.swift
+// AccountReceivableDetailVC.swift
 //  linda-gold
 //
 //  Created by Chhun on 1/17/24.
@@ -8,8 +8,23 @@
 
 import UIKit
 import PanModal
-class PresentAccountReceivableVC: BaseVC{
-    let presentAccountReceivableView = PresentAccountReceivableView()
+class AccountReceivableDetailVC: BaseVC{
+    let presentAccountReceivableView = AccountReceivableDetailView()
+    private var data: AccountReceivableDataResponse?{
+        didSet{
+            print("data: ==>",data ?? "")
+        }
+    }
+    init(data: AccountReceivableDataResponse? = nil) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func setupComponent() {
         view.addSubview(presentAccountReceivableView)
     }
@@ -17,6 +32,8 @@ class PresentAccountReceivableVC: BaseVC{
         presentAccountReceivableView.actionCloseBtn = {
             self.dismiss(animated: true)
         }
+        presentAccountReceivableView.bindInvoiceList()
+        
     }
     override func setupConstraint() {
         presentAccountReceivableView.snp.makeConstraints { make in
@@ -25,12 +42,12 @@ class PresentAccountReceivableVC: BaseVC{
     }
 }
 
-extension PresentAccountReceivableVC: PanModalPresentable {
+extension AccountReceivableDetailVC: PanModalPresentable {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
     var panScrollable: UIScrollView? {
-        return presentAccountReceivableView.tableView
+        return presentAccountReceivableView.scrollView.scrollView
     }
     
     var anchorModalToLongForm: Bool {

@@ -32,4 +32,82 @@ extension String {
                 .compare(otherVersionComponents.joined(separator: versionDelimiter), options: .numeric) // <6>
         }
     }
+    
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8, allowLossyConversion: true) else { return NSAttributedString() }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return NSAttributedString()
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+    func getWidth(size: CGFloat,weight: UIFont.Weight = .regular) -> CGFloat {
+        return self.size(withAttributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: weight)
+        ]).width
+    }
+    
+    func capitalizingFirstLetter() -> String {
+      return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+    enum DateFormat: String {
+            case date = "dd MMM yyyy"
+            case date_time = "dd MMM yyyy, h:mm a"
+            case time = "HH:mm a"
+            case date_utc = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            
+    }
+    func formatDate(formatString: DateFormat = .date) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateFormat = formatString.rawValue
+            dateFormatter.amSymbol = "am"
+            dateFormatter.pmSymbol = "pm"
+            dateFormatter.locale = Locale(identifier: "km" == "km" ? "km_KH": "en_US")
+            return dateFormatter.string(from: date)
+        }
+        return nil
+    }
+    
+    var startDateUTC: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        formatter.locale = Locale(identifier: "km")
+        formatter.calendar = .init(identifier: .gregorian)
+        if let convertedDate = formatter.date(from: self) {
+            let startOfDay = convertedDate.startOfDay
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            return formatter.string(from: startOfDay)
+        }
+        return ""
+    }
+    var endDateUTC: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        formatter.locale = Locale(identifier: "km")
+        formatter.calendar = .init(identifier: .gregorian)
+        if let convertedDate = formatter.date(from: self){
+            let endOfDay = convertedDate.endOfDay
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            return formatter.string(from: endOfDay)
+        }
+        return ""
+    }
+    
+}
+
+
+extension Date {
+
+    var startOfDay: Date {
+        return Calendar.current.date(bySettingHour: 00 , minute: 00, second: 00, of: self) ?? self
+    }
+    var endOfDay: Date {
+        return Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: self) ?? self
+    }
 }

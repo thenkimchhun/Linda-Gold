@@ -15,3 +15,21 @@ struct APIResponseError: Codable {
             try? JSONEncoder().encode(self)
         }
 }
+
+struct MetaModel: Codable{
+    let total: Int
+    let limit: Int
+    let offset: Int
+    init(total: Int = 0, limit: Int = 0, offset: Int = 0) {
+        self.total = total
+        self.limit = limit
+        self.offset = offset
+    }
+}
+
+
+enum UserActions {
+    case nornal
+    case pullRefresh
+    case infiniteScroll
+}

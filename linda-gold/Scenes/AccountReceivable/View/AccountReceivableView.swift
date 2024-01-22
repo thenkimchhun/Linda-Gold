@@ -12,8 +12,13 @@ class AccountReceivableView: BaseView{
     let tableView = UITableView()
     let dayListView = DaysListView()
     var selectedDay: Bool = true
-    var ondidSelectRowAt: (()->Void)?
+    var ondidSelectRowAt: ((AccountReceivableDataResponse)->Void)?
     var onActionFilterButton: (()->Void)?
+    var dataList: [AccountReceivableDataResponse] = []{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     override func setupComponent() {
         backgroundColor = .clear
         addSubview(headerTotalARView)
@@ -113,15 +118,31 @@ class AccountReceivableView: BaseView{
 
 extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: AccountReceivableViewCell = tableView.dequeueReusableCell(withIdentifier: "AccountReceivableViewCell", for: indexPath) as! AccountReceivableViewCell
+        bindAccountReceivableViewCell(cell: cell, cellForRowAt: indexPath)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ondidSelectRowAt?()
+        let data = dataList[indexPath.row]
+        ondidSelectRowAt?(data)
+    }
+    private func bindAccountReceivableViewCell(cell: AccountReceivableViewCell, cellForRowAt indexPath: IndexPath){
+        let data = dataList[indexPath.row]
+        cell.headerProfileView.profileView.image = UIImage(named: data.customer.image ?? "")
+        cell.headerProfileView.titleLabel.text = data.customer.fullName
+        cell.headerProfileView.desLabel.text = "No. \(data.customer.id)"
+        cell.headerProfileView.rithStatus.text = "Remain \(data.arBalance.formatCurrencyNumber)"
+        cell.headerProfileView.rithStatus.textColor = BaseColor.primarysColor
+        cell.headerProfileView.rithStatus.backgroundColor = BaseColor.primaryColor3
+        
+        cell.paymentView.rightView.text = ": \(data.lastPayment?.formatCurrencyNumber)"
+        cell.invoiceNoView.rightView.text = ": #\(data.invoiceNumber)"
+        cell.paymentDateView.rightView.text = ": \(data.lastPaymentDate?.startDateUTC ?? "")"
+        cell.totalPurchaseView.rightView.text = ": \(data.total.formatCurrencyNumber)"
     }
 
 }
