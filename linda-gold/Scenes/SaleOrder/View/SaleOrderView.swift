@@ -10,6 +10,11 @@ import UIKit
 class SaleOrderView: BaseView{
     let tableView = UITableView()
     var onDidSelectRowAt: (()->Void)?
+    var saleOrderList: [SaleOrderDataResponse] = []{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorStyle = .none
@@ -28,16 +33,27 @@ class SaleOrderView: BaseView{
 
 extension SaleOrderView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return saleOrderList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SaleOrderViewCell = tableView.dequeueReusableCell(withIdentifier: "SaleOrderViewCell", for: indexPath) as! SaleOrderViewCell
+        bindSaleOrderViewCell(cell: cell, cellForRowAt: indexPath)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         onDidSelectRowAt?()
         print("clicked")
+    }
+    func bindSaleOrderViewCell(cell: SaleOrderViewCell, cellForRowAt indexPath: IndexPath){
+        let data = saleOrderList[indexPath.row]
+        cell.statusColor.backgroundColor = AppStatus.Status.init(rawValue: data.status)?.instantColor
+        cell.profileView.titleLabel.text = data.customer.fullName
+        cell.profileView.desLabel.text = data.customer.code
+        cell.orderIdView.rightView.text = ": \(data.id)"
+        cell.orderDateView.rightView.text = ": \(data.orderDate.formatDate() ?? "")"
+        cell.orderStatusView.rightView.text = ": \(data.status)"
+        cell.totalAmountView.rightView.text = ": \(data.total.formatCurrencyNumber)"
     }
     
 }

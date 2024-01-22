@@ -10,6 +10,7 @@ import UIKit
 
 class SaleOrderViewCell: BaseTableViewCell{
     let containerView = UIView()
+    let statusColor = UIView()
     let profileView = HeaderProfileView()
     let stackView = UIStackView()
     let orderIdView = CPNHoriziontalTextView()
@@ -26,6 +27,11 @@ class SaleOrderViewCell: BaseTableViewCell{
         containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
         containerView.layer.shadowRadius = 6.0
     
+        containerView.addSubview(statusColor)
+        statusColor.backgroundColor = .gray
+        statusColor.layer.cornerRadius = 10
+        statusColor.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        
         containerView.addSubview(profileView)
         profileView.rithStatus.isHidden = true
         containerView.addSubview(stackView)
@@ -50,6 +56,10 @@ class SaleOrderViewCell: BaseTableViewCell{
         containerView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(scale(16/2))
             make.left.right.equalToSuperview().inset(scale(16))
+        }
+        statusColor.snp.makeConstraints { make in
+            make.top.left.bottom.equalToSuperview()
+            make.width.equalTo(scale(10)).priority(750)
         }
         profileView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview().inset(scale(16))

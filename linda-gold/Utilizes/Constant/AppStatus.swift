@@ -17,10 +17,10 @@ struct AppStatus {
         
         var instantColor: UIColor {
             switch self {
-            case .pending: return UIColor.orange
-            case .arPay: return UIColor.gray
-            case .completed: return UIColor.green
-            case .canceled: return UIColor.red
+            case .pending: return BaseColor.primarysColor
+            case .arPay: return BaseColor.gray
+            case .completed: return BaseColor.success
+            case .canceled: return BaseColor.error
             }
         }
     }

@@ -36,7 +36,6 @@ struct SaleOrderDataResponse: Codable{
     let isAR: Bool
     let discountApproval: Double?
     let admin: Admin
-    let paymentMethod: Double?
     let customer: Customer
 }
 struct Admin: Codable{

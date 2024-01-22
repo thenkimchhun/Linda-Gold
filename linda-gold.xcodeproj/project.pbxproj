@@ -46,6 +46,8 @@
 		24048C6C2B5E7526008BC045 /* SaleOrderParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C6B2B5E7526008BC045 /* SaleOrderParameter.swift */; };
 		24048C6F2B5E7B22008BC045 /* SaleOrderResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C6E2B5E7B22008BC045 /* SaleOrderResource.swift */; };
 		24048C712B5E7B34008BC045 /* SaleOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C702B5E7B34008BC045 /* SaleOrderService.swift */; };
+		24048C742B5EBC5B008BC045 /* SaleOrderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C732B5EBC5B008BC045 /* SaleOrderDelegate.swift */; };
+		24048C772B5EBCC5008BC045 /* SaleOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C762B5EBCC5008BC045 /* SaleOrderViewModel.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
 		2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6712B55138100EEBD0A /* CPNTextField.swift */; };
 		2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6782B5523C900EEBD0A /* NotificationVC.swift */; };
@@ -224,6 +226,8 @@
 		24048C6B2B5E7526008BC045 /* SaleOrderParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderParameter.swift; sourceTree = "<group>"; };
 		24048C6E2B5E7B22008BC045 /* SaleOrderResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderResource.swift; sourceTree = "<group>"; };
 		24048C702B5E7B34008BC045 /* SaleOrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderService.swift; sourceTree = "<group>"; };
+		24048C732B5EBC5B008BC045 /* SaleOrderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDelegate.swift; sourceTree = "<group>"; };
+		24048C762B5EBCC5008BC045 /* SaleOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderViewModel.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2405C6712B55138100EEBD0A /* CPNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextField.swift; sourceTree = "<group>"; };
 		2405C6782B5523C900EEBD0A /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -535,6 +539,22 @@
 			path = SaleOrder;
 			sourceTree = "<group>";
 		};
+		24048C722B5EBC49008BC045 /* interface */ = {
+			isa = PBXGroup;
+			children = (
+				24048C732B5EBC5B008BC045 /* SaleOrderDelegate.swift */,
+			);
+			path = interface;
+			sourceTree = "<group>";
+		};
+		24048C752B5EBCB1008BC045 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				24048C762B5EBCC5008BC045 /* SaleOrderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2405C66E2B55129400EEBD0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +658,8 @@
 		2405C6922B562A6500EEBD0A /* SaleOrder */ = {
 			isa = PBXGroup;
 			children = (
+				24048C752B5EBCB1008BC045 /* ViewModel */,
+				24048C722B5EBC49008BC045 /* interface */,
 				2405C6952B562A8100EEBD0A /* Model */,
 				2405C6942B562A7A00EEBD0A /* View */,
 				2405C6932B562A7300EEBD0A /* Controller */,
@@ -1539,6 +1561,7 @@
 				24AFC2AC2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift in Sources */,
 				79BCAFCD2B32C5E000FD223F /* ConstraintAttributes.swift in Sources */,
 				2405C6892B553ADA00EEBD0A /* HeaderTotalARView.swift in Sources */,
+				24048C772B5EBCC5008BC045 /* SaleOrderViewModel.swift in Sources */,
 				2405C67E2B55258600EEBD0A /* NotificationViewCell.swift in Sources */,
 				24BD4FEE2B56C8AD00CD9CE0 /* TabBarViewController.swift in Sources */,
 				24048C3E2B5D5F45008BC045 /* AccountReceivableService.swift in Sources */,
@@ -1555,6 +1578,7 @@
 				79BCAFFD2B32D20A00FD223F /* SessionManager.swift in Sources */,
 				049CD9E627A0DFDA000DCC0E /* HTTPHeader.swift in Sources */,
 				24AFC2CA2B58E45200E5D157 /* HomeBuyBackViewCell.swift in Sources */,
+				24048C742B5EBC5B008BC045 /* SaleOrderDelegate.swift in Sources */,
 				79BCAFDA2B32C5E000FD223F /* ConstraintView.swift in Sources */,
 				24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */,
 				24AFC2C42B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift in Sources */,
