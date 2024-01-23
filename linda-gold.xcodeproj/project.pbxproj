@@ -48,6 +48,11 @@
 		24048C712B5E7B34008BC045 /* SaleOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C702B5E7B34008BC045 /* SaleOrderService.swift */; };
 		24048C742B5EBC5B008BC045 /* SaleOrderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C732B5EBC5B008BC045 /* SaleOrderDelegate.swift */; };
 		24048C772B5EBCC5008BC045 /* SaleOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C762B5EBCC5008BC045 /* SaleOrderViewModel.swift */; };
+		24048C7A2B5F4E84008BC045 /* SaleOrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C792B5F4E84008BC045 /* SaleOrderDetailModel.swift */; };
+		24048C7C2B5F5FAF008BC045 /* SaleOrderDetailParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C7B2B5F5FAF008BC045 /* SaleOrderDetailParameter.swift */; };
+		24048C802B5F6359008BC045 /* SaleOrderDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C7F2B5F6359008BC045 /* SaleOrderDetailDelegate.swift */; };
+		24048C822B5F63C8008BC045 /* SaleOrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C812B5F63C8008BC045 /* SaleOrderDetailViewModel.swift */; };
+		24048C842B5F74AD008BC045 /* SaleOrderDetailSaleOrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C832B5F74AC008BC045 /* SaleOrderDetailSaleOrderViewCell.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
 		2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6712B55138100EEBD0A /* CPNTextField.swift */; };
 		2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6782B5523C900EEBD0A /* NotificationVC.swift */; };
@@ -228,6 +233,11 @@
 		24048C702B5E7B34008BC045 /* SaleOrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderService.swift; sourceTree = "<group>"; };
 		24048C732B5EBC5B008BC045 /* SaleOrderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDelegate.swift; sourceTree = "<group>"; };
 		24048C762B5EBCC5008BC045 /* SaleOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderViewModel.swift; sourceTree = "<group>"; };
+		24048C792B5F4E84008BC045 /* SaleOrderDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailModel.swift; sourceTree = "<group>"; };
+		24048C7B2B5F5FAF008BC045 /* SaleOrderDetailParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailParameter.swift; sourceTree = "<group>"; };
+		24048C7F2B5F6359008BC045 /* SaleOrderDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailDelegate.swift; sourceTree = "<group>"; };
+		24048C812B5F63C8008BC045 /* SaleOrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailViewModel.swift; sourceTree = "<group>"; };
+		24048C832B5F74AC008BC045 /* SaleOrderDetailSaleOrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailSaleOrderViewCell.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2405C6712B55138100EEBD0A /* CPNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextField.swift; sourceTree = "<group>"; };
 		2405C6782B5523C900EEBD0A /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -555,6 +565,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		24048C782B5F4E74008BC045 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24048C792B5F4E84008BC045 /* SaleOrderDetailModel.swift */,
+				24048C7B2B5F5FAF008BC045 /* SaleOrderDetailParameter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24048C7D2B5F6336008BC045 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				24048C7F2B5F6359008BC045 /* SaleOrderDetailDelegate.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		24048C7E2B5F633D008BC045 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				24048C812B5F63C8008BC045 /* SaleOrderDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2405C66E2B55129400EEBD0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +731,9 @@
 		2405C69C2B5634A000EEBD0A /* SaleORderDetail */ = {
 			isa = PBXGroup;
 			children = (
+				24048C7E2B5F633D008BC045 /* ViewModel */,
+				24048C7D2B5F6336008BC045 /* Interface */,
+				24048C782B5F4E74008BC045 /* Model */,
 				2405C69E2B5634C800EEBD0A /* View */,
 				2405C69D2B5634B700EEBD0A /* Controller */,
 			);
@@ -716,6 +754,7 @@
 				2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */,
 				24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */,
 				24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */,
+				24048C832B5F74AC008BC045 /* SaleOrderDetailSaleOrderViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1510,6 +1549,7 @@
 				79BCAFE12B32C5E000FD223F /* ConstraintMaker.swift in Sources */,
 				2405C6992B562B8700EEBD0A /* SaleOrderView.swift in Sources */,
 				79BCAFD22B32C5E000FD223F /* ConstraintDSL.swift in Sources */,
+				24048C802B5F6359008BC045 /* SaleOrderDetailDelegate.swift in Sources */,
 				79BCAFDF2B32C5E000FD223F /* ConstraintOffsetTarget.swift in Sources */,
 				79BCAFE42B32C5E000FD223F /* ConstraintView+Extensions.swift in Sources */,
 				D907828524AEDBB100AC95C4 /* UITextField.swift in Sources */,
@@ -1524,6 +1564,7 @@
 				049CD9E727A0DFDA000DCC0E /* Task.swift in Sources */,
 				2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */,
 				79BCAFED2B32C5E000FD223F /* ConstraintMakerRelatable.swift in Sources */,
+				24048C7C2B5F5FAF008BC045 /* SaleOrderDetailParameter.swift in Sources */,
 				049CDA0A27A0E75C000DCC0E /* Reachability.swift in Sources */,
 				79BCAFE92B32C5E000FD223F /* LayoutConstraint.swift in Sources */,
 				2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */,
@@ -1540,6 +1581,7 @@
 				24AFC2E72B5A311500E5D157 /* AccountReceivableFilterRangeDateViewCell.swift in Sources */,
 				24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */,
 				D907825524AD804500AC95C4 /* AppConstants.swift in Sources */,
+				24048C842B5F74AD008BC045 /* SaleOrderDetailSaleOrderViewCell.swift in Sources */,
 				D907826124AD821700AC95C4 /* HomeVC.swift in Sources */,
 				79BCAFE82B32C5E000FD223F /* ConstraintRelatableTarget.swift in Sources */,
 				24048C572B5E0304008BC045 /* AccountReceivableFilterDelegate.swift in Sources */,
@@ -1555,6 +1597,7 @@
 				24048C5B2B5E0855008BC045 /* AccountReceivableDetailDelegate.swift in Sources */,
 				2405C68B2B55771400EEBD0A /* AccountReceivableViewCell.swift in Sources */,
 				24048C512B5DFA3F008BC045 /* AccountReceivableFilterModel.swift in Sources */,
+				24048C822B5F63C8008BC045 /* SaleOrderDetailViewModel.swift in Sources */,
 				24AFC3032B5B6A4800E5D157 /* AccountService.swift in Sources */,
 				79BCB00E2B32E7EC00FD223F /* LoginParameter.swift in Sources */,
 				79BCB0042B32D2D700FD223F /* NotificationManager.swift in Sources */,
@@ -1643,6 +1686,7 @@
 				049CDA0B27A0E75C000DCC0E /* Connectivity.swift in Sources */,
 				D907829524AF1E2B00AC95C4 /* UINavigationController.swift in Sources */,
 				24AFC2D72B5982F900E5D157 /* PendingApprovalHistoryView.swift in Sources */,
+				24048C7A2B5F4E84008BC045 /* SaleOrderDetailModel.swift in Sources */,
 				24048C4D2B5D7660008BC045 /* MJRefreshNormal.swift in Sources */,
 				049CD9E227A0DFDA000DCC0E /* URLParameterEncoder.swift in Sources */,
 				D95CAA1428D06AAA00E59CF6 /* LocationManager.swift in Sources */,

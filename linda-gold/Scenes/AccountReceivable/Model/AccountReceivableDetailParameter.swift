@@ -10,7 +10,4 @@ import Foundation
 
 struct AccountReceivableDetailParameter{
     var id: String
-    init(id: String = "") {
-        self.id = id
-    }
 }

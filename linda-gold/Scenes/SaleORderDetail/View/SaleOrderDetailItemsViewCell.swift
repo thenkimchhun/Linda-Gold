@@ -12,7 +12,26 @@ class SaleOrderDetailItemsViewCell: BaseTableViewCell{
     let containerView = UIView()
     let topView = UIView()
     let header = SaleOrderItemsHeader()
-    let headerList = SaleOrderItemsHeader()
+    let intrucductStackView = UIStackView()
+    var introductsView: [SaleOrderItemsHeader] = []
+    var saleOrderItemsList: [SaleOrderItem] = []{
+        didSet{
+            for introductView in introductsView {
+                intrucductStackView.removeArrangedSubview(introductView)
+                introductView.removeFromSuperview()
+            }
+            for saleOrderItem in saleOrderItemsList {
+                let orderItems = SaleOrderItemsHeader()
+                orderItems.productLable.text = saleOrderItem.name
+                orderItems.qtyLable.text = "\(saleOrderItem.orderQty)"
+                orderItems.salePriceLable.text = saleOrderItem.salePrice.formatCurrencyNumber
+                orderItems.discountLable.text = "\(saleOrderItem.discountPercentage)%"
+                orderItems.amountLable.text = saleOrderItem.amount.formatCurrencyNumber
+                introductsView.append(orderItems)
+                intrucductStackView.addArrangedSubview(orderItems)
+            }
+        }
+    }
     override func setupComponent() {
         selectionStyle = .none
         addSubview(containerView)
@@ -32,12 +51,12 @@ class SaleOrderDetailItemsViewCell: BaseTableViewCell{
         header.salePriceLable.font = .systemFont(ofSize: 12, weight: .bold)
         header.discountLable.font = .systemFont(ofSize: 12, weight: .bold)
         header.amountLable.font = .systemFont(ofSize: 12, weight: .bold)
-        containerView.addSubview(headerList)
-        headerList.productLable.text = "ពេជ្រ 3.5លី"
-        headerList.qtyLable.text = "2.0"
-        headerList.salePriceLable.text = "$ 300.00"
-        headerList.discountLable.text = "25.0%"
-        headerList.amountLable.text = "$450.00"
+
+        containerView.addSubview(intrucductStackView)
+        intrucductStackView.axis = .vertical
+        intrucductStackView.spacing = 10
+        intrucductStackView.distribution = .fillProportionally
+        
     }
     override func setupConstraint() {
         containerView.snp.makeConstraints { make in
@@ -56,7 +75,7 @@ class SaleOrderDetailItemsViewCell: BaseTableViewCell{
             make.top.equalTo(topView.snp.bottom).offset(scale(10))
             make.left.right.equalToSuperview().inset(scale(16))
         } 
-        headerList.snp.makeConstraints { make in
+        intrucductStackView.snp.makeConstraints { make in
             make.top.equalTo(header.snp.bottom).offset(scale(5))
             make.left.right.bottom.equalToSuperview().inset(scale(16))
         }

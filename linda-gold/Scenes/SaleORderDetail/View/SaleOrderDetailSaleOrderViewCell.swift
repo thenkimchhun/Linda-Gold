@@ -1,23 +1,23 @@
 //
-//  SaleOrderDetailCustomerInfoViewCell.swift
+//  SaleOrderDetailSaleOrderViewCell.swift
 //  linda-gold
 //
-//  Created by Chhun on 1/17/24.
+//  Created by Chhun on 1/23/24.
 //  Copyright © 2024 Core-MVVM. All rights reserved.
 //
 
 import UIKit
 
-class SaleOrderDetailCustomerInfoViewCell: BaseTableViewCell{
+class SaleOrderDetailSaleOrderViewCell: BaseTableViewCell{
     let containerView = UIView()
     let topView = UIView()
-    let codeView = CPNHoriziontalTextView()
-    let phoneNumberView = CPNHoriziontalTextView()
-    let nameView = CPNHoriziontalTextView()
-    let addressView = CPNHoriziontalTextView()
-    let genderView = CPNHoriziontalTextView()
-    let customerGroupView = CPNHoriziontalTextView()
-    let dateOfBirthView = CPNHoriziontalTextView()
+    let orderIdView = CPNHoriziontalTextView()
+    let painPriceView = CPNHoriziontalTextView()
+    let invoiceNumberView = CPNHoriziontalTextView()
+    let remainingView = CPNHoriziontalTextView()
+    let statusView = CPNHoriziontalTextView()
+    let paymentStatusView = CPNHoriziontalTextView()
+    let orderDateView = CPNHoriziontalTextView()
     override func setupComponent() {
         selectionStyle = .none
         addSubview(containerView)
@@ -32,27 +32,27 @@ class SaleOrderDetailCustomerInfoViewCell: BaseTableViewCell{
         topView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         topView.addSubview(titleLabel)
         containerView.addSubview(stackView)
-        stackView.addArrangedSubview(codeView)
-        codeView.leftView.text = "Code"
-        codeView.rightView.text = ": CUS0001"
-        stackView.addArrangedSubview(phoneNumberView)
-        phoneNumberView.leftView.text = "Phone Number"
-        phoneNumberView.rightView.text = ": 0888189220"
-        stackView.addArrangedSubview(nameView)
-        nameView.leftView.text = "Name"
-        nameView.rightView.text = ": Then Kimchhun"
-        stackView.addArrangedSubview(addressView)
-        addressView.leftView.text = "Address"
-        addressView.rightView.text = ": #112 phnom penh"
-        stackView.addArrangedSubview(genderView)
-        genderView.leftView.text = "Gender"
-        genderView.rightView.text = ": Male"
-        stackView.addArrangedSubview(customerGroupView)
-        customerGroupView.leftView.text = "Customer Group"
-        addressView.rightView.text = ": Pending"
-        stackView.addArrangedSubview(dateOfBirthView)
-        dateOfBirthView.leftView.text = "Date Of Brith"
-        dateOfBirthView.rightView.text = ": 31 Jan, 2024"
+        stackView.addArrangedSubview(orderIdView)
+        orderIdView.leftView.text = "Order Id"
+        orderIdView.rightView.text = ": CUS0001"
+        stackView.addArrangedSubview(painPriceView)
+        painPriceView.leftView.text = "Paind Price"
+        painPriceView.rightView.text = ": $ 11200.00"
+        stackView.addArrangedSubview(invoiceNumberView)
+        invoiceNumberView.leftView.text = "Invoice Number"
+        invoiceNumberView.rightView.text = ": #0000123"
+        stackView.addArrangedSubview(remainingView)
+        remainingView.leftView.text = "Remaining"
+        remainingView.rightView.text = ": $100.00"
+        stackView.addArrangedSubview(statusView)
+        statusView.leftView.text = "status"
+        statusView.rightView.text = ": Completed"
+        stackView.addArrangedSubview(paymentStatusView)
+        paymentStatusView.leftView.text = "Payment Status"
+        paymentStatusView.rightView.text = ": Pending"
+        stackView.addArrangedSubview(orderDateView)
+        orderDateView.leftView.text = "Order Date"
+        orderDateView.rightView.text = ": 31 Jan, 2024"
     
     }
     override func setupConstraint() {
@@ -76,7 +76,7 @@ class SaleOrderDetailCustomerInfoViewCell: BaseTableViewCell{
     }
     var titleLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "Customer Info"
+        lb.text = "Sale Order"
         lb.font = .systemFont(ofSize: 15, weight: .bold)
         lb.textColor = BaseColor.white
         return lb
@@ -89,3 +89,4 @@ class SaleOrderDetailCustomerInfoViewCell: BaseTableViewCell{
         return stack
     }()
 }
+

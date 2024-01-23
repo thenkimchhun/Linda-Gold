@@ -27,9 +27,15 @@ struct AccountReceivableDataResponse: Codable{
 }
 struct Customer: Codable{
     let id: String
+    let remark: String?
     let fullName: String
-    let code: String
+    let code: String?
     let image: String?
+    let dob: String?
+    let primaryPhone: String?
+    let secondaryPhone: String?
+    let addressDetail: String?
+    let gender: String?
     let customerGroup: CustomerGroup?
 }
 struct Payment: Codable {

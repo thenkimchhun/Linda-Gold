@@ -57,11 +57,10 @@ class AccountReceivableViewModel{
             delegate?.onAccountReceivableDetailUpdateState?()
         }
     }
-    var detailParameter: AccountReceivableDetailParameter = .init()
+  
     var data: AccountReceivableDataResponse?
     func onGetAccountReceivableDetail(parameter: AccountReceivableDetailParameter){
-        self.detailParameter = parameter
-        AccountReceivableService.shared.onAccountReceivableDetail(parameter: detailParameter) { reponse in
+        AccountReceivableService.shared.onAccountReceivableDetail(parameter: parameter) { reponse in
             DispatchQueue.main.async {[self] in
                 data = reponse.data
                 onAccountReceivableDetailUpdateState = .success

@@ -9,7 +9,7 @@
 import UIKit
 class SaleOrderView: BaseView{
     let tableView = UITableView()
-    var onDidSelectRowAt: (()->Void)?
+    var onDidSelectRowAt: ((SaleOrderDataResponse)->Void)?
     var saleOrderList: [SaleOrderDataResponse] = []{
         didSet{
             tableView.reloadData()
@@ -42,8 +42,8 @@ extension SaleOrderView: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        onDidSelectRowAt?()
-        print("clicked")
+        let data = saleOrderList[indexPath.row]
+        onDidSelectRowAt?(data)
     }
     func bindSaleOrderViewCell(cell: SaleOrderViewCell, cellForRowAt indexPath: IndexPath){
         let data = saleOrderList[indexPath.row]

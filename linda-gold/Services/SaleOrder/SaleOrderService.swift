@@ -20,4 +20,15 @@ class SaleOrderService: BaseAPIService<SaleOrderResource> {
             }
         }
     }
+    
+    func onSaleOrderDetail(parameter: SaleOrderDetailParameter, success: @escaping(SaleOrderDetailModel)-> Void, failure: @escaping(APIResponseError?)-> Void){
+        request(service: .saleOrderDetail(parameter: parameter), model: SaleOrderDetailModel.self) { response in
+            switch response {
+            case .success(let res):
+                success(res)
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
 }

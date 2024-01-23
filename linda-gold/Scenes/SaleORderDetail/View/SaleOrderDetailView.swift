@@ -10,6 +10,11 @@ import UIKit
 
 class SaleOrderDetailView: BaseView{
     let tableView = UITableView()
+    var data: SaleOrderDataResponse?{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     override func setupComponent() {
         backgroundColor = .red
         addSubview(tableView)
@@ -24,6 +29,7 @@ class SaleOrderDetailView: BaseView{
             // Fallback on earlier versions
         }
         tableView.register(SaleOrderDetailCustomerInfoViewCell.self, forCellReuseIdentifier: "SaleOrderDetailCustomerInfoViewCell")
+        tableView.register(SaleOrderDetailSaleOrderViewCell.self, forCellReuseIdentifier: "SaleOrderDetailSaleOrderViewCell")
         tableView.register(SaleOrderDetailItemsViewCell.self, forCellReuseIdentifier: "SaleOrderDetailItemsViewCell")
     }
     override func setupConstraint() {
@@ -46,17 +52,42 @@ extension SaleOrderDetailView: UITableViewDelegate, UITableViewDataSource{
             switch type {
             case .info:
                 let cell: SaleOrderDetailCustomerInfoViewCell = tableView.dequeueReusableCell(withIdentifier: "SaleOrderDetailCustomerInfoViewCell", for: indexPath) as! SaleOrderDetailCustomerInfoViewCell
+                bindCustomerInfoViewCell(cell: cell, cellForRowAt: indexPath)
                 return cell
             case .saleOrder:
-                let cell: SaleOrderDetailCustomerInfoViewCell = tableView.dequeueReusableCell(withIdentifier: "SaleOrderDetailCustomerInfoViewCell", for: indexPath) as! SaleOrderDetailCustomerInfoViewCell
-                cell.titleLabel.text = "Sale Order"
+                let cell: SaleOrderDetailSaleOrderViewCell = tableView.dequeueReusableCell(withIdentifier: "SaleOrderDetailSaleOrderViewCell", for: indexPath) as! SaleOrderDetailSaleOrderViewCell
+                bindSaleOrderViewCell(cell: cell, cellForRowAt: indexPath)
                 return cell
             case .items:
                 let cell: SaleOrderDetailItemsViewCell = tableView.dequeueReusableCell(withIdentifier: "SaleOrderDetailItemsViewCell", for: indexPath) as! SaleOrderDetailItemsViewCell
+                cell.saleOrderItemsList = data?.saleOrderItems ?? []
                 return cell
             }
         }
         return UITableViewCell()
+    }
+    private func bindCustomerInfoViewCell(cell: SaleOrderDetailCustomerInfoViewCell, cellForRowAt indexPath: IndexPath){
+        if let data = data{
+            cell.codeView.rightView.text = ": \(data.customer.code ?? "")"
+            cell.phoneNumberView.rightView.text = ": \(data.customer.primaryPhone ?? "")"
+            cell.nameView.rightView.text = ": \(data.customer.fullName)"
+            cell.addressView.rightView.text = ": \(data.customer.addressDetail ?? "")"
+            cell.genderView.rightView.text = ": \(data.customer.gender ?? "")"
+            cell.customerGroupView.rightView.text = ": \(data.customer.customerGroup?.name ?? "")"
+            cell.dateOfBirthView.rightView.text = ": \(data.customer.dob?.formatDate() ?? "")"
+        }
+    }
+    
+    private func bindSaleOrderViewCell(cell: SaleOrderDetailSaleOrderViewCell, cellForRowAt indexPath: IndexPath){
+        if let data = data {
+            cell.orderIdView.rightView.text = ": \(data.id)"
+            cell.painPriceView.rightView.text = ": \(data.paidAmount.formatCurrencyNumber)"
+            cell.invoiceNumberView.rightView.text = ": \(data.invoiceNumber)"
+            cell.remainingView.rightView.text = ": \(data.arAmount.formatCurrencyNumber)"
+            cell.statusView.rightView.text = ": \(data.status)"
+            cell.paymentStatusView.rightView.text = ": \(data.paymentStatus)"
+            cell.orderDateView.rightView.text = ": \(data.orderDate.formatDate() ?? "")"
+        }
     }
     
     enum SectionType: Int{

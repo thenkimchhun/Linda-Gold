@@ -10,18 +10,21 @@ import Foundation
 
 enum SaleOrderResource{
     case saleOrderList(parameter: SaleOrderParameter)
+    case saleOrderDetail(parameter: SaleOrderDetailParameter)
 }
 extension SaleOrderResource: TargetType {
     var path: String {
         switch self {
         case .saleOrderList:
             return "sale-order"
+        case .saleOrderDetail(parameter: let params):
+            return "sale-order/detail/\(params.orderId)"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .saleOrderList:
+        case .saleOrderList, .saleOrderDetail:
             return .get
         }
     }
@@ -30,6 +33,8 @@ extension SaleOrderResource: TargetType {
         switch self {
         case .saleOrderList(parameter: let params):
             return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameters)
+        case .saleOrderDetail:
+            return .requestPlain
         }
     }
     

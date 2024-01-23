@@ -17,7 +17,7 @@ class AccountReceivableDetailView: BaseView{
     var data: AccountReceivableDataResponse?{
         didSet{
             bindPresentAccountReceivableView()
-            bindInvoiceList(paymentLists: data?.payment ?? [])
+            bindInvoiceList()
         }
     }
     var actionCloseBtn: (()->Void)?
@@ -52,11 +52,12 @@ class AccountReceivableDetailView: BaseView{
     @objc func clostButton(){
         actionCloseBtn?()
     }
-    func bindInvoiceList(paymentLists: [Payment]){
-        for invoice in paymentLists {
+    func bindInvoiceList(){
+        guard let paymentLists = data?.payment else { return }
+        for (index,invoice) in paymentLists.enumerated() {
             let invoicelistView = CPNHoriziontalTextView()
             scrollView.add(view: invoicelistView)
-            invoicelistView.leftView.text = "# \(paymentLists.startIndex)"
+            invoicelistView.leftView.text = "# \(index + 1)"
             invoicelistView.rightView.text = ": \(invoice.paidAmount.formatCurrencyNumber) - \(invoice.createdAt.formatDate() ?? "")"
         }
         scrollView.add(view: totalPurchaseView)

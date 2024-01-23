@@ -20,12 +20,20 @@ class SaleOrderVC: BaseVC{
         Loading.showSpinner(onView: saleOrderView.tableView)
         viewModel.delegate = self
         viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
-        saleOrderView.onDidSelectRowAt = {
+        saleOrderView.onDidSelectRowAt = {[self] data in
             let vc = SaleOrderDetailVC()
+            vc.orderId = data.id
             vc.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(vc, animated: true)
         }
+        saleOrderView.tableView.mj_header = mjRefresNormal.refreshHeader
+        saleOrderView.tableView.mj_footer = mjRefresNormal.refreshFooter
     }
+   lazy var mjRefresNormal: MJRefreshNormal = {
+        let mjRefresNormal = MJRefreshNormal()
+        mjRefresNormal.refreshNormalDelegate = self
+        return mjRefresNormal
+    }()
     override func setupConstraint() {
         saleOrderView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
@@ -37,6 +45,9 @@ extension SaleOrderVC: SaleOrderDelegate{
     func onSaleOrderUpdateState() {
         Loading.removeSpinner()
         saleOrderView.saleOrderList = viewModel.saleOrderList
+        saleOrderView.tableView.mj_header?.endRefreshing()
+        saleOrderView.tableView.mj_footer?.endRefreshing()
+        saleOrderView.tableView.mj_footer?.isHidden = viewModel.isDisableScroll
         switch viewModel.onSaleOrderUpdateState {
         case .success: break
         case .failure(let error):
@@ -44,6 +55,14 @@ extension SaleOrderVC: SaleOrderDelegate{
         case .none: break
         }
     }
-    
-    
+}
+
+
+extension SaleOrderVC: RefreshNormalDelegate{
+    func onRefresh() {
+        viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
+    }
+    func onLoadMore() {
+        viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
+    }
 }

@@ -22,7 +22,8 @@ class AccountReceivableVC: BaseVC{
         viewModel.onGetAccountReceivableList(parameter: viewModel.parameter)
         // didselectForRowCell
         accountReceivableView.ondidSelectRowAt = {[self] data in
-            Loading.showSpinner(onView: view)
+            Spinner.start()
+        
             viewModel.onGetAccountReceivableDetail(parameter: .init(id: data.id))
 //            let vc = AccountReceivableDetailVC(data: data)
 //            presentPanModal(vc)
@@ -67,7 +68,7 @@ extension AccountReceivableVC: AccountReceivableDelegate{
     }
     
     func onAccountReceivableDetailUpdateState() {
-        Loading.removeSpinner()
+        Spinner.stop()
         switch viewModel.onAccountReceivableDetailUpdateState {
         case .success:
             let vc = AccountReceivableDetailVC()

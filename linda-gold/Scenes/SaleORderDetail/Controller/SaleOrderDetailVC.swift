@@ -12,12 +12,30 @@ class SaleOrderDetailVC: BaseVC{
         setupNavBarNormal(barTitle: "Sale Order Details")
     }
     let saleOrderDetailView = SaleOrderDetailView()
+    let viewModel = SaleOrderDetailViewModel()
+    var orderId: String?
     override func setupComponent() {
         view.addSubview(saleOrderDetailView)
+    }
+    override func setupEvent() {
+        viewModel.delegate = self
+        viewModel.onGetSaleOrderDetail(parameter: .init(orderId: orderId ?? ""))
     }
     override func setupConstraint() {
         saleOrderDetailView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+}
+
+extension SaleOrderDetailVC: SaleOrderDetailDelegate{
+    func onSaleOrderDetailUpdateState() {
+        saleOrderDetailView.data = viewModel.saleOrderDeailData
+        switch viewModel.onSaleOrderDetailUpdateState {
+        case .success: break
+        case .failure(let error):
+            print("error",error.message)
+        case .none: break
         }
     }
 }
