@@ -42,6 +42,7 @@ class PendingApprovalView: BaseView{
     }
     override func setupEvent() {
         segmentControl.addTarget(self, action: #selector(actionIndexChange(_:)), for: .valueChanged)
+    
     }
     @objc func actionIndexChange(_ sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {

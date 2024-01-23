@@ -11,6 +11,11 @@ import UIKit
 class RequestView: BaseView {
     let tableView = UITableView()
     var onSelectedActionButton: ((RequestViewCell.TypeButton)->Void)?
+    var dataList: [PendingApproletHistoryDataResponse] = []{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -28,7 +33,7 @@ class RequestView: BaseView {
 }
 extension RequestView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,7 +46,15 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
                 onSelectedActionButton?(.approvale)
             }
         }
+        bindRequestViewCell(cell: cell, cellForRowAt: indexPath)
          return cell
+    }
+    private func bindRequestViewCell(cell: RequestViewCell, cellForRowAt indexPath: IndexPath){
+        let data = dataList[indexPath.row]
+        cell.titleLabel.text = data.customer.fullName
+        cell.desLabel.text = "No. \(data.customer.id)"
+        cell.updateView.rightView.text = ""
+        cell.dateRequestView.rightView.text = ": \(data.createdAt.formatDate(formatString: .date_time) ?? "")"
     }
 }
 

@@ -61,7 +61,7 @@ struct SaleOrderItem:Codable{
     let shape: String?
     let size: String?
     let color: String?
-    let grade: String
+    let grade: String?
     let gold: String
     let diamond: String
     let gem: String

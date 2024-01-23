@@ -11,7 +11,12 @@ import UIKit
 
 class HistoryView: BaseView{
     let tableView = UITableView()
-    var onDidSelectHistory: (()->Void)?
+    var onDidSelectHistory: ((PendingApproletHistoryDataResponse)->Void)?
+    var dataList: [PendingApproletHistoryDataResponse] = []{
+        didSet{
+            tableView.reloadData()
+            }
+    }
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -30,14 +35,24 @@ class HistoryView: BaseView{
 
 extension HistoryView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HistoryViewCell = tableView.dequeueReusableCell(withIdentifier: "HistoryViewCell", for: indexPath) as! HistoryViewCell
+        bindHistoryViewCell(cell: cell, cellForRowAt: indexPath)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        onDidSelectHistory?()
+        let data = dataList[indexPath.row]
+        onDidSelectHistory?(data)
+    }
+    private func bindHistoryViewCell(cell: HistoryViewCell, cellForRowAt indexPath: IndexPath){
+        let data = dataList[indexPath.row]
+        cell.iconsImageView.image = UIImage(named: data.approval ?? false ? "ic_check" : "ic_cross")
+        cell.titleLabel.text = data.approval ?? false ? "Approved to \(data.requestGroup.name) " : "Declined to \(data.requestGroup.name)"
+        cell.desLabel.text = "\(data.customer.fullName) No. \(data.customer.id)"
+        cell.dateLabel.text = data.updatedAt.formatDate()
+        
     }
 }
 
@@ -67,12 +82,12 @@ class HistoryViewCell: BaseTableViewCell {
             make.left.right.equalToSuperview().inset(scale(16))
         }
         iconsImageView.snp.makeConstraints { make in
-            make.height.width.equalTo(scale(50)).priority(750)
+            make.height.width.equalTo(scale(24)).priority(750)
             make.left.top.equalToSuperview().inset(scale(16))
             make.bottom.equalToSuperview().offset(-scale(16))
         }
         titleLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(iconsImageView.snp.top).offset(scale(15))
+            make.centerY.equalTo(iconsImageView.snp.top)
             make.left.equalTo(iconsImageView.snp.right).offset(scale(8))
             make.right.equalTo(dateLabel.snp.left).offset(-scale(16))
         }
@@ -81,7 +96,7 @@ class HistoryViewCell: BaseTableViewCell {
             make.right.equalToSuperview().offset(-scale(16))
         }
         desLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(iconsImageView.snp.bottom).offset(-scale(15))
+            make.centerY.equalTo(iconsImageView.snp.bottom)
             make.left.equalTo(iconsImageView.snp.right).offset(scale(8))
         }
         timeLabel.snp.makeConstraints { make in

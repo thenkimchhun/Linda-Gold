@@ -10,6 +10,11 @@ import UIKit
 import PanModal
 class PendingApprovalHistoryVC: BaseVC{
     let pendingApprovalHistoryView = PendingApprovalHistoryView()
+    var historyData: PendingApproletHistoryDataResponse?{
+        didSet{
+            pendingApprovalHistoryView.historyData = historyData
+        }
+    }
     override func setupComponent() {
         view.addSubview(pendingApprovalHistoryView)
     }

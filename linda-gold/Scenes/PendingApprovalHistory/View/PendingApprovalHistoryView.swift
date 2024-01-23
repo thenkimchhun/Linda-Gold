@@ -9,6 +9,11 @@
 import UIKit
 class PendingApprovalHistoryView: BaseView{
     let tableView  = UITableView()
+    var historyData: PendingApproletHistoryDataResponse?{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     var actionCloseBtn: (()->Void)?
     override func setupComponent() {
         addSubview(tableView)
@@ -38,7 +43,18 @@ extension PendingApprovalHistoryView: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PendingApprovalHistoryViewCell = tableView.dequeueReusableCell(withIdentifier: "PendingApprovalHistoryViewCell", for: indexPath) as! PendingApprovalHistoryViewCell
         cell.profileHeader.closeView.addTarget(self, action: #selector(clostButton), for: .touchUpInside)
+        bindPendingApprovalHistoryViewCell(cell: cell, cellForRowAt: indexPath)
         return cell
+    }
+    private func bindPendingApprovalHistoryViewCell(cell: PendingApprovalHistoryViewCell, cellForRowAt indexPath: IndexPath){
+        if let data = historyData {
+            cell.profileHeader.StatuLabel.isHidden = true
+            cell.profileHeader.titleLabel.text = data.customer.fullName
+            cell.profileHeader.desLabel.text = "No. \(data.customer.id)"
+            cell.lastPurchaseView.rightView.text = ": \(data.lastSaleOrder.total.formatCurrencyNumber)"
+            cell.dateRequestView.rightView.text = ": \(data.createdAt.formatDate(formatString: .date_time) ?? "")"
+            cell.dateDeclinedView.rightView.text = ": \(data.updatedAt.formatDate(formatString: .date_time) ?? "")"
+        }
     }
 }
 

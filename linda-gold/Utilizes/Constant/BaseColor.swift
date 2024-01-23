@@ -11,6 +11,7 @@ struct BaseColor {
     static let primaryColor2 = #colorLiteral(red: 0.9803921569, green: 0.8235294118, blue: 0.4, alpha: 1)
     static let primaryColor3   = #colorLiteral(red: 0.9921568627, green: 0.9294117647, blue: 0.7607843137, alpha: 1)
     static let successPrimary   = #colorLiteral(red: 0.8235294118, green: 0.9176470588, blue: 0.8470588235, alpha: 1)
+    static let bronw   = #colorLiteral(red: 0.2724006772, green: 0.1893685758, blue: 0.1135106608, alpha: 1)
     
 
 }
