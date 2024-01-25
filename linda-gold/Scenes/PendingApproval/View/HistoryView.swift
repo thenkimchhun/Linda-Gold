@@ -11,9 +11,11 @@ import UIKit
 
 class HistoryView: BaseView{
     let tableView = UITableView()
+    let emptyView = CPNEmptyView()
     var onDidSelectHistory: ((PendingApproletHistoryDataResponse)->Void)?
     var dataList: [PendingApproletHistoryDataResponse] = []{
         didSet{
+            if dataList.count == 0 {emptyView.emptyState = .emtyView}
             tableView.reloadData()
             }
     }
@@ -35,6 +37,7 @@ class HistoryView: BaseView{
 
 extension HistoryView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       bindEmptyView(tableView)
         return dataList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,10 +52,17 @@ extension HistoryView: UITableViewDelegate, UITableViewDataSource{
     private func bindHistoryViewCell(cell: HistoryViewCell, cellForRowAt indexPath: IndexPath){
         let data = dataList[indexPath.row]
         cell.iconsImageView.image = UIImage(named: data.approval ?? false ? "ic_check" : "ic_cross")
-        cell.titleLabel.text = data.approval ?? false ? "Approved to \(data.requestGroup.name) " : "Declined to \(data.requestGroup.name)"
+        cell.titleLabel.text = data.approval ?? false ? "Approved to \(data.requestGroup?.name ?? "") " : "Declined to \(data.requestGroup?.name ?? "")"
         cell.desLabel.text = "\(data.customer.fullName) No. \(data.customer.id)"
         cell.dateLabel.text = data.updatedAt.formatDate()
         
+    }
+    private func bindEmptyView(_ tableView: UITableView){
+        if dataList.count == 0{
+            tableView.backgroundView = emptyView
+        }else{
+            tableView.backgroundView = nil
+        }
     }
 }
 

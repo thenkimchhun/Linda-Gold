@@ -12,6 +12,45 @@ class HomeBuyBackViewCell: BaseTableViewCell{
     let containerView = UIView()
     let dayListView = DaysListView()
     var selectedDay: Bool = true
+    var ondidSelectRowAt: ((String)->Void)?
+    var stackView = UIStackView()
+    var productsName: [ItemsBoxView] = []
+    var productList: [ProductType] = []{
+        didSet{
+            for name in productsName {
+                stackView.removeArrangedSubview(name)
+                name.removeFromSuperview()
+            }
+            for product in productList {
+                let nameLabel = ItemsBoxView()
+                nameLabel.numLabel.text = "\(Int(product.totalQty))"
+                nameLabel.textLabel.text = product.name
+                nameLabel.numLabel.backgroundColor = UIColor(hexString: product.color)
+                productsName.append(nameLabel)
+                stackView.addArrangedSubview(nameLabel)
+            }
+        }
+    }
+    
+    let totalAmountStackView = UIStackView()
+    var totalAmountSupbViews: [ProgressItemsView] = []
+    var totalList: [ProductType] = []{
+        didSet{
+            for totalAmountSupView in totalAmountSupbViews {
+                totalAmountStackView.removeArrangedSubview(totalAmountSupView)
+                totalAmountSupView.removeFromSuperview()
+            }
+            for total in totalList {
+                let totalAmountView = ProgressItemsView()
+                totalAmountView.numLabel.text = total.totalAmount.formatCurrencyNumber
+                totalAmountView.textLabel.text = total.name
+                totalAmountSupbViews.append(totalAmountView)
+                totalAmountStackView.addArrangedSubview(totalAmountView)
+            }
+        }
+    }
+       
+
     override func setupComponent() {
         contentView.isUserInteractionEnabled = true
         let addGuesture = UITapGestureRecognizer(target: self, action: #selector(dissmiss))
@@ -31,14 +70,13 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         containerView.addSubview(dayButton)
         containerView.addSubview(amountLabel)
         containerView.addSubview(stackView)
-        stackView.addArrangedSubview(gemView)
-        stackView.addArrangedSubview(jewerlyView)
-        stackView.addArrangedSubview(daimondView)
-        
-        containerView.addSubview(progressStackView)
-        progressStackView.addArrangedSubview(gemProgressView)
-        progressStackView.addArrangedSubview(gewerlyProgressView)
-        progressStackView.addArrangedSubview(daimondProgressView)
+        stackView.spacing = 15
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+                
+        containerView.addSubview(totalAmountStackView)
+        totalAmountStackView.axis = .horizontal
+        totalAmountStackView.distribution = .fillEqually
         
         addSubview(dayListView)
         dayListView.backgroundColor = BaseColor.white
@@ -52,6 +90,7 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         dayButton.addTarget(self, action: #selector(actionDayButton), for: .touchUpInside)
         
         dayListView.ondidSelectRowAt = {[self] data in
+            ondidSelectRowAt?(data)
             dayButton.setTitle(data, for: .normal)
         }
     }
@@ -83,7 +122,7 @@ class HomeBuyBackViewCell: BaseTableViewCell{
             make.centerY.equalTo(amountLabel.snp.centerY)
             make.right.equalToSuperview().offset(-scale(16))
         }
-        progressStackView.snp.makeConstraints { make in
+        totalAmountStackView.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(scale(16))
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-scale(16))
@@ -126,58 +165,29 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         lb.textColor = BaseColor.black
         return lb
     }()
-    lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.spacing = 15
-        stack.axis = .horizontal
-        stack.distribution = .fillProportionally
-        return stack
-    }()
-    var gemView: ItemsBoxView = {
-        let gem = ItemsBoxView()
-        gem.boxView.backgroundColor = BaseColor.primaryColor2
-        gem.numLabel.text = "4"
-        gem.textLabel.text = "Gem"
-        return gem
-    }()
-    var jewerlyView: ItemsBoxView = {
-        let jewerly = ItemsBoxView()
-        jewerly.boxView.backgroundColor = BaseColor.primaryColor3
-        jewerly.numLabel.text = "1"
-        jewerly.textLabel.text = "Jewerly"
-        return jewerly
-    }()
-    var daimondView: ItemsBoxView = {
-        let daimond = ItemsBoxView()
-        daimond.boxView.backgroundColor = BaseColor.primarysColor
-        daimond.numLabel.text = "10"
-        daimond.textLabel.text = "Diamond"
-        return daimond
-    }()
-    
-    let progressStackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.distribution = .fill
-        return stack
-    }()
-    var gemProgressView: ProgressItemsView = {
-        let gem = ProgressItemsView()
-        gem.numLabel.text = "$0.00"
-        gem.textLabel.text = "Gem"
-        return gem
-    }()
-    var gewerlyProgressView: ProgressItemsView = {
-        let gewerly = ProgressItemsView()
-        gewerly.numLabel.text = "$0.00"
-        gewerly.textLabel.text = "Gewerly"
-        return gewerly
-    }()
-    var daimondProgressView: ProgressItemsView = {
-        let daimond = ProgressItemsView()
-        daimond.numLabel.text = "$0.00"
-        daimond.textLabel.text = "Daimond"
-        return daimond
-    }()
+//    let progressStackView: UIStackView = {
+//        let stack = UIStackView()
+//        stack.axis = .horizontal
+//        stack.distribution = .fill
+//        return stack
+//    }()
+//    var gemProgressView: ProgressItemsView = {
+//        let gem = ProgressItemsView()
+//        gem.numLabel.text = "$0.00"
+//        gem.textLabel.text = "Gem"
+//        return gem
+//    }()
+//    var gewerlyProgressView: ProgressItemsView = {
+//        let gewerly = ProgressItemsView()
+//        gewerly.numLabel.text = "$0.00"
+//        gewerly.textLabel.text = "Gewerly"
+//        return gewerly
+//    }()
+//    var daimondProgressView: ProgressItemsView = {
+//        let daimond = ProgressItemsView()
+//        daimond.numLabel.text = "$0.00"
+//        daimond.textLabel.text = "Daimond"
+//        return daimond
+//    }()
 }
 

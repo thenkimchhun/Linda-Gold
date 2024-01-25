@@ -54,9 +54,9 @@ extension String {
       return prefix(1).uppercased() + self.lowercased().dropFirst()
     }
     enum DateFormat: String {
-            case date = "dd MMM yyyy"
+            case date = "MMM d yyyy"
             case date_time = "dd MMM yyyy, h:mm a"
-            case time = "HH:mm a"
+            case time = "hh:mm a"
             case date_utc = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             
     }
@@ -66,9 +66,9 @@ extension String {
         
         if let date = dateFormatter.date(from: self) {
             dateFormatter.dateFormat = formatString.rawValue
-            dateFormatter.amSymbol = "am"
-            dateFormatter.pmSymbol = "pm"
-            dateFormatter.locale = Locale(identifier: "km" == "km" ? "km_KH": "en_US")
+            dateFormatter.amSymbol = "AM"
+            dateFormatter.pmSymbol = "PM"
+            dateFormatter.locale = Locale(identifier: "en" == "en" ? "en_US" : "km_KH")
             return dateFormatter.string(from: date)
         }
         return nil

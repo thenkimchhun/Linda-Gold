@@ -11,6 +11,8 @@ import Foundation
 protocol PendingApprovaDelegate: AnyObject {
     func onHistoryUpdateState()
     func onRequestUpdateState()
+    func onRequestApproveUpdateState()
+    func onDeclinedUpdateState()
 }
 
 enum PendingApprovalDelegateState{

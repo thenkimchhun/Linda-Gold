@@ -8,6 +8,25 @@
 
 import Foundation
 
+
+struct DashboardModel: Codable{
+    let data: DashboardDataResponse
+}
+struct DashboardDataResponse: Codable{
+    let totalAmount: Double
+    let productType: [ProductType]
+}
+struct ProductType: Codable{
+    let id: Int
+    let name: String
+    let color: String
+    let totalQty: Double
+    let totalAmount: Double
+    let sortOrder: Int
+}
+
+
+
 struct HomeModel {
     let data: ResponseHome
 }

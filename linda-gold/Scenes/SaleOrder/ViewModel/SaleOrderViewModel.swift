@@ -31,6 +31,7 @@ class SaleOrderViewModel{
         }
         SaleOrderService.shared.onSaleOrderList(parameter: parameter) { response in
             DispatchQueue.main.async {[self] in
+                meta = response.meta
                 switch userAction {
                 case .nornal, .pullRefresh: saleOrderList = response.data
                 case .infiniteScroll: saleOrderList.append(contentsOf: response.data)

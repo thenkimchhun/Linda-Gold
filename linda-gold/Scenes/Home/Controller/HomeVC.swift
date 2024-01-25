@@ -7,15 +7,12 @@
 //
 
 import UIKit
-class HomeVC: BaseVC {
+class HomeVC: BaseVC, HomeDelegate {
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-//    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -24,13 +21,25 @@ class HomeVC: BaseVC {
     fileprivate let homeView = HomeView()
     let viewModel = HomeViewModel()
     override func setupComponent() {
+        
         view.addSubview(homeView)
         view.backgroundColor = .white
     }
     override func setupEvent() {
         Loading.showSpinner(onView: view)
+        // Profile
         viewModel.delegate = self
         viewModel.onGetAccount()
+        // Dashboard Buy Back // Fist Get Service Today
+        viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
+        
+        homeView.ondidSelectRowAt = {[self] data in
+            if let filterDay = AppStatus.FilterDay.init(rawValue: data){
+                viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filterDay))
+//                print("filterDay: ==>",filterDay)
+            }
+        }
+        
         // notification
         homeView.onDidSelecteNotification = {[self] in
             let vc = NotificationVC()
@@ -61,6 +70,18 @@ extension HomeVC: ProfileAdminDelegate{
         case .none: break
         }
     }
+    
+    func onGetDashboardBuyBackUpdateState() {
+        homeView.buyBackData = viewModel.buyBackData
+        switch viewModel.onGetDashboardBuyBackUpdateState {
+        case .success: break
+        case .failure(let error):
+            print("error: ==>",error.message)
+        case .none: break
+            
+        }
+    }
+    
 }
 
 

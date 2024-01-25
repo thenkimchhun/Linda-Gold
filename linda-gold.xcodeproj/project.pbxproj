@@ -58,7 +58,21 @@
 		24048C8E2B5F9CB7008BC045 /* RequestApprovalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C8D2B5F9CB7008BC045 /* RequestApprovalService.swift */; };
 		24048C902B5F9D24008BC045 /* PendingApprovalHistoryParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C8F2B5F9D24008BC045 /* PendingApprovalHistoryParameter.swift */; };
 		24048C922B5FA06F008BC045 /* PendingApprovaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C912B5FA06F008BC045 /* PendingApprovaDelegate.swift */; };
-		24048C942B5FA182008BC045 /* PendingApprovalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C932B5FA182008BC045 /* PendingApprovalViewModel.swift */; };
+		24048C942B5FA182008BC045 /* PendingApprovalHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C932B5FA182008BC045 /* PendingApprovalHistoryViewModel.swift */; };
+		24048C962B6003C2008BC045 /* RequestApprovalParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C952B6003C1008BC045 /* RequestApprovalParameter.swift */; };
+		24048C982B60846A008BC045 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C972B60846A008BC045 /* Alert.swift */; };
+		24048C9A2B609C0E008BC045 /* PendingApprovalRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C992B609C0E008BC045 /* PendingApprovalRequestViewModel.swift */; };
+		24048C9D2B60BB1D008BC045 /* CPNEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C9C2B60BB1D008BC045 /* CPNEmptyView.swift */; };
+		24048C9F2B60C954008BC045 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C9E2B60C954008BC045 /* NotificationModel.swift */; };
+		24048CA22B60CA1B008BC045 /* NotificationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CA12B60CA1B008BC045 /* NotificationParameter.swift */; };
+		24048CA42B60CA69008BC045 /* NotificationResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CA32B60CA69008BC045 /* NotificationResource.swift */; };
+		24048CA62B60CA74008BC045 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CA52B60CA74008BC045 /* NotificationService.swift */; };
+		24048CA82B60CD4E008BC045 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CA72B60CD4E008BC045 /* NotificationDelegate.swift */; };
+		24048CAB2B60CDD1008BC045 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CAA2B60CDD1008BC045 /* NotificationViewModel.swift */; };
+		24048CAD2B610244008BC045 /* NotificationReadParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CAC2B610244008BC045 /* NotificationReadParameter.swift */; };
+		24048CAF2B62051C008BC045 /* DashboardBuyBackParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CAE2B62051B008BC045 /* DashboardBuyBackParameter.swift */; };
+		24048CB32B621674008BC045 /* DashboardResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CB22B621674008BC045 /* DashboardResource.swift */; };
+		24048CB52B621682008BC045 /* DashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CB42B621681008BC045 /* DashboardService.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
 		2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6712B55138100EEBD0A /* CPNTextField.swift */; };
 		2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6782B5523C900EEBD0A /* NotificationVC.swift */; };
@@ -249,7 +263,21 @@
 		24048C8D2B5F9CB7008BC045 /* RequestApprovalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApprovalService.swift; sourceTree = "<group>"; };
 		24048C8F2B5F9D24008BC045 /* PendingApprovalHistoryParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalHistoryParameter.swift; sourceTree = "<group>"; };
 		24048C912B5FA06F008BC045 /* PendingApprovaDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovaDelegate.swift; sourceTree = "<group>"; };
-		24048C932B5FA182008BC045 /* PendingApprovalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalViewModel.swift; sourceTree = "<group>"; };
+		24048C932B5FA182008BC045 /* PendingApprovalHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalHistoryViewModel.swift; sourceTree = "<group>"; };
+		24048C952B6003C1008BC045 /* RequestApprovalParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApprovalParameter.swift; sourceTree = "<group>"; };
+		24048C972B60846A008BC045 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		24048C992B609C0E008BC045 /* PendingApprovalRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingApprovalRequestViewModel.swift; sourceTree = "<group>"; };
+		24048C9C2B60BB1D008BC045 /* CPNEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNEmptyView.swift; sourceTree = "<group>"; };
+		24048C9E2B60C954008BC045 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		24048CA12B60CA1B008BC045 /* NotificationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationParameter.swift; sourceTree = "<group>"; };
+		24048CA32B60CA69008BC045 /* NotificationResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResource.swift; sourceTree = "<group>"; };
+		24048CA52B60CA74008BC045 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		24048CA72B60CD4E008BC045 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
+		24048CAA2B60CDD1008BC045 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		24048CAC2B610244008BC045 /* NotificationReadParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationReadParameter.swift; sourceTree = "<group>"; };
+		24048CAE2B62051B008BC045 /* DashboardBuyBackParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardBuyBackParameter.swift; sourceTree = "<group>"; };
+		24048CB22B621674008BC045 /* DashboardResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardResource.swift; sourceTree = "<group>"; };
+		24048CB42B621681008BC045 /* DashboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardService.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2405C6712B55138100EEBD0A /* CPNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextField.swift; sourceTree = "<group>"; };
 		2405C6782B5523C900EEBD0A /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -607,6 +635,7 @@
 			children = (
 				24048C862B5F9B73008BC045 /* PendingApprovalHistoryModel.swift */,
 				24048C8F2B5F9D24008BC045 /* PendingApprovalHistoryParameter.swift */,
+				24048C952B6003C1008BC045 /* RequestApprovalParameter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -622,7 +651,8 @@
 		24048C892B5F9C63008BC045 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				24048C932B5FA182008BC045 /* PendingApprovalViewModel.swift */,
+				24048C932B5FA182008BC045 /* PendingApprovalHistoryViewModel.swift */,
+				24048C992B609C0E008BC045 /* PendingApprovalRequestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -636,6 +666,40 @@
 			path = RequestApproval;
 			sourceTree = "<group>";
 		};
+		24048C9B2B60B962008BC045 /* CPNEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				24048C9C2B60BB1D008BC045 /* CPNEmptyView.swift */,
+			);
+			path = CPNEmptyView;
+			sourceTree = "<group>";
+		};
+		24048CA02B60CA02008BC045 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				24048CA32B60CA69008BC045 /* NotificationResource.swift */,
+				24048CA52B60CA74008BC045 /* NotificationService.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		24048CA92B60CDC2008BC045 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				24048CAA2B60CDD1008BC045 /* NotificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		24048CB12B62159F008BC045 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				24048CB22B621674008BC045 /* DashboardResource.swift */,
+				24048CB42B621681008BC045 /* DashboardService.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		2405C66E2B55129400EEBD0A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,6 +711,7 @@
 		2405C6732B55239900EEBD0A /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				24048CA92B60CDC2008BC045 /* ViewModel */,
 				2405C6772B5523B900EEBD0A /* Interface */,
 				2405C6762B5523B400EEBD0A /* Model */,
 				2405C6752B5523A800EEBD0A /* View */,
@@ -675,6 +740,9 @@
 		2405C6762B5523B400EEBD0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				24048C9E2B60C954008BC045 /* NotificationModel.swift */,
+				24048CA12B60CA1B008BC045 /* NotificationParameter.swift */,
+				24048CAC2B610244008BC045 /* NotificationReadParameter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -682,6 +750,7 @@
 		2405C6772B5523B900EEBD0A /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				24048CA72B60CD4E008BC045 /* NotificationDelegate.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1161,6 +1230,8 @@
 		79BCAFF82B32D1D100FD223F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				24048CB12B62159F008BC045 /* Dashboard */,
+				24048CA02B60CA02008BC045 /* Notification */,
 				24048C8A2B5F9C85008BC045 /* RequestApproval */,
 				24048C6D2B5E7B0D008BC045 /* SaleOrder */,
 				24048C392B5D5F16008BC045 /* AccountReceivable */,
@@ -1311,6 +1382,7 @@
 		D907823B24AD7D9300AC95C4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				24048C9B2B60B962008BC045 /* CPNEmptyView */,
 				2405C67F2B552FEB00EEBD0A /* AccountReceivable */,
 				24AFC2A82B57B3B400E5D157 /* AccountReceivableDetail */,
 				24AFC2D82B5A079200E5D157 /* AccountReceivableFilter */,
@@ -1359,6 +1431,7 @@
 			isa = PBXGroup;
 			children = (
 				D907829D24B0380300AC95C4 /* HomeModel.swift */,
+				24048CAE2B62051B008BC045 /* DashboardBuyBackParameter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1379,6 +1452,7 @@
 				24AFC2C12B58BAE300E5D157 /* UIButton.swift */,
 				24048C492B5D7262008BC045 /* Double.swift */,
 				24048C4E2B5D76B1008BC045 /* UIImage.swift */,
+				24048C972B60846A008BC045 /* Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1607,7 +1681,7 @@
 				79BCAFCB2B32C5E000FD223F /* ConstraintMakerPrioritizable.swift in Sources */,
 				049CDA1B27A10523000DCC0E /* UIView.swift in Sources */,
 				24AFC2EC2B5A5EB600E5D157 /* ProfileAdminVC.swift in Sources */,
-				24048C942B5FA182008BC045 /* PendingApprovalViewModel.swift in Sources */,
+				24048C942B5FA182008BC045 /* PendingApprovalHistoryViewModel.swift in Sources */,
 				2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */,
 				24BD4FF92B5768F700CD9CE0 /* CustomSegmentView.swift in Sources */,
 				D9E4991F28C6FCC800E7AD6D /* BaseVC.swift in Sources */,
@@ -1616,6 +1690,7 @@
 				2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */,
 				79BCAFED2B32C5E000FD223F /* ConstraintMakerRelatable.swift in Sources */,
 				24048C8C2B5F9CA0008BC045 /* RequestApprovalResource.swift in Sources */,
+				24048C982B60846A008BC045 /* Alert.swift in Sources */,
 				24048C902B5F9D24008BC045 /* PendingApprovalHistoryParameter.swift in Sources */,
 				24048C7C2B5F5FAF008BC045 /* SaleOrderDetailParameter.swift in Sources */,
 				049CDA0A27A0E75C000DCC0E /* Reachability.swift in Sources */,
@@ -1623,6 +1698,7 @@
 				2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */,
 				79BCB0112B32EF8600FD223F /* LoginVC.swift in Sources */,
 				D9E4991828C6FCA600E7AD6D /* BaseColor.swift in Sources */,
+				24048CB32B621674008BC045 /* DashboardResource.swift in Sources */,
 				79BCAFEB2B32C5E000FD223F /* ConstraintDirectionalInsets.swift in Sources */,
 				24AFC2F72B5A722600E5D157 /* NotificationDetailView.swift in Sources */,
 				24048C6C2B5E7526008BC045 /* SaleOrderParameter.swift in Sources */,
@@ -1680,9 +1756,11 @@
 				24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */,
 				24AFC2C42B58BEEB00E5D157 /* HomeTotalSaleViewCell.swift in Sources */,
 				79BCAFCE2B32C5E000FD223F /* ConstraintViewDSL.swift in Sources */,
+				24048CAB2B60CDD1008BC045 /* NotificationViewModel.swift in Sources */,
 				24AFC2FB2B5B552500E5D157 /* LoginModel.swift in Sources */,
 				79BCAFDB2B32C5E000FD223F /* ConstraintLayoutGuide.swift in Sources */,
 				79BCAFE32B32C5E000FD223F /* ConstraintLayoutGuideDSL.swift in Sources */,
+				24048CB52B621682008BC045 /* DashboardService.swift in Sources */,
 				2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */,
 				24048C6A2B5E7131008BC045 /* SaleOrderModel.swift in Sources */,
 				049CDA0427A0E61E000DCC0E /* Environment.swift in Sources */,
@@ -1694,6 +1772,7 @@
 				79BCAFD12B32C5E000FD223F /* ConstraintMakerFinalizable.swift in Sources */,
 				79BCAFF62B32D11200FD223F /* LocalizeHelper.swift in Sources */,
 				A255B83D2901563C00DCEE28 /* HomeView.swift in Sources */,
+				24048CAF2B62051C008BC045 /* DashboardBuyBackParameter.swift in Sources */,
 				049CD9FF27A0E51C000DCC0E /* APIResponseSuccess.swift in Sources */,
 				79BCAFEC2B32C5E000FD223F /* ConstraintLayoutSupportDSL.swift in Sources */,
 				2405C67C2B55243100EEBD0A /* NotificationView.swift in Sources */,
@@ -1702,7 +1781,10 @@
 				2405C6972B562AC400EEBD0A /* SaleOrderVC.swift in Sources */,
 				24AFC2D52B5982EA00E5D157 /* PendingApprovalHistoryVC.swift in Sources */,
 				79B28D1E2B33E21700AA48DE /* APIResponseError.swift in Sources */,
+				24048C9D2B60BB1D008BC045 /* CPNEmptyView.swift in Sources */,
 				049CDA1927A104DA000DCC0E /* ViewHelper.swift in Sources */,
+				24048C9A2B609C0E008BC045 /* PendingApprovalRequestViewModel.swift in Sources */,
+				24048CA22B60CA1B008BC045 /* NotificationParameter.swift in Sources */,
 				24AFC2BE2B58145800E5D157 /* DaysListView.swift in Sources */,
 				79BCAFD32B32C5E000FD223F /* ConstraintMakerExtendable.swift in Sources */,
 				049CDA2D27A13DA1000DCC0E /* String.swift in Sources */,
@@ -1715,6 +1797,7 @@
 				79BCAFD62B32C5E000FD223F /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				79BCAFF12B32CF7800FD223F /* AppStatus.swift in Sources */,
 				24048C462B5D679B008BC045 /* AccountReceivableViewModel.swift in Sources */,
+				24048C9F2B60C954008BC045 /* NotificationModel.swift in Sources */,
 				24BD4FFD2B5769C700CD9CE0 /* Vibration.swift in Sources */,
 				24048C6F2B5E7B22008BC045 /* SaleOrderResource.swift in Sources */,
 				049CD9E127A0DFDA000DCC0E /* ParameterEncoding.swift in Sources */,
@@ -1732,6 +1815,7 @@
 				24048C662B5E2762008BC045 /* AccountReceivableDetailParameter.swift in Sources */,
 				2405C6912B56197300EEBD0A /* CPNHoriziontalTextView.swift in Sources */,
 				24AFC2B92B57C7A200E5D157 /* RequestView.swift in Sources */,
+				24048CAD2B610244008BC045 /* NotificationReadParameter.swift in Sources */,
 				79B28D202B33E4F300AA48DE /* NetworkResponseState.swift in Sources */,
 				2405C6852B55302200EEBD0A /* AccountReceivableVC.swift in Sources */,
 				24BD4FF52B57674100CD9CE0 /* PendingApprovalVC.swift in Sources */,
@@ -1742,10 +1826,12 @@
 				24AFC2D72B5982F900E5D157 /* PendingApprovalHistoryView.swift in Sources */,
 				24048C7A2B5F4E84008BC045 /* SaleOrderDetailModel.swift in Sources */,
 				24048C4D2B5D7660008BC045 /* MJRefreshNormal.swift in Sources */,
+				24048CA42B60CA69008BC045 /* NotificationResource.swift in Sources */,
 				049CD9E227A0DFDA000DCC0E /* URLParameterEncoder.swift in Sources */,
 				D95CAA1428D06AAA00E59CF6 /* LocationManager.swift in Sources */,
 				24048C922B5FA06F008BC045 /* PendingApprovaDelegate.swift in Sources */,
 				24048C382B5D5D02008BC045 /* AccountReceivableModel.swift in Sources */,
+				24048CA82B60CD4E008BC045 /* NotificationDelegate.swift in Sources */,
 				79BCAFFC2B32D20A00FD223F /* SessionKey.swift in Sources */,
 				A255B83A2901560A00DCEE28 /* BaseCollectionViewFlowLayout.swift in Sources */,
 				79BCAFDE2B32C5E000FD223F /* ConstraintConstantTarget.swift in Sources */,
@@ -1758,6 +1844,7 @@
 				79BCAFEA2B32C5E000FD223F /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				79BCAFD42B32C5E000FD223F /* ConstraintPriority.swift in Sources */,
 				79BCAFCF2B32C5E000FD223F /* ConstraintPriorityTarget.swift in Sources */,
+				24048CA62B60CA74008BC045 /* NotificationService.swift in Sources */,
 				79BCAFE72B32C5E000FD223F /* Debugging.swift in Sources */,
 				24AFC2EE2B5A5ED300E5D157 /* ProfileAdminView.swift in Sources */,
 				79BCAFE52B32C5E000FD223F /* ConstraintItem.swift in Sources */,
@@ -1775,6 +1862,7 @@
 				79BCAFE02B32C5E000FD223F /* ConstraintMakerEditable.swift in Sources */,
 				24AFC2DE2B5A07E000E5D157 /* AccountReceivableFilterView.swift in Sources */,
 				24048C592B5E037A008BC045 /* AccountReceivableFilterViewModel.swift in Sources */,
+				24048C962B6003C2008BC045 /* RequestApprovalParameter.swift in Sources */,
 				24BD4FFF2B5770F600CD9CE0 /* SearchTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

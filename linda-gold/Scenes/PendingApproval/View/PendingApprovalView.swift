@@ -47,11 +47,11 @@ class PendingApprovalView: BaseView{
     @objc func actionIndexChange(_ sender: UISegmentedControl){
         switch sender.selectedSegmentIndex {
         case 0: self.requestView.isHidden = false
-            self.historyView.isHidden = true
+            historyView.isHidden = true
             boxSearchView.isHidden = true
         case 1:
-            self.requestView.isHidden = true
-            self.historyView.isHidden = false
+            requestView.isHidden = true
+            historyView.isHidden = false
             boxSearchView.isHidden = false
         default:
             break

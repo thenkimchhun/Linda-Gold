@@ -51,7 +51,7 @@ extension PendingApprovalHistoryView: UITableViewDelegate, UITableViewDataSource
             cell.profileHeader.StatuLabel.isHidden = true
             cell.profileHeader.titleLabel.text = data.customer.fullName
             cell.profileHeader.desLabel.text = "No. \(data.customer.id)"
-            cell.lastPurchaseView.rightView.text = ": \(data.lastSaleOrder.total.formatCurrencyNumber)"
+            cell.lastPurchaseView.rightView.text = ": \(data.lastSaleOrder?.total.formatCurrencyNumber ?? "")"
             cell.dateRequestView.rightView.text = ": \(data.createdAt.formatDate(formatString: .date_time) ?? "")"
             cell.dateDeclinedView.rightView.text = ": \(data.updatedAt.formatDate(formatString: .date_time) ?? "")"
         }

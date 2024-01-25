@@ -11,11 +11,13 @@ import Foundation
 struct PendingApprovalHistoryParameter{
     var limit: Int
     var offset: Int
+    var search: String
     var startDate: String
     var endDate: String
-    init(limit: Int = 10, offset: Int = 0, startDate: String = "", endDate: String = "") {
+    init(limit: Int = 10, offset: Int = 0,search: String = "", startDate: String = "", endDate: String = "") {
         self.limit = limit
         self.offset = offset
+        self.search = search
         self.startDate = startDate
         self.endDate = endDate
     }
@@ -26,6 +28,9 @@ extension PendingApprovalHistoryParameter{
         var params: [String : Any] = [:]
         params["limit"] = limit
         params["offset"] = offset
+        if !search.isEmpty {
+            params["search"] = search
+        }
         if !startDate.isEmpty {
             params["startDate"] = startDate
         }

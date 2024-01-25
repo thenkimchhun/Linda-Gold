@@ -9,9 +9,11 @@
 import UIKit
 class SaleOrderView: BaseView{
     let tableView = UITableView()
+    let emptyView = CPNEmptyView()
     var onDidSelectRowAt: ((SaleOrderDataResponse)->Void)?
     var saleOrderList: [SaleOrderDataResponse] = []{
         didSet{
+            if saleOrderList.count == 0 {emptyView.emptyState = .emtyView}
             tableView.reloadData()
         }
     }
@@ -33,6 +35,7 @@ class SaleOrderView: BaseView{
 
 extension SaleOrderView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       bindEmptyView(tableView)
         return saleOrderList.count
     }
     
@@ -54,6 +57,13 @@ extension SaleOrderView: UITableViewDelegate, UITableViewDataSource{
         cell.orderDateView.rightView.text = ": \(data.orderDate.formatDate() ?? "")"
         cell.orderStatusView.rightView.text = ": \(data.status)"
         cell.totalAmountView.rightView.text = ": \(data.total.formatCurrencyNumber)"
+    }
+    private func bindEmptyView(_ tableView: UITableView){
+        if saleOrderList.count == 0{
+            tableView.backgroundView = emptyView
+        }else{
+            tableView.backgroundView = nil
+        }
     }
     
 }

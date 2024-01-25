@@ -9,5 +9,11 @@
 import Foundation
 
 protocol HomeDelegate: AnyObject{
-    
+    func onGetAccountUpdateState()
+    func onGetDashboardBuyBackUpdateState()
+}
+
+enum HomeDelegateState {
+    case success
+    case failure(APIResponseError)
 }

@@ -17,9 +17,9 @@ struct PendingApproletHistoryDataResponse: Codable{
     let id: String
     let approval: Bool?
     let type: String
-    let requestGroup: RequestGroup  
+    let requestGroup: RequestGroup?
     let currentGroup: CurrentGroup  
-    let lastSaleOrder: LastSaleOrder  
+    let lastSaleOrder: LastSaleOrder?
     let saleOrder: String?
     let customer: Customer
     let createdAt: String  
@@ -32,14 +32,14 @@ struct RequestGroup: Codable{
 }
 
 struct CurrentGroup: Codable{
-    let id: Int
-    let name: String
+    let id: Int?
+    let name: String?
 }
 
 struct LastSaleOrder: Codable{
     let id: String
     let manualDiscountAmount: Double?
-    let manualDiscountPercentage: Double
+    let manualDiscountPercentage: Double?
     let total: Double
 }
 

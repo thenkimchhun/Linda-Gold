@@ -51,7 +51,7 @@ extension SaleOrderVC: SaleOrderDelegate{
         switch viewModel.onSaleOrderUpdateState {
         case .success: break
         case .failure(let error):
-            print("error",error.message)
+            saleOrderView.emptyView.emptyState = error.statusCode > 0 ? .errorNoteFound : .noInternet
         case .none: break
         }
     }
@@ -60,9 +60,9 @@ extension SaleOrderVC: SaleOrderDelegate{
 
 extension SaleOrderVC: RefreshNormalDelegate{
     func onRefresh() {
-        viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
+        viewModel.onGetSaleOrderList(userAction: .pullRefresh , parameter: viewModel.parameter)
     }
     func onLoadMore() {
-        viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
+        viewModel.onGetSaleOrderList(userAction: .pullRefresh, parameter: viewModel.parameter)
     }
 }

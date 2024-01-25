@@ -10,12 +10,17 @@ import UIKit
 class AccountReceivableView: BaseView{
     let headerTotalARView = HeaderTotalARView()
     let tableView = UITableView()
+    let emptyView = CPNEmptyView()
     let dayListView = DaysListView()
     var selectedDay: Bool = true
     var ondidSelectRowAt: ((AccountReceivableDataResponse)->Void)?
     var onActionFilterButton: (()->Void)?
     var dataList: [AccountReceivableDataResponse] = []{
         didSet{
+            if dataList.count == 0 {emptyView.emptyState = .emtyView}
+            for (index, _) in dataList.enumerated(){
+                totalLabel.text = "Total \(index + 1)"
+            }
             tableView.reloadData()
         }
     }
@@ -118,6 +123,7 @@ class AccountReceivableView: BaseView{
 
 extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       bindEmptyView(tableView)
         return dataList.count
     }
     
@@ -143,6 +149,13 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
         cell.invoiceNoView.rightView.text = ": #\(data.invoiceNumber)"
         cell.paymentDateView.rightView.text = ": \(data.lastPaymentDate?.formatDate() ?? "")"
         cell.totalPurchaseView.rightView.text = ": \(data.total.formatCurrencyNumber)"
+    }
+    private func bindEmptyView(_ tableView: UITableView){
+        if dataList.count == 0{
+            tableView.backgroundView = emptyView
+        }else{
+            tableView.backgroundView = nil
+        }
     }
 
 }

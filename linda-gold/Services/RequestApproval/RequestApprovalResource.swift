@@ -11,6 +11,8 @@ import Foundation
 enum RequestApprovalResource{
     case requestApprovalHistory(parameter: PendingApprovalHistoryParameter)
     case requestApprovalRequest(requestParameter: PendingApprovalHistoryParameter)
+    case requestApprovalApprov(approvParameter: RequestApprovalParameter)
+    case requestApprovalDeclined(declinedParemeter: RequestApprovalParameter)
 }
 
 extension RequestApprovalResource: TargetType {
@@ -20,6 +22,10 @@ extension RequestApprovalResource: TargetType {
             return "request-approval/history"
         case .requestApprovalRequest:
             return "request-approval/request"
+        case .requestApprovalApprov(approvParameter: let params):
+            return "request-approval/approve/\(params.id)"
+        case .requestApprovalDeclined(declinedParemeter: let params):
+            return "request-approval/reject/\(params.id)"
         }
     }
     
@@ -27,6 +33,8 @@ extension RequestApprovalResource: TargetType {
         switch self {
         case .requestApprovalHistory, .requestApprovalRequest:
             return .get
+        case .requestApprovalApprov, .requestApprovalDeclined:
+            return .put
         }
     }
     
@@ -36,6 +44,10 @@ extension RequestApprovalResource: TargetType {
             return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter) 
         case .requestApprovalRequest(let params):
             return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
+        case .requestApprovalApprov:
+            return .requestPlain
+        case .requestApprovalDeclined:
+            return .requestPlain
         }
     }
     

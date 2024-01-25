@@ -32,6 +32,7 @@ class AccountReceivableViewModel{
         }
         AccountReceivableService.shared.onAccountReceivableList(parameter: parameter) { response in
             DispatchQueue.main.async {[self] in
+                meta = response.meta
                 switch userAction {
                 case .nornal, .pullRefresh: dataList = response.data
                 case .infiniteScroll: dataList.append(contentsOf: response.data)

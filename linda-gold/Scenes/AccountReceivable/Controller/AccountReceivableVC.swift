@@ -76,7 +76,7 @@ extension AccountReceivableVC: AccountReceivableDelegate{
             presentPanModal(vc)
         //print("data: ===>",viewModel.data ?? "")
         case .failure(let error):
-            print("error",error.message)
+            accountReceivableView.emptyView.emptyState = error.statusCode > 0 ? .emtyView : .noInternet
         case .none: break
         }
     }

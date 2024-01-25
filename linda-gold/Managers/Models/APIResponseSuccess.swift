@@ -9,6 +9,6 @@
 import Foundation
 
 struct APIResponseSuccess: Codable {
-    let statusCode: Int
+    let statusCode: Int?
     let message: String
 }

@@ -10,9 +10,11 @@ import UIKit
 
 class RequestView: BaseView {
     let tableView = UITableView()
-    var onSelectedActionButton: ((RequestViewCell.TypeButton)->Void)?
+    let emptyView = CPNEmptyView()
+    var onActionTypeButton: ((ActionType)->Void)?
     var dataList: [PendingApproletHistoryDataResponse] = []{
         didSet{
+            if dataList.count == 0 {emptyView.emptyState = .emtyView}
             tableView.reloadData()
         }
     }
@@ -33,6 +35,7 @@ class RequestView: BaseView {
 }
 extension RequestView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        bindEmptyView(tableView)
         return dataList.count
     }
     
@@ -41,9 +44,9 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
         cell.onActionSelectedButton = {[self] action in
             switch action{
             case .decline:
-                onSelectedActionButton?(.decline)
+                onActionTypeButton?(.declined(dataList[indexPath.row]))
             case .approvale:
-                onSelectedActionButton?(.approvale)
+                onActionTypeButton?(.approve(dataList[indexPath.row]))
             }
         }
         bindRequestViewCell(cell: cell, cellForRowAt: indexPath)
@@ -53,8 +56,19 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
         let data = dataList[indexPath.row]
         cell.titleLabel.text = data.customer.fullName
         cell.desLabel.text = "No. \(data.customer.id)"
-        cell.updateView.rightView.text = ""
+        cell.updateView.rightView.text = "VVIP to Normal"
         cell.dateRequestView.rightView.text = ": \(data.createdAt.formatDate(formatString: .date_time) ?? "")"
+    }
+    private func bindEmptyView(_ tableView: UITableView){
+        if dataList.count == 0{
+            tableView.backgroundView = emptyView
+        }else{
+            tableView.backgroundView = nil
+        }
+    }
+    enum ActionType{
+        case declined(PendingApproletHistoryDataResponse)
+        case approve(PendingApproletHistoryDataResponse)
     }
 }
 
@@ -99,6 +113,7 @@ class RequestViewCell: BaseTableViewCell {
             switch type {
             case .decline:
                 onActionSelectedButton?(.decline)
+                
             case .approvale:
                 onActionSelectedButton?(.approvale)
             }

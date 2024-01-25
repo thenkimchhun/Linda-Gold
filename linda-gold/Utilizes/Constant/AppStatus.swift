@@ -24,4 +24,11 @@ struct AppStatus {
             }
         }
     }
+    // Buy Back
+    enum FilterDay: String{
+        case today = "Today"
+        case week = "Week"
+        case month = "Month"
+        case year = "Year"
+    }
 }

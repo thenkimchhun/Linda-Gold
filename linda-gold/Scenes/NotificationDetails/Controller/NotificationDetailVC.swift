@@ -14,6 +14,11 @@ class NotificationDetailVC: BaseVC{
         setupNavBarNormal(barTitle: "Notification Details")
     }
     let notificationDetailView = NotificationDetailView()
+    var data: NotificationDateResonse?{
+        didSet{
+            notificationDetailView.data = data
+        }
+    }
     override func setupComponent() {
         view.addSubview(notificationDetailView)
     }

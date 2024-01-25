@@ -9,7 +9,14 @@
 import UIKit
 class NotificationView: BaseView{
     let tableView = UITableView()
-    var onDidselectForRowAt: (()->Void)?
+    let emptyView = CPNEmptyView()
+    var onDidselectForRowAt: ((NotificationDateResonse)->Void)?
+    var dataList: [NotificationDateResonse] = []{
+        didSet{
+            if dataList.count == 0 {emptyView.emptyState = .emtyView}
+            tableView.reloadData()
+        }
+    }
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -28,15 +35,34 @@ class NotificationView: BaseView{
 
 extension NotificationView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        bindEmptyView(tableView)
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: NotificationViewCell = tableView.dequeueReusableCell(withIdentifier: "NotificationViewCell", for: indexPath) as! NotificationViewCell
+        bindNotificationViewCell(cell: cell, cellForRowAt: indexPath)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        onDidselectForRowAt?()
+        let data = dataList[indexPath.row]
+        onDidselectForRowAt?(data)
+    }
+    private func bindNotificationViewCell(cell: NotificationViewCell, cellForRowAt indexPath: IndexPath){
+        let data = dataList[indexPath.row]
+        cell.iconsImageView.image = UIImage(named: data.group == "ar" ? "ic_recieve" : "ic_request_vip")
+        cell.titleLabel.text = data.title
+        cell.desLabel.text = "\(data.customer.fullName) No. \(data.customer.id)"
+        cell.dateLabel.text = data.createdAt.formatDate()
+        cell.timeLabel.text = data.createdAt.formatDate(formatString: .time)
+        cell.readView.backgroundColor = (data.read ?? false) ? .clear : BaseColor.error
+    }
+    private func bindEmptyView(_ tableView: UITableView){
+        if dataList.count == 0 {
+            tableView.backgroundView = emptyView
+        }else{
+            tableView.backgroundView = nil
+        }
     }
     
     
