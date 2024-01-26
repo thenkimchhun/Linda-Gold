@@ -11,7 +11,14 @@ import UIKit
 class HomeTotalSaleViewCell: BaseTableViewCell{
     let containerView = UIView()
     let dayListView = DaysListView()
+    let chartView = ChartView()
+    var productTypes: [ProductType] = []{
+        didSet{
+            chartView.productType = productTypes
+        }
+    }
     var selectedDay: Bool = true
+    var onDidSelectRowAt: ((String)->Void)?
     override func setupComponent() {
         contentView.isUserInteractionEnabled = true
         selectionStyle = .none
@@ -26,6 +33,9 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         
         containerView.addSubview(totalSaleButton)
         containerView.addSubview(dayButton)
+        
+        containerView.addSubview(chartView)
+        
           addSubview(dayListView)
         dayListView.layer.shadowColor = UIColor.black.cgColor
         dayListView.layer.shadowOpacity = 0.2
@@ -45,6 +55,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         addGestureRecognizer(addGuesture)
         // get action daybutton
         dayListView.ondidSelectRowAt = {[self] data in
+            onDidSelectRowAt?(data)
             dayButton.setTitle(data, for: .normal)
             
         }
@@ -63,7 +74,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
     
     override func setupConstraint() {
         containerView.snp.makeConstraints { make in
-            make.height.equalTo(scale(447)).priority(750)
+//            make.height.equalTo(scale(447)).priority(750)
             make.top.equalToSuperview()
             make.bottom.equalToSuperview().offset(-scale(8))
             make.left.right.equalToSuperview().inset(scale(16))
@@ -74,6 +85,11 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         dayButton.snp.makeConstraints { make in
             make.right.top.equalToSuperview().inset(scale(16))
         }
+        chartView.snp.makeConstraints { make in
+            make.top.equalTo(totalSaleButton.snp.bottom).offset(scale(16))
+            make.left.right.equalToSuperview()
+        }
+        
         dayListView.snp.makeConstraints { make in
             make.width.equalTo(scale(100))
             make.height.equalTo(scale(170))
@@ -81,6 +97,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
             make.top.equalTo(containerView.snp.top)
         }
         progressStackView.snp.makeConstraints { make in
+            make.top.equalTo(chartView.snp.bottom).offset(scale(16))
             make.left.right.equalToSuperview().inset(scale(30))
             make.bottom.equalToSuperview().offset(-scale(16))
         }

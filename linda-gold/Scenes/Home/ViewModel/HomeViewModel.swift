@@ -18,6 +18,7 @@ class HomeViewModel {
             delegate?.onGetAccountUpdateState()
         }
     }
+    // get Profile
     var profileData: ProfileAdminDataResponse?
     func onGetAccount(){
         AccountService.shared.onAccountProfile { response in
@@ -34,7 +35,7 @@ class HomeViewModel {
         }
 
     }
-    
+    // Buy Back
     var onGetDashboardBuyBackUpdateState: HomeDelegateState?{
         didSet{
             delegate?.onGetDashboardBuyBackUpdateState()
@@ -54,7 +55,31 @@ class HomeViewModel {
                 }
             }
         }
+    }
+    // Sale Order
+    var onGetDashboardSaleOrderUpdatestate: HomeDelegateState?{
+        didSet{
+            delegate?.onGetDahsbaordSaleOrderUpdateState()
+        }
+    }
+    
+    var saleOrderData: DashboardDataResponse?
+    func onGetDashboadSaleOrder(parameter: DashboardBuyBackParameter){
+        DashboardService.shared.onDashboardSaleOrder(parameter: parameter) { response in
+            DispatchQueue.main.async {[self] in
+                saleOrderData = response.data
+                onGetDashboardSaleOrderUpdatestate = .success
+            }
+        } failure: { error in
+            DispatchQueue.main.async {[self] in
+                if let error = error {
+                    onGetDashboardSaleOrderUpdatestate = .failure(error)
+                }
+            }
+        }
 
     }
+    
+    
     
 }

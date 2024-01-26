@@ -20,4 +20,15 @@ class DashboardService: BaseAPIService<DashboardResource> {
             }
         }
     }
+    
+    func onDashboardSaleOrder(parameter: DashboardBuyBackParameter, success: @escaping(DashboardModel)-> Void, failure: @escaping(APIResponseError?)-> Void){
+        request(service: .dashboardSaleOrder(parameter: parameter), model: DashboardModel.self) { response in
+            switch response {
+            case .success(let res):
+                success(res)
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
 }

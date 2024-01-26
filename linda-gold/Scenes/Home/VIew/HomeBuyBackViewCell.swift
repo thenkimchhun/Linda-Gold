@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import Charts
 
 class HomeBuyBackViewCell: BaseTableViewCell{
     let containerView = UIView()
@@ -75,6 +76,7 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         stackView.distribution = .fillProportionally
                 
         containerView.addSubview(totalAmountStackView)
+        totalAmountStackView.spacing = 25
         totalAmountStackView.axis = .horizontal
         totalAmountStackView.distribution = .fillEqually
         

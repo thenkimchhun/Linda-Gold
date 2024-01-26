@@ -12,13 +12,22 @@ class HomeView: BaseView {
     let tableView = UITableView(frame: .zero, style: .grouped)
     var onDidSelecteNotification: (()->Void)?
     var onDidSelecteProfile: (()->Void)?
-    var ondidSelectRowAt: ((String)->Void)?
+    var onFilterBuyBack: ((String)->Void)?
+    var onFilterTotalSale: ((String)->Void)?
+    var saleOrderData: DashboardDataResponse?{
+        didSet{
+            tableView.reloadData()
+        }
+    }
+    
     var buyBackData: DashboardDataResponse?{
         didSet{
 //            print("buyBackData: ==>",buyBackData)
             tableView.reloadData()
         }
     }
+    
+
     override func setupComponent() {
         addSubview(tableView)
         tableView.showsVerticalScrollIndicator = false
@@ -64,13 +73,17 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
             switch type {
             case .totalSale:
                 let cell: HomeTotalSaleViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeTotalSaleViewCell", for: indexPath) as! HomeTotalSaleViewCell
+                cell.productTypes = saleOrderData?.productType ?? []
+                cell.onDidSelectRowAt = {[self] data in
+                    onFilterTotalSale?(data)
+                }
                 return cell
             case .buyBack:
                 let cell: HomeBuyBackViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeBuyBackViewCell", for: indexPath) as! HomeBuyBackViewCell
                 bindBuyBackViewCell(cell: cell, cellForRowAt: indexPath)
                 
                 cell.ondidSelectRowAt = {[self] data in
-                    ondidSelectRowAt?(data)
+                    onFilterBuyBack?(data)
                 }
                 return cell
             }

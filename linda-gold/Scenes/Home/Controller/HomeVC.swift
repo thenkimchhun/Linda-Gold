@@ -8,7 +8,7 @@
 
 import UIKit
 class HomeVC: BaseVC, HomeDelegate {
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -30,10 +30,20 @@ class HomeVC: BaseVC, HomeDelegate {
         // Profile
         viewModel.delegate = self
         viewModel.onGetAccount()
+        //Dashboard Sale Order // Fist Get Service Taoday
+        viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: AppStatus.FilterDay.today))
         // Dashboard Buy Back // Fist Get Service Today
         viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
         
-        homeView.ondidSelectRowAt = {[self] data in
+        // Action Day from Sale Order
+        homeView.onFilterTotalSale = {[self] data in
+            if let filterDay = AppStatus.FilterDay.init(rawValue: data){
+                viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: filterDay))
+                print("filterDay: ==>",filterDay)
+            }
+        }
+        // Action Day from Buy Back
+        homeView.onFilterBuyBack = {[self] data in
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
                 viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filterDay))
 //                print("filterDay: ==>",filterDay)
@@ -80,6 +90,18 @@ extension HomeVC: ProfileAdminDelegate{
         case .none: break
             
         }
+    }
+    
+    func onGetDahsbaordSaleOrderUpdateState() {
+        homeView.saleOrderData = viewModel.saleOrderData
+        switch viewModel.onGetDashboardSaleOrderUpdatestate {
+        case .success: break
+            print("saleOrder: =>",viewModel.saleOrderData ?? "")
+        case .failure(let error):
+            print("error: ==>",error.message)
+        case .none: break
+        }
+       
     }
     
 }

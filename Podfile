@@ -9,6 +9,7 @@ target 'linda-gold' do
     pod 'PanModal'
     pod 'MJRefresh'
     pod 'Nuke', '~> 9.0'
+    pod 'Charts'
 
 
 end

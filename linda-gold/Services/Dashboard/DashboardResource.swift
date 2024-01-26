@@ -10,6 +10,7 @@ import Foundation
 
 enum DashboardResource{
     case dashboardBuyBack(parameter: DashboardBuyBackParameter)
+    case dashboardSaleOrder(parameter: DashboardBuyBackParameter)
 }
 
 extension DashboardResource: TargetType {
@@ -17,12 +18,14 @@ extension DashboardResource: TargetType {
         switch self{
         case .dashboardBuyBack:
             return "dashboard/buy-back"
+        case .dashboardSaleOrder:
+            return "dashboard/sale-order"
         }
     }
     
     var method: HTTPMethod {
         switch self{
-        case .dashboardBuyBack:
+        case .dashboardBuyBack, .dashboardSaleOrder:
             return .get
         }
     }
@@ -30,7 +33,9 @@ extension DashboardResource: TargetType {
     var task: Task {
         switch self{
         case .dashboardBuyBack(parameter: let params):
-            print("params: ==>", params.parameter)
+//            print("params: ==>", params.parameter)
+            return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
+        case .dashboardSaleOrder(parameter: let params):
             return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
         }
     }

@@ -11,6 +11,7 @@ import Foundation
 protocol HomeDelegate: AnyObject{
     func onGetAccountUpdateState()
     func onGetDashboardBuyBackUpdateState()
+    func onGetDahsbaordSaleOrderUpdateState()
 }
 
 enum HomeDelegateState {

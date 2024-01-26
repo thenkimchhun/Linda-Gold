@@ -14,6 +14,7 @@ struct DashboardModel: Codable{
 }
 struct DashboardDataResponse: Codable{
     let totalAmount: Double
+    let totalPaid: Double?
     let productType: [ProductType]
 }
 struct ProductType: Codable{
