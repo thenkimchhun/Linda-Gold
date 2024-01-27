@@ -39,7 +39,7 @@ class HomeVC: BaseVC, HomeDelegate {
         homeView.onFilterTotalSale = {[self] data in
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
                 viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: filterDay))
-                print("filterDay: ==>",filterDay)
+                print("saleOrderfilterDay: ==>",filterDay)
             }
         }
         // Action Day from Buy Back
@@ -81,6 +81,17 @@ extension HomeVC: ProfileAdminDelegate{
         }
     }
     
+    func onGetDahsbaordSaleOrderUpdateState() {
+        homeView.saleOrderData = viewModel.saleOrderData
+        switch viewModel.onGetDashboardSaleOrderUpdatestate {
+        case .success: break
+        case .failure(let error):
+            print("error: ==>",error.message)
+        case .none: break
+        }
+       
+    }
+    
     func onGetDashboardBuyBackUpdateState() {
         homeView.buyBackData = viewModel.buyBackData
         switch viewModel.onGetDashboardBuyBackUpdateState {
@@ -90,18 +101,6 @@ extension HomeVC: ProfileAdminDelegate{
         case .none: break
             
         }
-    }
-    
-    func onGetDahsbaordSaleOrderUpdateState() {
-        homeView.saleOrderData = viewModel.saleOrderData
-        switch viewModel.onGetDashboardSaleOrderUpdatestate {
-        case .success: break
-            print("saleOrder: =>",viewModel.saleOrderData ?? "")
-        case .failure(let error):
-            print("error: ==>",error.message)
-        case .none: break
-        }
-       
     }
     
 }

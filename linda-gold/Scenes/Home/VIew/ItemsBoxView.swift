@@ -20,8 +20,8 @@ class ItemsBoxView: BaseView{
         addSubview(numLabel)
 //        numLabel.textInsets = .
         numLabel.textColor = UIColor(hexString: "#535353")
-        numLabel.font = .systemFont(ofSize: 15)
-        numLabel.backgroundColor = .gray
+        numLabel.font = .systemFont(ofSize: 14, weight: .bold)
+        numLabel.backgroundColor = .black
         numLabel.layer.cornerRadius = 5
         numLabel.clipsToBounds = true
         numLabel.textInsets = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)

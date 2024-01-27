@@ -13,15 +13,23 @@ class ChartView: BaseView{
     let pieCharView = PieChartView()
     var productType: [ProductType] = []{
         didSet{
-            print("productTypes: ======>",productType)
-            getPieChartDataSet(productTypes: productType)
+            let data = PieChartDataSet(entries: getPieChartDataSet(productTypes: productType))
+            pieCharView.drawHoleEnabled = true
+            pieCharView.legend.enabled = false
+            data.drawValuesEnabled = false
+            
+            let getColor = BaseColor.diamondColor
+            let jerwerlyColor = BaseColor.gemColor
+            let diamond = BaseColor.jewerlyColor
+            data.colors = [getColor, jerwerlyColor, diamond]
+            pieCharView.data = PieChartData(dataSet: data)
         }
     }
     override func setupComponent() {
         addSubview(pieCharView)
         pieCharView.centerText = "center text"
         // hides entry label
-        pieCharView.drawEntryLabelsEnabled = true
+        pieCharView.drawEntryLabelsEnabled = false
         // set clear color for entry label = hides entry label
         pieCharView.entryLabelColor = .clear
         // hides center text
@@ -30,25 +38,14 @@ class ChartView: BaseView{
         pieCharView.isUserInteractionEnabled = false
         // size chart
         pieCharView.holeRadiusPercent = 0.60
-        let data = PieChartDataSet(entries: getPieChartDataSet(productTypes: productType))
-        pieCharView.drawHoleEnabled = true
-        pieCharView.legend.enabled = false
-        data.drawValuesEnabled = false
-        
-        let getColor = UIColor.systemBlue
-        let jerwerlyColor = UIColor.orange
-        let diamond = UIColor.yellow
-        data.colors = [getColor, jerwerlyColor, diamond]
-        pieCharView.data = PieChartData(dataSet: data)
-        
 //        var entries = [PieChartDataEntry]()
-//        for x in 0..<3 {
+//        for x in 0..<4 {
 //            entries.append(PieChartDataEntry(value: Double(x), label: ""))
 //        }
 //        let dataSet = PieChartDataSet(entries: entries)
 //        dataSet.colors = ChartColorTemplates.colorful()
-//        let data = PieChartData(dataSet: dataSet)
-//        pieCharView.data = data
+//        let datas = PieChartData(dataSet: dataSet)
+//        pieCharView.data = datas
     }
     override func setupConstraint() {
         pieCharView.snp.makeConstraints { make in

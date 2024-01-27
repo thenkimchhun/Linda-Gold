@@ -35,6 +35,31 @@ class HomeViewModel {
         }
 
     }
+    // Sale Order
+    var onGetDashboardSaleOrderUpdatestate: HomeDelegateState?{
+        didSet{
+            delegate?.onGetDahsbaordSaleOrderUpdateState()
+        }
+    }
+    
+    var saleOrderData: DashboardDataResponse?
+    func onGetDashboadSaleOrder(parameter: DashboardBuyBackParameter){
+        DashboardService.shared.onDashboardSaleOrder(parameter: parameter) { response in
+            DispatchQueue.main.async {[self] in
+                saleOrderData = response.data
+//                print("viewModelSaleOrder: ==>",saleOrderData ?? "")
+                onGetDashboardSaleOrderUpdatestate = .success
+            }
+        } failure: { error in
+            DispatchQueue.main.async {[self] in
+                if let error = error {
+                    onGetDashboardSaleOrderUpdatestate = .failure(error)
+                }
+            }
+        }
+
+    }
+    
     // Buy Back
     var onGetDashboardBuyBackUpdateState: HomeDelegateState?{
         didSet{
@@ -56,30 +81,4 @@ class HomeViewModel {
             }
         }
     }
-    // Sale Order
-    var onGetDashboardSaleOrderUpdatestate: HomeDelegateState?{
-        didSet{
-            delegate?.onGetDahsbaordSaleOrderUpdateState()
-        }
-    }
-    
-    var saleOrderData: DashboardDataResponse?
-    func onGetDashboadSaleOrder(parameter: DashboardBuyBackParameter){
-        DashboardService.shared.onDashboardSaleOrder(parameter: parameter) { response in
-            DispatchQueue.main.async {[self] in
-                saleOrderData = response.data
-                onGetDashboardSaleOrderUpdatestate = .success
-            }
-        } failure: { error in
-            DispatchQueue.main.async {[self] in
-                if let error = error {
-                    onGetDashboardSaleOrderUpdatestate = .failure(error)
-                }
-            }
-        }
-
-    }
-    
-    
-    
 }

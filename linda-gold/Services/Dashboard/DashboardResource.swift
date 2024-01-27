@@ -16,10 +16,10 @@ enum DashboardResource{
 extension DashboardResource: TargetType {
     var path: String {
         switch self{
-        case .dashboardBuyBack:
-            return "dashboard/buy-back"
         case .dashboardSaleOrder:
             return "dashboard/sale-order"
+        case .dashboardBuyBack:
+            return "dashboard/buy-back"
         }
     }
     
@@ -32,10 +32,10 @@ extension DashboardResource: TargetType {
     
     var task: Task {
         switch self{
+        case .dashboardSaleOrder(parameter: let params):
+            return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
         case .dashboardBuyBack(parameter: let params):
 //            print("params: ==>", params.parameter)
-            return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
-        case .dashboardSaleOrder(parameter: let params):
             return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
         }
     }

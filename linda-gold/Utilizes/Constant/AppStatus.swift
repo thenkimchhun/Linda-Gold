@@ -31,4 +31,25 @@ struct AppStatus {
         case month = "Month"
         case year = "Year"
     }
+    // sortBy
+    enum SortBy: String {
+        case all = "All"
+        case clear = "Clear"
+        case remain = "Remain"
+    }
+    
+    // Dashboard Total Sale and Buy Back
+    enum DashBoardEnum: String{
+        case diamond = "Diamond"
+        case gem = "Gem"
+        case jewerly = "Jewelry"
+        
+        var instantColor: UIColor {
+            switch self {
+            case .diamond: return BaseColor.diamondColor
+            case .gem: return BaseColor.gemColor
+            case .jewerly: return BaseColor.jewerlyColor
+            }
+        }
+    }
 }

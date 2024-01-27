@@ -12,13 +12,54 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
     let containerView = UIView()
     let dayListView = DaysListView()
     let chartView = ChartView()
-    var productTypes: [ProductType] = []{
+    var saleOrderData: DashboardDataResponse?{
         didSet{
-            chartView.productType = productTypes
+            totalAmountLabel.text = saleOrderData?.totalAmount.formatCurrencyNumber
+            productList = saleOrderData?.productType ?? []
+            totalList = saleOrderData?.productType ?? []
+            chartView.productType = saleOrderData?.productType ?? []
         }
     }
     var selectedDay: Bool = true
     var onDidSelectRowAt: ((String)->Void)?
+    var stackView = UIStackView()
+    var productsName: [ItemsBoxView] = []
+    var productList: [ProductType] = []{
+        didSet{
+            for name in productsName {
+                stackView.removeArrangedSubview(name)
+                name.removeFromSuperview()
+            }
+            for product in productList {
+                let nameLabel = ItemsBoxView()
+                nameLabel.numLabel.text = "\(Int(product.totalQty))"
+                nameLabel.textLabel.text = product.name
+                if let colors = AppStatus.DashBoardEnum.init(rawValue: product.name)?.instantColor {
+                    nameLabel.numLabel.backgroundColor = colors
+                }
+                productsName.append(nameLabel)
+                stackView.addArrangedSubview(nameLabel)
+            }
+        }
+    }
+    
+    let totalAmountStackView = UIStackView()
+    var totalAmountSupbViews: [ProgressItemsView] = []
+    var totalList: [ProductType] = []{
+        didSet{
+            for totalAmountSupView in totalAmountSupbViews {
+                totalAmountStackView.removeArrangedSubview(totalAmountSupView)
+                totalAmountSupView.removeFromSuperview()
+            }
+            for total in totalList {
+                let totalAmountView = ProgressItemsView()
+                totalAmountView.numLabel.text = total.totalAmount.formatCurrencyNumber
+                totalAmountView.textLabel.text = total.name
+                totalAmountSupbViews.append(totalAmountView)
+                totalAmountStackView.addArrangedSubview(totalAmountView)
+            }
+        }
+    }
     override func setupComponent() {
         contentView.isUserInteractionEnabled = true
         selectionStyle = .none
@@ -36,6 +77,13 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         
         containerView.addSubview(chartView)
         
+        chartView.addSubview(totalAmountLabel)
+        
+        chartView.addSubview(stackView)
+        stackView.spacing = scale(10)
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        
           addSubview(dayListView)
         dayListView.layer.shadowColor = UIColor.black.cgColor
         dayListView.layer.shadowOpacity = 0.2
@@ -43,10 +91,9 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         dayListView.layer.shadowRadius = 6.0
         dayListView.isHidden = true
         
-        containerView.addSubview(progressStackView)
-        progressStackView.addArrangedSubview(gemView)
-        progressStackView.addArrangedSubview(gewerlyView)
-        progressStackView.addArrangedSubview(daimondView)
+        containerView.addSubview(totalAmountStackView)
+        totalAmountStackView.axis = .horizontal
+        totalAmountStackView.distribution = .fillEqually
     }
     override func setupEvent() {
         dayButton.addTarget(self, action: #selector(onHandleDayButton), for: .touchUpInside)
@@ -89,16 +136,24 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
             make.top.equalTo(totalSaleButton.snp.bottom).offset(scale(16))
             make.left.right.equalToSuperview()
         }
-        
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(totalAmountLabel.snp.bottom).offset(scale(10))
+            make.centerX.equalToSuperview()
+        }
+        totalAmountLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(scale(110))
+            make.centerX.equalTo(stackView)
+        }
         dayListView.snp.makeConstraints { make in
             make.width.equalTo(scale(100))
             make.height.equalTo(scale(170))
             make.right.equalToSuperview()
             make.top.equalTo(containerView.snp.top)
         }
-        progressStackView.snp.makeConstraints { make in
+        totalAmountStackView.snp.makeConstraints { make in
             make.top.equalTo(chartView.snp.bottom).offset(scale(16))
-            make.left.right.equalToSuperview().inset(scale(30))
+            make.left.equalToSuperview().offset(scale(50))
+            make.right.equalToSuperview().offset(scale(-20))
             make.bottom.equalToSuperview().offset(-scale(16))
         }
     }
@@ -126,29 +181,11 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         daybtn.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         return daybtn
     }()
-    let progressStackView: UIStackView = {
-        let stack = UIStackView()
-//        stack.spacing = 20
-        stack.axis = .horizontal
-        stack.distribution = .equalSpacing
-        return stack
-    }()
-    var gemView: ProgressItemsView = {
-        let gem = ProgressItemsView()
-        gem.numLabel.text = "$0.00"
-        gem.textLabel.text = "Gem"
-        return gem
-    }()
-    var gewerlyView: ProgressItemsView = {
-        let gewerly = ProgressItemsView()
-        gewerly.numLabel.text = "$0.00"
-        gewerly.textLabel.text = "Gewerly"
-        return gewerly
-    }()
-    var daimondView: ProgressItemsView = {
-        let daimond = ProgressItemsView()
-        daimond.numLabel.text = "$0.00"
-        daimond.textLabel.text = "Daimond"
-        return daimond
+    var totalAmountLabel: UILabel = {
+        let total = UILabel()
+        total.text = "000,3355"
+        total.font = .systemFont(ofSize: 16, weight: .bold)
+        total.textColor = BaseColor.black
+        return total
     }()
 }

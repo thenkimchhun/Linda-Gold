@@ -10,8 +10,9 @@ import Foundation
 
 class DashboardService: BaseAPIService<DashboardResource> {
     static let shared = DashboardService()
-    func onDashboardBuyBack(parameter: DashboardBuyBackParameter, success: @escaping(DashboardModel)-> Void, failure: @escaping(APIResponseError?)-> Void){
-        request(service: .dashboardBuyBack(parameter: parameter), model: DashboardModel.self) { response in
+    
+    func onDashboardSaleOrder(parameter: DashboardBuyBackParameter, success: @escaping(DashboardModel)-> Void, failure: @escaping(APIResponseError?)-> Void){
+        request(service: .dashboardSaleOrder(parameter: parameter), model: DashboardModel.self) { response in
             switch response {
             case .success(let res):
                 success(res)
@@ -21,8 +22,8 @@ class DashboardService: BaseAPIService<DashboardResource> {
         }
     }
     
-    func onDashboardSaleOrder(parameter: DashboardBuyBackParameter, success: @escaping(DashboardModel)-> Void, failure: @escaping(APIResponseError?)-> Void){
-        request(service: .dashboardSaleOrder(parameter: parameter), model: DashboardModel.self) { response in
+    func onDashboardBuyBack(parameter: DashboardBuyBackParameter, success: @escaping(DashboardModel)-> Void, failure: @escaping(APIResponseError?)-> Void){
+        request(service: .dashboardBuyBack(parameter: parameter), model: DashboardModel.self) { response in
             switch response {
             case .success(let res):
                 success(res)

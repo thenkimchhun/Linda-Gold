@@ -17,7 +17,7 @@ class SaleOrderVC: BaseVC{
         view.addSubview(saleOrderView)
     }
     override func setupEvent() {
-        Loading.showSpinner(onView: saleOrderView.tableView)
+        Loading.showSpinner(onView: view)
         viewModel.delegate = self
         viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
         saleOrderView.onDidSelectRowAt = {[self] data in

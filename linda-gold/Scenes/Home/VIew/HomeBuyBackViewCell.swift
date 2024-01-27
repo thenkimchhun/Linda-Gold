@@ -14,6 +14,13 @@ class HomeBuyBackViewCell: BaseTableViewCell{
     let dayListView = DaysListView()
     var selectedDay: Bool = true
     var ondidSelectRowAt: ((String)->Void)?
+    var buyBackData: DashboardDataResponse?{
+        didSet{
+            amountLabel.text = buyBackData?.totalAmount.formatCurrencyNumber
+            productList = buyBackData?.productType ?? []
+            totalList = buyBackData?.productType ?? []
+        }
+    }
     var stackView = UIStackView()
     var productsName: [ItemsBoxView] = []
     var productList: [ProductType] = []{
@@ -26,7 +33,9 @@ class HomeBuyBackViewCell: BaseTableViewCell{
                 let nameLabel = ItemsBoxView()
                 nameLabel.numLabel.text = "\(Int(product.totalQty))"
                 nameLabel.textLabel.text = product.name
-                nameLabel.numLabel.backgroundColor = UIColor(hexString: product.color)
+                if let colors = AppStatus.DashBoardEnum.init(rawValue: product.name)?.instantColor {
+                    nameLabel.numLabel.backgroundColor = colors
+                }
                 productsName.append(nameLabel)
                 stackView.addArrangedSubview(nameLabel)
             }
@@ -76,7 +85,6 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         stackView.distribution = .fillProportionally
                 
         containerView.addSubview(totalAmountStackView)
-        totalAmountStackView.spacing = 25
         totalAmountStackView.axis = .horizontal
         totalAmountStackView.distribution = .fillEqually
         
@@ -126,7 +134,8 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         }
         totalAmountStackView.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(scale(16))
-            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(scale(50))
+            make.right.equalToSuperview().offset(scale(-20))
             make.bottom.equalToSuperview().offset(-scale(16))
         }
         dayListView.snp.makeConstraints { make in

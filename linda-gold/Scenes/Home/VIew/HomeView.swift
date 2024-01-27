@@ -73,15 +73,14 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
             switch type {
             case .totalSale:
                 let cell: HomeTotalSaleViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeTotalSaleViewCell", for: indexPath) as! HomeTotalSaleViewCell
-                cell.productTypes = saleOrderData?.productType ?? []
+                cell.saleOrderData = saleOrderData
                 cell.onDidSelectRowAt = {[self] data in
                     onFilterTotalSale?(data)
                 }
                 return cell
             case .buyBack:
                 let cell: HomeBuyBackViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeBuyBackViewCell", for: indexPath) as! HomeBuyBackViewCell
-                bindBuyBackViewCell(cell: cell, cellForRowAt: indexPath)
-                
+                cell.buyBackData = buyBackData
                 cell.ondidSelectRowAt = {[self] data in
                     onFilterBuyBack?(data)
                 }
@@ -94,6 +93,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let view = HomeHeaderView()
+            view.nameLabel.text = AuthHelper.getProfile?.fullName
             view.notificaionImg.isUserInteractionEnabled = true
             view.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
             view.profileImg.isUserInteractionEnabled = true
@@ -107,13 +107,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? UITableView.automaticDimension : 0
     }
-    private func bindBuyBackViewCell(cell: HomeBuyBackViewCell, cellForRowAt indexPath: IndexPath){
-        if let data = buyBackData {
-            cell.amountLabel.text = data.totalAmount.formatCurrencyNumber
-            cell.productList = data.productType
-            cell.totalList = data.productType
-        }
-    }
+    
     enum SectionTypes: Int {
         case totalSale = 0
         case buyBack = 1
