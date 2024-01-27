@@ -61,7 +61,15 @@ class HomeVC: BaseVC, HomeDelegate {
             let vc = ProfileAdminVC()
             presentPanModal(vc)
         }
+        
+        homeView.tableView.mj_header = mjRefreshNormal.refreshHeader
+        homeView.tableView.mj_footer = mjRefreshNormal.refreshFooter
     }
+    lazy var mjRefreshNormal: MJRefreshNormal = {
+        let mjRefreshNormal = MJRefreshNormal()
+        mjRefreshNormal.refreshNormalDelegate = self
+        return mjRefreshNormal
+    }()
     override func setupConstraint() {
         homeView.snp.makeConstraints { (make) in
             make.edges.equalTo(view.safeAreaLayoutGuide)
@@ -72,6 +80,8 @@ class HomeVC: BaseVC, HomeDelegate {
 extension HomeVC: ProfileAdminDelegate{
     func onGetAccountUpdateState() {
         Loading.removeSpinner()
+        homeView.tableView.mj_header?.endRefreshing()
+        homeView.tableView.mj_footer?.endRefreshing()
         switch viewModel.onGetProfileUpdatestate {
         case .succes:
             SessionManager.shared.setter(key: .getProfile, param: viewModel.profileData)
@@ -83,6 +93,8 @@ extension HomeVC: ProfileAdminDelegate{
     
     func onGetDahsbaordSaleOrderUpdateState() {
         homeView.saleOrderData = viewModel.saleOrderData
+        homeView.tableView.mj_header?.endRefreshing()
+        homeView.tableView.mj_footer?.endRefreshing()
         switch viewModel.onGetDashboardSaleOrderUpdatestate {
         case .success: break
         case .failure(let error):
@@ -94,6 +106,8 @@ extension HomeVC: ProfileAdminDelegate{
     
     func onGetDashboardBuyBackUpdateState() {
         homeView.buyBackData = viewModel.buyBackData
+        homeView.tableView.mj_header?.endRefreshing()
+        homeView.tableView.mj_footer?.endRefreshing()
         switch viewModel.onGetDashboardBuyBackUpdateState {
         case .success: break
         case .failure(let error):
@@ -103,6 +117,14 @@ extension HomeVC: ProfileAdminDelegate{
         }
     }
     
+}
+
+extension HomeVC: RefreshNormalDelegate {
+    func onRefresh() {
+        viewModel.onGetAccount()
+        viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: AppStatus.FilterDay.today))
+        viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
+    }
 }
 
 
