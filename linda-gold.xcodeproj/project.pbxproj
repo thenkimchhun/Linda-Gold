@@ -77,6 +77,8 @@
 		24048CC82B639D12008BC045 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CC72B639D12008BC045 /* Array.swift */; };
 		24048CCB2B63AEFC008BC045 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCA2B63AEFC008BC045 /* ChartView.swift */; };
 		24048CCD2B64BF93008BC045 /* AccountReceivableTotalParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCC2B64BF93008BC045 /* AccountReceivableTotalParameter.swift */; };
+		24048CCF2B662F71008BC045 /* AccountReceviableTotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */; };
+		24048CD12B66404D008BC045 /* CPNTextFieldDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
 		2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6712B55138100EEBD0A /* CPNTextField.swift */; };
 		2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6782B5523C900EEBD0A /* NotificationVC.swift */; };
@@ -286,6 +288,8 @@
 		24048CC72B639D12008BC045 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		24048CCA2B63AEFC008BC045 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		24048CCC2B64BF93008BC045 /* AccountReceivableTotalParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableTotalParameter.swift; sourceTree = "<group>"; };
+		24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceviableTotalModel.swift; sourceTree = "<group>"; };
+		24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextFieldDateView.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2405C6712B55138100EEBD0A /* CPNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextField.swift; sourceTree = "<group>"; };
 		2405C6782B5523C900EEBD0A /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -827,6 +831,7 @@
 				24048C3F2B5D619D008BC045 /* FilterParameter.swift */,
 				24048C672B5E2E15008BC045 /* AccountReceivableDetailModel.swift */,
 				24048CCC2B64BF93008BC045 /* AccountReceivableTotalParameter.swift */,
+				24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1389,6 +1394,7 @@
 				2405C6902B56197300EEBD0A /* CPNHoriziontalTextView.swift */,
 				24BD4FF82B5768F700CD9CE0 /* CustomSegmentView.swift */,
 				24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */,
+				24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1786,6 +1792,7 @@
 				79BCAFD02B32C5E000FD223F /* ConstraintInsets.swift in Sources */,
 				79BCAFDC2B32C5E000FD223F /* ConstraintLayoutSupport.swift in Sources */,
 				24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */,
+				24048CD12B66404D008BC045 /* CPNTextFieldDateView.swift in Sources */,
 				79BCAFFD2B32D20A00FD223F /* SessionManager.swift in Sources */,
 				049CD9E627A0DFDA000DCC0E /* HTTPHeader.swift in Sources */,
 				24AFC2CA2B58E45200E5D157 /* HomeBuyBackViewCell.swift in Sources */,
@@ -1879,6 +1886,7 @@
 				2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */,
 				049CD9E327A0DFDA000DCC0E /* JSONParameterEncoder.swift in Sources */,
 				24AFC2BB2B57D58100E5D157 /* CPNButtonView.swift in Sources */,
+				24048CCF2B662F71008BC045 /* AccountReceviableTotalModel.swift in Sources */,
 				24048C872B5F9B73008BC045 /* PendingApprovalHistoryModel.swift in Sources */,
 				24AFC2B72B57C71300E5D157 /* HistoryView.swift in Sources */,
 				79BCAFEA2B32C5E000FD223F /* ConstraintLayoutGuide+Extensions.swift in Sources */,

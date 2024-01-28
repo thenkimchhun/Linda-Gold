@@ -33,7 +33,7 @@ class BaseAPIService<T>: APIService where T: TargetType {
         
         do {
             let request = try buildRequest(from: service)
-//             NetworkLogger.log(request: request)
+             NetworkLogger.log(request: request)
             task = session.dataTask(request: request) { [weak self] (data, response, error) in
                 guard let self = self else { return }
                 

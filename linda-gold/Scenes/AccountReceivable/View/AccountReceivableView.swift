@@ -12,9 +12,15 @@ class AccountReceivableView: BaseView{
     let tableView = UITableView()
     let emptyView = CPNEmptyView()
     let dayListView = DaysListView()
+    var onActionFilterDay: ((String)->Void)?
     var selectedDay: Bool = true
     var ondidSelectRowAt: ((AccountReceivableDataResponse)->Void)?
     var onActionFilterButton: (()->Void)?
+    var totalData: AccountReceviableTotalDataResponse?{
+        didSet{
+            headerTotalARView.totalAmountLabel.text = totalData?.totalArBalance.formatCurrencyNumber
+        }
+    }
     var dataList: [AccountReceivableDataResponse] = []{
         didSet{
             if dataList.count == 0 {emptyView.emptyState = .emtyView}
@@ -53,6 +59,7 @@ class AccountReceivableView: BaseView{
         // Action Day Button
         headerTotalARView.dayButton.addTarget(self, action: #selector(onHandleDay), for: .touchUpInside)
         dayListView.ondidSelectRowAt = {[self] data in
+            onActionFilterDay?(data)
             headerTotalARView.dayButton.setTitle(data, for: .normal)
         }
         

@@ -46,6 +46,7 @@ class HeaderTotalARView: BaseView {
         }
         remainLabel.snp.makeConstraints { make in
             make.centerY.equalTo(totalAmountLabel.snp.centerY)
+            make.left.equalTo(totalAmountLabel.snp.right).offset(scale(16))
             make.right.equalToSuperview().offset(-scale(16))
         }
        
@@ -66,7 +67,7 @@ class HeaderTotalARView: BaseView {
     var totalAmountLabel: UILabel = {
         let lb = UILabel()
         lb.text = "$1800.00"
-        lb.font = .systemFont(ofSize: 24, weight: .bold)
+        lb.font = .systemFont(ofSize: 18, weight: .bold)
         lb.textColor = BaseColor.white
         return lb
     }()
@@ -84,7 +85,7 @@ class HeaderTotalARView: BaseView {
     var remainLabel: UILabel = {
         let lb = UILabel()
         lb.text = "(Remain)Jan 1,2024 ->Jan 31, 2024"
-        lb.font = .systemFont(ofSize: 10)
+        lb.font = .systemFont(ofSize: 12)
         lb.textColor = BaseColor.white
         return lb
     }()

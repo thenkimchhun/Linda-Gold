@@ -20,6 +20,7 @@ class AccountReceivableFilterView: BaseView{
     let tableView = UITableView(frame: .zero, style: .grouped)
     var currentSelected: FilterModel?
     var onActionCloseButton: (()->Void)?
+    var onDidselectActionType: ((FilterModel?)->Void)?
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -65,6 +66,10 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
                 return cell
             case .rangeDate:
                 let cell: AccountReceivableFilterRangeDateViewCell = tableView.dequeueReusableCell(withIdentifier: "AccountReceivableFilterRangeDateViewCell", for: indexPath) as! AccountReceivableFilterRangeDateViewCell
+//                cell.startDateView.textField.addTarget(self, action: #selector(actionTextField(_:)), for: .editingChanged)
+//                cell.startDateView.textField.tag = ActionTextField.startDate.rawValue
+//                cell.endDateView.textField.addTarget(self, action: #selector(actionTextField(_:)), for: .editingChanged)
+//                cell.startDateView.textField.tag = ActionTextField.endDate.rawValue
                 return cell
             }
         }
@@ -72,6 +77,8 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentSelected = dataList[indexPath.row]
+        print("type: ==>",currentSelected?.title ?? "")
+        onDidselectActionType?(currentSelected)
         tableView.reloadData()
     }
     func bindViewCell(cell: AccountReceivableFilterTypeViewCell,cellForRowAt indexPath: IndexPath){
@@ -100,10 +107,25 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
         }
         return UIView()
     }
+//    @objc func  actionTextField(_ sender: UITextField){
+//        if let action = ActionTextField.init(rawValue: sender.tag) {
+//            switch action {
+//            case .startDate:
+//                print("startDate: ==>")
+//            case .endDate:
+//                <#code#>
+//            }
+//        }
+//    }
     
     @objc private func handleCloseButton(){
         onActionCloseButton?()
     }
+    
+//    enum ActionTextField: Int {
+//    case startDate = 1
+//    case endDate = 2
+//    }
     
     enum CellType: Int {
     case type = 0

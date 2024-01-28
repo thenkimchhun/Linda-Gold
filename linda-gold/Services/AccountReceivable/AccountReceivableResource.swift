@@ -9,6 +9,7 @@
 import Foundation
 
 enum AccountReceivableResource{
+    case accountReceivableTotal(parameter: AccountReceivableTotalParameter)
     case accountReceivableList(parameter: FilterParameter)
     case accountReceivableDetail(parameter: AccountReceivableDetailParameter)
 }
@@ -17,6 +18,8 @@ extension AccountReceivableResource: TargetType {
     
     var path: String {
         switch self {
+        case .accountReceivableTotal:
+            return "account-receivable/total"
         case .accountReceivableList:
             return "account-receivable/list"
         case .accountReceivableDetail(parameter: let params):
@@ -26,13 +29,15 @@ extension AccountReceivableResource: TargetType {
     
     var method: HTTPMethod {
         switch self {
-        case .accountReceivableList, .accountReceivableDetail:
+        case .accountReceivableTotal, .accountReceivableList, .accountReceivableDetail:
             return .get
         }
     }
 
     var task: Task {
         switch self {
+        case .accountReceivableTotal(parameter: let params):
+            return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
         case .accountReceivableList(parameter: let params):
             return .requestParameters(bodyEncoding: .urlEncoding, urlParameters: params.parameter)
             

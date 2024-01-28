@@ -9,12 +9,6 @@
 import UIKit
 
 extension UITextField {
-    var getText: String {
-        return text ?? ""
-    }
-}
-
-extension UITextField {
     var textOrEmptyString: String {
         return text ?? ""
     }

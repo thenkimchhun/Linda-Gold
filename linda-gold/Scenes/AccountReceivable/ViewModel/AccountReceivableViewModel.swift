@@ -10,6 +10,30 @@ import Foundation
 
 class AccountReceivableViewModel{
     weak var delegate: AccountReceivableDelegate?
+    // Account Receivable Total
+    var onAccountReceivableTotalUpdateState: AccountReceivableDelegateState?{
+        didSet{
+            delegate?.onAccountReceivableTotalUpdateState?()
+        }
+    }
+    var totalDate: AccountReceviableTotalDataResponse?
+    func onGetAccountReceivableTotal(parameter: AccountReceivableTotalParameter){
+        AccountReceivableService.shared.onAccountReceivableTotal(parameter: parameter) { response in
+            DispatchQueue.main.async {[self] in
+                totalDate = response.data
+                onAccountReceivableTotalUpdateState = .success
+            }
+        } failure: { error in
+            DispatchQueue.main.async {[self] in
+                if let error = error {
+                    onAccountReceivableTotalUpdateState = .failure(error)
+                }
+            }
+        }
+
+    }
+    
+    // Account Receivable List
     var onAccountReceivableUpdateState: AccountReceivableDelegateState?{
         didSet{
             delegate?.onAccountReceivableUpdateState?()

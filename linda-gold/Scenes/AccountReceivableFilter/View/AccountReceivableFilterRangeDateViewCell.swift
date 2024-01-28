@@ -9,8 +9,8 @@
 import UIKit
 class AccountReceivableFilterRangeDateViewCell: BaseTableViewCell {
 let stackeView = UIStackView()
-let startDateView = CPNTextField()
-let endDateView = CPNTextField()
+let startDateView = CPNTextFieldDateView()
+let endDateView = CPNTextFieldDateView()
 let resetButton = CPNButtonView()
 let applyButton = CPNButtonView()
     override func setupComponent() {
@@ -40,12 +40,12 @@ let applyButton = CPNButtonView()
     }
     override func setupEvent() {
 //        // start Date
-//        startDateView.textField.addTarget(self, action: #selector(actionTypeTextField(_:)), for: .editingChanged)
-//        startDateView.textField.tag  = ActionTextField.startDate.rawValue
-//        // start Date
-//        endDateView.textField.addTarget(self, action: #selector(actionTypeTextField(_:)), for: .editingChanged)
-//        startDateView.textField.tag  = ActionTextField.endDate.rawValue
-//        
+        startDateView.textField.addTarget(self, action: #selector(actionTypeTextField(_:)), for: .editingChanged)
+        startDateView.textField.tag  = ActionTextField.startDate.rawValue
+        // start Date
+        endDateView.textField.addTarget(self, action: #selector(actionTypeTextField(_:)), for: .editingChanged)
+        endDateView.textField.tag  = ActionTextField.endDate.rawValue
+        
         // reset Button
         resetButton.button.addTarget(self, action: #selector(actionTypeButton(_:)), for: .touchUpInside)
         resetButton.button.tag = ActionTypeButton.reset.rawValue
@@ -53,17 +53,17 @@ let applyButton = CPNButtonView()
         applyButton.button.addTarget(self, action: #selector(actionTypeButton(_:)), for: .touchUpInside)
         applyButton.button.tag = ActionTypeButton.apply.rawValue
     }
-//    @objc func actionTypeTextField(_ sender: UITextField){
-//        if let action = ActionTextField.init(rawValue: sender.tag){
-//            switch action {
-//            case .startDate:
-//                print("StartDate: ==>",startDateView.getText ?? "")
-//                
-//            case .endDate:
-//                print("StartDate: ==>",endDateView.getText ?? "")
-//            }
-//        }
-//    }
+    @objc func actionTypeTextField(_ sender: UITextField){
+        if let action = ActionTextField.init(rawValue: sender.tag){
+            switch action {
+            case .startDate:
+                print("StartDate: ==>",startDateView.getText)
+                
+            case .endDate:
+                print("StartDate: ==>",endDateView.getText)
+            }
+        }
+    }
     
     // actionButton
     @objc func actionTypeButton(_ sender: UIButton){
@@ -92,10 +92,10 @@ let applyButton = CPNButtonView()
         }
 
     }
-//    enum ActionTextField: Int{
-//        case startDate = 1
-//        case endDate = 2
-//    }
+    enum ActionTextField: Int{
+        case startDate = 1
+        case endDate = 2
+    }
     enum ActionTypeButton: Int{
         case reset = 1
         case apply = 2

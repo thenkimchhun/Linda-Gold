@@ -17,8 +17,19 @@ class AccountReceivableVC: BaseVC{
         view.addSubview(accountReceivableView)
     }
     override func setupEvent() {
+        
         Loading.showSpinner(onView: accountReceivableView)
         viewModel.delegate = self
+        // Account Receivable Total
+        viewModel.onGetAccountReceivableTotal(parameter: .init(filterBy: AppStatus.FilterDay.today, sortBy: AppStatus.SortBy.all, startDate: "", endDate: ""))
+    
+        accountReceivableView.onActionFilterDay = {[self] data in
+            Loading.showSpinner(onView: view)
+            if let filterDay = AppStatus.FilterDay.init(rawValue: data){
+                viewModel.onGetAccountReceivableTotal(parameter: .init(filterBy: filterDay, sortBy: AppStatus.SortBy.all, startDate: "", endDate: ""))
+            }
+        }
+        // Account Receivable List
         viewModel.onGetAccountReceivableList(parameter: viewModel.parameter)
         // didselectForRowCell
         accountReceivableView.ondidSelectRowAt = {[self] data in
@@ -53,6 +64,18 @@ class AccountReceivableVC: BaseVC{
 }
 
 extension AccountReceivableVC: AccountReceivableDelegate{
+    // Account Receivable Total
+    func onAccountReceivableTotalUpdateState(){
+        Loading.removeSpinner()
+        accountReceivableView.totalData = viewModel.totalDate
+        switch viewModel.onAccountReceivableTotalUpdateState {
+        case .success: break
+        case .failure(let error):
+            print("error",error.message)
+        case .none: break
+        }
+    }
+    // Account Receivable List
     func onAccountReceivableUpdateState() {
         Loading.removeSpinner()
         accountReceivableView.tableView.mj_header?.endRefreshing()
@@ -66,7 +89,7 @@ extension AccountReceivableVC: AccountReceivableDelegate{
         case .none: break
         }
     }
-    
+    // Account Receivable Detail
     func onAccountReceivableDetailUpdateState() {
         Spinner.stop()
         switch viewModel.onAccountReceivableDetailUpdateState {

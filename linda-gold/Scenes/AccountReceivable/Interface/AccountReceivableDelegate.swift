@@ -8,6 +8,7 @@
 
 import Foundation
 @objc protocol AccountReceivableDelegate: AnyObject {
+    @objc optional func onAccountReceivableTotalUpdateState()
     @objc optional func onAccountReceivableUpdateState()
     @objc optional func onAccountReceivableDetailUpdateState()
 }

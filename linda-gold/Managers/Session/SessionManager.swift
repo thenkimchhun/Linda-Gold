@@ -11,7 +11,7 @@ class SessionManager: NSObject {
     static let shared = SessionManager()
     let preference = UserDefaults.standard
 }
-
+ 
 extension SessionManager{
     // SET
     func setter<T:Codable>(key: SessionKey,param: T){
