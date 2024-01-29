@@ -17,7 +17,8 @@ class AccountReceivableViewModel{
         }
     }
     var totalDate: AccountReceviableTotalDataResponse?
-    func onGetAccountReceivableTotal(parameter: AccountReceivableTotalParameter){
+    func onGetAccountReceivableTotal(parameter: FilterParameter){
+        self.parameter = parameter
         AccountReceivableService.shared.onAccountReceivableTotal(parameter: parameter) { response in
             DispatchQueue.main.async {[self] in
                 totalDate = response.data

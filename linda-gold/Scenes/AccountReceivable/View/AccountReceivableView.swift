@@ -80,7 +80,6 @@ class AccountReceivableView: BaseView{
     
     // selectedFilter
     @objc func actionFilter(){
-        print("filter")
         onActionFilterButton?()
     }
     

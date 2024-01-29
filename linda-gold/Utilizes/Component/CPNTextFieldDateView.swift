@@ -73,13 +73,12 @@ class CPNTextFieldDateView: BaseView {
     var getText: String {
         return textField.text ?? ""
     }
-
     @objc private func tapDone() {
         if let datePicker = textField.inputView as? UIDatePicker {
             let dateformatter = DateFormatter()
             dateformatter.dateStyle = .medium
             textField.text = dateformatter.string(from: datePicker.date)
-            print("text: ==>",textField.text ?? "")
+         
         }
         textField.resignFirstResponder()
     }

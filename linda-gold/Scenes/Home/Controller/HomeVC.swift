@@ -30,23 +30,19 @@ class HomeVC: BaseVC, HomeDelegate {
         // Profile
         viewModel.delegate = self
         viewModel.onGetAccount()
-        //Dashboard Sale Order // Fist Get Service Taoday
-        viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: AppStatus.FilterDay.today))
-        // Dashboard Buy Back // Fist Get Service Today
-        viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
         
         // Action Day from Sale Order
         homeView.onFilterTotalSale = {[self] data in
-            Loading.showSpinner(onView: view)
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
+                Spinner.start()
                 viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: filterDay))
 //                print("saleOrderfilterDay: ==>",filterDay)
             }
         }
         // Action Day from Buy Back
         homeView.onFilterBuyBack = {[self] data in
-            Loading.showSpinner(onView: view)
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
+                Spinner.start()
                 viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filterDay))
 //                print("filterDay: ==>",filterDay)
             }
@@ -65,7 +61,6 @@ class HomeVC: BaseVC, HomeDelegate {
         }
         
         homeView.tableView.mj_header = mjRefreshNormal.refreshHeader
-        homeView.tableView.mj_footer = mjRefreshNormal.refreshFooter
     }
     lazy var mjRefreshNormal: MJRefreshNormal = {
         let mjRefreshNormal = MJRefreshNormal()
@@ -78,15 +73,14 @@ class HomeVC: BaseVC, HomeDelegate {
         }
     }
 }
-
 extension HomeVC: ProfileAdminDelegate{
     func onGetAccountUpdateState() {
-        Loading.removeSpinner()
-        homeView.tableView.mj_header?.endRefreshing()
-        homeView.tableView.mj_footer?.endRefreshing()
+        
         switch viewModel.onGetProfileUpdatestate {
         case .succes:
             SessionManager.shared.setter(key: .getProfile, param: viewModel.profileData)
+            //Dashboard Sale Order // Fist Get Service Taoday
+            viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: AppStatus.FilterDay.today))
         case .failure(let eror):
             print("error",eror.message)
         case .none: break
@@ -94,20 +88,21 @@ extension HomeVC: ProfileAdminDelegate{
     }
     
     func onGetDahsbaordSaleOrderUpdateState() {
-        Loading.removeSpinner()
+        Spinner.stop()
         homeView.saleOrderData = viewModel.saleOrderData
-        homeView.tableView.mj_header?.endRefreshing()
-        homeView.tableView.mj_footer?.endRefreshing()
         switch viewModel.onGetDashboardSaleOrderUpdatestate {
-        case .success: break
+        case .success:
+            // Dashboard Buy Back // Fist Get Service Today
+            viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
         case .failure(let error):
             print("error: ==>",error.message)
         case .none: break
         }
-       
+
     }
     
     func onGetDashboardBuyBackUpdateState() {
+        Spinner.stop()
         Loading.removeSpinner()
         homeView.buyBackData = viewModel.buyBackData
         homeView.tableView.mj_header?.endRefreshing()
@@ -126,8 +121,6 @@ extension HomeVC: ProfileAdminDelegate{
 extension HomeVC: RefreshNormalDelegate {
     func onRefresh() {
         viewModel.onGetAccount()
-        viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: AppStatus.FilterDay.today))
-        viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
     }
 }
 

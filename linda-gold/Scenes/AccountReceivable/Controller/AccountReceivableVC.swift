@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class AccountReceivableVC: BaseVC{
     override func setupNavigation() {
         setupNavBarLargeTitle(barTitle: "Account Receivable")
@@ -24,25 +25,32 @@ class AccountReceivableVC: BaseVC{
         viewModel.onGetAccountReceivableTotal(parameter: .init(filterBy: AppStatus.FilterDay.today, sortBy: AppStatus.SortBy.all, startDate: "", endDate: ""))
     
         accountReceivableView.onActionFilterDay = {[self] data in
-            Loading.showSpinner(onView: view)
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
-                viewModel.onGetAccountReceivableTotal(parameter: .init(filterBy: filterDay, sortBy: AppStatus.SortBy.all, startDate: "", endDate: ""))
+                if filterDay == .today {
+                    viewModel.parameter.startDate = "29 Jan 2024"
+                    viewModel.parameter.endDate = "29 Jan 2024"
+                }else if filterDay == .week {
+                    
+                }
+                Spinner.start()
+                viewModel.parameter.filterBy = filterDay
+                viewModel.onGetAccountReceivableTotal(parameter: viewModel.parameter)
             }
         }
-        // Account Receivable List
-        viewModel.onGetAccountReceivableList(parameter: viewModel.parameter)
         // didselectForRowCell
         accountReceivableView.ondidSelectRowAt = {[self] data in
             Spinner.start()
-        
             viewModel.onGetAccountReceivableDetail(parameter: .init(id: data.id))
-//            let vc = AccountReceivableDetailVC(data: data)
-//            presentPanModal(vc)
         }
         // selectFilter Button
         accountReceivableView.onActionFilterButton = {[self] in
-            print("filter")
-            let vc = AccountReceivableFilterVC()
+//            viewModel.parameter.sortBy = .clear
+            let vc = AccountReceivableFilterVC(filterParameter: viewModel.parameter)
+            vc.onFilter = {[self] filter in
+                Spinner.start()
+                viewModel.onGetAccountReceivableList(parameter: filter)
+                accountReceivableView.headerTotalARView.remainLabel.text = "(\(filter.sortBy))\(filter.startDate)->\(filter.endDate)"
+            }
             presentPanModal(vc)
         }
         
@@ -66,10 +74,11 @@ class AccountReceivableVC: BaseVC{
 extension AccountReceivableVC: AccountReceivableDelegate{
     // Account Receivable Total
     func onAccountReceivableTotalUpdateState(){
-        Loading.removeSpinner()
         accountReceivableView.totalData = viewModel.totalDate
         switch viewModel.onAccountReceivableTotalUpdateState {
-        case .success: break
+        case .success:
+            // Account Receivable List
+            viewModel.onGetAccountReceivableList(parameter: viewModel.parameter)
         case .failure(let error):
             print("error",error.message)
         case .none: break
@@ -77,6 +86,7 @@ extension AccountReceivableVC: AccountReceivableDelegate{
     }
     // Account Receivable List
     func onAccountReceivableUpdateState() {
+        Spinner.stop()
         Loading.removeSpinner()
         accountReceivableView.tableView.mj_header?.endRefreshing()
         accountReceivableView.tableView.mj_footer?.endRefreshing()

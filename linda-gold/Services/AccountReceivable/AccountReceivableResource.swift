@@ -9,7 +9,7 @@
 import Foundation
 
 enum AccountReceivableResource{
-    case accountReceivableTotal(parameter: AccountReceivableTotalParameter)
+    case accountReceivableTotal(parameter: FilterParameter)
     case accountReceivableList(parameter: FilterParameter)
     case accountReceivableDetail(parameter: AccountReceivableDetailParameter)
 }

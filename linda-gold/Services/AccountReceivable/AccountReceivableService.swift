@@ -12,7 +12,7 @@ class AccountReceivableService: BaseAPIService<AccountReceivableResource> {
     static var shared = AccountReceivableService()
 
     // Account Receivable Total
-    func onAccountReceivableTotal(parameter: AccountReceivableTotalParameter, success: @escaping(AccountReceviableTotalModel)-> Void, failure: @escaping(APIResponseError?)->Void){
+    func onAccountReceivableTotal(parameter: FilterParameter, success: @escaping(AccountReceviableTotalModel)-> Void, failure: @escaping(APIResponseError?)->Void){
         request(service: .accountReceivableTotal(parameter: parameter), model: AccountReceviableTotalModel.self) { response in
             switch response {
             case .success(let res):

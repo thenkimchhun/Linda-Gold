@@ -32,6 +32,11 @@ struct AppStatus {
         case year = "Year"
     }
     // sortBy
+   static var sortBy: [AppStatus.ItemsStatus] = [
+    ItemsStatus(key: "all", value: "All"),
+    ItemsStatus(key: "clear", value: "Clear"),
+    ItemsStatus(key: "remain", value: "Remain")
+    ]
     enum SortBy: String {
         case all = "All"
         case clear = "Clear"
@@ -50,6 +55,19 @@ struct AppStatus {
             case .gem: return BaseColor.gemColor
             case .jewerly: return BaseColor.jewerlyColor
             }
+        }
+    }
+    
+ 
+    // Item Status
+    struct ItemsStatus{
+        var key: String
+        var value: String
+        var isSelected: Bool?
+        init(key: String, value: String, isSelected: Bool? = false) {
+            self.key = key
+            self.value = value
+            self.isSelected = isSelected
         }
     }
 }

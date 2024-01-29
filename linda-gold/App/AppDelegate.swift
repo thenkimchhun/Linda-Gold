@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -58,5 +60,9 @@ extension AppDelegate{
             window?.rootViewController = TabBarViewController()
         }
     }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+    
 }
 

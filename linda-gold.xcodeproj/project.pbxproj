@@ -29,7 +29,7 @@
 		24048C382B5D5D02008BC045 /* AccountReceivableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C372B5D5D02008BC045 /* AccountReceivableModel.swift */; };
 		24048C3C2B5D5F37008BC045 /* AccountReceivableResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C3B2B5D5F37008BC045 /* AccountReceivableResource.swift */; };
 		24048C3E2B5D5F45008BC045 /* AccountReceivableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C3D2B5D5F45008BC045 /* AccountReceivableService.swift */; };
-		24048C402B5D619D008BC045 /* FilterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C3F2B5D619D008BC045 /* FilterParameter.swift */; };
+		24048C402B5D619D008BC045 /* FilterParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C3F2B5D619D008BC045 /* FilterParameters.swift */; };
 		24048C462B5D679B008BC045 /* AccountReceivableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C452B5D679B008BC045 /* AccountReceivableViewModel.swift */; };
 		24048C482B5D67E0008BC045 /* AccountReceivableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C472B5D67E0008BC045 /* AccountReceivableDelegate.swift */; };
 		24048C4A2B5D7262008BC045 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048C492B5D7262008BC045 /* Double.swift */; };
@@ -76,7 +76,7 @@
 		24048CC62B63986D008BC045 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CC52B63986D008BC045 /* ChartVC.swift */; };
 		24048CC82B639D12008BC045 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CC72B639D12008BC045 /* Array.swift */; };
 		24048CCB2B63AEFC008BC045 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCA2B63AEFC008BC045 /* ChartView.swift */; };
-		24048CCD2B64BF93008BC045 /* AccountReceivableTotalParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCC2B64BF93008BC045 /* AccountReceivableTotalParameter.swift */; };
+		24048CCD2B64BF93008BC045 /* FilterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCC2B64BF93008BC045 /* FilterParameter.swift */; };
 		24048CCF2B662F71008BC045 /* AccountReceviableTotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */; };
 		24048CD12B66404D008BC045 /* CPNTextFieldDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
@@ -240,7 +240,7 @@
 		24048C372B5D5D02008BC045 /* AccountReceivableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableModel.swift; sourceTree = "<group>"; };
 		24048C3B2B5D5F37008BC045 /* AccountReceivableResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableResource.swift; sourceTree = "<group>"; };
 		24048C3D2B5D5F45008BC045 /* AccountReceivableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableService.swift; sourceTree = "<group>"; };
-		24048C3F2B5D619D008BC045 /* FilterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParameter.swift; sourceTree = "<group>"; };
+		24048C3F2B5D619D008BC045 /* FilterParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParameters.swift; sourceTree = "<group>"; };
 		24048C452B5D679B008BC045 /* AccountReceivableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableViewModel.swift; sourceTree = "<group>"; };
 		24048C472B5D67E0008BC045 /* AccountReceivableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDelegate.swift; sourceTree = "<group>"; };
 		24048C492B5D7262008BC045 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 		24048CC52B63986D008BC045 /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		24048CC72B639D12008BC045 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		24048CCA2B63AEFC008BC045 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
-		24048CCC2B64BF93008BC045 /* AccountReceivableTotalParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableTotalParameter.swift; sourceTree = "<group>"; };
+		24048CCC2B64BF93008BC045 /* FilterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParameter.swift; sourceTree = "<group>"; };
 		24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceviableTotalModel.swift; sourceTree = "<group>"; };
 		24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextFieldDateView.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -828,9 +828,9 @@
 			children = (
 				24048C652B5E2762008BC045 /* AccountReceivableDetailParameter.swift */,
 				24048C372B5D5D02008BC045 /* AccountReceivableModel.swift */,
-				24048C3F2B5D619D008BC045 /* FilterParameter.swift */,
+				24048C3F2B5D619D008BC045 /* FilterParameters.swift */,
 				24048C672B5E2E15008BC045 /* AccountReceivableDetailModel.swift */,
-				24048CCC2B64BF93008BC045 /* AccountReceivableTotalParameter.swift */,
+				24048CCC2B64BF93008BC045 /* FilterParameter.swift */,
 				24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */,
 			);
 			path = Model;
@@ -1853,7 +1853,7 @@
 				24048C4F2B5D76B1008BC045 /* UIImage.swift in Sources */,
 				049CD9FA27A0DFDA000DCC0E /* NetworkLogger.swift in Sources */,
 				24AFC2F02B5A633C00E5D157 /* ScrolllabelStackView.swift in Sources */,
-				24048C402B5D619D008BC045 /* FilterParameter.swift in Sources */,
+				24048C402B5D619D008BC045 /* FilterParameters.swift in Sources */,
 				24AFC2C02B58318F00E5D157 /* HomeHeaderView.swift in Sources */,
 				79BCAFDD2B32C5E000FD223F /* Typealiases.swift in Sources */,
 				A255B838290155EA00DCEE28 /* UICollectionView.swift in Sources */,
@@ -1875,7 +1875,7 @@
 				24048CA42B60CA69008BC045 /* NotificationResource.swift in Sources */,
 				049CD9E227A0DFDA000DCC0E /* URLParameterEncoder.swift in Sources */,
 				D95CAA1428D06AAA00E59CF6 /* LocationManager.swift in Sources */,
-				24048CCD2B64BF93008BC045 /* AccountReceivableTotalParameter.swift in Sources */,
+				24048CCD2B64BF93008BC045 /* FilterParameter.swift in Sources */,
 				24048C922B5FA06F008BC045 /* PendingApprovaDelegate.swift in Sources */,
 				24048C382B5D5D02008BC045 /* AccountReceivableModel.swift in Sources */,
 				24048CA82B60CD4E008BC045 /* NotificationDelegate.swift in Sources */,

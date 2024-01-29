@@ -10,6 +10,7 @@ target 'linda-gold' do
     pod 'MJRefresh'
     pod 'Nuke', '~> 9.0'
     pod 'Charts'
+    pod 'Firebase/Messaging'
 
 
 end
