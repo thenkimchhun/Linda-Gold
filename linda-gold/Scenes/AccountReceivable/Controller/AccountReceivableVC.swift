@@ -23,18 +23,28 @@ class AccountReceivableVC: BaseVC{
         viewModel.delegate = self
         // Account Receivable Total
         viewModel.onGetAccountReceivableTotal(parameter: .init(filterBy: AppStatus.FilterDay.today, sortBy: AppStatus.SortBy.all, startDate: "", endDate: ""))
-    
         accountReceivableView.onActionFilterDay = {[self] data in
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
                 if filterDay == .today {
-                    viewModel.parameter.startDate = "29 Jan 2024"
-                    viewModel.parameter.endDate = "29 Jan 2024"
+                    viewModel.parameter.startDate = DateTimeHelper.convertCurrentToUTC() ?? ""
+                    viewModel.parameter.endDate = DateTimeHelper.convertCurrentToUTC() ?? ""
                 }else if filterDay == .week {
-                    
+                    let weekOfDay = DateTimeHelper.getFirstAndLastDayOfWeek()
+                    viewModel.parameter.startDate = weekOfDay.0
+                    viewModel.parameter.endDate = weekOfDay.1
+                }else if filterDay == .month {
+                    let monthOfDay = DateTimeHelper.getFirstAndLastDayOfMonth()
+                    viewModel.parameter.startDate = monthOfDay.0 
+                    viewModel.parameter.endDate  = monthOfDay.1 
+                }else {
+                    let yearOfDay = DateTimeHelper.getFirstAndLastDayOfYear()
+                    viewModel.parameter.startDate = yearOfDay.0
+                    viewModel.parameter.endDate = yearOfDay.1
                 }
                 Spinner.start()
                 viewModel.parameter.filterBy = filterDay
                 viewModel.onGetAccountReceivableTotal(parameter: viewModel.parameter)
+                accountReceivableView.headerTotalARView.remainLabel.text = "\(viewModel.parameter.startDate.formatDate() ?? "")->\(viewModel.parameter.endDate.formatDate() ?? "")"
             }
         }
         // didselectForRowCell
@@ -49,7 +59,7 @@ class AccountReceivableVC: BaseVC{
             vc.onFilter = {[self] filter in
                 Spinner.start()
                 viewModel.onGetAccountReceivableList(parameter: filter)
-                accountReceivableView.headerTotalARView.remainLabel.text = "(\(filter.sortBy))\(filter.startDate)->\(filter.endDate)"
+                accountReceivableView.headerTotalARView.remainLabel.text = "(\(filter.sortBy))\(filter.startDate.formatDate() ?? "")->\(filter.endDate.formatDate() ?? "")"
             }
             presentPanModal(vc)
         }
@@ -107,7 +117,6 @@ extension AccountReceivableVC: AccountReceivableDelegate{
             let vc = AccountReceivableDetailVC()
             vc.data = viewModel.data
             presentPanModal(vc)
-        //print("data: ===>",viewModel.data ?? "")
         case .failure(let error):
             accountReceivableView.emptyView.emptyState = error.statusCode > 0 ? .emtyView : .noInternet
         case .none: break

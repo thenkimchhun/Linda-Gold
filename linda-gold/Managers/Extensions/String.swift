@@ -91,7 +91,7 @@ extension String {
         formatter.dateFormat = "dd MMM yyyy"
         formatter.locale = Locale(identifier: "km")
         formatter.calendar = .init(identifier: .gregorian)
-        if let convertedDate = formatter.date(from: self){
+        if let convertedDate = formatter.date(from: self) {
             let endOfDay = convertedDate.endOfDay
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
             return formatter.string(from: endOfDay)

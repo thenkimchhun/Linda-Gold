@@ -31,10 +31,10 @@ extension FilterParameter{
         params["filterBy"] = filterBy.rawValue.lowercased()
         params["sortBy"] = sortBy.rawValue
         if !startDate.isEmpty {
-            params["startDate"] = startDate.startDateUTC
+            params["startDate"] = startDate
         }
         if !endDate.isEmpty {
-            params["endDate"] = endDate.startDateUTC
+            params["endDate"] = endDate
         }
         params["limit"] = limit
         params["offset"] = offset

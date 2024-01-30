@@ -19,14 +19,20 @@ class AccountReceivableView: BaseView{
     var totalData: AccountReceviableTotalDataResponse?{
         didSet{
             headerTotalARView.totalAmountLabel.text = totalData?.totalArBalance.formatCurrencyNumber
+//            headerTotalARView.remainLabel.text = t
         }
     }
     var dataList: [AccountReceivableDataResponse] = []{
         didSet{
             if dataList.count == 0 {emptyView.emptyState = .emtyView}
-            for (index, _) in dataList.enumerated(){
-                totalLabel.text = "Total \(index + 1)"
+            if dataList.count == 0 {
+                totalLabel.text = "Total: 0"
+            }else {
+                for (index, _) in dataList.enumerated(){
+                    totalLabel.text = "Total: \(index + 1)"
+                }
             }
+            
             tableView.reloadData()
         }
     }
@@ -85,10 +91,10 @@ class AccountReceivableView: BaseView{
     
     
     override func setupConstraint() {
-
+        
         headerTotalARView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview().inset(scale(16))
-        } 
+        }
         totalLabel.snp.makeConstraints { make in
             make.top.equalTo(headerTotalARView.snp.bottom).offset(scale(30))
             make.left.equalToSuperview().offset(scale(16))
@@ -107,7 +113,7 @@ class AccountReceivableView: BaseView{
             make.height.equalTo(scale(170))
             make.right.equalToSuperview()
         }
-
+        
     }
     var totalLabel: UILabel = {
         let lb = UILabel()
@@ -129,7 +135,7 @@ class AccountReceivableView: BaseView{
 
 extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       bindEmptyView(tableView)
+        bindEmptyView(tableView)
         return dataList.count
     }
     
@@ -163,7 +169,7 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
             tableView.backgroundView = nil
         }
     }
-
+    
 }
 
 
