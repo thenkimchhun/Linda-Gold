@@ -150,7 +150,7 @@ extension AccountReceivableView: UITableViewDelegate, UITableViewDataSource {
     }
     private func bindAccountReceivableViewCell(cell: AccountReceivableViewCell, cellForRowAt indexPath: IndexPath){
         let data = dataList[indexPath.row]
-        cell.headerProfileView.profileView.image = UIImage(named: data.customer.image ?? "")
+//        cell.headerProfileView.profileView.image = UIImage(named: data.customer.image ?? "")
         cell.headerProfileView.titleLabel.text = data.customer.fullName
         cell.headerProfileView.desLabel.text = "No. \(data.customer.id)"
         cell.headerProfileView.rithStatus.text = "Remain \(data.arBalance.formatCurrencyNumber)"

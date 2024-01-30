@@ -72,7 +72,12 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
                 cell.onActionTypeButton = {[self] action in
                     switch action {
                     case .reset:
-                        onActionButton?(.reset(cell.startDateView.getText, cell.endDateView.getText, currentSelected))
+                        onActionButton?(.reset)
+                        filterParameter?.resetButton()
+                        currentSelected = .all
+                        cell.startDateView.textField.text = ""
+                        cell.endDateView.textField.text = ""
+                        tableView.reloadData()
                     case .apply:
                         onActionButton?(.apply(cell.startDateView.getText, cell.endDateView.getText, currentSelected))
                     }
@@ -95,8 +100,8 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
     }
     func bindRangDateViewCell(cell: AccountReceivableFilterRangeDateViewCell, cellForRowAt indexPath: IndexPath){
         if let filter = filterParameter {
-            cell.startDateView.textField.text = filter.startDate
-            cell.endDateView.textField.text = filter.endDate
+            cell.startDateView.textField.text = filter.startDate.formatDate()
+            cell.endDateView.textField.text = filter.endDate.formatDate()
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -126,7 +131,7 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
         case rangeDate = 1
     }
     enum ActionButton{
-        case reset(_ startDate: String, _ endDate: String,_ type: AppStatus.SortBy?)
+        case reset
         case apply(_ startDate: String, _ endDate: String,_ type: AppStatus.SortBy?)
     }
 }

@@ -59,7 +59,7 @@ class AccountReceivableVC: BaseVC{
             vc.onFilter = {[self] filter in
                 Spinner.start()
                 viewModel.onGetAccountReceivableList(parameter: filter)
-                accountReceivableView.headerTotalARView.remainLabel.text = "(\(filter.sortBy))\(filter.startDate.formatDate() ?? "")->\(filter.endDate.formatDate() ?? "")"
+                accountReceivableView.headerTotalARView.remainLabel.text = "(\(filter.sortBy))\(filter.startDate)->\(filter.endDate)"
             }
             presentPanModal(vc)
         }

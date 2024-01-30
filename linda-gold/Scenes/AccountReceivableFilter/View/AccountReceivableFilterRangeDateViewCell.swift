@@ -15,6 +15,7 @@ class AccountReceivableFilterRangeDateViewCell: BaseTableViewCell {
     let applyButton = CPNButtonView()
     var onActionTypeButton: ((ActionTypeButton)->Void)?
     override func setupComponent() {
+        selectionStyle = .none
         contentView.isUserInteractionEnabled = true
         addSubview(stackeView)
         stackeView.backgroundColor = .clear

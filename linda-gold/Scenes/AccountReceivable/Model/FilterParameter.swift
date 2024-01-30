@@ -41,4 +41,10 @@ extension FilterParameter{
         
         return params
     }
+    
+    mutating func resetButton(){
+        startDate = ""
+        endDate = ""
+        sortBy = .all
+    }
 }

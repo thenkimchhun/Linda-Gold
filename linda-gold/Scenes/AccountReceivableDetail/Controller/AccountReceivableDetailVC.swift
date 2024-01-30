@@ -25,6 +25,7 @@ class AccountReceivableDetailVC: BaseVC{
     }
     
     override func setupComponent() {
+        view.backgroundColor = BaseColor.white
         view.addSubview(accountReceivableDetailView)
     }
     override func setupEvent() {

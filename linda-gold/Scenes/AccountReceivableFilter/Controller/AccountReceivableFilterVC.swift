@@ -33,10 +33,7 @@ class AccountReceivableFilterVC: BaseVC{
         }
         accountReceivableFilterView.onActionButton = {[self] action in
             switch action {
-            case .reset(_, _, _):
-                filterParameter.startDate = ""
-                filterParameter.endDate = ""
-                filterParameter.sortBy = .all
+            case .reset: break
             case .apply(let startDate, let endDate, let sortBy):
                 filterParameter.startDate = startDate
                 filterParameter.endDate = endDate
