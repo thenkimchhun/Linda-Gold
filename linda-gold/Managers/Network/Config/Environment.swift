@@ -8,30 +8,23 @@
 import Foundation
 
 final class Environment {
-    static let BASE_KEY_URL    = infoForKey("Base key url")!
-    
-    // Filter object in info.plist
-    static func infoForKey(_ key: String) -> String? {
-        return (Bundle.main.infoDictionary?[key] as? String)?
-            .replacingOccurrences(of: "\\", with: "")
-    }
     
 #if LOCAL
     static let gateway = "http://192.168.4.154:9090/client"
     static let getXApiAuthKey = ""
-    static let getHuaweiUrl = "https://efund-dev.obs.ap-southeast-3.myhuaweicloud.com/"
+    static let getHuaweiUrl = "https://dev-linda-gold-application-media.obs.ap-southeast-3.myhuaweicloud.com/"
 #elseif DEV
     static let gateway = "https://dev-application-service.lindagold.co/client"
     static let getXApiAuthKey = ""
-    static let getHuaweiUrl = "https://efund-dev.obs.ap-southeast-3.myhuaweicloud.com/"
+    static let getHuaweiUrl = "https://dev-linda-gold-application-media.obs.ap-southeast-3.myhuaweicloud.com/"
 #elseif UAT
     static let gateway = "https://api-uat.efund.pro/client"
     static let getXApiAuthKey = ""
-    static let getHuaweiUrl = "https://efund-dev.obs.ap-southeast-3.myhuaweicloud.com/"
+    static let getHuaweiUrl = "https://dev-linda-gold-application-media.obs.ap-southeast-3.myhuaweicloud.com/"
 #elseif RELEASE
     static let gateway = "https://api-dev.efund.pro/client"
     static let getXApiAuthKey = ""
-    static let getHuaweiUrl = "https://efund-dev.obs.ap-southeast-3.myhuaweicloud.com/"
+    static let getHuaweiUrl = "https://dev-linda-gold-application-media.obs.ap-southeast-3.myhuaweicloud.com/"
 #endif
     
 }

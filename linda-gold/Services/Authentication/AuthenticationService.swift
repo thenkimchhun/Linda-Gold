@@ -21,4 +21,16 @@ class AuthenticationService: BaseAPIService<AuthenticationResource> {
             }
         }
     }
+    
+    func onLogout(parameter: LogoutParameter, success: @escaping(APIResponseSuccess)-> Void, failure: @escaping(APIResponseError?)-> Void){
+        request(service: .logout(parameter: parameter), model: APIResponseSuccess.self) { response in
+            switch response {
+            case .success(let res):
+                success(res)
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
+    
 }

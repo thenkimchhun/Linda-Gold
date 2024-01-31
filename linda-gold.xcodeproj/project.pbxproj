@@ -81,6 +81,8 @@
 		24048CD12B66404D008BC045 /* CPNTextFieldDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */; };
 		24048CE22B68DFA1008BC045 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CE12B68DFA0008BC045 /* Date.swift */; };
 		24048CE42B68F03F008BC045 /* DateTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CE32B68F03F008BC045 /* DateTimeHelper.swift */; };
+		24048CE82B694B32008BC045 /* LogoutParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CE72B694B32008BC045 /* LogoutParameter.swift */; };
+		24048CEA2B69DF9A008BC045 /* TotalARDayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CE92B69DF9A008BC045 /* TotalARDayListView.swift */; };
 		2405C6702B5512D700EEBD0A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C66F2B5512D700EEBD0A /* LoginView.swift */; };
 		2405C6722B55138100EEBD0A /* CPNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6712B55138100EEBD0A /* CPNTextField.swift */; };
 		2405C6792B5523C900EEBD0A /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6782B5523C900EEBD0A /* NotificationVC.swift */; };
@@ -294,6 +296,8 @@
 		24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextFieldDateView.swift; sourceTree = "<group>"; };
 		24048CE12B68DFA0008BC045 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		24048CE32B68F03F008BC045 /* DateTimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeHelper.swift; sourceTree = "<group>"; };
+		24048CE72B694B32008BC045 /* LogoutParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutParameter.swift; sourceTree = "<group>"; };
+		24048CE92B69DF9A008BC045 /* TotalARDayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalARDayListView.swift; sourceTree = "<group>"; };
 		2405C66F2B5512D700EEBD0A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2405C6712B55138100EEBD0A /* CPNTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextField.swift; sourceTree = "<group>"; };
 		2405C6782B5523C900EEBD0A /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -1328,6 +1332,7 @@
 			children = (
 				79BCB00D2B32E7EC00FD223F /* LoginParameter.swift */,
 				24AFC2FA2B5B552500E5D157 /* LoginModel.swift */,
+				24048CE72B694B32008BC045 /* LogoutParameter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1365,6 +1370,7 @@
 				24AFC2C52B58CCB000E5D157 /* ProgressItemsView.swift */,
 				24AFC2C72B58D59400E5D157 /* ItemsBoxView.swift */,
 				24AFC2C92B58E45200E5D157 /* HomeBuyBackViewCell.swift */,
+				24048CE92B69DF9A008BC045 /* TotalARDayListView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -1824,6 +1830,7 @@
 				79BCAFD12B32C5E000FD223F /* ConstraintMakerFinalizable.swift in Sources */,
 				79BCAFF62B32D11200FD223F /* LocalizeHelper.swift in Sources */,
 				A255B83D2901563C00DCEE28 /* HomeView.swift in Sources */,
+				24048CE82B694B32008BC045 /* LogoutParameter.swift in Sources */,
 				24048CAF2B62051C008BC045 /* DashboardBuyBackParameter.swift in Sources */,
 				049CD9FF27A0E51C000DCC0E /* APIResponseSuccess.swift in Sources */,
 				79BCAFEC2B32C5E000FD223F /* ConstraintLayoutSupportDSL.swift in Sources */,
@@ -1904,6 +1911,7 @@
 				79BCAFE72B32C5E000FD223F /* Debugging.swift in Sources */,
 				24AFC2EE2B5A5ED300E5D157 /* ProfileAdminView.swift in Sources */,
 				79BCAFE52B32C5E000FD223F /* ConstraintItem.swift in Sources */,
+				24048CEA2B69DF9A008BC045 /* TotalARDayListView.swift in Sources */,
 				D9E4992128C6FCC800E7AD6D /* BaseView.swift in Sources */,
 				24AFC3012B5B6A1B00E5D157 /* AccountResource.swift in Sources */,
 				24AFC2C82B58D59400E5D157 /* ItemsBoxView.swift in Sources */,

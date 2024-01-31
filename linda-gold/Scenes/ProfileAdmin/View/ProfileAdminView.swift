@@ -43,7 +43,7 @@ class ProfileAdminView: BaseView{
     }
     func bindProfileView(){
         if let data = profileData{
-            profileView.profileImage.image = UIImage(named: data.image ?? "ic_admin")
+            profileView.profileImage.loadImage(with: data.image ?? "ic_admin") //UIImage(named: data.image ?? "ic_admin")
             fullNameView.rightView.text = data.fullName
             emailView.rightView.text = data.email
             primaryPhoneView.rightView.text = data.primaryPhone

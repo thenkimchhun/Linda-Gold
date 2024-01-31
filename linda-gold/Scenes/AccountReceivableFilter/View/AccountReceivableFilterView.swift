@@ -8,21 +8,20 @@
 
 import UIKit
 class AccountReceivableFilterView: BaseView{
-    var dataList: [AppStatus.SortBy] = [
-        .all,
-        .clear,
-        .remain
-    ]{
-        didSet{
-            tableView.reloadData()
-        }
-    }
+    var dataList: [AppStatus.SortBy] = [ .all, .clear,.remain]
     let tableView = UITableView(frame: .zero, style: .grouped)
     var currentSelected: AppStatus.SortBy?
     var onActionCloseButton: (()->Void)?
     var onDidselectActionType: ((AppStatus.SortBy?)->Void)?
     var onActionButton: ((ActionButton)->Void)?
-    var filterParameter: FilterParameter?
+    var filterParameter: FilterParameter?{
+        didSet{
+            if let filterParameter = filterParameter {
+                currentSelected =  filterParameter.sortBy
+            }
+            tableView.reloadData()
+        }
+    }
     override func setupComponent() {
         addSubview(tableView)
         tableView.separatorColor = .none
@@ -36,8 +35,8 @@ class AccountReceivableFilterView: BaseView{
             // Fallback on earlier versions
         }
         tableView.sectionFooterHeight = 0
-        tableView.register(AccountReceivableFilterTypeViewCell.self, forCellReuseIdentifier: "AccountReceivableFilterTypeViewCell")
-        tableView.register(AccountReceivableFilterRangeDateViewCell.self, forCellReuseIdentifier: "AccountReceivableFilterRangeDateViewCell")
+        tableView.register(cell: AccountReceivableFilterTypeViewCell.self)
+        tableView.register(cell: AccountReceivableFilterRangeDateViewCell.self)
         
     }
     override func setupConstraint() {
@@ -52,32 +51,32 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
         2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let type = CellType.init(rawValue: section)
-        if type == .type {
+        let typeCell = CellType.init(rawValue: section)
+        if typeCell == .type {
             return dataList.count
         }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let type = CellType.init(rawValue: indexPath.section){
-            switch type {
+        if let typeCell = CellType.init(rawValue: indexPath.section){
+            switch typeCell {
             case .type:
-                let cell: AccountReceivableFilterTypeViewCell = tableView.dequeueReusableCell(withIdentifier: "AccountReceivableFilterTypeViewCell", for: indexPath) as! AccountReceivableFilterTypeViewCell
+                let cell: AccountReceivableFilterTypeViewCell = tableView.dequeue(for: indexPath)
                 bindViewCell(cell: cell, cellForRowAt: indexPath)
                 return cell
             case .rangeDate:
-                let cell: AccountReceivableFilterRangeDateViewCell = tableView.dequeueReusableCell(withIdentifier: "AccountReceivableFilterRangeDateViewCell", for: indexPath) as! AccountReceivableFilterRangeDateViewCell
+                let cell: AccountReceivableFilterRangeDateViewCell = tableView.dequeue(for: indexPath)
                 bindRangDateViewCell(cell: cell, cellForRowAt: indexPath)
                 cell.onActionTypeButton = {[self] action in
                     switch action {
                     case .reset:
                         onActionButton?(.reset)
-                        filterParameter?.resetButton()
                         currentSelected = .all
                         cell.startDateView.textField.text = ""
                         cell.endDateView.textField.text = ""
-                        tableView.reloadData()
+                        let indexSet = IndexSet(integer: 0)
+                        tableView.reloadSections(indexSet, with: .automatic)
                     case .apply:
                         onActionButton?(.apply(cell.startDateView.getText, cell.endDateView.getText, currentSelected))
                     }
@@ -88,10 +87,16 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
         return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        currentSelected = dataList[indexPath.row]
-        onDidselectActionType?(currentSelected)
-        tableView.reloadData()
+        if let typeCell = CellType.init(rawValue: indexPath.section){
+            switch typeCell {
+            case .type:
+                currentSelected = dataList[indexPath.row]
+                onDidselectActionType?(currentSelected)
+                let index = IndexSet(integer: 0)
+                tableView.reloadSections(index, with: .none)
+            case .rangeDate: break
+            }
+        }
     }
     func bindViewCell(cell: AccountReceivableFilterTypeViewCell,cellForRowAt indexPath: IndexPath){
         let data = dataList[indexPath.row]
@@ -100,13 +105,14 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
     }
     func bindRangDateViewCell(cell: AccountReceivableFilterRangeDateViewCell, cellForRowAt indexPath: IndexPath){
         if let filter = filterParameter {
+            
             cell.startDateView.textField.text = filter.startDate.formatDate()
             cell.endDateView.textField.text = filter.endDate.formatDate()
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let type = CellType.init(rawValue: section){
-            switch type {
+        if let typeCell = CellType.init(rawValue: section){
+            switch typeCell {
             case .type:
                 let view = AcctionReceivableFilterHeaderView()
                 view.closeButton.addTarget(self, action: #selector(handleCloseButton), for: .touchUpInside)

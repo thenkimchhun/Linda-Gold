@@ -10,7 +10,7 @@ import UIKit
 
 class HomeTotalSaleViewCell: BaseTableViewCell{
     let containerView = UIView()
-    let dayListView = DaysListView()
+    let dayListView = TotalARDayListView()
     let chartView = ChartView()
     var saleOrderData: DashboardDataResponse?{
         didSet{
@@ -102,8 +102,8 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         addGestureRecognizer(addGuesture)
         // get action daybutton
         dayListView.ondidSelectRowAt = {[self] data in
-            onDidSelectRowAt?(data)
-            dayButton.setTitle(data, for: .normal)
+            onDidSelectRowAt?(data?.rawValue ?? "")
+            dayButton.setTitle(data?.rawValue, for: .normal)
             
         }
     }

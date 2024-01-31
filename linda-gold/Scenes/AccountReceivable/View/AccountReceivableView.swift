@@ -65,8 +65,8 @@ class AccountReceivableView: BaseView{
         // Action Day Button
         headerTotalARView.dayButton.addTarget(self, action: #selector(onHandleDay), for: .touchUpInside)
         dayListView.ondidSelectRowAt = {[self] data in
-            onActionFilterDay?(data)
-            headerTotalARView.dayButton.setTitle(data, for: .normal)
+            onActionFilterDay?(data?.rawValue ?? "")
+            headerTotalARView.dayButton.setTitle(data?.rawValue, for: .normal)
         }
         
         // action Filter
@@ -110,7 +110,7 @@ class AccountReceivableView: BaseView{
         dayListView.snp.makeConstraints { make in
             make.top.equalTo(headerTotalARView.snp.top)
             make.width.equalTo(scale(100))
-            make.height.equalTo(scale(170))
+            make.height.equalTo(scale(210))
             make.right.equalToSuperview()
         }
         

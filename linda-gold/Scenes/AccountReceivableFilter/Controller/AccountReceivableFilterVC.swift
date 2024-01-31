@@ -16,7 +16,6 @@ class AccountReceivableFilterVC: BaseVC{
     init(filterParameter: FilterParameter) {
         self.filterParameter = filterParameter
         super.init(nibName: nil, bundle: nil)
-        accountReceivableFilterView.currentSelected = filterParameter.sortBy
         accountReceivableFilterView.filterParameter = filterParameter
     }
     
@@ -33,10 +32,13 @@ class AccountReceivableFilterVC: BaseVC{
         }
         accountReceivableFilterView.onActionButton = {[self] action in
             switch action {
-            case .reset: break
+            case .reset:
+                print("reset")
             case .apply(let startDate, let endDate, let sortBy):
-                filterParameter.startDate = startDate
-                filterParameter.endDate = endDate
+                
+                print("startDate: =>",startDate.covertDateToUTC(dateFormat: "MMM dd, yyyy"))
+                filterParameter.startDate = startDate.covertDateToUTC(dateFormat: "MMM dd, yyyy")
+                filterParameter.endDate = endDate.covertDateToUTC(dateFormat: "MMM dd, yyyy")
                 filterParameter.sortBy = sortBy ?? .all
                 onFilter?(filterParameter)
                 dismiss(animated: true)

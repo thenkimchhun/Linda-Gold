@@ -10,6 +10,7 @@ import Foundation
 
 enum AuthenticationResource {
     case login(parameters: LoginParameter)
+    case logout(parameter: LogoutParameter)
 }
 
 extension AuthenticationResource: TargetType {
@@ -17,12 +18,14 @@ extension AuthenticationResource: TargetType {
         switch self {
         case .login:
             return "auth/login"
+        case .logout:
+            return "auth/logout"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .login:
+        case .login, .logout:
             return .post
         }
     }
@@ -31,7 +34,8 @@ extension AuthenticationResource: TargetType {
         switch self {
         case .login(parameters: let params):
             return .requestParameters(bodyParameters: params, bodyEncoding: .jsonEncoding)
-      
+        case .logout(parameter: let params):
+            return .requestParameters(bodyParameters: params, bodyEncoding: .jsonEncoding)
         }
     }
     

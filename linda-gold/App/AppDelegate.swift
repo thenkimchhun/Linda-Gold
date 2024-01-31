@@ -63,6 +63,8 @@ extension AppDelegate{
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
-    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        SessionManager.shared.preference.setValue(fcmToken, forKey: SessionKey.deviceToken.rawValue)
+    }
 }
 

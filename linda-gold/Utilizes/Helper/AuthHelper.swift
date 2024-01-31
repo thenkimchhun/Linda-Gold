@@ -16,7 +16,7 @@ class AuthHelper {
     static var getRefreshToken: String{
         return getUserObject?.refresh_token ?? ""
     }
-    static private var getUserObject: LoginResponse? {
+    static  var getUserObject: LoginResponse? {
         var userObject: LoginResponse?
         SessionManager.shared.getter(key: .authenticate) { (data: LoginResponse?) in
             userObject = data

@@ -11,7 +11,7 @@ import UIKit
 
 class HomeBuyBackViewCell: BaseTableViewCell{
     let containerView = UIView()
-    let dayListView = DaysListView()
+    let dayListView = TotalARDayListView()
     var selectedDay: Bool = true
     var ondidSelectRowAt: ((String)->Void)?
     var buyBackData: DashboardDataResponse?{
@@ -100,8 +100,8 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         dayButton.addTarget(self, action: #selector(actionDayButton), for: .touchUpInside)
         
         dayListView.ondidSelectRowAt = {[self] data in
-            ondidSelectRowAt?(data)
-            dayButton.setTitle(data, for: .normal)
+            ondidSelectRowAt?(data?.rawValue ?? "")
+            dayButton.setTitle(data?.rawValue, for: .normal)
         }
     }
     @objc private func actionDayButton(){

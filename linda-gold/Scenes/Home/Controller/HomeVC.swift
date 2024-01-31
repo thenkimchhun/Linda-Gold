@@ -8,7 +8,7 @@
 
 import UIKit
 class HomeVC: BaseVC, HomeDelegate {
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -30,13 +30,13 @@ class HomeVC: BaseVC, HomeDelegate {
         // Profile
         viewModel.delegate = self
         viewModel.onGetAccount()
-        
+        viewModel.logoutDelegate = self
         // Action Day from Sale Order
         homeView.onFilterTotalSale = {[self] data in
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
                 Spinner.start()
                 viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: filterDay))
-//                print("saleOrderfilterDay: ==>",filterDay)
+
             }
         }
         // Action Day from Buy Back
@@ -44,7 +44,7 @@ class HomeVC: BaseVC, HomeDelegate {
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
                 Spinner.start()
                 viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filterDay))
-//                print("filterDay: ==>",filterDay)
+
             }
         }
         
@@ -57,6 +57,10 @@ class HomeVC: BaseVC, HomeDelegate {
         // profile
         homeView.onDidSelecteProfile = {[self] in
             let vc = ProfileAdminVC()
+            vc.onActionLogout = {[self] in
+                Spinner.start()
+                viewModel.onLogout(parameter: .init(deviceToken: "123" ))
+            }
             presentPanModal(vc)
         }
         
@@ -115,6 +119,22 @@ extension HomeVC: ProfileAdminDelegate{
             
         }
     }
+}
+extension HomeVC: LoginDelegate{
+    func onLoginUpdateState(state: NetworkResponseState) {}
+    
+    func onLogoutUpdateState() {
+        Spinner.stop()
+        switch viewModel.logoutUpdateState {
+        case .success:
+            SessionManager.shared.removeAllDefaults(except: [SessionKey.deviceToken.rawValue])
+            setToRootView(viewController: LoginVC())
+        case .failure(let error):
+            print("error",error.message)
+        case .none: break
+        }
+    }
+    
     
 }
 

@@ -74,40 +74,15 @@ extension String {
         return nil
     }
     
-    var startDateUTC: String {
+    func covertDateToUTC(dateFormat: String = "MMM dd, YYYY")-> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy"
-        formatter.locale = Locale(identifier: "km")
+        formatter.dateFormat = dateFormat
         formatter.calendar = .init(identifier: .gregorian)
         if let convertedDate = formatter.date(from: self) {
-            let startOfDay = convertedDate.startOfDay
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-            return formatter.string(from: startOfDay)
+            return formatter.string(from: convertedDate)
         }
         return ""
     }
-    var endDateUTC: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMM yyyy"
-        formatter.locale = Locale(identifier: "km")
-        formatter.calendar = .init(identifier: .gregorian)
-        if let convertedDate = formatter.date(from: self) {
-            let endOfDay = convertedDate.endOfDay
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-            return formatter.string(from: endOfDay)
-        }
-        return ""
-    }
-    
 }
 
-
-extension Date {
-
-    var startOfDay: Date {
-        return Calendar.current.date(bySettingHour: 00 , minute: 00, second: 00, of: self) ?? self
-    }
-    var endOfDay: Date {
-        return Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: self) ?? self
-    }
-}

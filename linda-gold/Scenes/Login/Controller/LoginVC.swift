@@ -41,6 +41,8 @@ class LoginVC: BaseVC {
 }
 
 extension LoginVC:LoginDelegate{
+    func onLogoutUpdateState(){}
+    
     func onLoginUpdateState(state: NetworkResponseState) {
         Spinner.stop()
         switch state {

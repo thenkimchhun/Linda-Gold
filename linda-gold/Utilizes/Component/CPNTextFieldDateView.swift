@@ -49,6 +49,12 @@ class CPNTextFieldDateView: BaseView {
     }
     var textField: UITextField = {
         let textField = UITextField()
+        let attributedPlaceholder = NSAttributedString(
+            string: textField.placeholder ?? "",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black
+            ]
+        )
         textField.placeholder = "Enter..."
         textField.textColor = BaseColor.black
         textField.font = .systemFont(ofSize: 14)
@@ -78,7 +84,7 @@ class CPNTextFieldDateView: BaseView {
             let dateformatter = DateFormatter()
             dateformatter.dateStyle = .medium
             textField.text = dateformatter.string(from: datePicker.date)
-         
+            
         }
         textField.resignFirstResponder()
     }

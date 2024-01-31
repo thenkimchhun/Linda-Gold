@@ -100,6 +100,31 @@ class AccountReceivableViewModel{
         }
 
     }
+    // function Filter Date week month year
+    func filterStartDateEndDate(data: String){
+        if let filterDay = AppStatus.FilterDateTotalAR.init(rawValue: data){
+            switch filterDay {
+            case .all:
+                parameter.startDate = ""
+                parameter.endDate = ""
+            case .today:
+                parameter.startDate = DateTimeHelper.convertCurrentToUTC() ?? ""
+                parameter.endDate = DateTimeHelper.convertCurrentToUTC() ?? ""
+            case .week:
+                let weekLy = DateTimeHelper.getFirstAndLastDayOfWeek()
+                parameter.startDate = weekLy.0
+                parameter.endDate = weekLy.1
+            case .month:
+                let monthly = DateTimeHelper.getFirstAndLastDayOfMonth()
+                parameter.startDate = monthly.0
+                parameter.endDate = monthly.1
+            case .year:
+                let yearly = DateTimeHelper.getFirstAndLastDayOfYear()
+                parameter.startDate = yearly.0
+                parameter.endDate = yearly.1
+            }
+        }
+    }
     
     
 }

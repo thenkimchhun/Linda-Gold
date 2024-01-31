@@ -10,4 +10,9 @@ import Foundation
 
 protocol LoginDelegate: AnyObject {
     func onLoginUpdateState(state: NetworkResponseState)
+    func onLogoutUpdateState()
+}
+enum LoginDelegateState{
+    case success(APIResponseSuccess?)
+    case failure(APIResponseError)
 }

@@ -73,7 +73,7 @@ class HeaderTotalARView: BaseView {
     }()
     var dayButton: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Today", for: .normal)
+        btn.setTitle("All", for: .normal)
         btn.setImage(UIImage(named: "ic_down"), for: .normal)
         btn.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         btn.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
@@ -85,7 +85,7 @@ class HeaderTotalARView: BaseView {
     var remainLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .right
-        lb.text = "All"
+        lb.text = ""
         lb.font = .systemFont(ofSize: 12)
         lb.textColor = BaseColor.white
         return lb

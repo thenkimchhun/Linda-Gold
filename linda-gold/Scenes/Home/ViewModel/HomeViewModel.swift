@@ -81,4 +81,25 @@ class HomeViewModel {
             }
         }
     }
+    
+    weak var logoutDelegate: LoginDelegate?
+    var logoutUpdateState: LoginDelegateState?{
+        didSet{
+            logoutDelegate?.onLogoutUpdateState()
+        }
+    }
+    func onLogout(parameter: LogoutParameter){
+        AuthenticationService.shared.onLogout(parameter: parameter) { res in
+            DispatchQueue.main.async {[self] in
+                logoutUpdateState = .success(res)
+            }
+        } failure: { error in
+            DispatchQueue.main.async {[self] in
+                if let error = error {
+                    logoutUpdateState = .failure(error)
+                }
+            }
+        }
+
+    }
 }

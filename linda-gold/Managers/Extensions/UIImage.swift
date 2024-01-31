@@ -30,10 +30,9 @@ extension UIImage {
     }
 }
 extension UIImageView {
-    
     /** Load image from url */
     func loadImage(with url: String?, placeholder: String = "img_placeholder") {
-        guard let urlString = url, let url = URL(string: "\(Environment.BASE_KEY_URL)\(urlString)") else {
+        guard let urlString = url, let url = URL(string: "\(Environment.getHuaweiUrl)\(urlString)") else {
             self.image = placeholder.isEmpty ? nil : UIImage(named: placeholder)
             return
         }

@@ -31,6 +31,14 @@ struct AppStatus {
         case month = "Month"
         case year = "Year"
     }
+    // Total AR
+    enum FilterDateTotalAR: String {
+        case all = "All"
+        case today = "Today"
+        case week = "Week"
+        case month = "Month"
+        case year = "Year"
+    }
     // sortBy
    static var sortBy: [AppStatus.ItemsStatus] = [
     ItemsStatus(key: "all", value: "All"),

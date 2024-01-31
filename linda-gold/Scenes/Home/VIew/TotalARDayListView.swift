@@ -1,16 +1,17 @@
 //
-//  DaysListView.swift
+//  TotalARDayListView.swift
 //  linda-gold
 //
-//  Created by Chhun on 1/17/24.
+//  Created by Chhun on 1/31/24.
 //  Copyright © 2024 Core-MVVM. All rights reserved.
 //
 
 import UIKit
-class DaysListView: BaseView {
-    var dataList: [AppStatus.FilterDateTotalAR] = [.all, .today, .week, .month, .year]
+
+class TotalARDayListView: BaseView {
+    var dataList: [AppStatus.FilterDay] = [.today, .week, .month, .year]
     let tableView = UITableView()
-    var ondidSelectRowAt: ((AppStatus.FilterDateTotalAR?)->Void)?
+    var ondidSelectRowAt: ((AppStatus.FilterDay?)->Void)?
     override func setupComponent() {
         backgroundColor = BaseColor.white
         addSubview(tableView)
@@ -20,7 +21,7 @@ class DaysListView: BaseView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        tableView.register(DayListViewCell.self, forCellReuseIdentifier: "DayListViewCell")
+        tableView.register(TotalARDayListViewCell.self, forCellReuseIdentifier: "TotalARDayListViewCell")
     }
     override func setupConstraint() {
         tableView.snp.makeConstraints { make in
@@ -30,13 +31,13 @@ class DaysListView: BaseView {
     }
 }
 
-extension DaysListView: UITableViewDelegate, UITableViewDataSource{
+extension TotalARDayListView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: DayListViewCell = tableView.dequeueReusableCell(withIdentifier: "DayListViewCell", for: indexPath) as! DayListViewCell
+        let cell: TotalARDayListViewCell = tableView.dequeueReusableCell(withIdentifier: "TotalARDayListViewCell", for: indexPath) as! TotalARDayListViewCell
         cell.dayLabel.text = dataList[indexPath.row].rawValue
         return cell
     }
@@ -48,7 +49,7 @@ extension DaysListView: UITableViewDelegate, UITableViewDataSource{
 
 //MARK: DAYS LIST VIEW CELL
 
-class DayListViewCell: BaseTableViewCell{
+class TotalARDayListViewCell: BaseTableViewCell{
     let dayLabel = UILabel()
     override var isSelected: Bool{
         didSet{
@@ -61,7 +62,7 @@ class DayListViewCell: BaseTableViewCell{
         backgroundColor = BaseColor.white
         selectionStyle = .none
         addSubview(dayLabel)
-        dayLabel.text = "All"
+        dayLabel.text = "Today"
         dayLabel.font = .systemFont(ofSize: 14)
         dayLabel.textColor = BaseColor.black
     }
@@ -73,3 +74,4 @@ class DayListViewCell: BaseTableViewCell{
     }
     
 }
+
