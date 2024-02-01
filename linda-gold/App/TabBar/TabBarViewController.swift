@@ -55,7 +55,7 @@ private extension TabBarViewController{
     func setViewControllerForTabBarItem(itemType: TabBarItems)-> UIViewController {
         itemController =  TabBarItemController(itemType: itemType)
         itemController.controller.tabBarItem = UITabBarItem(
-            title: "",
+            title: itemController.controllerName,
             image: UIImage(named: itemController.imageDisabled )?.withRenderingMode(.alwaysTemplate),
             selectedImage: UIImage(named:itemController.imageEnbled))
         let viewController = UINavigationController(rootViewController: itemController.controller)

@@ -21,6 +21,8 @@ class SaleOrderVC: BaseVC{
         viewModel.delegate = self
         viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
         saleOrderView.onDidSelectRowAt = {[self] data in
+            Spinner.start()
+            viewModel.onGetSaleOrderList(parameter: viewModel.parameter)
             let vc = SaleOrderDetailVC()
             vc.orderId = data.id
             vc.hidesBottomBarWhenPushed = true
@@ -43,6 +45,7 @@ class SaleOrderVC: BaseVC{
 
 extension SaleOrderVC: SaleOrderDelegate{
     func onSaleOrderUpdateState() {
+        Spinner.stop()
         Loading.removeSpinner()
         saleOrderView.saleOrderList = viewModel.saleOrderList
         saleOrderView.tableView.mj_header?.endRefreshing()

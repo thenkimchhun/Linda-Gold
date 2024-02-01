@@ -83,6 +83,7 @@ class CPNTextFieldDateView: BaseView {
         if let datePicker = textField.inputView as? UIDatePicker {
             let dateformatter = DateFormatter()
             dateformatter.dateStyle = .medium
+            dateformatter.dateFormat = "MMM dd, YYYY"
             textField.text = dateformatter.string(from: datePicker.date)
             
         }

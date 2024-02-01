@@ -99,6 +99,7 @@
 		2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */; };
 		2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */; };
 		2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */; };
+		2461C0F02B6A993B006FD4F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2461C0EF2B6A993B006FD4F7 /* GoogleService-Info.plist */; };
 		24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */; };
 		24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */; };
 		24AFC2AC2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AB2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift */; };
@@ -239,7 +240,6 @@
 		049CDA1827A104DA000DCC0E /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		049CDA1A27A10523000DCC0E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		049CDA1E27A12CEA000DCC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		049CDA2027A12CEA000DCC0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		049CDA2C27A13DA1000DCC0E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		24048C372B5D5D02008BC045 /* AccountReceivableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableModel.swift; sourceTree = "<group>"; };
 		24048C3B2B5D5F37008BC045 /* AccountReceivableResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableResource.swift; sourceTree = "<group>"; };
@@ -314,6 +314,8 @@
 		2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderViewCell.swift; sourceTree = "<group>"; };
 		2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailVC.swift; sourceTree = "<group>"; };
 		2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailView.swift; sourceTree = "<group>"; };
+		2461C0EF2B6A993B006FD4F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2461C0F22B6AA62B006FD4F7 /* linda-gold.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "linda-gold.entitlements"; sourceTree = "<group>"; };
 		24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailCustomerInfoViewCell.swift; sourceTree = "<group>"; };
 		24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailItemsViewCell.swift; sourceTree = "<group>"; };
 		24AFC2AB2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceivableDetailVC.swift; sourceTree = "<group>"; };
@@ -546,7 +548,7 @@
 		049CDA1F27A12CEA000DCC0E /* Dev */ = {
 			isa = PBXGroup;
 			children = (
-				049CDA2027A12CEA000DCC0E /* GoogleService-Info.plist */,
+				2461C0EF2B6A993B006FD4F7 /* GoogleService-Info.plist */,
 			);
 			path = Dev;
 			sourceTree = "<group>";
@@ -1563,6 +1565,7 @@
 		D9A8CB9B24AD7ADF007B0CC8 /* linda-gold */ = {
 			isa = PBXGroup;
 			children = (
+				2461C0F22B6AA62B006FD4F7 /* linda-gold.entitlements */,
 				D907823624AD7C0300AC95C4 /* App */,
 				D907823724AD7C0F00AC95C4 /* Assets */,
 				79BCAFF72B32D13700FD223F /* Managers */,
@@ -1649,6 +1652,7 @@
 			files = (
 				D9A8CBA724AD7AE1007B0CC8 /* LaunchScreen.storyboard in Resources */,
 				D9A8CBA424AD7AE1007B0CC8 /* Assets.xcassets in Resources */,
+				2461C0F02B6A993B006FD4F7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2016,9 +2020,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconUAT;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "linda-gold/linda-gold.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8ZM7BJP6C;
+				DEVELOPMENT_TEAM = H43S5KDKV6;
 				INFOPLIST_FILE = "$(SRCROOT)/linda-gold/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2108,6 +2113,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconLocal;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "linda-gold/linda-gold.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8ZM7BJP6C;
@@ -2264,9 +2270,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "linda-gold/linda-gold.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N8ZM7BJP6C;
+				DEVELOPMENT_TEAM = H43S5KDKV6;
 				INFOPLIST_FILE = "$(SRCROOT)/linda-gold/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2291,6 +2298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "linda-gold/linda-gold.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8ZM7BJP6C;

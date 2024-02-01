@@ -79,6 +79,8 @@ extension AccountReceivableFilterView: UITableViewDelegate, UITableViewDataSourc
                         tableView.reloadSections(indexSet, with: .automatic)
                     case .apply:
                         onActionButton?(.apply(cell.startDateView.getText, cell.endDateView.getText, currentSelected))
+                        print("startDate: ==>",cell.startDateView.getText)
+                        print("endDate: ==>",cell.endDateView.getText)
                     }
                 }
                 return cell

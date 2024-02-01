@@ -15,7 +15,6 @@ class HomeHeaderView: BaseView{
     let profileImg = UIImageView()
     
     override func setupComponent() {
-        backgroundColor = .clear
         addSubview(welcomeLabel)
         welcomeLabel.text = "Welcome,"
         welcomeLabel.textColor = BaseColor.black
@@ -29,7 +28,8 @@ class HomeHeaderView: BaseView{
         addSubview(profileImg)
         profileImg.image = UIImage(named: "ic_admin")
         profileImg.clipsToBounds = true
-        profileImg.layer.cornerRadius = 32 / 2
+        profileImg.layer.cornerRadius = 50 / 2
+        profileImg.contentMode = .scaleAspectFit
         
         addSubview(notificaionImg)
         if #available(iOS 13.0, *) {
@@ -48,15 +48,15 @@ class HomeHeaderView: BaseView{
         nameLabel.snp.makeConstraints{(make) in
             make.top.equalTo(welcomeLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(24)
-            make.bottom.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(scale(5))
         }
         profileImg.snp.makeConstraints{(make) in
-            make.height.width.equalTo(32)
-            make.centerY.equalTo(nameLabel.snp.centerY)
+            make.height.width.equalTo(50)
+            make.centerY.equalTo(nameLabel.snp.centerY).offset(-scale(16))
             make.right.equalToSuperview().offset(-24)
         } 
         notificaionImg.snp.makeConstraints{(make) in
-            make.height.width.equalTo(24)
+            make.height.width.equalTo(30)
             make.centerY.equalTo(profileImg.snp.centerY)
             make.right.equalTo(profileImg.snp.left).offset(-scale(16))
         }

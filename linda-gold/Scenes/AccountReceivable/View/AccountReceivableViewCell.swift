@@ -9,6 +9,7 @@
 import UIKit
 
 class AccountReceivableViewCell: BaseTableViewCell {
+    let leftLineView = UIView()
     let containerView = UIView()
     let headerProfileView = HeaderProfileView()
     let stackView = UIStackView()
@@ -25,6 +26,11 @@ class AccountReceivableViewCell: BaseTableViewCell {
         containerView.layer.shadowOpacity = 0.2
         containerView.layer.shadowOffset = CGSize(width: 2, height: 2)
         containerView.layer.shadowRadius = 6.0
+        
+        containerView.addSubview(leftLineView)
+        leftLineView.backgroundColor = BaseColor.primarysColor
+        leftLineView.layer.cornerRadius = 10
+        leftLineView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
         
         containerView.addSubview(headerProfileView)
         containerView.addSubview(stackView)
@@ -49,6 +55,10 @@ class AccountReceivableViewCell: BaseTableViewCell {
             make.top.bottom.equalToSuperview().inset(scale(16/2))
             make.left.right.equalToSuperview().inset(scale(16))
         }  
+        leftLineView.snp.makeConstraints { make in
+            make.top.left.bottom.equalToSuperview()
+            make.width.equalTo(scale(10)).priority(750)
+        }
         headerProfileView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview().inset(scale(16))
         }
@@ -66,7 +76,7 @@ class AccountReceivableViewCell: BaseTableViewCell {
 class HeaderProfileView: BaseView{
     
     override func setupComponent() {
-        backgroundColor = .clear
+//        backgroundColor = .gray
         addSubview(profileView)
         addSubview(desLabel)
         addSubview(titleLabel)
@@ -75,7 +85,7 @@ class HeaderProfileView: BaseView{
     }
     override func setupConstraint() {
         profileView.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview()
+            make.top.left.bottom.equalToSuperview().inset(scale(10))
             make.width.height.equalTo(36)
         }
         titleLabel.snp.makeConstraints { make in
@@ -94,8 +104,10 @@ class HeaderProfileView: BaseView{
     }
     var profileView: UIImageView = {
         let profile = UIImageView()
+        profile.layer.cornerRadius = 36/2
+        profile.clipsToBounds = true
         profile.image = UIImage(named: "ic_profile")
-        profile.contentMode = .scaleAspectFit
+        profile.contentMode = .scaleAspectFill
         return profile
     }()
     var titleLabel: UILabel = {

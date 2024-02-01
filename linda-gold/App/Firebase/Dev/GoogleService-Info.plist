@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>437948100522-t3gdqcl52tdbb8vvfnoo80ojqja6epi8.apps.googleusercontent.com</string>
+	<string>541048024492-1ce53l35i0nc4o5alqafun6ihgmhmb1c.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.437948100522-t3gdqcl52tdbb8vvfnoo80ojqja6epi8</string>
+	<string>com.googleusercontent.apps.541048024492-1ce53l35i0nc4o5alqafun6ihgmhmb1c</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA_7MW97MVOhYmHEJoMpzkDcg5e40eUGlo</string>
+	<string>AIzaSyBvIv0DeW4f9IjviASsTuuh5Jqld4IE1QQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>437948100522</string>
+	<string>541048024492</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.angkordc.ios</string>
+	<string>com.IG.diamondapp.diamondApp</string>
 	<key>PROJECT_ID</key>
-	<string>angkor-dc-dev-c4a06</string>
+	<string>diamond-pos-dev</string>
 	<key>STORAGE_BUCKET</key>
-	<string>angkor-dc-dev-c4a06.appspot.com</string>
+	<string>diamond-pos-dev.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:437948100522:ios:edc6a4b1bffa9a9cd4c5d3</string>
+	<string>1:541048024492:ios:ca3c6eb3ddfa3e4f93de09</string>
 	<key>DATABASE_URL</key>
-	<string>https://angkor-dc-dev-c4a06-default-rtdb.firebaseio.com</string>
+	<string>https://diamond-pos-dev-default-rtdb.asia-southeast1.firebasedatabase.app</string>
 </dict>
 </plist>

@@ -55,7 +55,8 @@ class SaleOrderDetailItemsViewCell: BaseTableViewCell{
         containerView.addSubview(intrucductStackView)
         intrucductStackView.axis = .vertical
         intrucductStackView.spacing = 10
-        intrucductStackView.distribution = .fillProportionally
+        intrucductStackView.alignment = .center
+        intrucductStackView.distribution = .fillEqually
         
     }
     override func setupConstraint() {
@@ -79,9 +80,6 @@ class SaleOrderDetailItemsViewCell: BaseTableViewCell{
             make.top.equalTo(header.snp.bottom).offset(scale(5))
             make.left.right.bottom.equalToSuperview().inset(scale(16))
         }
-        
-
-        
     }
     var titleLabel: UILabel = {
         let lb = UILabel()
@@ -100,9 +98,10 @@ class SaleOrderItemsHeader: BaseView{
     let stackView = UIStackView()
     override func setupComponent() {
         addSubview(stackView)
-        stackView.spacing = 10
+        stackView.spacing = 7
         stackView.axis = .horizontal
-        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
         stackView.addArrangedSubview(productLable)
         stackView.addArrangedSubview(qtyLable)
         stackView.addArrangedSubview(salePriceLable)
@@ -117,35 +116,35 @@ class SaleOrderItemsHeader: BaseView{
     var productLable: UILabel = {
         let lb = UILabel()
         lb.text = "Product"
-        lb.font = .systemFont(ofSize: 12)
+        lb.font = .systemFont(ofSize: 10)
         lb.textColor = BaseColor.black
         return lb
     }()
     var qtyLable: UILabel = {
         let lb = UILabel()
         lb.text = "QTY"
-        lb.font = .systemFont(ofSize: 12)
+        lb.font = .systemFont(ofSize: 10)
         lb.textColor = BaseColor.black
         return lb
     }() 
     var salePriceLable: UILabel = {
         let lb = UILabel()
         lb.text = "Sale Price"
-        lb.font = .systemFont(ofSize: 12)
+        lb.font = .systemFont(ofSize: 10)
         lb.textColor = BaseColor.black
         return lb
     }() 
     var discountLable: UILabel = {
         let lb = UILabel()
         lb.text = "Discount"
-        lb.font = .systemFont(ofSize: 12)
+        lb.font = .systemFont(ofSize: 10)
         lb.textColor = BaseColor.black
         return lb
     }()
     var amountLable: UILabel = {
         let lb = UILabel()
         lb.text = "Amount"
-        lb.font = .systemFont(ofSize: 12)
+        lb.font = .systemFont(ofSize: 10)
         lb.textColor = BaseColor.black
         return lb
     }()

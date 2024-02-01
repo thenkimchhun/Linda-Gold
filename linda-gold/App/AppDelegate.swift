@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -63,8 +64,20 @@ extension AppDelegate{
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let data = response.notification.request.content.userInfo
+        // key value: វាមិនដឹងថា type វាជាប្រភេទអ្វីទេ​ ចឹងហើយពេលដែលយើងបោះមកជាប្រភេទអ្វីយើងត្រូវដាក់ type វាជ្រប្រភេទហ្នឹងដែរ​  Ex: let refId = data["refId"] as? Int
+        // convert data in key value to data normal
+        // បំលែង data នៅក្នុង​ key value ឲទៅជា ប្រភេទ data model
+        let refId = data["ref1Id"] as? String
+        completionHandler()
+    }
+    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        SessionManager.shared.preference.setValue(fcmToken, forKey: SessionKey.deviceToken.rawValue)
+        print("tokens=> :",fcmToken ?? "")
     }
 }
 

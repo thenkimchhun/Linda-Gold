@@ -48,7 +48,9 @@ extension PendingApprovalHistoryView: UITableViewDelegate, UITableViewDataSource
     }
     private func bindPendingApprovalHistoryViewCell(cell: PendingApprovalHistoryViewCell, cellForRowAt indexPath: IndexPath){
         if let data = historyData {
+            cell.profileHeader.profileView.loadImage(with: data.customer.image == "" ? "ic_admin" : data.customer.image)
             cell.profileHeader.StatuLabel.isHidden = true
+            cell.statusView.rightView.text = "\(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"
             cell.profileHeader.titleLabel.text = data.customer.fullName
             cell.profileHeader.desLabel.text = "No. \(data.customer.id)"
             cell.lastPurchaseView.rightView.text = ": \(data.lastSaleOrder?.total.formatCurrencyNumber ?? "")"
@@ -139,8 +141,10 @@ class PresentHeaderHistoryView: BaseView{
     }
     var profileView: UIImageView = {
         let profile = UIImageView()
+        profile.layer.cornerRadius = 36/2
+        profile.clipsToBounds = true
         profile.image = UIImage(named: "ic_profile")
-        profile.contentMode = .scaleAspectFit
+        profile.contentMode = .scaleAspectFill
         return profile
     }()
     var titleLabel: UILabel = {

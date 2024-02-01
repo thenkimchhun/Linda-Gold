@@ -31,7 +31,17 @@ class HomeVC: BaseVC, HomeDelegate {
         viewModel.delegate = self
         viewModel.onGetAccount()
         viewModel.logoutDelegate = self
-        // Action Day from Sale Order
+        // Profile
+        homeView.homeHeaderView.nameLabel.text = AuthHelper.getProfile?.fullName
+        homeView.homeHeaderView.profileImg.loadImage(with: AuthHelper.getProfile?.image)
+        homeView.homeHeaderView.profileImg.isUserInteractionEnabled = true
+        homeView.homeHeaderView.profileImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleProfileImage)))
+        // Notification
+        homeView.homeHeaderView.notificaionImg.isUserInteractionEnabled = true
+        homeView.homeHeaderView.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
+        
+       
+        // filter
         homeView.onFilterTotalSale = {[self] data in
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
                 Spinner.start()
@@ -47,25 +57,24 @@ class HomeVC: BaseVC, HomeDelegate {
 
             }
         }
-        
-        // notification
-        homeView.onDidSelecteNotification = {[self] in
-            let vc = NotificationVC()
-            vc.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        // profile
-        homeView.onDidSelecteProfile = {[self] in
-            let vc = ProfileAdminVC()
-            vc.onActionLogout = {[self] in
-                Spinner.start()
-                viewModel.onLogout(parameter: .init(deviceToken: "123" ))
-            }
-            presentPanModal(vc)
-        }
-        
         homeView.tableView.mj_header = mjRefreshNormal.refreshHeader
     }
+    
+    @objc func onHandleProfileImage(){
+        let vc = ProfileAdminVC()
+        vc.onActionLogout = {[self] in
+            Spinner.start()
+            viewModel.onLogout(parameter: .init(deviceToken: "123" ))
+        }
+        presentPanModal(vc)
+    }
+    
+    @objc func onHandleNotification(){
+        let vc = NotificationVC()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     lazy var mjRefreshNormal: MJRefreshNormal = {
         let mjRefreshNormal = MJRefreshNormal()
         mjRefreshNormal.refreshNormalDelegate = self

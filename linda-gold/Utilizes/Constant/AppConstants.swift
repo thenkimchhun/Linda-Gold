@@ -18,23 +18,23 @@ struct AppConstants {
     struct TabBarItems {
         struct Home {
             static let name =  "Home" //"txt_home_title".localized()
-            static let imageEnbled = "home"
-            static let imageDisabled = "home"
+            static let imageEnbled = "ic_home"
+            static let imageDisabled = "ic_home"
         }
         struct Pending {
             static let name =  "Peding"
-            static let imageEnbled = "pending"
-            static let imageDisabled = "pending"
+            static let imageEnbled = "ic_document"
+            static let imageDisabled = "ic_document"
         }
         struct SaleOrder {
             static let name =  "Sale Order"
-            static let imageEnbled = "notification"
-            static let imageDisabled = "notification"
+            static let imageEnbled = "ic_inventory"
+            static let imageDisabled = "ic_inventory"
         }
         struct Receivable {
             static let name =  "AR"
-            static let imageEnbled = "receive"
-            static let imageDisabled = "receive"
+            static let imageEnbled = "ic_paid"
+            static let imageDisabled = "ic_paid"
         }
     }
 }

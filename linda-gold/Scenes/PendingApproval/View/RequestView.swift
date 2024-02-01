@@ -54,9 +54,10 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
     }
     private func bindRequestViewCell(cell: RequestViewCell, cellForRowAt indexPath: IndexPath){
         let data = dataList[indexPath.row]
+        cell.profileView.loadImage(with: data.customer.image == "" ? "ic_admin" : data.customer.image)
         cell.titleLabel.text = data.customer.fullName
         cell.desLabel.text = "No. \(data.customer.id)"
-        cell.updateView.rightView.text = "VVIP to Normal"
+        cell.updateView.rightView.text = "\(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"
         cell.dateRequestView.rightView.text = ": \(data.createdAt.formatDate(formatString: .date_time) ?? "")"
     }
     private func bindEmptyView(_ tableView: UITableView){
@@ -155,8 +156,10 @@ class RequestViewCell: BaseTableViewCell {
     
     var profileView: UIImageView = {
         let profile = UIImageView()
+        profile.layer.cornerRadius = 36/2
+        profile.clipsToBounds = true
         profile.image = UIImage(named: "ic_profile")
-        profile.contentMode = .scaleAspectFit
+        profile.contentMode = .scaleAspectFill
         return profile
     }()
     var titleLabel: UILabel = {

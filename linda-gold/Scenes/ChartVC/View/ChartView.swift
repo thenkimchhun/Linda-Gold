@@ -37,7 +37,7 @@ class ChartView: BaseView{
         // enable Scroll Chart
         pieCharView.isUserInteractionEnabled = false
         // size chart
-        pieCharView.holeRadiusPercent = 0.60
+        pieCharView.holeRadiusPercent = 0.65
 //        var entries = [PieChartDataEntry]()
 //        for x in 0..<4 {
 //            entries.append(PieChartDataEntry(value: Double(x), label: ""))

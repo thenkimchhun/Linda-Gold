@@ -43,12 +43,12 @@ class ProfileAdminView: BaseView{
     }
     func bindProfileView(){
         if let data = profileData{
-            profileView.profileImage.loadImage(with: data.image ?? "ic_admin") //UIImage(named: data.image ?? "ic_admin")
-            fullNameView.rightView.text = data.fullName
-            emailView.rightView.text = data.email
-            primaryPhoneView.rightView.text = data.primaryPhone
-            secondaryPhoneView.rightView.text = data.secondaryPhone
-            roleView.rightView.text = data.role.title
+            profileView.profileImage.loadImage(with: data.image ?? "ic_admin")
+            fullNameView.rightView.text = ": \(data.fullName)"
+            emailView.rightView.text = ": \(data.email)"
+            primaryPhoneView.rightView.text = ": \(data.primaryPhone)"
+            secondaryPhoneView.rightView.text = ": \(data.secondaryPhone)"
+            roleView.rightView.text = ": \(data.role.title)"
         }
        
     }
@@ -56,30 +56,35 @@ class ProfileAdminView: BaseView{
         let name = CPNHoriziontalTextView()
         name.leftView.text = "Name"
         name.rightView.text = ": Super admin"
+        name.rightView.font = .systemFont(ofSize: 14, weight: .bold)
         return name
     }()
     var emailView: CPNHoriziontalTextView = {
         let email = CPNHoriziontalTextView()
         email.leftView.text = "Email"
         email.rightView.text = ": sokthida12345#gmail.com"
+        email.rightView.font = .systemFont(ofSize: 14, weight: .bold)
         return email
     }()
     var primaryPhoneView: CPNHoriziontalTextView = {
         let primay = CPNHoriziontalTextView()
         primay.leftView.text = "Primary Phone"
         primay.rightView.text = ": 088 8998 990"
+        primay.rightView.font = .systemFont(ofSize: 14, weight: .bold)
         return primay
     }()  
     var secondaryPhoneView: CPNHoriziontalTextView = {
         let secondary = CPNHoriziontalTextView()
         secondary.leftView.text = "Secondary Phone"
         secondary.rightView.text = ": 086 8998 990"
+        secondary.rightView.font = .systemFont(ofSize: 14, weight: .bold)
         return secondary
     }()
     var roleView: CPNHoriziontalTextView = {
         let role = CPNHoriziontalTextView()
         role.leftView.text = "Role"
         role.rightView.text = ": Super admin"
+        role.rightView.font = .systemFont(ofSize: 14, weight: .bold)
         return role
     }()
     var logoutButton: CPNButtonView = {
@@ -96,6 +101,8 @@ class ProfileView: BaseView{
     let profileImage = UIImageView()
     override func setupComponent() {
         addSubview(profileImage)
+        profileImage.layer.cornerRadius = scale(50/2)
+        profileImage.clipsToBounds = true
         profileImage.image = UIImage(named: "ic_admin")
     }
     override func setupConstraint() {

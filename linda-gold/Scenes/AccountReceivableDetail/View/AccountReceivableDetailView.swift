@@ -39,6 +39,7 @@ class AccountReceivableDetailView: BaseView{
         }
     }
     private func bindPresentAccountReceivableView(){
+        profileHeader.profileView.loadImage(with: data?.customer.image)
         profileHeader.titleLabel.text = data?.customer.fullName
         profileHeader.desLabel.text = "No. \(data?.customer.id ?? "")"
         profileHeader.StatuLabel.text = "Remain \(data?.arBalance.formatCurrencyNumber ?? "")"
@@ -63,6 +64,8 @@ class AccountReceivableDetailView: BaseView{
         scrollView.add(view: totalPurchaseView)
         totalPurchaseView.leftView.text = "Total Purchase"
         totalPurchaseView.rightView.text = ": \(data?.total.formatCurrencyNumber ?? "")"
+        totalPurchaseView.rightView.font = .systemFont(ofSize: 14, weight: .bold)
+        totalPurchaseView.rightView.textColor = BaseColor.primaryColor2
     }
 }
     
@@ -94,7 +97,7 @@ class PresentHeaderView: BaseView{
         }
         StatuLabel.snp.makeConstraints { make in
             make.left.equalTo(titleLabel.snp.right).offset(scale(16))
-            make.centerY.equalTo(titleLabel)
+            make.centerY.equalTo(titleLabel.snp.centerY).offset(scale(2))
         }
         closeView.snp.makeConstraints { make in
             make.height.width.equalTo(scale(24))
@@ -104,8 +107,10 @@ class PresentHeaderView: BaseView{
     }
     var profileView: UIImageView = {
         let profile = UIImageView()
+        profile.layer.cornerRadius = 36/2
+        profile.clipsToBounds = true
         profile.image = UIImage(named: "ic_profile")
-        profile.contentMode = .scaleAspectFit
+        profile.contentMode = .scaleAspectFill
         return profile
     }()
     var titleLabel: UILabel = {
@@ -133,7 +138,7 @@ class PresentHeaderView: BaseView{
         lb.text = "Clear AR"
         lb.textColor = BaseColor.success
         lb.backgroundColor = BaseColor.successPrimary
-        lb.textInsets = UIEdgeInsets(top: 4, left: 9, bottom: 4, right: 9)
+        lb.textInsets = UIEdgeInsets(top: 3, left: 9, bottom: 3, right: 9)
         return lb
     }()
     var closeView: UIButton = {

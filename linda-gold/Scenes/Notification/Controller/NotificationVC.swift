@@ -22,16 +22,11 @@ class NotificationVC: BaseVC {
         viewModel.delegate = self
         viewModel.onGetNotificationList(parameter: viewModel.parameter)
         notificationView.onDidselectForRowAt = {[self] data in
-            print("id: ==>",data.id)
-            Spinner.start()
-            if !(data.read ?? false) {
-//                Spinner.start()
+                Spinner.start()
                 viewModel.onNotificationRead(paramter: .init(id: data.id))
                 let vc = NotificationDetailVC()
                 vc.data = data
                 navigationController?.pushViewController(vc, animated: true)
-            }
-            
         }
         notificationView.tableView.mj_header = mjRefreshNormal.refreshHeader
         notificationView.tableView.mj_footer = mjRefreshNormal.refreshFooter

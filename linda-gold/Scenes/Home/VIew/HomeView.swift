@@ -9,7 +9,8 @@
 import UIKit
 
 class HomeView: BaseView {
-    let tableView = UITableView(frame: .zero, style: .grouped)
+    let homeHeaderView = HomeHeaderView()
+    let tableView = UITableView(frame: .zero, style: .plain)
     var onDidSelecteNotification: (()->Void)?
     var onDidSelecteProfile: (()->Void)?
     var onFilterBuyBack: ((String)->Void)?
@@ -27,23 +28,21 @@ class HomeView: BaseView {
         }
     }
     
-
     override func setupComponent() {
+//        backgroundColor = .gray
+        addSubview(homeHeaderView)
         addSubview(tableView)
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .clear
+//        tableView.backgroundColor = .red
         tableView.separatorColor = .none
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        if #available(iOS 15.0, *) {
-            tableView.sectionHeaderTopPadding = 0
-        } else {
-            // Fallback on earlier versions
-        }
-        tableView.sectionFooterHeight = 0
         tableView.register(HomeTotalSaleViewCell.self, forCellReuseIdentifier: "HomeTotalSaleViewCell")
         tableView.register(HomeBuyBackViewCell.self, forCellReuseIdentifier: "HomeBuyBackViewCell")
+    }
+    override func setupEvent() {
+//        homeHeaderView.profileImg.ad
     }
     
     @objc private func onHandleNotification(){
@@ -54,8 +53,12 @@ class HomeView: BaseView {
         onDidSelecteProfile?()
     }
     override func setupConstraint() {
+        homeHeaderView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+        }
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(homeHeaderView.snp.bottom).offset(scale(10))
+            make.left.right.bottom.equalToSuperview()
         }
     }
     
@@ -88,26 +91,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
             }
         }
         return UITableViewCell()
-      
     }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            let view = HomeHeaderView()
-            view.nameLabel.text = AuthHelper.getProfile?.fullName
-            view.notificaionImg.isUserInteractionEnabled = true
-            view.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
-            view.profileImg.isUserInteractionEnabled = true
-            view.profileImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleProfileImage)))
-            return view
-        }
-        else{
-            return nil
-        }
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? UITableView.automaticDimension : 0
-    }
-    
     enum SectionTypes: Int {
         case totalSale = 0
         case buyBack = 1

@@ -93,7 +93,9 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         
         containerView.addSubview(totalAmountStackView)
         totalAmountStackView.axis = .horizontal
-        totalAmountStackView.distribution = .fillEqually
+        totalAmountStackView.distribution = .fillProportionally
+        totalAmountStackView.alignment = .center
+        totalAmountStackView.spacing = scale(16)
     }
     override func setupEvent() {
         dayButton.addTarget(self, action: #selector(onHandleDayButton), for: .touchUpInside)
@@ -122,7 +124,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
     override func setupConstraint() {
         containerView.snp.makeConstraints { make in
 //            make.height.equalTo(scale(447)).priority(750)
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(scale(16))
             make.bottom.equalToSuperview().offset(-scale(8))
             make.left.right.equalToSuperview().inset(scale(16))
         }
@@ -152,8 +154,8 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         }
         totalAmountStackView.snp.makeConstraints { make in
             make.top.equalTo(chartView.snp.bottom).offset(scale(16))
-            make.left.equalToSuperview().offset(scale(50))
-            make.right.equalToSuperview().offset(scale(-20))
+            make.centerX.equalToSuperview()
+//            make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().offset(-scale(16))
         }
     }
@@ -161,7 +163,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         let total = UIButton()
         total.setTitleColor(BaseColor.black, for: .normal)
         total.setTitle("Total Sale", for: .normal)
-        total.titleLabel?.font = .systemFont(ofSize: 18)
+        total.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         total.setImage(UIImage(named: "ic_coin"), for: .normal)
         total.setImageTintColor(BaseColor.black)
         total.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
@@ -173,7 +175,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         let daybtn = UIButton()
         daybtn.setTitleColor(BaseColor.black, for: .normal)
         daybtn.setTitle("Today", for: .normal)
-        daybtn.titleLabel?.font = .systemFont(ofSize: 14)
+        daybtn.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         daybtn.setImage(UIImage(named: "ic_down"), for: .normal)
         daybtn.setImageTintColor(BaseColor.black)
         daybtn.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)

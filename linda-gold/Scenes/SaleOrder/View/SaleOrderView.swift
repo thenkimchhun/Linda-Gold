@@ -51,6 +51,7 @@ extension SaleOrderView: UITableViewDelegate, UITableViewDataSource{
     func bindSaleOrderViewCell(cell: SaleOrderViewCell, cellForRowAt indexPath: IndexPath){
         let data = saleOrderList[indexPath.row]
         cell.statusColor.backgroundColor = AppStatus.Status.init(rawValue: data.status)?.instantColor
+        cell.profileView.profileView.loadImage(with: data.customer.image)
         cell.profileView.titleLabel.text = data.customer.fullName
         cell.profileView.desLabel.text = data.customer.code
         cell.orderIdView.rightView.text = ": \(data.id)"

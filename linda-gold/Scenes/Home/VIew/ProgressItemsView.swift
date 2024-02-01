@@ -17,7 +17,8 @@ class ProgressItemsView: BaseView{
         StackView.backgroundColor = .clear
         StackView.axis = .vertical
         StackView.spacing = 5
-        StackView.distribution = .equalSpacing
+        StackView.alignment = .center
+        StackView.distribution = .fillEqually
         StackView.addArrangedSubview(numLabel)
         numLabel.font = .systemFont(ofSize: 14)
         StackView.addArrangedSubview(textLabel)
@@ -36,7 +37,7 @@ class ProgressItemsView: BaseView{
       
         StackView.snp.makeConstraints{(make) in
             make.edges.equalToSuperview()
-            make.width.equalTo(58).priority(750)
+//            make.width.equalTo(58).priority(750)
         }
     }
     
