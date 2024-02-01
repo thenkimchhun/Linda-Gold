@@ -50,7 +50,7 @@ extension PendingApprovalHistoryView: UITableViewDelegate, UITableViewDataSource
         if let data = historyData {
             cell.profileHeader.profileView.loadImage(with: data.customer.image == "" ? "ic_admin" : data.customer.image)
             cell.profileHeader.StatuLabel.isHidden = true
-            cell.statusView.rightView.text = "\(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"
+            cell.statusView.rightView.text = ": \(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"
             cell.profileHeader.titleLabel.text = data.customer.fullName
             cell.profileHeader.desLabel.text = "No. \(data.customer.id)"
             cell.lastPurchaseView.rightView.text = ": \(data.lastSaleOrder?.total.formatCurrencyNumber ?? "")"

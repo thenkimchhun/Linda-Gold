@@ -55,6 +55,7 @@ extension HistoryView: UITableViewDelegate, UITableViewDataSource{
         cell.titleLabel.text = data.approval ?? false ? "Approved to \(data.requestGroup?.name ?? "") " : "Declined to \(data.requestGroup?.name ?? "")"
         cell.desLabel.text = "\(data.customer.fullName) No. \(data.customer.id)"
         cell.dateLabel.text = data.updatedAt.formatDate()
+        cell.timeLabel.text = data.updatedAt.formatDate(formatString: .time)
         
     }
     private func bindEmptyView(_ tableView: UITableView){

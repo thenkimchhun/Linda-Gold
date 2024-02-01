@@ -57,7 +57,7 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
         cell.profileView.loadImage(with: data.customer.image == "" ? "ic_admin" : data.customer.image)
         cell.titleLabel.text = data.customer.fullName
         cell.desLabel.text = "No. \(data.customer.id)"
-        cell.updateView.rightView.text = "\(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"
+        cell.updateView.rightView.text = ": \(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"
         cell.dateRequestView.rightView.text = ": \(data.createdAt.formatDate(formatString: .date_time) ?? "")"
     }
     private func bindEmptyView(_ tableView: UITableView){

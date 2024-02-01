@@ -55,14 +55,15 @@ extension String {
     }
     enum DateFormat: String {
             case date = "MMM d yyyy"
-            case date_time = "dd MMM yyyy, h:mm a"
+            case date_time = "MMM-dd-yyyy h:mm a"
             case time = "hh:mm a"
             case date_utc = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            
     }
+    
     func formatDate(formatString: DateFormat = .date) -> String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.timeZone = TimeZone.current
         
         if let date = dateFormatter.date(from: self) {
             dateFormatter.dateFormat = formatString.rawValue
