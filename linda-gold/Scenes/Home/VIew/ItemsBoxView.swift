@@ -40,6 +40,4 @@ class ItemsBoxView: BaseView{
             make.bottom.equalToSuperview()
         }
     }
-    
-
 }

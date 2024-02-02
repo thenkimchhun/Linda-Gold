@@ -30,7 +30,7 @@ class ProgressItemsView: BaseView{
         
         StackView.addSubview(textLabel)
         textLabel.textColor = BaseColor.black
-        textLabel.font = .systemFont(ofSize: 14)
+        textLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         
     }
     override func setupConstraint() {

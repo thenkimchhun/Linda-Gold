@@ -13,7 +13,7 @@ class HomeViewModel {
     // account
 //    weak var delegate: ProfileAdminDelegate?
     weak var delegate: HomeDelegate?
-    var onGetProfileUpdatestate: ProfileAdminDelegateState!{
+    var onGetProfileUpdatestate: HomeDelegateState!{
         didSet{
             delegate?.onGetAccountUpdateState()
         }
@@ -24,7 +24,7 @@ class HomeViewModel {
         AccountService.shared.onAccountProfile { response in
             DispatchQueue.main.async {[self] in
                 profileData = response.data
-                onGetProfileUpdatestate = .succes
+                onGetProfileUpdatestate = .success
             }
         } failure: { error in
             DispatchQueue.main.async {[self] in

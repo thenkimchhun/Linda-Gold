@@ -62,13 +62,13 @@ class PendingApprovalView: BaseView{
         stackView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview().inset(scale(24))
         }
-//        segmentControl.snp.makeConstraints { make in
-//            make.top.left.right.equalToSuperview().inset(scale(24))
-//        }
+        segmentControl.snp.makeConstraints { make in
+            make.height.equalTo(scale(40))
+        }
         boxSearchView.snp.makeConstraints { make in
             make.height.equalTo(scale(32)).priority(750)
-//            make.top.equalTo(segmentControl.snp.bottom).offset(scale(24))
-//            make.left.right.equalToSuperview().inset(scale(24))
+            //            make.top.equalTo(segmentControl.snp.bottom).offset(scale(24))
+            //            make.left.right.equalToSuperview().inset(scale(24))
         }
         searchView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

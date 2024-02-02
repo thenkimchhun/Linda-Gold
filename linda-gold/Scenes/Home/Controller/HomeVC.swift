@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class HomeVC: BaseVC, HomeDelegate {
+class HomeVC: BaseVC {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -31,16 +31,9 @@ class HomeVC: BaseVC, HomeDelegate {
         viewModel.delegate = self
         viewModel.onGetAccount()
         viewModel.logoutDelegate = self
-        // Profile
-        homeView.homeHeaderView.nameLabel.text = AuthHelper.getProfile?.fullName
-        homeView.homeHeaderView.profileImg.loadImage(with: AuthHelper.getProfile?.image)
-        homeView.homeHeaderView.profileImg.isUserInteractionEnabled = true
-        homeView.homeHeaderView.profileImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleProfileImage)))
-        // Notification
-        homeView.homeHeaderView.notificaionImg.isUserInteractionEnabled = true
-        homeView.homeHeaderView.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
+        // Profile and action notification admin profile
+        bindProfileView()
         
-       
         // filter
         homeView.onFilterTotalSale = {[self] data in
             if let filterDay = AppStatus.FilterDay.init(rawValue: data){
@@ -60,10 +53,22 @@ class HomeVC: BaseVC, HomeDelegate {
         homeView.tableView.mj_header = mjRefreshNormal.refreshHeader
     }
     
+    private func bindProfileView(){
+        // bindName and prifile
+        homeView.homeHeaderView.nameLabel.text = AuthHelper.getProfile?.fullName
+        homeView.homeHeaderView.profileImg.loadImage(with: AuthHelper.getProfile?.image ?? "ic_admin")
+        // Action Profile
+        homeView.homeHeaderView.profileImg.isUserInteractionEnabled = true
+        homeView.homeHeaderView.profileImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleProfileImage)))
+        // Action Notification
+        homeView.homeHeaderView.notificaionImg.isUserInteractionEnabled = true
+        homeView.homeHeaderView.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
+    }
+    
     @objc func onHandleProfileImage(){
         let vc = ProfileAdminVC()
         vc.onActionLogout = {[self] in
-            Spinner.start()
+//            Spinner.start()
             viewModel.onLogout(parameter: .init(deviceToken: "123" ))
         }
         presentPanModal(vc)
@@ -86,14 +91,15 @@ class HomeVC: BaseVC, HomeDelegate {
         }
     }
 }
-extension HomeVC: ProfileAdminDelegate{
+extension HomeVC: HomeDelegate{
     func onGetAccountUpdateState() {
         
         switch viewModel.onGetProfileUpdatestate {
-        case .succes:
+        case .success:
             SessionManager.shared.setter(key: .getProfile, param: viewModel.profileData)
             //Dashboard Sale Order // Fist Get Service Taoday
             viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: AppStatus.FilterDay.today))
+            bindProfileView()
         case .failure(let eror):
             print("error",eror.message)
         case .none: break
@@ -102,6 +108,7 @@ extension HomeVC: ProfileAdminDelegate{
     
     func onGetDahsbaordSaleOrderUpdateState() {
         Spinner.stop()
+    
         homeView.saleOrderData = viewModel.saleOrderData
         switch viewModel.onGetDashboardSaleOrderUpdatestate {
         case .success:
@@ -136,15 +143,17 @@ extension HomeVC: LoginDelegate{
         Spinner.stop()
         switch viewModel.logoutUpdateState {
         case .success:
-            SessionManager.shared.removeAllDefaults(except: [SessionKey.deviceToken.rawValue])
-            setToRootView(viewController: LoginVC())
+            Alert.present(title: "Logout", message: "Are you sure want to log out?", actions: .cancel(handler: nil), .ok(handler: {[self] in
+                Spinner.start()
+                viewModel.onLogout(parameter: .init(deviceToken: "123"))
+                SessionManager.shared.removeAllDefaults(except: [SessionKey.deviceToken.rawValue])
+                setToRootView(viewController: LoginVC())
+            }) ,from: self)
         case .failure(let error):
             print("error",error.message)
         case .none: break
         }
     }
-    
-    
 }
 
 extension HomeVC: RefreshNormalDelegate {

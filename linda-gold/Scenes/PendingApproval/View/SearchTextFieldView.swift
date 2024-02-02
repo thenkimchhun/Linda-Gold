@@ -25,7 +25,7 @@ class SearchTextFieldView: BaseView{
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 10
         textField.font = .systemFont(ofSize: 12)
-        textField.placeholder = "Search"
+        textField.placeholder = "Search By Customer"
         
         
         
