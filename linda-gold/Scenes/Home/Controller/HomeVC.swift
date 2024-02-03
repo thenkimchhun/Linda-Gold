@@ -8,15 +8,17 @@
 
 import UIKit
 class HomeVC: BaseVC {
-    
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewDidDisappear(animated)
+        if !isOpenProfileAdminVC {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
     
     fileprivate let homeView = HomeView()
@@ -26,6 +28,7 @@ class HomeVC: BaseVC {
         view.addSubview(homeView)
         view.backgroundColor = .white
     }
+    var isOpenProfileAdminVC: Bool = false
     override func setupEvent() {
         Loading.showSpinner(onView: view)
         // Profile
@@ -44,9 +47,9 @@ class HomeVC: BaseVC {
         }
         // Action Day from Buy Back
         homeView.onFilterBuyBack = {[self] filter in
-                Spinner.start()
+            Spinner.start()
             homeView.buyBackFilter = filter
-                viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filter))
+            viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filter))
         }
         homeView.tableView.mj_header = mjRefreshNormal.refreshHeader
     }
@@ -65,9 +68,16 @@ class HomeVC: BaseVC {
     
     @objc func onHandleProfileImage(){
         let vc = ProfileAdminVC()
+        isOpenProfileAdminVC = true
         vc.onActionLogout = {[self] in
-//            Spinner.start()
-            viewModel.onLogout(parameter: .init(deviceToken: "123" ))
+            print("logout")
+            Alert.present(title: "Logout", message: "Are you sure want to log out?", actions: .cancel(handler: nil), .ok(handler: {[self] in
+                Spinner.start()
+                viewModel.onLogout(parameter: .init(deviceToken: "123"))
+            }) ,from: self)
+        }
+        vc.onDismiss = {
+            self.isOpenProfileAdminVC = false
         }
         presentPanModal(vc)
     }
@@ -115,7 +125,7 @@ extension HomeVC: HomeDelegate{
             print("error: ==>",error.message)
         case .none: break
         }
-
+        
     }
     
     func onGetDashboardBuyBackUpdateState() {
@@ -140,12 +150,8 @@ extension HomeVC: LoginDelegate{
         Spinner.stop()
         switch viewModel.logoutUpdateState {
         case .success:
-            Alert.present(title: "Logout", message: "Are you sure want to log out?", actions: .cancel(handler: nil), .ok(handler: {[self] in
-                Spinner.start()
-                viewModel.onLogout(parameter: .init(deviceToken: "123"))
-                SessionManager.shared.removeAllDefaults(except: [SessionKey.deviceToken.rawValue])
-                setToRootView(viewController: LoginVC())
-            }) ,from: self)
+            SessionManager.shared.removeAllDefaults(except: [SessionKey.deviceToken.rawValue])
+            setToRootView(viewController: LoginVC())
         case .failure(let error):
             print("error",error.message)
         case .none: break

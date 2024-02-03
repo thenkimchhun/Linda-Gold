@@ -11,13 +11,19 @@ import PanModal
 class ProfileAdminVC: BaseVC{
     let profileAdminView = ProfileAdminView()
     var onActionLogout: (()->Void)?
+    var onDismiss: (()->Void)?
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        onDismiss?()
+    }
     override func setupComponent() {
         view.addSubview(profileAdminView)
     }
     override func setupEvent() {
         profileAdminView.onActionLogout = {[self] in
-            onActionLogout?()
-            dismiss(animated: true)
+            dismiss(animated: true) {[self] in
+                onActionLogout?()
+            }
         }
     }
     override func setupConstraint() {
