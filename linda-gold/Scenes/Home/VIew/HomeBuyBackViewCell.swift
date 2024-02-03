@@ -13,7 +13,7 @@ class HomeBuyBackViewCell: BaseTableViewCell{
     let containerView = UIView()
     let dayListView = TotalARDayListView()
     var selectedDay: Bool = true
-    var ondidSelectRowAt: ((String)->Void)?
+    var ondidSelectRowAt: ((AppStatus.FilterDay)->Void)?
     var buyBackData: DashboardDataResponse?{
         didSet{
             amountLabel.text = buyBackData?.totalAmount.formatCurrencyNumber
@@ -101,11 +101,15 @@ class HomeBuyBackViewCell: BaseTableViewCell{
     override func setupEvent() {
         dayButton.addTarget(self, action: #selector(actionDayButton), for: .touchUpInside)
         
-        dayListView.ondidSelectRowAt = {[self] data in
-            ondidSelectRowAt?(data?.rawValue ?? "")
-            dayButton.setTitle(data?.rawValue, for: .normal)
+        dayListView.onDidSelectRowAt = {[self] data in
+            ondidSelectRowAt?(data)
+            bindFilterButton(filter: data)
         }
     }
+    func bindFilterButton(filter: AppStatus.FilterDay){
+        dayButton.setTitle(filter.rawValue, for: .normal)
+    }
+    
     @objc private func actionDayButton(){
         if selectedDay == true{
             dayListView.isHidden = false

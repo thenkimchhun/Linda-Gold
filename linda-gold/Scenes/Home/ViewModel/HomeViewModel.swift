@@ -11,7 +11,6 @@ import UIKit
 
 class HomeViewModel {
     // account
-//    weak var delegate: ProfileAdminDelegate?
     weak var delegate: HomeDelegate?
     var onGetProfileUpdatestate: HomeDelegateState!{
         didSet{
@@ -20,6 +19,30 @@ class HomeViewModel {
     }
     // get Profile
     var profileData: ProfileAdminDataResponse?
+    
+    // Sale Order
+    var onGetDashboardSaleOrderUpdatestate: HomeDelegateState?{
+        didSet{
+            delegate?.onGetDahsbaordSaleOrderUpdateState()
+        }
+    }
+    var saleOrderData: DashboardDataResponse?
+
+    // Buy Back
+    var onGetDashboardBuyBackUpdateState: HomeDelegateState?{
+        didSet{
+            delegate?.onGetDashboardBuyBackUpdateState()
+        }
+    }
+    var buyBackData: DashboardDataResponse?
+    // Buy Back
+    weak var logoutDelegate: LoginDelegate?
+    var logoutUpdateState: LoginDelegateState?{
+        didSet{
+            logoutDelegate?.onLogoutUpdateState()
+        }
+    }
+    
     func onGetAccount(){
         AccountService.shared.onAccountProfile { response in
             DispatchQueue.main.async {[self] in
@@ -35,19 +58,11 @@ class HomeViewModel {
         }
 
     }
-    // Sale Order
-    var onGetDashboardSaleOrderUpdatestate: HomeDelegateState?{
-        didSet{
-            delegate?.onGetDahsbaordSaleOrderUpdateState()
-        }
-    }
-    
-    var saleOrderData: DashboardDataResponse?
+
     func onGetDashboadSaleOrder(parameter: DashboardBuyBackParameter){
         DashboardService.shared.onDashboardSaleOrder(parameter: parameter) { response in
             DispatchQueue.main.async {[self] in
                 saleOrderData = response.data
-//                print("viewModelSaleOrder: ==>",saleOrderData ?? "")
                 onGetDashboardSaleOrderUpdatestate = .success
             }
         } failure: { error in
@@ -60,13 +75,6 @@ class HomeViewModel {
 
     }
     
-    // Buy Back
-    var onGetDashboardBuyBackUpdateState: HomeDelegateState?{
-        didSet{
-            delegate?.onGetDashboardBuyBackUpdateState()
-        }
-    }
-    var buyBackData: DashboardDataResponse?
     func onGetDashboardBuyBack(parameter: DashboardBuyBackParameter){
         DashboardService.shared.onDashboardBuyBack(parameter: parameter) { response in
             DispatchQueue.main.async {[self] in
@@ -82,12 +90,7 @@ class HomeViewModel {
         }
     }
     
-    weak var logoutDelegate: LoginDelegate?
-    var logoutUpdateState: LoginDelegateState?{
-        didSet{
-            logoutDelegate?.onLogoutUpdateState()
-        }
-    }
+
     func onLogout(parameter: LogoutParameter){
         AuthenticationService.shared.onLogout(parameter: parameter) { res in
             DispatchQueue.main.async {[self] in

@@ -13,33 +13,30 @@ class HomeView: BaseView {
     let tableView = UITableView(frame: .zero, style: .plain)
     var onDidSelecteNotification: (()->Void)?
     var onDidSelecteProfile: (()->Void)?
-    var onFilterBuyBack: ((String)->Void)?
-    var onFilterTotalSale: ((String)->Void)?
+    var onFilterTotalSale: ((AppStatus.FilterDay)->Void)?
+    var onFilterBuyBack: ((AppStatus.FilterDay)->Void)?
     var saleOrderData: DashboardDataResponse?{
         didSet{
             tableView.reloadData()
         }
     }
-    
     var buyBackData: DashboardDataResponse?{
         didSet{
-//            print("buyBackData: ==>",buyBackData)
             tableView.reloadData()
         }
     }
-    
+    var totalSaleFilter: AppStatus.FilterDay = .today
+    var buyBackFilter: AppStatus.FilterDay = .today
     override func setupComponent() {
-//        backgroundColor = .gray
         addSubview(homeHeaderView)
         addSubview(tableView)
         tableView.showsVerticalScrollIndicator = false
-//        tableView.backgroundColor = .red
         tableView.separatorColor = .none
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(HomeTotalSaleViewCell.self, forCellReuseIdentifier: "HomeTotalSaleViewCell")
-        tableView.register(HomeBuyBackViewCell.self, forCellReuseIdentifier: "HomeBuyBackViewCell")
+        tableView.register(cell: HomeTotalSaleViewCell.self)
+        tableView.register(cell: HomeBuyBackViewCell.self)
     }
     override func setupEvent() {
 //        homeHeaderView.profileImg.ad
@@ -75,15 +72,17 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
         if let type = SectionTypes.init(rawValue: indexPath.section){
             switch type {
             case .totalSale:
-                let cell: HomeTotalSaleViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeTotalSaleViewCell", for: indexPath) as! HomeTotalSaleViewCell
+                let cell: HomeTotalSaleViewCell = tableView.dequeue(for: indexPath)
                 cell.saleOrderData = saleOrderData
+                cell.bindFilterButton(filter: totalSaleFilter)
                 cell.onDidSelectRowAt = {[self] data in
                     onFilterTotalSale?(data)
                 }
                 return cell
             case .buyBack:
-                let cell: HomeBuyBackViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeBuyBackViewCell", for: indexPath) as! HomeBuyBackViewCell
+                let cell: HomeBuyBackViewCell = tableView.dequeue(for: indexPath)
                 cell.buyBackData = buyBackData
+                cell.bindFilterButton(filter: buyBackFilter)
                 cell.ondidSelectRowAt = {[self] data in
                     onFilterBuyBack?(data)
                 }

@@ -11,7 +11,7 @@ import UIKit
 class TotalARDayListView: BaseView {
     var dataList: [AppStatus.FilterDay] = [.today, .week, .month, .year]
     let tableView = UITableView()
-    var ondidSelectRowAt: ((AppStatus.FilterDay?)->Void)?
+    var onDidSelectRowAt: ((AppStatus.FilterDay)->Void)?
     override func setupComponent() {
         backgroundColor = BaseColor.white
         addSubview(tableView)
@@ -43,7 +43,7 @@ extension TotalARDayListView: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = dataList[indexPath.row]
-        ondidSelectRowAt?(data)
+        onDidSelectRowAt?(data)
     }
 }
 

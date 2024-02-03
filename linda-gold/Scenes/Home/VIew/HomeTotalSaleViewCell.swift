@@ -21,7 +21,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         }
     }
     var selectedDay: Bool = true
-    var onDidSelectRowAt: ((String)->Void)?
+    var onDidSelectRowAt: ((AppStatus.FilterDay)->Void)?
     var stackView = UIStackView()
     var productsName: [ItemsBoxView] = []
     var productList: [ProductType] = []{
@@ -103,11 +103,13 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         addGuesture.cancelsTouchesInView = false
         addGestureRecognizer(addGuesture)
         // get action daybutton
-        dayListView.ondidSelectRowAt = {[self] data in
-            onDidSelectRowAt?(data?.rawValue ?? "")
-            dayButton.setTitle(data?.rawValue, for: .normal)
-            
+        dayListView.onDidSelectRowAt = {[self] filterData in
+            bindFilterButton(filter: filterData)
+            onDidSelectRowAt?(filterData)
         }
+    }
+    func bindFilterButton(filter: AppStatus.FilterDay){
+        dayButton.setTitle(filter.rawValue, for: .normal)
     }
     // day Button
     @objc private func onHandleDayButton(){

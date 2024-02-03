@@ -9,6 +9,7 @@
 import UIKit
 class HomeVC: BaseVC {
     
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -35,20 +36,17 @@ class HomeVC: BaseVC {
         bindProfileView()
         
         // filter
-        homeView.onFilterTotalSale = {[self] data in
-            if let filterDay = AppStatus.FilterDay.init(rawValue: data){
-                Spinner.start()
-                viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: filterDay))
-
-            }
+        homeView.onFilterTotalSale = {[self] filter in
+            Spinner.start()
+            // store filter
+            homeView.totalSaleFilter = filter
+            viewModel.onGetDashboadSaleOrder(parameter: .init(filterBy: filter))
         }
         // Action Day from Buy Back
-        homeView.onFilterBuyBack = {[self] data in
-            if let filterDay = AppStatus.FilterDay.init(rawValue: data){
+        homeView.onFilterBuyBack = {[self] filter in
                 Spinner.start()
-                viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filterDay))
-
-            }
+            homeView.buyBackFilter = filter
+                viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: filter))
         }
         homeView.tableView.mj_header = mjRefreshNormal.refreshHeader
     }
@@ -108,7 +106,6 @@ extension HomeVC: HomeDelegate{
     
     func onGetDahsbaordSaleOrderUpdateState() {
         Spinner.stop()
-    
         homeView.saleOrderData = viewModel.saleOrderData
         switch viewModel.onGetDashboardSaleOrderUpdatestate {
         case .success:
@@ -158,6 +155,8 @@ extension HomeVC: LoginDelegate{
 
 extension HomeVC: RefreshNormalDelegate {
     func onRefresh() {
+        homeView.totalSaleFilter = .today
+        homeView.buyBackFilter = .today
         viewModel.onGetAccount()
     }
 }
