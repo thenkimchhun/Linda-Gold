@@ -54,7 +54,12 @@ extension RequestView: UITableViewDelegate, UITableViewDataSource{
     }
     private func bindRequestViewCell(cell: RequestViewCell, cellForRowAt indexPath: IndexPath){
         let data = dataList[indexPath.row]
-        cell.profileView.loadImage(with: data.customer.image == "" ? "ic_admin" : data.customer.image)
+        let profile = data.customer.image
+        if profile == "" {
+            cell.profileView.image = UIImage(named: "ic_profile")
+        }else{
+            cell.profileView.loadImage(with: profile)
+        }
         cell.titleLabel.text = data.customer.fullName
         cell.desLabel.text = "No. \(data.customer.id)"
         cell.updateView.rightView.text = ": \(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"

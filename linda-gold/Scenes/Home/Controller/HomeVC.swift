@@ -70,7 +70,6 @@ class HomeVC: BaseVC {
         let vc = ProfileAdminVC()
         isOpenProfileAdminVC = true
         vc.onActionLogout = {[self] in
-            print("logout")
             Alert.present(title: "Logout", message: "Are you sure want to log out?", actions: .cancel(handler: nil), .ok(handler: {[self] in
                 Spinner.start()
                 viewModel.onLogout(parameter: .init(deviceToken: "123"))
