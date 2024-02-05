@@ -103,10 +103,10 @@ class HomeBuyBackViewCell: BaseTableViewCell{
         
         dayListView.onDidSelectRowAt = {[self] data in
             ondidSelectRowAt?(data)
-            bindFilterButton(filter: data)
+            bindBuyBackFilterButton(filter: data)
         }
     }
-    func bindFilterButton(filter: AppStatus.FilterDay){
+    func bindBuyBackFilterButton(filter: AppStatus.FilterDay){
         dayButton.setTitle(filter.rawValue, for: .normal)
     }
     

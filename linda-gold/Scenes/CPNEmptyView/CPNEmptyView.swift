@@ -56,8 +56,8 @@ class CPNEmptyView: BaseView{
         case .emtyView:
             updateErrorView(
                 image: "img_noresult",
-                title: "No Date",
-                description: "Sorry, there are no")
+                title: "No Data",
+                description: "Sorry, there are no data")
         case .errorNoteFound:
             updateErrorView(
                 image: "img_error",

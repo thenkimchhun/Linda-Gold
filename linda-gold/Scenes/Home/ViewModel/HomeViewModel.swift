@@ -35,7 +35,8 @@ class HomeViewModel {
         }
     }
     var buyBackData: DashboardDataResponse?
-    // Buy Back
+    // Log out
+    
     weak var logoutDelegate: LoginDelegate?
     var logoutUpdateState: LoginDelegateState?{
         didSet{

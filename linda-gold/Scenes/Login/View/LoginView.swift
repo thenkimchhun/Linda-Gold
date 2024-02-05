@@ -49,7 +49,7 @@ class LoginView: BaseView{
             make.left.right.equalToSuperview()
         } 
         passwordView.snp.makeConstraints { make in
-            make.top.equalTo(userNameView.snp.bottom).offset(scale(20))
+            make.top.equalTo(userNameView.snp.bottom).offset(scale(25))
             make.left.right.equalToSuperview()
         }
         loginButton.snp.makeConstraints { make in

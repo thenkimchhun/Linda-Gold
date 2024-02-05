@@ -27,10 +27,23 @@ class LoginVC: BaseVC {
         }
     }
     override func setupEvent() {
-       
+        
         loginView.onActionLogin = {[self] parameters in
-            Spinner.start()
-            viewModel.onLogin(parameters: parameters)
+            if loginView.userNameView.textField.text == "" || loginView.passwordView.textField.text == "" {
+                loginView.userNameView.errorLabel.isHidden = false
+                loginView.userNameView.containerView.layer.borderColor = BaseColor.error.cgColor
+                loginView.userNameView.errorLabel.text = "Please enter your username"
+                loginView.passwordView.errorLabel.isHidden = false
+                loginView.passwordView.containerView.layer.borderColor = BaseColor.error.cgColor
+                loginView.passwordView.errorLabel.text = "Please enter your password"
+            }else{
+                loginView.userNameView.containerView.layer.borderColor = BaseColor.gray.cgColor
+                loginView.userNameView.errorLabel.isHidden = true
+                loginView.passwordView.containerView.layer.borderColor = BaseColor.gray.cgColor
+                loginView.passwordView.errorLabel.isHidden = true
+                Spinner.start()
+                viewModel.onLogin(parameters: parameters)
+            }
         }
     }
     lazy var viewModel: LoginViewModel = {[weak self] in

@@ -17,12 +17,15 @@ class HomeView: BaseView {
     var onFilterBuyBack: ((AppStatus.FilterDay)->Void)?
     var saleOrderData: DashboardDataResponse?{
         didSet{
+            print("saleOrderData: ==>",saleOrderData ?? "")
             tableView.reloadData()
         }
     }
     var buyBackData: DashboardDataResponse?{
         didSet{
+            print("buyBackData: ==>",buyBackData   ?? "")
             tableView.reloadData()
+            
         }
     }
     var totalSaleFilter: AppStatus.FilterDay = .today
@@ -82,7 +85,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource{
             case .buyBack:
                 let cell: HomeBuyBackViewCell = tableView.dequeue(for: indexPath)
                 cell.buyBackData = buyBackData
-                cell.bindFilterButton(filter: buyBackFilter)
+                cell.bindBuyBackFilterButton(filter: buyBackFilter)
                 cell.ondidSelectRowAt = {[self] data in
                     onFilterBuyBack?(data)
                 }

@@ -23,6 +23,7 @@ class HomeVC: BaseVC {
     
     fileprivate let homeView = HomeView()
     let viewModel = HomeViewModel()
+    var isSelectTotalSale: Bool? = false
     override func setupComponent() {
         
         view.addSubview(homeView)
@@ -37,9 +38,16 @@ class HomeVC: BaseVC {
         viewModel.logoutDelegate = self
         // Profile and action notification admin profile
         bindProfileView()
+        // Action Profile
+        homeView.homeHeaderView.profileImg.isUserInteractionEnabled = true
+        homeView.homeHeaderView.profileImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleProfileImage)))
+        // Action Notification
+        homeView.homeHeaderView.notificaionImg.isUserInteractionEnabled = true
+        homeView.homeHeaderView.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
         
         // filter
         homeView.onFilterTotalSale = {[self] filter in
+            isSelectTotalSale = true
             Spinner.start()
             // store filter
             homeView.totalSaleFilter = filter
@@ -58,12 +66,6 @@ class HomeVC: BaseVC {
         // bindName and prifile
         homeView.homeHeaderView.nameLabel.text = AuthHelper.getProfile?.fullName
         homeView.homeHeaderView.profileImg.loadImage(with: AuthHelper.getProfile?.image ?? "ic_admin")
-        // Action Profile
-        homeView.homeHeaderView.profileImg.isUserInteractionEnabled = true
-        homeView.homeHeaderView.profileImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleProfileImage)))
-        // Action Notification
-        homeView.homeHeaderView.notificaionImg.isUserInteractionEnabled = true
-        homeView.homeHeaderView.notificaionImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onHandleNotification)))
     }
     
     @objc func onHandleProfileImage(){
@@ -118,8 +120,10 @@ extension HomeVC: HomeDelegate{
         homeView.saleOrderData = viewModel.saleOrderData
         switch viewModel.onGetDashboardSaleOrderUpdatestate {
         case .success:
-            // Dashboard Buy Back // Fist Get Service Today
-            viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
+            if isSelectTotalSale == false {
+                // Dashboard Buy Back // Fist Get Service Today
+                viewModel.onGetDashboardBuyBack(parameter: .init(filterBy: AppStatus.FilterDay.today))
+            }
         case .failure(let error):
             print("error: ==>",error.message)
         case .none: break
@@ -160,9 +164,10 @@ extension HomeVC: LoginDelegate{
 
 extension HomeVC: RefreshNormalDelegate {
     func onRefresh() {
+        isSelectTotalSale = false
+        viewModel.onGetAccount()
         homeView.totalSaleFilter = .today
         homeView.buyBackFilter = .today
-        viewModel.onGetAccount()
     }
 }
 

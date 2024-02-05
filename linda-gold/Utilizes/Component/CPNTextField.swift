@@ -46,7 +46,7 @@ class CPNTextField: BaseView {
             make.centerY.equalToSuperview()
         }
         errorLabel.snp.makeConstraints { make in
-            make.top.equalTo(containerView.snp.bottom).offset(scale(10))
+            make.top.equalTo(containerView.snp.bottom).offset(scale(5))
             make.left.equalTo(containerView.snp.left)
         }
     }
