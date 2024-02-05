@@ -48,12 +48,17 @@ extension PendingApprovalHistoryView: UITableViewDelegate, UITableViewDataSource
     }
     private func bindPendingApprovalHistoryViewCell(cell: PendingApprovalHistoryViewCell, cellForRowAt indexPath: IndexPath){
         if let data = historyData {
-            cell.profileHeader.profileView.loadImage(with: data.customer.image == "" ? "ic_admin" : data.customer.image)
+            let profile = data.customer.image
+            if profile == "" {
+                cell.profileHeader.profileView.image = UIImage(named: "ic_profile")
+            }else {
+                cell.profileHeader.profileView.loadImage(with: data.customer.image)
+            }
             cell.profileHeader.StatuLabel.isHidden = true
             cell.statusView.rightView.text = ": \(data.currentGroup.name ?? "") to \(data.requestGroup?.name ?? "")"
             cell.profileHeader.titleLabel.text = data.customer.fullName
             cell.profileHeader.desLabel.text = "No. \(data.customer.id)"
-            cell.lastPurchaseView.rightView.text = ": \(data.lastSaleOrder?.total.formatCurrencyNumber ?? "")"
+            cell.lastPurchaseView.rightView.text = ": \(data.lastSaleOrder?.total.formatCurrencyNumber ?? "N/A")"
             cell.dateRequestView.rightView.text = ": \(data.createdAt.formatDate(formatString: .date_time) ?? "")"
             cell.dateDeclinedView.rightView.text = ": \(data.updatedAt.formatDate(formatString: .date_time) ?? "")"
         }

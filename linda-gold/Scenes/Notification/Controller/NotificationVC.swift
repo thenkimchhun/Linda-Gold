@@ -22,11 +22,14 @@ class NotificationVC: BaseVC {
         viewModel.delegate = self
         viewModel.onGetNotificationList(parameter: viewModel.parameter)
         notificationView.onDidselectForRowAt = {[self] data in
-                Spinner.start()
-                viewModel.onNotificationRead(paramter: .init(id: data.id))
+            if data.read ?? false {
                 let vc = NotificationDetailVC()
                 vc.data = data
                 navigationController?.pushViewController(vc, animated: true)
+            }else{
+                Spinner.start()
+                viewModel.onNotificationRead(paramter: .init(id: data.id))
+            }
         }
         notificationView.tableView.mj_header = mjRefreshNormal.refreshHeader
         notificationView.tableView.mj_footer = mjRefreshNormal.refreshFooter
@@ -60,9 +63,12 @@ extension NotificationVC: NotificationDelegate{
     func onNotificationReadUpdateState() {
         Spinner.stop()
         switch viewModel.onNotificaionReadUpdateState {
-        case .success:
+        case .success(let data):
             print("success")
              notificationView.dataList = viewModel.dataList
+            let vc = NotificationDetailVC()
+            vc.data = data as? NotificationDateResonse
+            navigationController?.pushViewController(vc, animated: true)
         case .failure(let error):
             print("error",error.message)
         case .none: break

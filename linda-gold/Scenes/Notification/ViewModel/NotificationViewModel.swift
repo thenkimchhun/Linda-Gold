@@ -37,7 +37,7 @@ class NotificationViewModel {
                 case .nornal, .pullRefresh: dataList = response.data
                 case .infiniteScroll: dataList.append(contentsOf: response.data)
                 }
-                onGetNotificationUpdatestate = .success
+                onGetNotificationUpdatestate = .success(nil)
             }
         } failure: { error in
             DispatchQueue.main.async {[self] in
@@ -64,7 +64,7 @@ class NotificationViewModel {
         NotificationService.shared.onNotificationRead(parameter: paramter) { response in
             DispatchQueue.main.async {[self] in
                 dataList[index].read = true
-                onNotificaionReadUpdateState  = .success
+                onNotificaionReadUpdateState  = .success(dataList[index])
             }
         } failure: { error in
             DispatchQueue.main.async {[self] in

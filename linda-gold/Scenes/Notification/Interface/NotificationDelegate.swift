@@ -13,6 +13,6 @@ protocol NotificationDelegate: AnyObject {
 }
 
 enum NotificationDelegateState{
-    case success
+    case success(Any?)
     case failure(APIResponseError)
 }
