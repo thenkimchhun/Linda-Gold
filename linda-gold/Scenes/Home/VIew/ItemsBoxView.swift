@@ -18,7 +18,7 @@ class ItemsBoxView: BaseView{
    
         
         addSubview(numLabel)
-//        numLabel.textInsets = .
+        numLabel.textAlignment = .center
         numLabel.textColor = UIColor(hexString: "#535353")
         numLabel.font = .systemFont(ofSize: 14, weight: .bold)
         numLabel.backgroundColor = .black

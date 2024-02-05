@@ -82,7 +82,7 @@ class HomeTotalSaleViewCell: BaseTableViewCell{
         chartView.addSubview(stackView)
         stackView.spacing = scale(10)
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         
           addSubview(dayListView)
         dayListView.layer.shadowColor = UIColor.black.cgColor

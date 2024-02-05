@@ -17,13 +17,11 @@ class HomeView: BaseView {
     var onFilterBuyBack: ((AppStatus.FilterDay)->Void)?
     var saleOrderData: DashboardDataResponse?{
         didSet{
-            print("saleOrderData: ==>",saleOrderData ?? "")
             tableView.reloadData()
         }
     }
     var buyBackData: DashboardDataResponse?{
         didSet{
-            print("buyBackData: ==>",buyBackData   ?? "")
             tableView.reloadData()
             
         }

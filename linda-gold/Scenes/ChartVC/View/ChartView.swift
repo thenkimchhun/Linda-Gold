@@ -16,6 +16,9 @@ class ChartView: BaseView{
             let data = PieChartDataSet(entries: getPieChartDataSet(productTypes: productType))
             pieCharView.drawHoleEnabled = true
             pieCharView.legend.enabled = false
+            //Animation
+            pieCharView.animate(yAxisDuration: 1, easingOption: .easeInOutQuad)
+            
             data.drawValuesEnabled = false
             
             let getColor = BaseColor.diamondColor
@@ -38,14 +41,14 @@ class ChartView: BaseView{
         pieCharView.isUserInteractionEnabled = false
         // size chart
         pieCharView.holeRadiusPercent = 0.65
-//        var entries = [PieChartDataEntry]()
-//        for x in 0..<4 {
-//            entries.append(PieChartDataEntry(value: Double(x), label: ""))
-//        }
-//        let dataSet = PieChartDataSet(entries: entries)
-//        dataSet.colors = ChartColorTemplates.colorful()
-//        let datas = PieChartData(dataSet: dataSet)
-//        pieCharView.data = datas
+        //        var entries = [PieChartDataEntry]()
+        //        for x in 0..<4 {
+        //            entries.append(PieChartDataEntry(value: Double(x), label: ""))
+        //        }
+        //        let dataSet = PieChartDataSet(entries: entries)
+        //        dataSet.colors = ChartColorTemplates.colorful()
+        //        let datas = PieChartData(dataSet: dataSet)
+        //        pieCharView.data = datas
     }
     override func setupConstraint() {
         pieCharView.snp.makeConstraints { make in
