@@ -15,6 +15,7 @@ class LoginView: BaseView{
         addSubview(logoName)
         addSubview(userNameView)
         addSubview(passwordView)
+        passwordView.textField.isSecureTextEntry = true
         addSubview(loginButton)
         
     }

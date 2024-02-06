@@ -29,42 +29,7 @@ class LoginVC: BaseVC {
     override func setupEvent() {
         
         loginView.onActionLogin = {[self] parameters in
-            if loginView.userNameView.textField.text == "" {
-                loginView.userNameView.errorLabel.isHidden = false
-                loginView.userNameView.containerView.layer.borderColor = BaseColor.error.cgColor
-            }else {
-                loginView.userNameView.containerView.layer.borderColor = BaseColor.gray.cgColor
-                loginView.userNameView.errorLabel.isHidden = true
-            }
-            
-            if loginView.passwordView.textField.text == "" {
-                loginView.passwordView.errorLabel.isHidden = false
-                loginView.passwordView.containerView.layer.borderColor = BaseColor.error.cgColor
-            }else {
-                loginView.passwordView.containerView.layer.borderColor = BaseColor.gray.cgColor
-                loginView.passwordView.errorLabel.isHidden = true
-            }
-         
-            
-//            if loginView.userNameView.textField.text != "" || loginView.passwordView.textField.text != "" {
-//                Spinner.start()
-//                viewModel.onLogin(parameters: parameters)
-//            }
-//            if loginView.userNameView.textField.text == "" || loginView.passwordView.textField.text == "" {
-//                loginView.userNameView.errorLabel.isHidden = false
-//                loginView.userNameView.containerView.layer.borderColor = BaseColor.error.cgColor
-//                loginView.userNameView.errorLabel.text = "Please enter your username"
-//                loginView.passwordView.errorLabel.isHidden = false
-//                loginView.passwordView.containerView.layer.borderColor = BaseColor.error.cgColor
-//                loginView.passwordView.errorLabel.text = "Please enter your password"
-//            }else{
-//                loginView.userNameView.containerView.layer.borderColor = BaseColor.gray.cgColor
-//                loginView.userNameView.errorLabel.isHidden = true
-//                loginView.passwordView.containerView.layer.borderColor = BaseColor.gray.cgColor
-//                loginView.passwordView.errorLabel.isHidden = true
-//                Spinner.start()
-//                viewModel.onLogin(parameters: parameters)
-//            }
+            validateTextField(parameters: parameters)
         }
     }
     lazy var viewModel: LoginViewModel = {[weak self] in
@@ -72,6 +37,30 @@ class LoginVC: BaseVC {
         viewModel.delegate = self
         return viewModel
     }()
+    
+    private func validateTextField(parameters: LoginParameter){
+           if loginView.userNameView.textField.text == "" {
+               loginView.userNameView.errorLabel.isHidden = false
+               loginView.userNameView.errorLabel.text = "Please enter your username"
+               loginView.userNameView.containerView.layer.borderColor = BaseColor.error.cgColor
+           }else {
+               loginView.userNameView.containerView.layer.borderColor = BaseColor.gray.cgColor
+               loginView.userNameView.errorLabel.isHidden = true
+           }
+           if loginView.passwordView.textField.text == "" {
+               loginView.passwordView.errorLabel.isHidden = false
+               loginView.passwordView.errorLabel.text = "Please enter your password"
+               loginView.passwordView.containerView.layer.borderColor = BaseColor.error.cgColor
+           }else {
+               loginView.passwordView.containerView.layer.borderColor = BaseColor.gray.cgColor
+               loginView.passwordView.errorLabel.isHidden = true
+           }
+           if loginView.userNameView.textField.text != "" && loginView.passwordView.textField.text != "" {
+               Spinner.start()
+             viewModel.onLogin(parameters: parameters)
+           }
+       }
+
 }
 
 extension LoginVC:LoginDelegate{
@@ -85,6 +74,7 @@ extension LoginVC:LoginDelegate{
             SessionManager.shared.setter(key: .authenticate, param: viewModel.dataReponse)
             setToRootView(viewController: TabBarViewController())
         case .failure(let error):
+            showToast(message: error?.message ?? "", font: .systemFont(ofSize: 16))
             print("login error",error?.message ?? "Something went wrong!")
             
         default: break
