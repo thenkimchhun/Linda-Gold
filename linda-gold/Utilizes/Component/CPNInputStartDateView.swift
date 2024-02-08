@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class CPNTextFieldDateView: BaseView {
+class CPNInputStartDateView: BaseView {
     let containerView = UIView()
     
     override func setupComponent() {
