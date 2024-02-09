@@ -48,8 +48,6 @@ class AccountReceivableVC: BaseVC{
             //viewModel.parameter.sortBy = .clear
             let vc = AccountReceivableFilterVC(filterParameter: viewModel.parameter)
             vc.onFilter = {[self] filter in
-                print("filerStartDate: ==>",filter.startDate)
-                print("filerEndDate: ==>",filter.endDate)
                 Spinner.start()
                 viewModel.onGetAccountReceivableList(parameter: filter)
                 if filter.startDate == ""  || filter.endDate == "" {

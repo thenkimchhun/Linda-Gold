@@ -9,8 +9,8 @@
 import UIKit
 class AccountReceivableFilterRangeDateViewCell: BaseTableViewCell {
     let stackeView = UIStackView()
-    let startDateView = CPNTextFieldDateView()
-    let endDateView = CPNTextFieldDateView()
+    let startDateView = CPNInputStartDateView()
+    let endDateView = CPNInputEndDateView()
     let resetButton = CPNButtonView()
     let applyButton = CPNButtonView()
     var onActionTypeButton: ((ActionTypeButton)->Void)?

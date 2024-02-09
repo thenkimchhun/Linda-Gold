@@ -70,7 +70,7 @@ extension LoginVC:LoginDelegate{
         Spinner.stop()
         switch state {
         case .success:
-            print("login success",viewModel.dataReponse ?? "")
+//            print("login success",viewModel.dataReponse ?? "")
             SessionManager.shared.setter(key: .authenticate, param: viewModel.dataReponse)
             setToRootView(viewController: TabBarViewController())
         case .failure(let error):

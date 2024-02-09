@@ -78,7 +78,7 @@
 		24048CCB2B63AEFC008BC045 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCA2B63AEFC008BC045 /* ChartView.swift */; };
 		24048CCD2B64BF93008BC045 /* FilterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCC2B64BF93008BC045 /* FilterParameter.swift */; };
 		24048CCF2B662F71008BC045 /* AccountReceviableTotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */; };
-		24048CD12B66404D008BC045 /* CPNTextFieldDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */; };
+		24048CD12B66404D008BC045 /* CPNInputStartDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CD02B66404D008BC045 /* CPNInputStartDateView.swift */; };
 		24048CE22B68DFA1008BC045 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CE12B68DFA0008BC045 /* Date.swift */; };
 		24048CE42B68F03F008BC045 /* DateTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CE32B68F03F008BC045 /* DateTimeHelper.swift */; };
 		24048CE82B694B32008BC045 /* LogoutParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24048CE72B694B32008BC045 /* LogoutParameter.swift */; };
@@ -99,6 +99,7 @@
 		2405C69B2B56318D00EEBD0A /* SaleOrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */; };
 		2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */; };
 		2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */; };
+		2437E23E2B748E46009DFC6D /* CPNInputEndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437E23D2B748E46009DFC6D /* CPNInputEndDateView.swift */; };
 		2461C0F02B6A993B006FD4F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2461C0EF2B6A993B006FD4F7 /* GoogleService-Info.plist */; };
 		24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */; };
 		24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */; };
@@ -293,7 +294,7 @@
 		24048CCA2B63AEFC008BC045 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		24048CCC2B64BF93008BC045 /* FilterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterParameter.swift; sourceTree = "<group>"; };
 		24048CCE2B662F71008BC045 /* AccountReceviableTotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceviableTotalModel.swift; sourceTree = "<group>"; };
-		24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNTextFieldDateView.swift; sourceTree = "<group>"; };
+		24048CD02B66404D008BC045 /* CPNInputStartDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNInputStartDateView.swift; sourceTree = "<group>"; };
 		24048CE12B68DFA0008BC045 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		24048CE32B68F03F008BC045 /* DateTimeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeHelper.swift; sourceTree = "<group>"; };
 		24048CE72B694B32008BC045 /* LogoutParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutParameter.swift; sourceTree = "<group>"; };
@@ -314,6 +315,7 @@
 		2405C69A2B56318D00EEBD0A /* SaleOrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderViewCell.swift; sourceTree = "<group>"; };
 		2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailVC.swift; sourceTree = "<group>"; };
 		2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailView.swift; sourceTree = "<group>"; };
+		2437E23D2B748E46009DFC6D /* CPNInputEndDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPNInputEndDateView.swift; sourceTree = "<group>"; };
 		2461C0EF2B6A993B006FD4F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2461C0F22B6AA62B006FD4F7 /* linda-gold.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "linda-gold.entitlements"; sourceTree = "<group>"; };
 		24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrderDetailCustomerInfoViewCell.swift; sourceTree = "<group>"; };
@@ -1407,7 +1409,8 @@
 				2405C6902B56197300EEBD0A /* CPNHoriziontalTextView.swift */,
 				24BD4FF82B5768F700CD9CE0 /* CustomSegmentView.swift */,
 				24AFC2BA2B57D58100E5D157 /* CPNButtonView.swift */,
-				24048CD02B66404D008BC045 /* CPNTextFieldDateView.swift */,
+				24048CD02B66404D008BC045 /* CPNInputStartDateView.swift */,
+				2437E23D2B748E46009DFC6D /* CPNInputEndDateView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1809,7 +1812,7 @@
 				79BCAFD02B32C5E000FD223F /* ConstraintInsets.swift in Sources */,
 				79BCAFDC2B32C5E000FD223F /* ConstraintLayoutSupport.swift in Sources */,
 				24BD4FF02B56C8C800CD9CE0 /* TabBarItems.swift in Sources */,
-				24048CD12B66404D008BC045 /* CPNTextFieldDateView.swift in Sources */,
+				24048CD12B66404D008BC045 /* CPNInputStartDateView.swift in Sources */,
 				79BCAFFD2B32D20A00FD223F /* SessionManager.swift in Sources */,
 				049CD9E627A0DFDA000DCC0E /* HTTPHeader.swift in Sources */,
 				24AFC2CA2B58E45200E5D157 /* HomeBuyBackViewCell.swift in Sources */,
@@ -1859,6 +1862,7 @@
 				24048C3C2B5D5F37008BC045 /* AccountReceivableResource.swift in Sources */,
 				79BCB0022B32D2CA00FD223F /* CameraService.swift in Sources */,
 				79BCAFD62B32C5E000FD223F /* ConstraintDirectionalInsetTarget.swift in Sources */,
+				2437E23E2B748E46009DFC6D /* CPNInputEndDateView.swift in Sources */,
 				79BCAFF12B32CF7800FD223F /* AppStatus.swift in Sources */,
 				24048C462B5D679B008BC045 /* AccountReceivableViewModel.swift in Sources */,
 				24048C9F2B60C954008BC045 /* NotificationModel.swift in Sources */,

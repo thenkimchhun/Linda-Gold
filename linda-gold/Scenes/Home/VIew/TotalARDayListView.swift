@@ -13,7 +13,7 @@ class TotalARDayListView: BaseView {
     let tableView = UITableView()
     var onDidSelectRowAt: ((AppStatus.FilterDay)->Void)?
     override func setupComponent() {
-        backgroundColor = BaseColor.white
+        backgroundColor = BaseColor.error
         addSubview(tableView)
         tableView.backgroundColor = BaseColor.white
         tableView.separatorColor = .none
@@ -21,7 +21,7 @@ class TotalARDayListView: BaseView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
-        tableView.register(TotalARDayListViewCell.self, forCellReuseIdentifier: "TotalARDayListViewCell")
+        tableView.register(cell: TotalARDayListViewCell.self)
     }
     override func setupConstraint() {
         tableView.snp.makeConstraints { make in
@@ -37,7 +37,7 @@ extension TotalARDayListView: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TotalARDayListViewCell = tableView.dequeueReusableCell(withIdentifier: "TotalARDayListViewCell", for: indexPath) as! TotalARDayListViewCell
+        let cell: TotalARDayListViewCell = tableView.dequeue(for: indexPath)
         cell.dayLabel.text = dataList[indexPath.row].rawValue
         return cell
     }
