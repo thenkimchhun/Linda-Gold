@@ -1,7 +1,9 @@
 import UIKit
 
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//let appDelegate = UIApplication.shared.delegate as! AppDelegate
 struct AppConstants {
+    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    static let rootViewController = UIApplication.shared.keyWindow?.rootViewController
     //MARK: App Update
     static var AppForceUpdate: Bool = false
     

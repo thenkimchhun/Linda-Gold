@@ -29,6 +29,7 @@ class LoginVC: BaseVC {
     override func setupEvent() {
         
         loginView.onActionLogin = {[self] parameters in
+//            print("paramater: =>",parameters.deviceToken)
             validateTextField(parameters: parameters)
         }
     }

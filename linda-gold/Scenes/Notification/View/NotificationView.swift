@@ -52,7 +52,7 @@ extension NotificationView: UITableViewDelegate, UITableViewDataSource{
         let data = dataList[indexPath.row]
         cell.iconsImageView.image = UIImage(named: data.group == "ar" ? "ic_recieve" : "ic_request_vip")
         cell.titleLabel.text = data.title
-        cell.desLabel.text = "\(data.customer.fullName) No. \(data.customer.id)"
+        cell.desLabel.text = "\(data.customer?.fullName ?? "") No. \(data.customer?.id ?? "")"
         cell.dateLabel.text = data.createdAt.formatDate()
         cell.timeLabel.text = data.createdAt.formatDate(formatString: .time)
         cell.readView.backgroundColor = (data.read ?? false) ? .clear : BaseColor.error

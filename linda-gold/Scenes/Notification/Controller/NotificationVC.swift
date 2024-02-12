@@ -66,9 +66,7 @@ extension NotificationVC: NotificationDelegate{
         case .success(let data):
             print("success")
              notificationView.dataList = viewModel.dataList
-            let vc = NotificationDetailVC()
-            vc.data = data as? NotificationDateResonse
-            navigationController?.pushViewController(vc, animated: true)
+            pushToControllerFromNotification(data: data as! NotificationDateResonse)
         case .failure(let error):
             print("error",error.message)
         case .none: break
@@ -82,5 +80,14 @@ extension NotificationVC: RefreshNormalDelegate{
     }
     func onLoadMore() {
         viewModel.onGetNotificationList(userAction: .infiniteScroll, parameter: viewModel.parameter)
+    }
+}
+
+extension UIViewController {
+    func pushToControllerFromNotification(data: NotificationDateResonse){
+        let vc = NotificationDetailVC()
+        vc.data = data
+        print("receiveData: ===>> title: =>\(data.title), des: =>\(data.description)")
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

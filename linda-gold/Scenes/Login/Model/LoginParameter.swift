@@ -13,4 +13,10 @@ struct LoginParameter: Encodable {
     var password: String
     var deviceToken: String
     var device: String
+    init(username: String = "", password: String = "", deviceToken: String = AuthHelper.getDeviceToken, device: String = "ios") {
+        self.username = username
+        self.password = password
+        self.deviceToken = deviceToken
+        self.device = device
+    }
 }

@@ -8,12 +8,11 @@
 
 import UIKit
 import Firebase
-import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    
+    var notificationData: NotificationDateResonse?
     
     var myOrientation: UIInterfaceOrientationMask = .portrait
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -24,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set up to root view ===
         setupToRootView()
         // ========= end ==========
-        
+        // Register Notifiaction
+        registerNotifiaction(application)
         return true
     }
     func applicationWillResignActive(_ application: UIApplication) {
@@ -61,23 +61,72 @@ extension AppDelegate{
             window?.rootViewController = TabBarViewController()
         }
     }
+    
+    func registerNotifiaction(_ application: UIApplication) {
+        // Setup firebase app config
+        FirebaseApp.configure()
+        // Setting the Firebase Messaging delegate to self
+        // so that we are getting all the information to this wrapper class
+        Messaging.messaging().delegate = self
+        // Same for Apple's Notification Center
+        UNUserNotificationCenter.current().delegate = self
+        
+        // The notification elements we care about
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        
+        // Register for remote notifications.
+        // This shows a permission dialog on first run,
+        // to show the dialog at a more appropriate time
+        // move this registration accordingly.
+        UNUserNotificationCenter.current().requestAuthorization(options: options) {_, _ in }
+        
+        // It's important to call the registration function on the main thread.
+        
+        DispatchQueue.main.async {
+            application.registerForRemoteNotifications()
+        }
+    }
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        completionHandler(.newData)
+    }
+    // System function that gets fired when the phone
+    // is about to present the incoming Push Notification.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        // Returning the same options we've requested
         completionHandler([.alert, .badge, .sound])
     }
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let data = response.notification.request.content.userInfo
-        // key value: វាមិនដឹងថា type វាជាប្រភេទអ្វីទេ​ ចឹងហើយពេលដែលយើងបោះមកជាប្រភេទអ្វីយើងត្រូវដាក់ type វាជ្រប្រភេទហ្នឹងដែរ​  Ex: let refId = data["refId"] as? Int
-        // convert data in key value to data normal
-        // បំលែង data នៅក្នុង​ key value ឲទៅជា ប្រភេទ data model
-        let refId = data["ref1Id"] as? String
-        completionHandler()
-    }
     
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("tokens=> :",fcmToken ?? "")
+    // System function that gets fired when the user
+    // clicked on the incoming Push Notification.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let title = response.notification.request.content.title
+        let body = response.notification.request.content.body
+        print("title: =>",title)
+        print("body: =>",body)
+        let notificationData = NotificationDateResonse.init(title: title, description: body)
+        // Store notification data receive from notification
+            self.notificationData = notificationData
+            // Send event notification center to other screen
+            NotificationCenter.default.post(name: .receiveNotification, object: nil)
+            completionHandler()
+        
     }
 }
 
+// MARK: - MessagingDelegate
+extension AppDelegate: MessagingDelegate {
+    
+    // Firebase Function that gets called whenever our token changes.
+    // This can happen at any time, so wer're making sure to send it to the database.
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        SessionManager.shared.preference.set(fcmToken, forKey: SessionKey.deviceToken.rawValue)
+                print("fcmToken: =>", fcmToken ?? "")
+        
+    }
+}

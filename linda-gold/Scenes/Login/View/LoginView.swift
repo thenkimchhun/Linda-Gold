@@ -25,7 +25,7 @@ class LoginView: BaseView{
     }
     @objc private func actionLoginButton(){
         onActionLogin?(
-            .init(username: userNameView.getText, password: passwordView.getText, deviceToken: "123",device: "ios")
+            .init(username: userNameView.getText, password: passwordView.getText)
         )
     }
     @objc private func actionHideAndShow(){

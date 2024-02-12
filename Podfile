@@ -11,7 +11,7 @@ target 'linda-gold' do
     pod 'Nuke', '~> 9.0'
     pod 'Charts'
     pod 'Firebase/Messaging'
-
+    pod 'Firebase/Auth'
 
 end
 

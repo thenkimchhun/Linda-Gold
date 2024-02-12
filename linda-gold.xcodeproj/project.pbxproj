@@ -100,7 +100,6 @@
 		2405C6A02B5634E000EEBD0A /* SaleOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C69F2B5634E000EEBD0A /* SaleOrderDetailVC.swift */; };
 		2405C6A22B56350000EEBD0A /* SaleOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405C6A12B56350000EEBD0A /* SaleOrderDetailView.swift */; };
 		2437E23E2B748E46009DFC6D /* CPNInputEndDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2437E23D2B748E46009DFC6D /* CPNInputEndDateView.swift */; };
-		2461C0F02B6A993B006FD4F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2461C0EF2B6A993B006FD4F7 /* GoogleService-Info.plist */; };
 		24AFC2A52B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A42B5789C900E5D157 /* SaleOrderDetailCustomerInfoViewCell.swift */; };
 		24AFC2A72B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2A62B5789EF00E5D157 /* SaleOrderDetailItemsViewCell.swift */; };
 		24AFC2AC2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AFC2AB2B57B3EF00E5D157 /* AccountReceivableDetailVC.swift */; };
@@ -1655,7 +1654,6 @@
 			files = (
 				D9A8CBA724AD7AE1007B0CC8 /* LaunchScreen.storyboard in Resources */,
 				D9A8CBA424AD7AE1007B0CC8 /* Assets.xcassets in Resources */,
-				2461C0F02B6A993B006FD4F7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2141,6 +2139,7 @@
 		};
 		D9A8CBA924AD7AE1007B0CC8 /* Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F0C903762D9E7E21E9236E5 /* Pods-linda-gold.dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
@@ -2285,7 +2284,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.project.MVVM-DEV";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IG.diamondapp.diamondApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
