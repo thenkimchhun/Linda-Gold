@@ -70,18 +70,14 @@ extension AppDelegate{
         Messaging.messaging().delegate = self
         // Same for Apple's Notification Center
         UNUserNotificationCenter.current().delegate = self
-        
         // The notification elements we care about
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        
         // Register for remote notifications.
         // This shows a permission dialog on first run,
         // to show the dialog at a more appropriate time
         // move this registration accordingly.
         UNUserNotificationCenter.current().requestAuthorization(options: options) {_, _ in }
-        
         // It's important to call the registration function on the main thread.
-        
         DispatchQueue.main.async {
             application.registerForRemoteNotifications()
         }

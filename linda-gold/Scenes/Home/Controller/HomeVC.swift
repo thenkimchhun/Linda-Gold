@@ -10,12 +10,10 @@ import UIKit
 class HomeVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        navigationController?.isNavigationBarHidden = true
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+       super.viewWillDisappear(animated)
         if !isOpenProfileAdminVC {
             navigationController?.setNavigationBarHidden(false, animated: true)
         }
@@ -74,7 +72,8 @@ class HomeVC: BaseVC {
         vc.onActionLogout = {[self] in
             Alert.present(title: "Logout", message: "Are you sure want to log out?", actions: .cancel(handler: nil), .ok(handler: {[self] in
                 Spinner.start()
-                viewModel.onLogout(parameter: .init(deviceToken: "123"))
+                NotificationCenter.default.removeObserver(self, name: .receiveNotification, object: nil)
+                viewModel.onLogout(parameter: .init(deviceToken: AuthHelper.getDeviceToken))
             }) ,from: self)
         }
         vc.onDismiss = {

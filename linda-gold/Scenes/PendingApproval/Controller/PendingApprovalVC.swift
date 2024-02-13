@@ -11,6 +11,9 @@ class PendingApprovalVC: BaseVC{
     override func setupNavigation() {
         setupNavBarLargeTitle(barTitle: "Pending Approval")
     }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     let pendingApprovalView = PendingApprovalView()
     let historyViewModel = PendingApprovalHistoryViewModel()
     let requestViewModel = PendingApprovalRequestViewModel()

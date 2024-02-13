@@ -101,14 +101,14 @@ class ProfileView: BaseView{
     let profileImage = UIImageView()
     override func setupComponent() {
         addSubview(profileImage)
-        profileImage.layer.cornerRadius = scale(50/2)
+        profileImage.layer.cornerRadius = scale(45/2)
         profileImage.clipsToBounds = true
         profileImage.image = UIImage(named: "ic_admin")
     }
     override func setupConstraint() {
         profileImage.snp.makeConstraints { make in
             make.top.left.bottom.equalToSuperview()
-            make.width.height.equalTo(scale(50)).priority(750)
+            make.width.height.equalTo(scale(45)).priority(750)
         }
     }
 }

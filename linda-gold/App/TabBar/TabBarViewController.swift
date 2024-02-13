@@ -20,10 +20,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     var storyBoard: UIStoryboard?
     var arrayVc: [UIViewController]?
     var itemController: TabBarItemController!
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)

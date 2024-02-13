@@ -22,7 +22,7 @@ class NotificationDetailView: BaseView{
         titleLabel.font = .systemFont(ofSize: 18)
         titleLabel.textColor = BaseColor.black
         addSubview(desLabel)
-        desLabel.numberOfLines = 3
+        desLabel.numberOfLines = 5
         desLabel.font = .systemFont(ofSize: 15)
         desLabel.textColor = BaseColor.black
 //        customerNameLabel.text = "Customer Name : Sok Thida"
@@ -34,7 +34,7 @@ class NotificationDetailView: BaseView{
         }
         desLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(scale(24))
-            make.left.right.equalToSuperview().inset(scale(10))
+            make.left.right.equalToSuperview().inset(scale(16))
         }
  
     }
