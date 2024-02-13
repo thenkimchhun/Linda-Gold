@@ -20,18 +20,16 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     var storyBoard: UIStoryboard?
     var arrayVc: [UIViewController]?
     var itemController: TabBarItemController!
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    deinit {
-        // Unregister the notification when the view controller is deallocated
-        NotificationCenter.default.removeObserver(self, name: .receiveNotification, object: nil)
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -54,20 +52,16 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         
         viewControllers = arrayVc
         // Add event
-        NotificationCenter.default.addObserver(self, selector: #selector(hanldeReceiveNotification), name: .receiveNotification, object: nil)
-        DispatchQueue.main.async {[self] in
-            hanldeReceiveNotification()
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(hanldeReceiveNotification(_:)), name: .receiveNotification, object: nil)
+        
     }
     
-    @objc private func hanldeReceiveNotification(){
+    @objc private func hanldeReceiveNotification(_ sender: Notification) {
         //MARK: Get notification data form App Delegate
-        if let data = AppConstants.appDelegate.notificationData {
-            // Pass notification data to preapare push view controller
-            pushToControllerFromNotification(data: data)
-            print("TabBardata: ===> title:=>\(data.title) des:=>\(data.description)")
-            // Remove notification data form App Delegate
-            AppConstants.appDelegate.notificationData = nil
+        if let userInfo = sender.userInfo, let receivData = userInfo["data"] as? NotificationDateResonse {
+            let vc = NotificationDetailVC()
+            vc.data = receivData
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

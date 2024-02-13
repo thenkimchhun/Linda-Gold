@@ -66,7 +66,9 @@ extension NotificationVC: NotificationDelegate{
         case .success(let data):
             print("success")
              notificationView.dataList = viewModel.dataList
-            pushToControllerFromNotification(data: data as! NotificationDateResonse)
+            let vc = NotificationDetailVC()
+            vc.data = data as? NotificationDateResonse
+            navigationController?.pushViewController(vc, animated: true)
         case .failure(let error):
             print("error",error.message)
         case .none: break

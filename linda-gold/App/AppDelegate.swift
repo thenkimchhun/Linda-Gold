@@ -58,7 +58,7 @@ extension AppDelegate{
         if AuthHelper.getAccessToken.isEmpty{
             window?.rootViewController = LoginVC()
         }else{
-            window?.rootViewController = TabBarViewController()
+            window?.rootViewController = UINavigationController(rootViewController: TabBarViewController())
         }
     }
     
@@ -107,15 +107,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let title = response.notification.request.content.title
         let body = response.notification.request.content.body
-        print("title: =>",title)
-        print("body: =>",body)
         let notificationData = NotificationDateResonse.init(title: title, description: body)
         // Store notification data receive from notification
-            self.notificationData = notificationData
             // Send event notification center to other screen
-            NotificationCenter.default.post(name: .receiveNotification, object: nil)
+        NotificationCenter.default.post(name: .receiveNotification, object: nil,userInfo: ["data":notificationData])
             completionHandler()
-        
     }
 }
 
