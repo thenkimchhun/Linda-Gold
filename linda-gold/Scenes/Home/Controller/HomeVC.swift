@@ -72,7 +72,6 @@ class HomeVC: BaseVC {
         vc.onActionLogout = {[self] in
             Alert.present(title: "Logout", message: "Are you sure want to log out?", actions: .cancel(handler: nil), .ok(handler: {[self] in
                 Spinner.start()
-                NotificationCenter.default.removeObserver(self, name: .receiveNotification, object: nil)
                 viewModel.onLogout(parameter: .init(deviceToken: AuthHelper.getDeviceToken))
             }) ,from: self)
         }
@@ -152,6 +151,7 @@ extension HomeVC: LoginDelegate{
         Spinner.stop()
         switch viewModel.logoutUpdateState {
         case .success:
+            NotificationCenter.default.removeObserver(self, name: .receiveNotification, object: nil)
             SessionManager.shared.removeAllDefaults(except: [SessionKey.deviceToken.rawValue])
             setToRootView(viewController: LoginVC())
         case .failure(let error):
