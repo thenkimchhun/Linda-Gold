@@ -13,8 +13,6 @@ class NotificationDetailVC: BaseVC{
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         setupNavBarNormal(barTitle: "Notification Details")
-
-        
     }
     let notificationDetailView = NotificationDetailView()
     var data: NotificationDateResonse?{

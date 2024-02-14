@@ -18,7 +18,7 @@ class NotificationVC: BaseVC {
         view.addSubview(notificationView)
     }
     override func setupEvent() {
-        Loading.showSpinner(onView: notificationView.tableView)
+        Loading.showSpinner(onView: notificationView)
         viewModel.delegate = self
         viewModel.onGetNotificationList(parameter: viewModel.parameter)
         notificationView.onDidselectForRowAt = {[self] data in
@@ -64,7 +64,6 @@ extension NotificationVC: NotificationDelegate{
         Spinner.stop()
         switch viewModel.onNotificaionReadUpdateState {
         case .success(let data):
-            print("success")
              notificationView.dataList = viewModel.dataList
             let vc = NotificationDetailVC()
             vc.data = data as? NotificationDateResonse
@@ -85,11 +84,3 @@ extension NotificationVC: RefreshNormalDelegate{
     }
 }
 
-extension UIViewController {
-    func pushToControllerFromNotification(data: NotificationDateResonse){
-        let vc = NotificationDetailVC()
-        vc.data = data
-        print("receiveData: ===>> title: =>\(data.title), des: =>\(data.description)")
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}

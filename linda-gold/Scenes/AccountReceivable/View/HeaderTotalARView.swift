@@ -79,7 +79,7 @@ class HeaderTotalARView: BaseView {
         btn.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         btn.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         btn.titleLabel?.textColor = BaseColor.white
-        btn.titleLabel?.font = .systemFont(ofSize: 14)
+        btn.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
         return btn
     }()
     var remainLabel: UILabel = {

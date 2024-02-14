@@ -63,7 +63,7 @@ class TotalARDayListViewCell: BaseTableViewCell{
         selectionStyle = .none
         addSubview(dayLabel)
         dayLabel.text = "Today"
-        dayLabel.font = .systemFont(ofSize: 14)
+        dayLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         dayLabel.textColor = BaseColor.black
     }
     override func setupConstraint() {

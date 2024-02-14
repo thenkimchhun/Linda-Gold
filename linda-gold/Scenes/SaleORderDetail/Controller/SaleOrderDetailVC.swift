@@ -12,10 +12,14 @@ class SaleOrderDetailVC: BaseVC{
         setupNavBarNormal(barTitle: "Sale Order Details")
     }
     let saleOrderDetailView = SaleOrderDetailView()
+    let emptyView = CPNEmptyView()
     let viewModel = SaleOrderDetailViewModel()
     var orderId: String?
     override func setupComponent() {
         view.addSubview(saleOrderDetailView)
+        view.addSubview(emptyView)
+        emptyView.emptyState = .emtyView
+        emptyView.isHidden = true
     }
     override func setupEvent() {
         viewModel.delegate = self
@@ -23,6 +27,9 @@ class SaleOrderDetailVC: BaseVC{
     }
     override func setupConstraint() {
         saleOrderDetailView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        emptyView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -34,7 +41,8 @@ extension SaleOrderDetailVC: SaleOrderDetailDelegate{
         switch viewModel.onSaleOrderDetailUpdateState {
         case .success: break
         case .failure(let error):
-            print("error",error.message)
+            emptyView.isHidden = false
+            emptyView.emptyState = error.statusCode > 0 ? .emtyView : .noInternet
         case .none: break
         }
     }

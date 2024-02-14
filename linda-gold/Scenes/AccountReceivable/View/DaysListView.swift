@@ -62,7 +62,7 @@ class DayListViewCell: BaseTableViewCell{
         selectionStyle = .none
         addSubview(dayLabel)
         dayLabel.text = "All"
-        dayLabel.font = .systemFont(ofSize: 14)
+        dayLabel.font = .systemFont(ofSize: 14, weight: .semibold)
         dayLabel.textColor = BaseColor.black
     }
     override func setupConstraint() {
